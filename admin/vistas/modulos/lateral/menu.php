@@ -7,16 +7,16 @@ MENU
 	<li class="active"><a href="inicio"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
 
   <?php
-
+/*
   if($_SESSION["perfil"] == "administrador"){
 
 	echo '<li><a href="comercio"><i class="fa fa-files-o"></i> <span>Gestor Comercio</span></a></li>';
 
   }
-
+*/
   ?>
 
-	<li><a href="slide"><i class="fa fa-edit"></i> <span>Gestor Slide</span></a></li>
+	<!--<li><a href="slide"><i class="fa fa-edit"></i> <span>Gestor Slide</span></a></li>
 
 	<li class="treeview">
       
@@ -36,10 +36,13 @@ MENU
       </ul>
 
   </li>
+-->
 
   <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
 
+<!--
   <li><a href="banner"><i class="fa fa-map-o"></i> <span>Gestor Banner</span></a></li>
+-->
 
   <?php
 
