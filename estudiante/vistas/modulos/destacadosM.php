@@ -18,7 +18,7 @@ $titulosModulos = "LO MÁS VENDIDO";
 $rutaModulos = "lo-mas-vendido";
 
 $base = 0;
-$tope = 12;
+$tope = 6;
 
 $ordenar = "ventas";
 $item = "estado";
@@ -26,6 +26,8 @@ $valor = 1;
 $modo = "DESC";
 
 $ventas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
+
+
 
 $modulos = $ventas;
 
@@ -106,9 +108,13 @@ $modulos = $ventas;
 
 
 				foreach ($ventas as $key => $value) {
-
+					
+					
+					
 					if($value["estado"] != 0){
 					
+					//echo $value["multimedia"];
+
 					echo '<li class="col-md-2 col-sm-6 col-xs-12">
 
 							<figure>
