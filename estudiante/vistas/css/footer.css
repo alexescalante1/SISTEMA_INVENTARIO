@@ -32,6 +32,8 @@ footer{
 .final{
 	padding:20px 0;
 	background: black;
+	bottom: 0;
+	position: fixed;
 }
 
 .final ul li{

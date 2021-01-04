@@ -18,7 +18,7 @@ if(isset($_SESSION["validarSesion"])){
 		</script>';
 
 	}
-
+	
 }
 
 /*=============================================
@@ -102,13 +102,13 @@ TOP
 			<!--=====================================
 			SOCIAL
 			======================================-->
-
+			
 			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
 				
 				<ul>	
 
 					<?php
-
+					/*
 					$social = ControladorPlantilla::ctrEstiloPlantilla();
 
 					$jsonRedesSociales = json_decode($social["redesSociales"],true);		
@@ -121,7 +121,7 @@ TOP
 								</a>
 							</li>';
 					}
-
+					*/
 					?>
 			
 				</ul>
@@ -223,24 +223,30 @@ TOP
 <!--=====================================
 HEADER
 ======================================-->
-
+<br><br><br><br><br><br><br><br><br>
 <header class="container-fluid">
 	
 	<div class="container">
 		
+		<div id="logotipo">
+				
+				<a href="<?php echo $url; ?>">
+						
+					<!--<img src="<?php /*echo $servidor.$social["logo"];*/ ?>" class="img-responsive">-->
+
+				</a>
+				
+		</div>
+
 		<div class="row" id="cabezote">
 
 			<!--=====================================
 			LOGOTIPO
 			======================================-->
 			
-			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
+			<div class="col-lg-1 col-md-3 col-sm-2 col-xs-12" id="logotipo">
 				
-				<a href="<?php echo $url; ?>">
-						
-					<img src="<?php echo $servidor.$social["logo"]; ?>" class="img-responsive">
-
-				</a>
+				
 				
 			</div>
 
@@ -248,13 +254,13 @@ HEADER
 			BLOQUE CATEGORÍAS Y BUSCADOR
 			======================================-->
 
-			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+			<div class="col-lg-10 col-md-6 col-sm-8 col-xs-12">
 					
 				<!--=====================================
 				BOTÓN CATEGORÍAS
 				======================================-->
 
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategorias">
+				<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategorias">
 					
 					<p>CATEGORÍAS
 					
@@ -270,7 +276,7 @@ HEADER
 				BUSCADOR
 				======================================-->
 				
-				<div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="buscador">
+				<div class="input-group col-lg-10 col-md-8 col-sm-8 col-xs-12" id="buscador">
 					
 					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
 
@@ -296,19 +302,7 @@ HEADER
 			CARRITO DE COMPRAS
 			======================================-->
 
-			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
-				
-				<a href="<?php echo $url;?>carrito-de-compras">
-
-					<button class="btn btn-default pull-left backColor"> 
-						
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					
-					</button>
-				
-				</a>	
-
-				<p>TU CESTA <span class="cantidadCesta"></span> <br> USD $ <span class="sumaCesta"></span></p>	
+			<div class="col-lg-1 col-md-3 col-sm-2 col-xs-12" id="carrito">
 
 			</div>
 
@@ -358,6 +352,18 @@ HEADER
 			?>	
 
 		</div>
+
+		<?php
+			$accesoRapido = ControladorAccesoRapido::ctrMostrarAccesoRapido();
+
+			
+			foreach ($accesoRapido as $key => $value) {
+				echo '<a href="'.$value["ruta"].'">'.$value["titulo"].'</a><hr>';
+			}
+		?>
+
+	<!--include "modulos/visitas.php";-->
+
 
 	</div>
 

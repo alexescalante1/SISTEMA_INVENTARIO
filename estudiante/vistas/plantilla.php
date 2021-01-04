@@ -40,61 +40,19 @@
 
 		}
 
-		$cabeceras = ControladorPlantilla::ctrTraerCabeceras($ruta);
-		
-		if(!$cabeceras["ruta"]){
-
-			$ruta = "inicio";
-
-			$cabeceras = ControladorPlantilla::ctrTraerCabeceras($ruta);
-
-		}
-
 	?>
 
 	<!--=====================================
 	Marcado HTML5
 	======================================-->
 
-	<meta name="title" content="<?php echo  $cabeceras['titulo']; ?>">
+	<meta name="title" content="SISTEMA DE INVENTARIO">
 
-	<meta name="description" content="<?php echo  $cabeceras['descripcion']; ?>">
+	<meta name="description" content="Inventario">
 
-	<meta name="keyword" content="<?php echo  $cabeceras['palabrasClaves']; ?>">
+	<meta name="keyword" content="Inventario">
 
-	<title><?php echo  $cabeceras['titulo']; ?></title>
-
-	<!--=====================================
-	Marcado de Open Graph FACEBOOK
-	======================================-->
-
-	<meta property="og:title"   content="<?php echo $cabeceras['titulo'];?>">
-	<meta property="og:url" content="<?php echo $url.$cabeceras['ruta'];?>">
-	<meta property="og:description" content="<?php echo $cabeceras['descripcion'];?>">
-	<meta property="og:image"  content="<?php echo $cabeceras['portada'];?>">
-	<meta property="og:type"  content="website">	
-	<meta property="og:site_name" content="Tu logo">
-	<meta property="og:locale" content="es_CO">
-
-	<!--=====================================
-	Marcado para DATOS ESTRUCTURADOS GOOGLE
-	======================================-->
-	
-	<meta itemprop="name" content="<?php echo $cabeceras['titulo'];?>">
-	<meta itemprop="url" content="<?php echo $url.$cabeceras['ruta'];?>">
-	<meta itemprop="description" content="<?php echo $cabeceras['descripcion'];?>">
-	<meta itemprop="image" content="<?php echo $cabeceras['portada'];?>">
-
-	<!--=====================================
-	Marcado de TWITTER
-	======================================-->
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="<?php echo $cabeceras['titulo'];?>">
-	<meta name="twitter:url" content="<?php echo $url.$cabeceras['ruta'];?>">
-	<meta name="twitter:description" content="<?php echo $cabeceras['descripcion'];?>">
-	<meta name="twitter:image" content="<?php echo $cabeceras['portada'];?>">
-	<meta name="twitter:site" content="@tu-usuario">
-
+	<title>SISTEMA INVENTARIO</title>
 
 	<!--=====================================
 	PLUGINS DE CSS
@@ -162,7 +120,7 @@
 	Pixel de Facebook
 	======================================-->
 
-	<?php echo $plantilla["pixelFacebook"]; ?>
+	<?php ///echo $plantilla["pixelFacebook"]; ?>
 
 </head>
 
@@ -264,12 +222,10 @@ if(isset($_GET["ruta"])){
 
 	include "modulos/destacadosM.php";
 
-	include "modulos/visitas.php";
-
 }
 
 
-include "modulos/footer.php";
+/*include "modulos/footer.php";*/
 
 ?>
 
