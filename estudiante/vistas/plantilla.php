@@ -141,6 +141,7 @@ CONTENIDO DINÁMICO
 $rutas = array();
 $ruta = null;
 $infoProducto = null;
+$infoArticulos = null;
 
 if(isset($_GET["ruta"])){
 
