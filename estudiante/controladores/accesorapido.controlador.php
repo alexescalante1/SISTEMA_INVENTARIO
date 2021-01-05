@@ -8,7 +8,7 @@ Class ControladorAccesoRapido{
 
 	static public function ctrMostrarAccesoRapido(){
 
-		$tabla = "accesorapido";
+		$tabla = "categoria";
 
 		$respuesta = ModeloAccesoRapido::mdlMostrarAccesoRapido($tabla);
 

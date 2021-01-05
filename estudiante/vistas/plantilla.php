@@ -19,7 +19,7 @@
 		/*=============================================
 		MANTENER LA RUTA FIJA DEL PROYECTO
 		=============================================*/
-		
+
 		$url = Ruta::ctrRuta();
 
 		/*=============================================
@@ -190,6 +190,18 @@ if(isset($_GET["ruta"])){
 	}
 
 	/*=============================================
+	URL'S AMIGABLES DE ARTICULOS
+	=============================================*/
+
+	$rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $valor);
+	
+	if($rutas[0] == $rutaArticulos["ruta"]){
+
+		$infoArticulos = $rutas[0];
+
+	}
+
+	/*=============================================
 	LISTA BLANCA DE URL'S AMIGABLES
 	=============================================*/
 
@@ -200,6 +212,10 @@ if(isset($_GET["ruta"])){
 	}else if($infoProducto != null){
 
 		include "modulos/infoproducto.php";
+
+	}else if($infoArticulos != null){
+	
+		include "modulos/infoproductoM.php";
 
 	}else if($rutas[0] == "buscador" || $rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "carrito-de-compras" || $rutas[0] == "error" || $rutas[0] == "finalizar-compra" || $rutas[0] == "curso" || $rutas[0] == "ofertas"){
 
@@ -218,7 +234,6 @@ if(isset($_GET["ruta"])){
 	}
 
 }else{
-
 
 	include "modulos/destacadosM.php";
 

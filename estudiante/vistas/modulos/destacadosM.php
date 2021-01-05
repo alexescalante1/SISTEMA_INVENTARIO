@@ -14,18 +14,18 @@ $banner = ControladorProductos::ctrMostrarBanner($ruta);
 PRODUCTOS DESTACADOS
 =============================================*/
 
-$titulosModulos = "LO MÁS VENDIDO";
+$titulosModulos = "LO MÁS PRESTADO";
 $rutaModulos = "lo-mas-vendido";
 
 $base = 0;
-$tope = 12;
+$tope = 6;
 
-$ordenar = "ventas";
-$item = "estado";
+$ordenar = "prestados";
+$item = "disponible";
 $valor = 1;
 $modo = "DESC";
 
-$ventas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
+$ventas = ControladorArticulos::ctrMostrarArticulos($ordenar, $item, $valor, $base, $tope, $modo);
 
 $modulos = $ventas;
 
@@ -71,7 +71,7 @@ $modulos = $ventas;
 
 				foreach ($ventas as $key => $value) {
 					
-					if($value["estado"] != 0){
+					if($value["disponible"] != 0){
 					
 					//echo $value["multimedia"];
 
