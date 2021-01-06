@@ -28,8 +28,6 @@ BREADCRUMB INFOPRODUCTOS
 </div>
 
 
-
-
 <!--=====================================
 INFOPRODUCTOS
 ======================================-->
@@ -477,8 +475,8 @@ INFOPRODUCTOS
 
 								<span class="label label-default" style="font-weight:100">
 
-									<i class="fa fa-tasks" style="margin-right:5px"></i>
-									Unidades Prestadas  | 
+									<i class="fa fa-tasks" style="margin-right:5px"></i> 4
+									Unidades Disponibles  | 
 									
 
 									<i class="fa fa-balance-scale" style="margin:0px 5px"></i>

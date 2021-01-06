@@ -244,7 +244,7 @@ HEADER
 			LOGOTIPO
 			======================================-->
 			
-			<div class="col-lg-1 col-md-3 col-sm-2 col-xs-12" id="logotipo">
+			<div class="col-lg-1 col-xs-12">
 				
 				
 				
@@ -254,37 +254,27 @@ HEADER
 			BLOQUE CATEGORÍAS Y BUSCADOR
 			======================================-->
 
-			<div class="col-lg-10 col-md-6 col-sm-8 col-xs-12">
+			<div class="col-lg-10 col-sm-12 col-xs-12">
 					
 				<!--=====================================
 				BOTÓN CATEGORÍAS
 				======================================-->
 
-				<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategorias">
-					
-					<p>CATEGORÍAS
-					
-						<span class="pull-right">
-							<i class="fa fa-bars" aria-hidden="true"></i>
-						</span>
-					
-					</p>
-
-				</div>
+				
 
 				<!--=====================================
 				BUSCADOR
 				======================================-->
 				
-				<div class="input-group col-lg-10 col-md-8 col-sm-8 col-xs-12" id="buscador">
+				<div class="input-group col-xs-12" id="buscador">
 					
 					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
-
+					
 					<span class="input-group-btn">
 						
 						<a href="<?php echo $url; ?>buscador/1/recientes">
 
-							<button class="btn btn-default backColor" type="submit">
+							<button class="btn btn-default transparente colorFond" type="submit">
 								
 								<i class="fa fa-search"></i>
 
@@ -293,6 +283,12 @@ HEADER
 						</a>
 
 					</span>
+					
+					<button class="btn btn-default transparente colorFond" id="btnCategorias">
+						
+						<i class="fa fa-bars" aria-hidden="true"></i>
+
+					</button>
 
 				</div>
 			
@@ -302,7 +298,7 @@ HEADER
 			CARRITO DE COMPRAS
 			======================================-->
 
-			<div class="col-lg-1 col-md-3 col-sm-2 col-xs-12" id="carrito">
+			<div class="col-lg-1 col-xs-12">
 
 			</div>
 
@@ -311,56 +307,30 @@ HEADER
 		<!--=====================================
 		CATEGORÍAS
 		======================================-->
+		
 
-		<div class="col-xs-12 backColor" id="categorias">
+		<div class="col-xs-12 " id="categorias">
+			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-6"></div>
+			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 listaCategorias">
+				
+		<?php
 
-			<?php
+				$accesoRapido = ControladorAccesoRapido::ctrMostrarAccesoRapido();
+				
+				echo '<ul>';
 
-				$item = null;
-				$valor = null;
+				foreach ($accesoRapido as $key => $value) {
 
-				$categorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
-
-				foreach ($categorias as $key => $value) {
-
-					echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-							
-							<h4>
-								<a href="'.$url.$value["ruta"].'" class="pixelCategorias" titulo="'.$value["categoria"].'">'.$value["categoria"].'</a>
-							</h4>
-							
-							<hr>
-
-							<ul>';
-
-							$item = "id_categoria";
-
-							$valor = $value["id"];
-
-							$subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
-							
-							foreach ($subcategorias as $key => $value) {
-									
-									echo '<li><a href="'.$url.$value["ruta"].'" class="pixelSubCategorias" titulo="'.$value["subcategoria"].'">'.$value["subcategoria"].'</a></li>';
-								}	
-								
-							echo '</ul>
-
-						</div>';
+					echo '<li>
+								<a href="'.$url.$value["ruta"].'" class="pixelCategorias colorFondPlomo" titulo="'.$value["titulo"].'">'.$value["titulo"].'</a>
+						</li>';
 				}
 
+				echo '</ul>';
+
 			?>	
-
+			</div>
 		</div>
-
-		<?php
-			$accesoRapido = ControladorAccesoRapido::ctrMostrarAccesoRapido();
-
-			
-			foreach ($accesoRapido as $key => $value) {
-				echo '<a href="'.$value["ruta"].'">'.$value["titulo"].'</a><hr>';
-			}
-		?>
 
 	<!--include "modulos/visitas.php";-->
 
@@ -691,7 +661,7 @@ VENTANA MODAL PARA OLVIDO DE CONTRASEÑA
     </div>
 
 </div>
-
+<hr><hr>
 
 
 

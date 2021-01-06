@@ -8,7 +8,7 @@ TOP
 
 #top ul li{
 	display:inline;
-	line-height:30px;
+	line-height:10px;
 	margin:0px 5px;
 	color:white;
 }
@@ -26,62 +26,48 @@ TOP
 /*=============================================
 HEADER
 =============================================*/
+.colorFond{
+	color: rgb(0, 150, 250);
+}
+
+.colorFondPlomo{
+	color: rgb(90, 90, 90);
+}
+
+.transparente{
+	margin-top: -5px;
+}
+
+.listaCategorias{
+	border-radius:10px;
+	background-color: rgb(235, 235, 235);
+	padding-top: 7px;
+}
 
 header #btnCategorias{
-	margin:20px 0;
-}
-
-header #btnCategorias p{
-	line-height:40px;
-	margin-bottom:0px;
-}
-
-header #btnCategorias p span{
-	cursor: pointer;
+	margin-top: -33px;
 }
 
 header #buscador{
-	margin:20px 0;
+	margin:10px 0;
 }
 
 header #buscador input{
 	padding:19px;
-	border-radius:0;
+	border-radius:30px;
 }
 
 header #buscador button{
 	padding:9px;
-	border:1px solid silver;
-	border-radius:0;
-}
-
-header #carrito{
-	margin:20px 0;
-}
-
-header #carrito button{
-	padding:9px 15px;
-	border:1px solid silver;
-	border-radius:0;
-}
-
-header #carrito p{
-	padding:2px;
-	padding-left:60px;
-	border:1px solid #aaa;
-	font-size:12px;
+	border:0px solid silver;
+	border-radius:30px;
+	outline: none;
 }
 
 header #categorias{
 	display:none;
 	margin-top:-10px;
 	position: relative;
-	padding-bottom:20px;
-}
-
-header #categorias h4{
-	margin-top:20px;
-	margin-bottom:-10px;
 }
 
 header #categorias hr{

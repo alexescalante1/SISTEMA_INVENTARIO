@@ -41,7 +41,7 @@ $modulos = $ventas;
 
 						<div class="col-sm-6 col-xs-12">
 					
-							<h1><small>'.$titulosModulos.' </small></h1>
+							<h3><small>'.$titulosModulos.' </small></h3>
 
 						</div>
 
@@ -49,7 +49,7 @@ $modulos = $ventas;
 					
 							<a href="'.$rutaModulos.' ">
 								
-								<button class="btn btn-default backColor pull-right">
+								<button class="btn btn-default pull-right">
 									
 									VER MÁS <span class="fa fa-chevron-right"></span>
 

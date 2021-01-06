@@ -134,6 +134,7 @@ CABEZOTE
 
 include "modulos/cabezote.php";
 
+
 /*=============================================
 CONTENIDO DINÁMICO
 =============================================*/
@@ -224,9 +225,7 @@ if(isset($_GET["ruta"])){
 
 	}else if($rutas[0] == "inicio"){
 
-		include "modulos/slide.php";
-
-		include "modulos/destacados.php";
+		include "modulos/destacadosM.php";
 
 	}else{
 
@@ -239,7 +238,6 @@ if(isset($_GET["ruta"])){
 	include "modulos/destacadosM.php";
 
 }
-
 
 /*include "modulos/footer.php";*/
 
