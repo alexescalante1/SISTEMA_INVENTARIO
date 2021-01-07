@@ -355,6 +355,9 @@ INFOPRODUCTOS
 				<!--=====================================
 				CARACTERÍSTICAS DEL PRODUCTO
 				======================================-->
+					<input type="text" class="knob" value="55" data-width="90" data-height="90" data-fgcolor="blue" data-readonly="true">
+	
+					<p class="text-muted text-center" style="font-size:12px"> 55% disponible</p>
 
 				<hr>
 

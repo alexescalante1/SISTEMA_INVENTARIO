@@ -90,36 +90,11 @@ class ModeloArticulos{
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/*=============================================
 	LISTAR PRODUCTOS
 	=============================================*/
 
-	static public function mdlListarProductos($tabla, $ordenar, $item, $valor){
+	static public function mdlListarArticulos($tabla, $ordenar, $item, $valor){
 
 		if($item != null){
 
@@ -145,6 +120,18 @@ class ModeloArticulos{
 		$stmt = null;
 
 	}
+
+
+
+
+
+
+
+
+
+
+	
+
 
 	/*=============================================
 	MOSTRAR BANNER

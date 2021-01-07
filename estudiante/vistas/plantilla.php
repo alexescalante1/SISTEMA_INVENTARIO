@@ -155,27 +155,11 @@ if(isset($_GET["ruta"])){
 	URL'S AMIGABLES DE CATEGORÍAS
 	=============================================*/
 
-	$rutaCategorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
+	$rutaCategorias = ControladorArticulos::ctrMostrarCategorias($item, $valor);
 
 	if($rutas[0] == $rutaCategorias["ruta"]){
 
 		$ruta = $rutas[0];
-
-	}
-
-	/*=============================================
-	URL'S AMIGABLES DE SUBCATEGORÍAS
-	=============================================*/
-
-	$rutaSubCategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
-
-	foreach ($rutaSubCategorias as $key => $value) {
-		
-		if($rutas[0] == $value["ruta"]){
-
-			$ruta = $rutas[0];
-
-		}
 
 	}
 
@@ -207,9 +191,9 @@ if(isset($_GET["ruta"])){
 	LISTA BLANCA DE URL'S AMIGABLES
 	=============================================*/
 
-	if($ruta != null || $rutas[0] == "articulos-gratis" || $rutas[0] == "lo-mas-vendido" || $rutas[0] == "lo-mas-visto"){
+	if($ruta != null || $rutas[0] == "mas-destacados"){
 
-		include "modulos/productos.php";
+		include "modulos/productosM.php";
 
 	}else if($infoProducto != null){
 

@@ -66,20 +66,22 @@ class ControladorArticulos{
 	LISTAR PRODUCTOS
 	=============================================*/
 
-	static public function ctrListarProductos($ordenar, $item, $valor){
+	static public function ctrListarArticulos($ordenar, $item, $valor){
 
-		$tabla = "productos";
+		$tabla = "detallearticulo";
 
-		$respuesta = ModeloProductos::mdlListarProductos($tabla, $ordenar, $item, $valor);
+		$respuesta = ModeloArticulos::mdlListarArticulos($tabla, $ordenar, $item, $valor);
 
 		return $respuesta;
 
 	}
 
+
+
 	/*=============================================
 	MOSTRAR BANNER
 	=============================================*/
-
+/*
 	static public function ctrMostrarBanner($ruta){
 
 		$tabla = "banner";
@@ -89,7 +91,7 @@ class ControladorArticulos{
 		return $respuesta;
 
 	}
-
+*/
 	/*=============================================
 	BUSCADOR
 	=============================================*/

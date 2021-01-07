@@ -223,19 +223,22 @@ TOP
 <!--=====================================
 HEADER
 ======================================-->
-<br><br><br><br><br><br><br><br><br>
+<br><br><br>
 <header class="container-fluid">
 	
 	<div class="container">
 		
-		<div id="logotipo">
-				
-				<a href="<?php echo $url; ?>">
-						
-					<!--<img src="<?php /*echo $servidor.$social["logo"];*/ ?>" class="img-responsive">-->
+		<div class="row">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-6" id="logotipo">
+					
+					<a href="<?php echo $url; ?>">
+							
+						<img src="<?php echo $servidor;?>/vistas/img/plantilla/logo.png" class="img-responsive">
 
-				</a>
-				
+					</a>
+					
+			</div>
 		</div>
 
 		<div class="row" id="cabezote">
