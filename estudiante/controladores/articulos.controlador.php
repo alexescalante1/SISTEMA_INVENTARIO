@@ -43,25 +43,6 @@ class ControladorArticulos{
 
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
 	/*=============================================
 	LISTAR PRODUCTOS
 	=============================================*/
@@ -96,11 +77,11 @@ class ControladorArticulos{
 	BUSCADOR
 	=============================================*/
 
-	static public function ctrBuscarProductos($busqueda, $ordenar, $modo, $base, $tope){
+	static public function ctrBuscarArticulos($busqueda, $ordenar, $modo, $base, $tope){
 
-		$tabla = "productos";
+		$tabla = "detallearticulo";
 
-		$respuesta = ModeloProductos::mdlBuscarProductos($tabla, $busqueda, $ordenar, $modo, $base, $tope);
+		$respuesta = ModeloArticulos::mdlBuscarArticulos($tabla, $busqueda, $ordenar, $modo, $base, $tope);
 
 		return $respuesta;
 
@@ -110,15 +91,26 @@ class ControladorArticulos{
 	LISTAR PRODUCTOS BUSCADOR
 	=============================================*/
 
-	static public function ctrListarProductosBusqueda($busqueda){
+	static public function ctrListarArticulosBusqueda($busqueda){
 
-		$tabla = "productos";
+		$tabla = "detallearticulo";
 
-		$respuesta = ModeloProductos::mdlListarProductosBusqueda($tabla, $busqueda);
+		$respuesta = ModeloArticulos::mdlListarArticulosBusqueda($tabla, $busqueda);
 
 		return $respuesta;
 
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 	/*=============================================
 	ACTUALIZAR VISTA PRODUCTO

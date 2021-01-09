@@ -19,6 +19,24 @@ $("input").focus(function(){
 	$(".alert").remove();
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 VALIDAR EMAIL REPETIDO
 =============================================*/
@@ -67,6 +85,21 @@ $("#regEmail").change(function(){
 	})
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 VALIDAR EL REGISTRO DE USUARIO
@@ -173,6 +206,21 @@ function registroUsuario(){
 
 	return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 CAMBIAR FOTO

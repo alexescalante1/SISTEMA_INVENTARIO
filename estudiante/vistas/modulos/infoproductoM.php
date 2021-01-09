@@ -684,7 +684,7 @@ INFOPRODUCTOS
 
 						}else{
 
-							echo '<a href="#modalIngreso" data-toggle="modal">
+							echo '<a href="#modalNotificacion" data-toggle="modal">
 
 								<button class="btn btn-default btn-block btn-lg backColor">	SOLICITAR AHORA</button>
 
@@ -1411,6 +1411,251 @@ ARTÏCULOS RELACIONADOS
 	</div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+echo $infoarticulo["idDetalleArticulo"];		///AQUI BROO			
+
+?>
+
+<!--=====================================
+VENTANA MODAL PARA NOTIFICACION
+======================================-->
+
+<div class="modal fade modalFormulario" id="modalNotificacion" role="dialog">
+
+    <div class="modal-content modal-dialog">
+
+        <div class="modal-body modalTitulo">
+
+        	<h3 class="backColor">NOTIFICAR</h3>
+
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+			<!--=====================================
+			REGISTRO DIRECTO
+			======================================-->
+
+			<form method="post" onsubmit="return registroNotificacion()">
+				
+			<!--<form method="post">-->
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="number" class="form-control" id="regTipoDocT" name="regTipoDocT" placeholder="Tipo de Documento" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="text" class="form-control" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="text" class="form-control" id="regNombreT" name="regNombreT" placeholder="Nombres" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="text" class="form-control" id="regApellidoT" name="regApellidoT" placeholder="Apellidos" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="number" class="form-control" id="regCant" name="regCant" placeholder="Cantidad de Articulos" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="number" class="form-control" id="regDias" name="regDias" placeholder="Dias de prestamo" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="text" class="form-control" id="regDetalle" name="regDetalle" placeholder="Detallar Motivos" required>
+
+					</div>
+
+				</div>
+
+				<?php
+
+					$notificar = new ControladorNotificacion();
+					$notificar -> ctrRegistroNotificacion($infoarticulo["idDetalleArticulo"]);
+
+				?>
+				
+				<input type="submit" class="btn btn-default backColor btn-block" value="ENVIAR">	
+
+			</form>
+
+        </div>
+      
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--=====================================
 VENTANA MODAL PARA CHECKOUT

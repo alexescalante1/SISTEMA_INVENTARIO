@@ -346,6 +346,8 @@ HEADER
 VENTANA MODAL PARA EL REGISTRO
 ======================================-->
 
+
+
 <div class="modal fade modalFormulario" id="modalRegistro" role="dialog">
 
     <div class="modal-content modal-dialog">
@@ -486,6 +488,35 @@ VENTANA MODAL PARA EL REGISTRO
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--=====================================
 VENTANA MODAL PARA EL INGRESO

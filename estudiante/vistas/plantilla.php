@@ -238,6 +238,7 @@ JAVASCRIPT PERSONALIZADO
 <script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
 <script src="<?php echo $url; ?>vistas/js/infoproducto.js"></script>
 <script src="<?php echo $url; ?>vistas/js/usuarios.js"></script>
+<script src="<?php echo $url; ?>vistas/js/notificacion.js"></script>
 <script src="<?php echo $url; ?>vistas/js/registroFacebook.js"></script>
 <script src="<?php echo $url; ?>vistas/js/carrito-de-compras.js"></script>
 <script src="<?php echo $url; ?>vistas/js/visitas.js"></script>

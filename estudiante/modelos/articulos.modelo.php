@@ -153,11 +153,78 @@ class ModeloArticulos{
 
 	}
 
+
+
+
+
+
 	/*=============================================
 	BUSCADOR
 	=============================================*/
 
-	static public function mdlBuscarProductos($tabla, $busqueda, $ordenar, $modo, $base, $tope){
+	static public function mdlBuscarArticulos($tabla, $busqueda, $ordenar, $modo, $base, $tope){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE titulo like '%$busqueda%' OR palabrasClave like '%$busqueda%' ORDER BY $ordenar $modo LIMIT $base, $tope");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	LISTAR PRODUCTOS
+	=============================================*/
+
+	static public function mdlListarArticulosBusqueda($tabla, $busqueda){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE titulo like '%$busqueda%' OR palabrasClave like '%$busqueda%'");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+	BUSCADOR
+	=============================================*/
+/*
+	static public function mdlBuscarArticulos($tabla, $busqueda, $ordenar, $modo, $base, $tope){
 
 		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ruta like '%$busqueda%' OR titulo like '%$busqueda%' OR titular like '%$busqueda%' OR descripcion like '%$busqueda%' ORDER BY $ordenar $modo LIMIT $base, $tope");
 
@@ -174,8 +241,8 @@ class ModeloArticulos{
 	/*=============================================
 	LISTAR PRODUCTOS
 	=============================================*/
-
-	static public function mdlListarProductosBusqueda($tabla, $busqueda){
+/*
+	static public function mdlListarArticulosBusqueda($tabla, $busqueda){
 
 		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ruta like '%$busqueda%' OR titulo like '%$busqueda%' OR titular like '%$busqueda%' OR descripcion like '%$busqueda%'");
 
@@ -187,7 +254,32 @@ class ModeloArticulos{
 
 		$stmt = null;
 
-	}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/*=============================================
 	ACTUALIZAR VISTA PRODUCTO
