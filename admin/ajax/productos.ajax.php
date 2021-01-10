@@ -191,6 +191,25 @@ class AjaxProductos{
 
  }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 ACTIVAR PRODUCTOS
 =============================================*/	
@@ -204,6 +223,11 @@ if(isset($_POST["activarProducto"])){
 
 }
 
+
+
+
+
+
 /*=============================================
 VALIDAR NO REPETIR PRODUCTO
 =============================================*/
@@ -216,6 +240,12 @@ if(isset($_POST["validarProducto"])){
 
 }
 
+
+
+
+
+
+
 #RECIBIR ARCHIVOS MULTIMEDIA
 #-----------------------------------------------------------
 if(isset($_FILES["file"])){
@@ -226,6 +256,12 @@ if(isset($_FILES["file"])){
 	$multimedia -> ajaxRecibirMultimedia();
 
 }
+
+
+
+
+
+
 
 #CREAR PRODUCTO
 #-----------------------------------------------------------
@@ -285,6 +321,25 @@ if(isset($_POST["tituloProducto"])){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 TRAER PRODUCTO
 =============================================*/
@@ -295,6 +350,10 @@ if(isset($_POST["idProducto"])){
 	$traerProducto -> ajaxTraerProducto();
 
 }
+
+
+
+
 
 /*=============================================
 EDITAR PRODUCTO

@@ -19,7 +19,7 @@ class TablaProductos{
   =============================================*/ 
 
   public function mostrarTablaProductos(){	
-
+	
   	$item = null;
   	$valor = null;
 

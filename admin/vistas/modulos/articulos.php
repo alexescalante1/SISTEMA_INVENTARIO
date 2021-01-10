@@ -3,9 +3,10 @@
   <section class="content-header">
 
    <h1>
-      Gestor Productos
+      Gestor Articulos
     </h1>
 
+    <!-- BARRA DE NAV-->
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -13,8 +14,14 @@
       <li class="active">Gestor Productos</li>
 
     </ol>
-
+    
   </section>
+
+
+
+
+
+
 
   <section class="content">
 
@@ -22,9 +29,9 @@
        
       <div class="box-header with-border">
          
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArticulo">
           
-          Agregar Producto
+          Agregar Articulo
 
         </button>
 
@@ -32,32 +39,24 @@
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaArticulos" width="100%">
         
           <thead>
          
             <tr>
              
                <th style="width:10px">#</th>
-               <th>Tituloas</th>
-               <th>Categoria</th>
-               <th>Subcategoria</th>
                <th>Ruta</th>
-               <th>Estado</th>
-               <th>Tipo</th>
-               <th>Descripción</th>
-               <th>Palabras claves</th>
+               <th>Titulo</th>
+               <th>Disponible</th>
                <th>Portada</th>
-               <th>Imagen Principal</th>
                <th>Multimedia</th>
-               <th>Detalles</th>
-               <th>Precio</th>
+               <th>Descripción</th>
+               <th>Prestados</th>
                <th>Peso</th>
-               <th>Tiempo de Entrega</th>
-               <th>Tipo de Oferta</th>
-               <th>Valor Oferta</th>
-               <th>Imagen Oferta</th>
-               <th>Fin Oferta</th>
+               <th>Precio</th>
+               <th>Categoria</th>
+               <th>Palabras Clave</th>
                <th>Acciones</th>
 
             </tr> 
@@ -74,11 +73,18 @@
 
 </div>
 
+
+
+
+
+
+
+
 <!--=====================================
-MODAL AGREGAR PRODUCTO
+MODAL AGREGAR NUEVO ARTICULO
 ======================================-->
 
-<div id="modalAgregarProducto" class="modal fade" role="dialog">
+<div id="modalAgregarArticulo" class="modal fade" role="dialog">
   
    <div class="modal-dialog">
      
@@ -93,9 +99,15 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar producto</h4>
+          <h4 class="modal-title">Agregar Articulo</h4>
 
         </div>
+
+
+
+
+
+
 
         <!--=====================================
         CUERPO DEL MODAL
@@ -360,11 +372,11 @@ MODAL AGREGAR PRODUCTO
                     $item = null;
                     $valor = null;
 
-                    $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+                    $categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
 
-                    foreach ($categorias as $key => $value) {
+                    foreach ($categoria as $key => $value) {
                       
-                      echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                      echo '<option value="'.$value["idCategoria"].'">'.$value["titulo"].'</option>';
                     }
 
                     ?>
@@ -622,6 +634,66 @@ MODAL AGREGAR PRODUCTO
    </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--=====================================
 MODAL EDITAR PRODUCTO

@@ -48,6 +48,17 @@ $('.tablaProductos').DataTable({
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 ACTIVAR PRODUCTO
 =============================================*/
@@ -94,9 +105,25 @@ $('.tablaProductos tbody').on("click", ".btnActivar", function(){
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 REVISAR SI EL TITULO DEL PRODUCTO YA EXISTE
 =============================================*/
+
 
 $(".validarProducto").change(function(){
 
@@ -131,6 +158,19 @@ $(".validarProducto").change(function(){
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 RUTA PRODUCTO
 =============================================*/
@@ -152,6 +192,26 @@ $(".tituloProducto").change(function(){
 	$(".rutaProducto").val(limpiarUrl($(".tituloProducto").val()));
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 AGREGAR MULTIMEDIA
@@ -181,6 +241,27 @@ $(".seleccionarTipo").change(function(){
 
 	}
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 AGREGAR MULTIMEDIA CON DROPZONE
@@ -218,6 +299,18 @@ $(".multimediaFisica").dropzone({
 	}
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 SELECCIONAR SUBCATEGORÍA
@@ -265,6 +358,22 @@ $(".seleccionarCategoria").change(function(){
 	})
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 SUBIENDO LA FOTO DE PORTADA
@@ -319,6 +428,26 @@ $(".fotoPortada").change(function(){
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 SUBIENDO LA FOTO PRINCIPAL
 =============================================*/
@@ -372,6 +501,21 @@ $(".fotoPrincipal").change(function(){
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 ACTIVAR OFERTA
 =============================================*/
@@ -400,6 +544,27 @@ $(".selActivarOferta").change(function(){
 	activarOferta($(this).val())
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 VALOR OFERTA
@@ -446,6 +611,27 @@ $("#modalCrearProducto .valorOferta").change(function(){
 	}
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 SUBIENDO LA FOTO DE LA OFERTA
@@ -499,6 +685,19 @@ $(".fotoOferta").change(function(){
   	}
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 CAMBIAR EL PRECIO
 =============================================*/
@@ -509,6 +708,40 @@ $(".precio").change(function(){
 	$(".descuentoOferta").val(0);
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 GUARDAR EL PRODUCTO
@@ -717,13 +950,13 @@ function agregarMiProducto(imagen){
 
 						swal({
 						  type: "success",
-						  title: "El producto ha sido guardado correctamente",
+						  title: "El articulo ha sido guardado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "articulos";
 
 							}
 						})
@@ -734,6 +967,129 @@ function agregarMiProducto(imagen){
 		})
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 EDITAR PRODUCTO
@@ -1143,6 +1499,30 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function(){
 
 			})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			/*=============================================
 			GUARDAR CAMBIOS DEL PRODUCTO
 			=============================================*/	
@@ -1297,6 +1677,9 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function(){
 
 })
 
+
+
+
 function editarMiProducto(imagen){
 
 	var idProducto = $("#modalEditarProducto .idProducto").val();
@@ -1409,6 +1792,63 @@ function editarMiProducto(imagen){
 	})
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*=============================================

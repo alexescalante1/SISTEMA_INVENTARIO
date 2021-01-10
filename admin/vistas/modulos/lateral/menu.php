@@ -38,6 +38,7 @@ MENU
   </li>
 -->
 
+  <li><a href="articulos"><i class="fa fa-product-hunt"></i> <span>Gestor Articulos</span></a></li>
   <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
 
 <!--
@@ -56,13 +57,14 @@ MENU
 
   <li><a href="visitas"><i class="fa fa-map-marker"></i> <span>Gestor Visitas</span></a></li>
 
-  <li><a href="usuarios"><i class="fa fa-users"></i> <span>Gestor Usuarios</span></a></li>
+  
 
   <?php
 
    if($_SESSION["perfil"] == "administrador"){
 
-    echo '<li><a href="perfiles"><i class="fa fa-key"></i> <span>Gestor Perfiles</span></a></li>';
+    echo '<li><a href="usuarios"><i class="fa fa-users"></i> <span>Gestor Usuarios</span></a></li>
+          <li><a href="perfiles"><i class="fa fa-key"></i> <span>Gestor Perfiles</span></a></li>';
 
   }
 
