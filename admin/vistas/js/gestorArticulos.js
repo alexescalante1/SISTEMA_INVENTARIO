@@ -15,7 +15,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 $('.tablaArticulos').DataTable({
 
-	"ajax":"ajax/TablaArticulos.ajax.php",
+	"ajax":"ajax/tablaArticulos.ajax.php",
 	"deferRender": true,
 	"retrieve": true,
 	"processing": true,
@@ -51,7 +51,7 @@ $('.tablaArticulos').DataTable({
 /*=============================================
 ACTIVAR ARTICULO
 =============================================*/
-$('.TablaArticulos tbody').on("click", ".btnActivar", function(){
+$('.tablaArticulos tbody').on("click", ".btnActivar", function(){
 
 	var idArticulo = $(this).attr("idArticulo");
 	var estadoArticulo = $(this).attr("estadoArticulo");
