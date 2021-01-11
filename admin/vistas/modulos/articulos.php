@@ -11,7 +11,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Gestor Productos</li>
+      <li class="active">Gestor Articulos</li>
 
     </ol>
     
@@ -117,6 +117,9 @@ MODAL AGREGAR NUEVO ARTICULO
 
           <div class="box-body">
 
+
+
+
             <!--=====================================
             ENTRADA PARA EL TÍTULO
             ======================================-->
@@ -127,7 +130,7 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                  <input type="text" class="form-control input-lg validarProducto tituloProducto"  placeholder="Ingresar título producto">
+                  <input type="text" class="form-control input-lg validarArticulo tituloArticulo"  placeholder="Ingresar título producto">
 
                 </div>
 
@@ -143,7 +146,7 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-link"></i></span> 
 
-                  <input type="text" class="form-control input-lg rutaProducto" placeholder="Ruta url del producto" readonly>
+                  <input type="text" class="form-control input-lg rutaArticulo" placeholder="Ruta url del producto" readonly>
 
                 </div>
 
@@ -153,6 +156,7 @@ MODAL AGREGAR NUEVO ARTICULO
             ENTRADA PARA LA RUTA DEL PRODUCTO
             ======================================-->
 
+            <!--
             <div class="form-group">
               
                 <div class="input-group">
@@ -172,186 +176,11 @@ MODAL AGREGAR NUEVO ARTICULO
                 </div>
 
             </div>
+            -->
 
-            <!--=====================================
-            ENTRADA PARA AGREGAR MULTIMEDIA
-            ======================================-->
 
-            <div class="form-group agregarMultimedia"> 
+            
 
-              <!--=====================================
-              SUBIR MULTIMEDIA DE PRODUCTO VIRTUAL
-              ======================================-->
-              
-              <div class="input-group multimediaVirtual" style="display:none">
-                
-                <span class="input-group-addon"><i class="fa fa-youtube-play"></i></span> 
-              
-                 <input type="text" class="form-control input-lg multimedia" placeholder="Ingresar código video youtube">
-
-              </div>
-
-              <!--=====================================
-              SUBIR MULTIMEDIA DE PRODUCTO FÍSICO
-              ======================================-->
-              
-              <div class="multimediaFisica needsclick dz-clickable" style="display:none">
-
-                <div class="dz-message needsclick">
-                  
-                  Arrastrar o dar click para subir imagenes.
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!--=====================================
-            AGREGAR DETALLES VIRTUALES
-            ======================================-->
-
-            <div class="detallesVirtual" style="display:none">
-              
-              <div class="panel">DETALLES</div>
-
-                <!-- CLASES -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Clases" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                      <input type="text" class="form-control input-lg detalleClases" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-                <!-- TIEMPO -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Tiempo" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                    <input type="text" class="form-control input-lg detalleTiempo" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-                <!-- NIVEL -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Nivel" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                      <input type="text" class="form-control input-lg detalleNivel" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-                <!-- ACCESO -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Acceso" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                      <input type="text" class="form-control input-lg detalleAcceso" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-                <!-- DISPOSITIVO -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Dispositivo" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                      <input type="text" class="form-control input-lg detalleDispositivo" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-                <!-- CERTIFICADO -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Certificado" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                      <input type="text" class="form-control input-lg detalleCertificado" placeholder="Descripción">
-                  </div>
-
-                </div>
-
-            </div>
-
-            <!--=====================================
-            AGREGAR DETALLES FÍSICOS
-            ======================================-->  
-
-            <div class="detallesFisicos" style="display:none">
-              
-              <div class="panel">DETALLES</div>
-
-              <!-- TALLA -->
-
-                <div class="form-group row">
-
-                  <div class="col-xs-3">
-                    <input class="form-control input-lg" type="text" value="Talla" readonly>
-                  </div>
-
-                  <div class="col-xs-9">
-                    <input class="form-control input-lg tagsInput detalleTalla" data-role="tagsinput" type="text" placeholder="Separe valores con coma">
-                  </div>
-
-              </div>
-
-              <!-- COLOR -->
-
-              <div class="form-group row">
-
-                <div class="col-xs-3">
-                  <input class="form-control input-lg" type="text" value="Color" readonly>
-                </div>
-
-                <div class="col-xs-9">
-                    <input class="form-control input-lg tagsInput detalleColor" data-role="tagsinput" type="text" placeholder="Separe valores con coma">
-                </div>
-
-              </div>
-
-              <!-- MARCA -->
-
-              <div class="form-group row">
-
-                <div class="col-xs-3">
-                  <input class="form-control input-lg" type="text" value="Marca" readonly>
-                </div>
-
-                <div class="col-xs-9">
-                    <input class="form-control input-lg tagsInput detalleMarca" data-role="tagsinput" type="text" placeholder="Separe valores con coma">
-                </div>
-
-              </div>
-
-            </div> 
 
            <!--=====================================
             AGREGAR CATEGORÍA
@@ -387,10 +216,13 @@ MODAL AGREGAR NUEVO ARTICULO
 
             </div>
 
+
+
+
             <!--=====================================
             AGREGAR SUBCATEGORÍA
             ======================================-->
-
+            <!--
             <div class="form-group  entradaSubcategoria" style="display:none">
               
                <div class="input-group">
@@ -404,7 +236,7 @@ MODAL AGREGAR NUEVO ARTICULO
                 </div>
 
             </div>
-
+            -->
            <!--=====================================
             AGREGAR DESCRIPCIÓN
             ======================================-->
@@ -415,11 +247,12 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
 
-                <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionProducto" placeholder="Ingresar descripción producto"></textarea>
+                <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionArticulo" placeholder="Ingresar descripción del articulo"></textarea>
 
               </div>
 
             </div>
+
 
             <!--=====================================
             AGREGAR PALABRAS CLAVES
@@ -431,16 +264,19 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                  <input type="text" class="form-control input-lg tagsInput pClavesProducto" data-role="tagsinput"  placeholder="Ingresar palabras claves">
+                  <input type="text" class="form-control input-lg tagsInput pClavesArticulo" data-role="tagsinput"  placeholder="Ingresar palabras claves">
 
                 </div>
 
             </div>
 
+
+
+
             <!--=====================================
             AGREGAR FOTO DE PORTADA
             ======================================-->
-
+            <!--
             <div class="form-group">
               
               <div class="panel">SUBIR FOTO PORTADA</div>
@@ -452,22 +288,47 @@ MODAL AGREGAR NUEVO ARTICULO
               <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortada" width="100%">
 
             </div>
-
+            -->
+            
             <!--=====================================
             AGREGAR FOTO DE MULTIMEDIA
             ======================================-->
 
             <div class="form-group">
                 
-              <div class="panel">SUBIR FOTO PRINCIPAL DEL PRODUCTO</div>
+              <div class="panel">SUBIR FOTO PRINCIPAL DEL ARTICULO</div>
 
-              <input type="file" class="fotoPrincipal">
+              <input type="file" class="fotoPrincipalA">
 
-              <p class="help-block">Tamaño recomendado 400px * 450px <br> Peso máximo de la foto 2MB</p>
+              <p class="help-block">Tamaño recomendado 500px * 500px <br> Peso máximo de la foto 5MB</p>
 
-              <img src="vistas/img/productos/default/default.jpg" class="img-thumbnail previsualizarPrincipal" width="200px">
+              <img src="vistas/img/productos/default/default.jpg" class="img-thumbnail previsualizarPrincipalA" width="400px">
 
             </div>
+
+
+            <!--=====================================
+            ENTRADA PARA AGREGAR MULTIMEDIA
+            ======================================-->
+
+            <div class="form-group agregarMultimedia"> 
+              
+              <div class="panel">SUBIR IMAGENES DEL ARTICULO</div>
+
+              <div class="multimediaAdd needsclick dz-clickable">
+
+                <div class="dz-message needsclick">
+                  
+                  Arrastrar o dar click para subir imagenes.
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
 
             <!--=====================================
             AGREGAR PRECIO, PESO Y ENTREGA
@@ -485,7 +346,7 @@ MODAL AGREGAR NUEVO ARTICULO
                 
                   <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
 
-                  <input type="number" class="form-control input-lg precio" min="0" step="any">
+                  <input type="number" class="form-control input-lg precio" min="0" step="any" value="0">
 
                 </div>
 
@@ -507,17 +368,17 @@ MODAL AGREGAR NUEVO ARTICULO
 
               </div>
 
-              <!-- ENTREGA -->
+              <!-- DISPONIBLE -->
 
               <div class="col-md-4 col-xs-12">
   
-                <div class="panel">DÍAS DE ENTREGA</div>
+                <div class="panel">DISPONIBLE</div>
               
                 <div class="input-group">
               
                   <span class="input-group-addon"><i class="fa fa-truck"></i></span> 
 
-                  <input type="number" class="form-control input-lg entrega" min="0" value="0">
+                  <input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
 
                 </div>
 
@@ -525,91 +386,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
             </div>
 
-            <!--=====================================
-            AGREGAR OFERTAS
-            ======================================-->
-
-            <div class="form-group">
-              
-              <select class="form-control input-lg selActivarOferta">
-                
-                <option value="">No tiene oferta</option>
-                <option value="oferta">Activar oferta</option>
-               
-              </select>
-
-            </div>
-
-            <div class="datosOferta" style="display:none">
-            
-              <!--=====================================
-              VALOR OFERTAS
-              ======================================-->
-
-              <div class="form-group row">
-                  
-                <div class="col-xs-6">
-
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
-                    
-                    <input class="form-control input-lg valorOferta precioOferta" tipo="oferta" type="number" value="0"   min="0" placeholder="Precio">
-
-                  </div>
-
-                </div>
-
-                <div class="col-xs-6">
-                     
-                  <div class="input-group">
-                       
-                    <input class="form-control input-lg valorOferta descuentoOferta" tipo="descuento" type="number" value="0"  min="0" placeholder="Descuento">
-                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <!--=====================================
-              FECHA FINALIZACIÓN OFERTA
-              ======================================-->
-
-              <div class="form-group">
-                  
-                <div class="input-group date">
-                      
-                  <input type='text' class="form-control datepicker input-lg valorOferta finOferta">
-                      
-                  <span class="input-group-addon">
-                          
-                      <span class="glyphicon glyphicon-calendar"></span>
-                      
-                  </span>
-                 
-                </div>
-              
-              </div>
-
-              <!--=====================================
-              FOTO OFERTA
-              ======================================-->
-
-              <div class="form-group">
-                
-                <div class="panel">SUBIR FOTO OFERTA</div>
-
-                <input type="file" class="fotoOferta valorOferta">
-
-                <p class="help-block">Tamaño recomendado 640px * 430px <br> Peso máximo de la foto 2MB</p>
-
-                <img src="vistas/img/ofertas/default/default.jpg" class="img-thumbnail previsualizarOferta" width="100px">
-
-              </div>
-
-            </div>
+        
           
           </div>
 
@@ -623,7 +400,7 @@ MODAL AGREGAR NUEVO ARTICULO
   
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="button" class="btn btn-primary guardarProducto">Guardar producto</button>
+          <button type="button" class="btn btn-primary guardarArticulo">Guardar producto</button>
 
         </div>
 
@@ -634,6 +411,11 @@ MODAL AGREGAR NUEVO ARTICULO
    </div>
 
 </div>
+
+
+
+
+
 
 
 
@@ -1244,7 +1026,7 @@ MODAL EDITAR PRODUCTO
 
 <?php
 
-  $eliminarProducto = new ControladorProductos();
-  $eliminarProducto -> ctrEliminarProducto();
+  $eliminarArticulo = new ControladorArticulos();
+  $eliminarArticulo -> ctrEliminarArticulo();
 
 ?>

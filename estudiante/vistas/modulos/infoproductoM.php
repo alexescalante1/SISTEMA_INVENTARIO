@@ -1489,7 +1489,7 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regTipoDocT" name="regTipoDocT" placeholder="Tipo de Documento" required>
+						<input type="number" class="form-control" id="regTipoDocT" name="regTipoDocT" placeholder="Tipo de Documento" required  min="0" max="1" value="0">
 
 					</div>
 
@@ -1553,7 +1553,7 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regCant" name="regCant" placeholder="Cantidad de Articulos" required>
+						<input type="number" class="form-control" id="regCant" name="regCant" placeholder="Cantidad de Articulos" required  min="0" max="5" value="0">
 
 					</div>
 
@@ -1569,7 +1569,7 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regDias" name="regDias" placeholder="Dias de prestamo" required>
+						<input type="number" class="form-control" id="regDias" name="regDias" placeholder="Dias de prestamo" required  min="0" max="12" value="0">
 
 					</div>
 

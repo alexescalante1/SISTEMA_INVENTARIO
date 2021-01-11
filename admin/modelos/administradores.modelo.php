@@ -1,6 +1,7 @@
 <?php
 
 require_once "conexion.php";
+require_once "conexionBD2.php";
 
 class ModeloAdministradores{
 
@@ -12,7 +13,7 @@ class ModeloAdministradores{
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = ConexionBdTWO::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
