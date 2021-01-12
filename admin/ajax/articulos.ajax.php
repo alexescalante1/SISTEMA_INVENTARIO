@@ -105,6 +105,26 @@ class AjaxArticulo{
 
 	}
 
+
+	/*=============================================
+	TRAER ARTICULOS
+	=============================================*/	
+
+	public $idArticulo;
+
+	public function ajaxTraerArticulo(){
+
+		$item = "idDetalleArticulo";
+		$valor = $this->idArticulo;
+
+		$respuesta = ControladorArticulos::ctrMostrarArticulos($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
+
  }
 
 
@@ -207,3 +227,16 @@ $articulos = new AjaxArticulo();
 
 	$articulos -> ajaxCrearArticulo();
 */
+
+
+
+/*=============================================
+TRAER ARTICULO
+=============================================*/
+if(isset($_POST["idArticulo"])){
+
+	$traerProducto = new AjaxArticulo();
+	$traerProducto -> idArticulo = $_POST["idArticulo"];
+	$traerProducto -> ajaxTraerArticulo();
+
+}

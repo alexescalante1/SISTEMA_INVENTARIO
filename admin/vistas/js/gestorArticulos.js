@@ -442,6 +442,348 @@ function agregarMiArticulo(imagen){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+EDITAR ARTICULO
+=============================================*/
+
+$('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
+	
+	$(".previsualizarImgFisico").html("");
+
+	var idProducto = $(this).attr("idArticulo");
+	
+	var datos = new FormData();
+	datos.append("idArticulo", idProducto);
+
+	$.ajax({
+
+		url:"ajax/articulos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			
+			$("#modalEditarArticulo .idArticulo").val(respuesta[0]["idDetalleArticulo"]);
+			$("#modalEditarArticulo .tituloArticulo").val(respuesta[0]["titulo"]);
+			$("#modalEditarArticulo .rutaArticulo").val(respuesta[0]["ruta"]);
+			$("#modalEditarArticulo .descripcionArticulo").val(respuesta[0]["descripcion"]);
+			$("#modalEditarArticulo .pClavesArticulo").val(respuesta[0]["palabrasClave"]);	
+
+			/*=============================================
+			CUANDO EL PRODUCTO ES FÍSICO
+			=============================================*/
+
+				if(respuesta[0]["multimedia"] != ""){
+
+					var imagenesMultimedia = JSON.parse(respuesta[0]["multimedia"]);
+					
+					for(var i = 0; i < imagenesMultimedia.length; i++){
+
+						$(".previsualizarImgAdd").append(
+
+							  '<div class="col-md-3">'+
+							    '<div class="thumbnail text-center">'+
+							      '<img class="imagenesRestantes" src="'+imagenesMultimedia[i].foto+'" style="width:100%">'+
+							      '<div class="removerImagen" style="cursor:pointer">Remove file</div>'+
+							    '</div>'+
+
+							  '</div>'
+
+		                );
+
+		                localStorage.setItem("multimediaAdd", JSON.stringify(imagenesMultimedia));
+
+					}		
+
+					/*=============================================
+					CUANDO ELIMINAMOS UNA IMAGEN DE LA LISTA
+					=============================================*/
+
+				 	$(".removerImagen").click(function(){
+
+						$(this).parent().parent().remove();
+
+						var imagenesRestantes = $(".imagenesRestantes");
+						var arrayImgRestantes = [];
+
+						for(var i = 0; i < imagenesRestantes.length; i++){
+
+							arrayImgRestantes.push({"foto":$(imagenesRestantes[i]).attr("src")})
+							
+						}
+
+						localStorage.setItem("multimediaAdd", JSON.stringify(arrayImgRestantes));
+						
+					})
+
+				}
+
+			/*=============================================
+			TRAEMOS LA CATEGORIA
+			=============================================*/
+
+			if(respuesta[0]["idCategoria"] != 0){
+			
+				var datosCategoria = new FormData();
+				datosCategoria.append("idCategoria", respuesta[0]["idCategoria"]);
+				
+
+				$.ajax({
+
+						url:"ajax/categorias.ajaxM.php",
+						method: "POST",
+						data: datosCategoria,
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(respuesta){
+
+							$("#modalEditarArticulo .seleccionarCategoria").val(respuesta["idCategoria"]);
+							$("#modalEditarArticulo .optionEditarCategoria").html(respuesta["titulo"]);
+
+							
+						}
+
+					})
+
+			}else{
+
+				
+				$("#modalEditarArticulo .optionEditarCategoria").html("SIN CATEGORÍA");
+
+			}
+
+
+			/*=============================================
+			CARGAMOS LA IMAGEN PRINCIPAL
+			=============================================*/
+
+			$("#modalEditarArticulo .previsualizarPrincipalA").attr("src", respuesta[0]["portada"]);
+			$("#modalEditarArticulo .antiguaFotoPrincipalA").val(respuesta[0]["portada"]);
+
+			/*=============================================
+			CARGAMOS EL PRECIO, PESO Y DIAS DE ENTREGA
+			=============================================*/
+			$("#modalEditarArticulo .precio").val(respuesta[0]["precio"]);
+			$("#modalEditarArticulo .peso").val(respuesta[0]["peso"]);
+			$("#modalEditarArticulo .disponible").val(respuesta[0]["disponible"]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+			/*=============================================
+			GUARDAR CAMBIOS DEL PRODUCTO
+			=============================================*/	
+
+			var multimediaFisica = null;
+			var multimediaVirtual = null;	
+
+			$(".guardarCambiosProducto").click(function(){
+
+					/*=============================================
+					PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
+					=============================================*/
+
+					if($("#modalEditarProducto .tituloProducto").val() != "" && 
+					   $("#modalEditarProducto .seleccionarTipo").val() != "" && 
+					   $("#modalEditarProducto .seleccionarCategoria").val() != "" &&
+					   $("#modalEditarProducto .seleccionarSubCategoria").val() != "" &&
+					   $("#modalEditarProducto .descripcionProducto").val() != "" &&
+					   $("#modalEditarProducto .pClavesProducto").val() != ""){
+
+						/*=============================================
+					   	PREGUNTAMOS SI VIENEN IMÁGENES PARA MULTIMEDIA O LINK DE YOUTUBE
+					   	=============================================*/
+
+					   	if($("#modalEditarProducto .seleccionarTipo").val() != "virtual"){	
+
+						   	if(arrayFiles.length > 0 && $("#modalEditarProducto .rutaProducto").val() != ""){
+
+						   		var listaMultimedia = [];
+						   		var finalFor = 0;
+
+								for(var i = 0; i < arrayFiles.length; i++){
+									
+									var datosMultimedia = new FormData();
+									datosMultimedia.append("file", arrayFiles[i]);
+									datosMultimedia.append("ruta", $("#modalEditarProducto .rutaProducto").val());
+
+									$.ajax({
+										url:"ajax/productos.ajax.php",
+										method: "POST",
+										data: datosMultimedia,
+										cache: false,
+										contentType: false,
+										processData: false,
+										beforeSend: function(){
+
+											$(".modal-footer .preload").html(`
+
+
+												<center>
+
+													<img src="vistas/img/plantilla/status.gif" id="status" />
+													<br>
+
+												</center>
+
+											`);
+
+										},
+										success: function(respuesta){
+
+											$("#status").remove();
+
+											listaMultimedia.push({"foto" : respuesta.substr(3)});
+											multimediaFisica = JSON.stringify(listaMultimedia);
+											
+											if(localStorage.getItem("multimediaFisica") != null){
+
+												var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaFisica"));
+
+												var jsonMultimediaFisica = listaMultimedia.concat(jsonLocalStorage);
+
+												multimediaFisica = JSON.stringify(jsonMultimediaFisica);												
+											}
+																			
+											multimediaVirtual = null;
+
+											if(multimediaFisica == null){
+
+												 swal({
+												      title: "El campo de multimedia no debe estar vacío",
+												      type: "error",
+												      confirmButtonText: "¡Cerrar!"
+												    });
+
+												 return;
+											}
+
+
+											if((finalFor + 1) == arrayFiles.length){
+
+												editarMiProducto(multimediaFisica);
+												finalFor = 0;
+
+											}
+
+											finalFor++;							
+								
+										}
+
+									})
+
+								}
+
+							}else{
+					
+								var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaFisica"));
+
+								multimediaFisica = JSON.stringify(jsonLocalStorage);
+
+								editarMiProducto(multimediaFisica);												
+								
+							}
+
+						}else{
+
+							multimediaVirtual = $("#modalEditarProducto .multimedia").val();
+							multimediaFisica = null;
+
+							if(multimediaVirtual == null){
+
+					 			 swal({
+								      title: "El campo de multimedia no debe estar vacío",
+								      type: "error",
+								      confirmButtonText: "¡Cerrar!"
+								    });
+
+					 			  return;
+							}	
+
+							editarMiProducto(multimediaVirtual);	
+							
+						}
+
+					}else{
+
+						 swal({
+					      title: "Llenar todos los campos obligatorios",
+					      type: "error",
+					      confirmButtonText: "¡Cerrar!"
+					    });
+
+						return;
+
+					}					
+
+			})
+					
+		}
+
+	})
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 ELIMINAR ARTICULO
 =============================================*/

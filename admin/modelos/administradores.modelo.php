@@ -13,7 +13,7 @@ class ModeloAdministradores{
 
 		if($item != null){
 
-			$stmt = ConexionBdTWO::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
