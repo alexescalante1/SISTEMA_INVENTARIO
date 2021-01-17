@@ -50,7 +50,6 @@
                <th>Titulo</th>
                <th>Disponible</th>
                <th>Portada</th>
-               <th>Multimedia</th>
                <th>Descripción</th>
                <th>Prestados</th>
                <th>Peso</th>
@@ -311,7 +310,7 @@ MODAL AGREGAR NUEVO ARTICULO
             ENTRADA PARA AGREGAR MULTIMEDIA
             ======================================-->
 
-            <div class="form-group agregarMultimedia"> 
+            <div class="form-group agregarMultimedia">
               
               <div class="panel">SUBIR IMAGENES DEL ARTICULO</div>
 
@@ -617,8 +616,8 @@ MODAL EDITAR ARTICULO
             AGREGAR PALABRAS CLAVES
             ======================================-->
 
-            <div class="form-group">
-              
+            <div class="form-group editarPalabrasClavesA">
+              <!--
                 <div class="input-group">
               
                   <span class="input-group-addon"><i class="fa fa-key"></i></span> 
@@ -626,7 +625,7 @@ MODAL EDITAR ARTICULO
                   <input type="text" class="form-control input-lg tagsInput pClavesArticulo">
 
                 </div> 
-
+              -->
             </div>
 
 
@@ -762,7 +761,7 @@ MODAL EDITAR ARTICULO
   
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="button" class="btn btn-primary guardarCambiosArticulos">Guardar cambios</button>
+          <button type="button" class="btn btn-primary guardarCambiosArticulo">Guardar cambios</button>
 
         </div>
 

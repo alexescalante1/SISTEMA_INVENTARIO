@@ -91,10 +91,11 @@ class ControladorArticulos{
 			PRIMERO PREGUNTAMOS SI EXISTE UN DIRECTORIO DE MULTIMEDIA CON ESTA RUTA
 			=============================================*/
 
-			if (!file_exists($directorio)){
-
-				mkdir($directorio, 0755);
-			
+			if (!is_dir($directorio)){
+				
+				error_reporting(0);
+				$crear = mkdir($directorio, 0777, true);
+				
 			}
 
 			/*=============================================
@@ -301,126 +302,49 @@ class ControladorArticulos{
 
 
 	/*=============================================
-	EDITAR PRODUCTOS
+	EDITAR ARTICULOS
 	=============================================*/
 
-	static public function ctrEditarProducto($datos){
+	static public function ctrEditarArticulo($datos){
 
-		if(isset($datos["idProducto"])){
+		if(isset($datos["idArticulo"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloProducto"])  && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionProducto"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloArticulo"])  && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionArticulo"]) ){
 
 				/*=============================================
 				ELIMINAR LAS FOTOS DE MULTIMEDIA DE LA CARPETA
 				=============================================*/
 
-				if($datos["tipo"] == "fisico"){
+				$item = "idDetalleArticulo";
+				$valor = $datos["idArticulo"];
 
-					$item = "id";
-					$valor = $datos["idProducto"];
+				$traerProductos = ModeloArticulos::mdlMostrarArticulos("detallearticulo", $item, $valor);
 
-					$traerProductos = ModeloProductos::mdlMostrarProductos("productos", $item, $valor);
+				foreach ($traerProductos as $key => $value) {
+				
+					$multimediaBD = json_decode($value["multimedia"],true);
+					$multimediaEditar = json_decode($datos["multimedia"],true);
 
-					foreach ($traerProductos as $key => $value) {
-					
-						$multimediaBD = json_decode($value["multimedia"],true);
-						$multimediaEditar = json_decode($datos["multimedia"],true);
+					$objectMultimediaBD = array();
+					$objectMultimediaEditar = array();
 
-						$objectMultimediaBD = array();
-						$objectMultimediaEditar = array();
+					foreach ($multimediaBD as $key => $value) {
 
-						foreach ($multimediaBD as $key => $value) {
-
-						  array_push($objectMultimediaBD, $value["foto"]);
-
-						}
-
-						foreach ($multimediaEditar as $key => $value) {
-
-						  array_push($objectMultimediaEditar, $value["foto"]);
-
-						}
-
-						$borrarFoto = array_diff($objectMultimediaBD, $objectMultimediaEditar);
-
-						foreach ($borrarFoto as $key => $value) {
-							
-							unlink("../".$value);
-
-						}
-
-					}				
-
-				}
-
-				/*=============================================
-				VALIDAR IMAGEN PORTADA
-				=============================================*/
-
-				$rutaPortada = "../".$datos["antiguaFotoPortada"];
-
-				if(isset($datos["fotoPortada"]["tmp_name"]) && !empty($datos["fotoPortada"]["tmp_name"])){
-
-					/*=============================================
-					BORRAMOS ANTIGUA FOTO PORTADA
-					=============================================*/
-
-					unlink("../".$datos["antiguaFotoPortada"]);
-
-					/*=============================================
-					DEFINIMOS LAS MEDIDAS
-					=============================================*/
-
-					list($ancho, $alto) = getimagesize($datos["fotoPortada"]["tmp_name"]);	
-
-					$nuevoAncho = 1280;
-					$nuevoAlto = 720;
-
-
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
-
-					if($datos["fotoPortada"]["type"] == "image/jpeg"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$aleatorio = mt_rand(100,999);
-
-						$rutaPortada = "../vistas/img/cabeceras/".$datos["rutaProducto"].".jpg";
-
-						$origen = imagecreatefromjpeg($datos["fotoPortada"]["tmp_name"]);						
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagejpeg($destino, $rutaPortada);
+						array_push($objectMultimediaBD, $value["foto"]);
 
 					}
 
-					if($datos["fotoPortada"]["type"] == "image/png"){
+					foreach ($multimediaEditar as $key => $value) {
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+						array_push($objectMultimediaEditar, $value["foto"]);
 
-						$aleatorio = mt_rand(100,999);
+					}
 
-						$rutaPortada = "../vistas/img/cabeceras/".$datos["rutaProducto"].".png";
+					$borrarFoto = array_diff($objectMultimediaBD, $objectMultimediaEditar);
 
-						$origen = imagecreatefrompng($datos["fotoPortada"]["tmp_name"]);						
-
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagealphablending($destino, FALSE);
-				
-						imagesavealpha($destino, TRUE);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagepng($destino, $rutaPortada);
+					foreach ($borrarFoto as $key => $value) {
+						
+						unlink("../".$value);
 
 					}
 
@@ -430,7 +354,7 @@ class ControladorArticulos{
 				VALIDAR IMAGEN PRINCIPAL
 				=============================================*/
 
-				$rutaFotoPrincipal = "../".$datos["antiguaFotoPrincipal"];
+				$rutaFotoPrincipal = "../".$datos["antiguaFotoPrincipalA"];
 
 				if(isset($datos["fotoPrincipal"]["tmp_name"]) && !empty($datos["fotoPrincipal"]["tmp_name"])){
 
@@ -438,7 +362,7 @@ class ControladorArticulos{
 					BORRAMOS ANTIGUA FOTO PRINCIPAL
 					=============================================*/
 
-					unlink("../".$datos["antiguaFotoPrincipal"]);
+					unlink("../".$datos["antiguaFotoPrincipalA"]);
 
 					/*=============================================
 					DEFINIMOS LAS MEDIDAS
@@ -446,8 +370,8 @@ class ControladorArticulos{
 
 					list($ancho, $alto) = getimagesize($datos["fotoPrincipal"]["tmp_name"]);	
 
-					$nuevoAncho = 400;
-					$nuevoAlto = 450;
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
 
 
 					/*=============================================
@@ -462,7 +386,7 @@ class ControladorArticulos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$rutaFotoPrincipal = "../vistas/img/productos/".$datos["rutaProducto"].".jpg";
+						$rutaFotoPrincipal = "../vistas/img/productos/".$datos["rutaArticulo"].".jpg";
 
 						$origen = imagecreatefromjpeg($datos["fotoPrincipal"]["tmp_name"]);						
 
@@ -482,7 +406,7 @@ class ControladorArticulos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$rutaFotoPrincipal = "../vistas/img/productos/".$datos["rutaProducto"].".png";
+						$rutaFotoPrincipal = "../vistas/img/productos/".$datos["rutaArticulo"].".png";
 
 						$origen = imagecreatefrompng($datos["fotoPrincipal"]["tmp_name"]);						
 
@@ -499,148 +423,24 @@ class ControladorArticulos{
 					}
 
 				}
-
-				/*=============================================
-				VALIDAR IMAGEN OFERTA
-				=============================================*/
-
-				$rutaOferta = "../".$datos["antiguaFotoOferta"];
-
-				if(isset($datos["fotoOferta"]["tmp_name"]) && !empty($datos["fotoOferta"]["tmp_name"])){
-
-					/*=============================================
-					BORRAMOS ANTIGUA FOTO OFERTA
-					=============================================*/
-
-					if($datos["antiguaFotoOferta"] != ""){
-
-						unlink("../".$datos["antiguaFotoOferta"]);
-
-					}
-
-					/*=============================================
-					DEFINIMOS LAS MEDIDAS
-					=============================================*/
-
-					list($ancho, $alto) = getimagesize($datos["fotoOferta"]["tmp_name"]);
-
-					$nuevoAncho = 640;
-					$nuevoAlto = 430;
-
-
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
-
-					if($datos["fotoOferta"]["type"] == "image/jpeg"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$aleatorio = mt_rand(100,999);
-
-						$rutaOferta = "../vistas/img/ofertas/".$datos["rutaProducto"].".jpg";
-
-						$origen = imagecreatefromjpeg($datos["fotoOferta"]["tmp_name"]);						
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagejpeg($destino, $rutaOferta);
-
-					}
-
-					if($datos["fotoOferta"]["type"] == "image/png"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$aleatorio = mt_rand(100,999);
-
-						$rutaOferta = "../vistas/img/ofertas/".$datos["rutaProducto"].".png";
-
-						$origen = imagecreatefrompng($datos["fotoOferta"]["tmp_name"]);						
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagealphablending($destino, FALSE);
 				
-						imagesavealpha($destino, TRUE);
+		
+				$datosArticulo = array(
+								"idDetalleArticulo"=>$datos["idArticulo"],
+								"tituloArticulo"=>$datos["tituloArticulo"],
+								"rutaArticulo"=>$datos["rutaArticulo"],
+								"idCategoria"=>$datos["categoria"],
+								"descripcionArticulo"=>$datos["descripcionArticulo"],
+								"pClavesArticulo"=>$datos["pClavesArticulo"],
+								"multimedia"=>$datos["multimedia"],
+								"precio"=> $datos["precio"],
+								"peso"=> $datos["peso"],
+								"disponible"=> $datos["disponible"],
+								"imgFotoPrincipal"=>substr($rutaFotoPrincipal,3)
+								);
 
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagepng($destino, $rutaOferta);
-
-					}
-
-				}			
-
-				/*=============================================
-				PREGUNTAMOS SI VIENE OFERTE EN CAMINO
-				=============================================*/
-
-				if($datos["selActivarOferta"] == "oferta"){
-
-					$datosProducto = array(
-								   "id"=>$datos["idProducto"],
-								   "titulo"=>$datos["tituloProducto"],
-								   "idCategoria"=>$datos["categoria"],
-								   "idSubCategoria"=>$datos["subCategoria"],
-								   "tipo"=>$datos["tipo"],
-								   "detalles"=>$datos["detalles"],
-								   "multimedia"=>$datos["multimedia"],
-								   "ruta"=>$datos["rutaProducto"],
-								   "estado"=> 1,
-								   "idCabecera"=>$datos["idCabecera"],
-								   "titular"=> substr($datos["descripcionProducto"], 0, 225)."...",
-								   "descripcion"=> $datos["descripcionProducto"],
-								   "palabrasClaves"=> $datos["pClavesProducto"],
-								   "precio"=> $datos["precio"],
-								   "peso"=> $datos["peso"],
-								   "entrega"=> $datos["entrega"],  
-								   "imgPortada"=>substr($rutaPortada,3),
-								   "imgFotoPrincipal"=>substr($rutaFotoPrincipal,3),
-								   "oferta"=>1,
-								   "precioOferta"=>$datos["precioOferta"],
-								   "descuentoOferta"=>$datos["descuentoOferta"],
-								   "imgOferta"=>substr($rutaOferta,3),
-								   "finOferta"=>$datos["finOferta"]
-								   );
-
-				}else{
-
-					$datosProducto = array(
-						 		   "id"=>$datos["idProducto"],
-								   "titulo"=>$datos["tituloProducto"],
-								   "idCategoria"=>$datos["categoria"],
-								   "idSubCategoria"=>$datos["subCategoria"],
-								   "tipo"=>$datos["tipo"],
-								   "detalles"=>$datos["detalles"],
-								   "multimedia"=>$datos["multimedia"],
-								   "ruta"=>$datos["rutaProducto"],
-								   "estado"=> 1,
-								   "idCabecera"=>$datos["idCabecera"],
-								   "titular"=> substr($datos["descripcionProducto"], 0, 225)."...",
-								   "descripcion"=> $datos["descripcionProducto"],
-								   "palabrasClaves"=> $datos["pClavesProducto"],
-								   "precio"=> $datos["precio"],
-								   "peso"=> $datos["peso"],
-								   "entrega"=> $datos["entrega"],
-								   "imgPortada"=>substr($rutaPortada,3),
-								   "imgFotoPrincipal"=>substr($rutaFotoPrincipal,3),
-								   "oferta"=>0,
-								   "precioOferta"=>0,
-								   "descuentoOferta"=>0,
-								   "imgOferta"=>"",								   
-								   "finOferta"=>""
-								   );
-
-				}
-
-				ModeloCabeceras::mdlEditarCabecera("cabeceras", $datosProducto);
-
-				$respuesta = ModeloProductos::mdlEditarProducto("productos", $datosProducto);
+				$respuesta = ModeloArticulos::mdlEditarArticulo("detallearticulo", $datosArticulo);
 
 				return $respuesta;
 
@@ -657,7 +457,7 @@ class ControladorArticulos{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "articulos";
 
 							}
 						})
@@ -669,6 +469,14 @@ class ControladorArticulos{
 		}
 		
 	}
+
+
+
+
+
+
+
+
 
 
 

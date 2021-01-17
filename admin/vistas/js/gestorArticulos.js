@@ -169,7 +169,7 @@ $(".multimediaAdd").dropzone({
 	url: "/",
 	addRemoveLinks: true,
 	acceptedFiles: "image/jpeg, image/png",
-	maxFilesize: 2,
+	maxFilesize: 10,
 	maxFiles: 10,
 	init: function(){
 
@@ -286,7 +286,7 @@ $(".guardarArticulo").click(function(){
 
 				var datosMultimedia = new FormData();
 				datosMultimedia.append("fileM", arrayMFiles[i]);
-				datosMultimedia.append("ruta", $(".rutaArticulo").val());
+				datosMultimedia.append("rutaM", $(".rutaArticulo").val());
 
 				$.ajax({
 					url:"ajax/articulos.ajax.php",
@@ -469,12 +469,12 @@ EDITAR ARTICULO
 
 $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 	
-	$(".previsualizarImgFisico").html("");
+	$(".previsualizarImgAdd").html("");
 
-	var idProducto = $(this).attr("idArticulo");
+	var idArticulo = $(this).attr("idArticulo");
 	
 	var datos = new FormData();
-	datos.append("idArticulo", idProducto);
+	datos.append("idArticulo", idArticulo);
 
 	$.ajax({
 
@@ -491,56 +491,78 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 			$("#modalEditarArticulo .tituloArticulo").val(respuesta[0]["titulo"]);
 			$("#modalEditarArticulo .rutaArticulo").val(respuesta[0]["ruta"]);
 			$("#modalEditarArticulo .descripcionArticulo").val(respuesta[0]["descripcion"]);
-			$("#modalEditarArticulo .pClavesArticulo").val(respuesta[0]["palabrasClave"]);	
 
-			/*=============================================
-			CUANDO EL PRODUCTO ES FÍSICO
-			=============================================*/
+			if(respuesta[0]["palabrasClave"] != null){
 
-				if(respuesta[0]["multimedia"] != ""){
+				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
+	  
+				'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
 
-					var imagenesMultimedia = JSON.parse(respuesta[0]["multimedia"]);
-					
-					for(var i = 0; i < imagenesMultimedia.length; i++){
+				'<input type="text" class="form-control input-lg tagsInput pClavesArticulo" value="'+respuesta[0]["palabrasClave"]+'" data-role="tagsinput">'+
+				
 
-						$(".previsualizarImgAdd").append(
+				'</div>');
 
-							  '<div class="col-md-3">'+
-							    '<div class="thumbnail text-center">'+
-							      '<img class="imagenesRestantes" src="'+imagenesMultimedia[i].foto+'" style="width:100%">'+
-							      '<div class="removerImagen" style="cursor:pointer">Remove file</div>'+
-							    '</div>'+
+				$("#modalEditarArticulo .pClavesArticulo").tagsinput('items');
 
-							  '</div>'
+			}else{
 
-		                );
+				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
+	  
+				'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
 
-		                localStorage.setItem("multimediaAdd", JSON.stringify(imagenesMultimedia));
+				'<input type="text" class="form-control input-lg tagsInput pClavesArticulo" value="" data-role="tagsinput">'+
 
-					}		
+				'</div>');
 
-					/*=============================================
-					CUANDO ELIMINAMOS UNA IMAGEN DE LA LISTA
-					=============================================*/
+				$("#modalEditarArticulo .pClavesArticulo").tagsinput('items');
 
-				 	$(".removerImagen").click(function(){
+			}
 
-						$(this).parent().parent().remove();
+			if(respuesta[0]["multimedia"] != ""){
+				
+				var imagenesMultimedia = JSON.parse(respuesta[0]["multimedia"]);
+				
+				for(var i = 0; i < imagenesMultimedia.length; i++){
 
-						var imagenesRestantes = $(".imagenesRestantes");
-						var arrayImgRestantes = [];
+					$(".previsualizarImgAdd").append(
 
-						for(var i = 0; i < imagenesRestantes.length; i++){
+							'<div class="col-md-3">'+
+							'<div class="thumbnail text-center">'+
+								'<img class="imagenesRestantes" src="'+imagenesMultimedia[i].foto+'" style="width:100%">'+
+								'<div class="removerImagen" style="cursor:pointer">Remove file</div>'+
+							'</div>'+
 
-							arrayImgRestantes.push({"foto":$(imagenesRestantes[i]).attr("src")})
-							
-						}
+							'</div>'
 
-						localStorage.setItem("multimediaAdd", JSON.stringify(arrayImgRestantes));
+					);
+
+					localStorage.setItem("multimediaAdd", JSON.stringify(imagenesMultimedia));
+
+				}		
+
+				/*=============================================
+				CUANDO ELIMINAMOS UNA IMAGEN DE LA LISTA
+				=============================================*/
+
+				$(".removerImagen").click(function(){
+
+					$(this).parent().parent().remove();
+
+					var imagenesRestantes = $(".imagenesRestantes");
+					var arrayImgRestantes = [];
+
+					for(var i = 0; i < imagenesRestantes.length; i++){
 						
-					})
+						arrayImgRestantes.push({"foto":$(imagenesRestantes[i]).attr("src")})
+						
+					}
 
-				}
+					localStorage.setItem("multimediaAdd", JSON.stringify(arrayImgRestantes));
+					
+				})
+
+			}
 
 			/*=============================================
 			TRAEMOS LA CATEGORIA
@@ -617,133 +639,102 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 			GUARDAR CAMBIOS DEL PRODUCTO
 			=============================================*/	
 
-			var multimediaFisica = null;
-			var multimediaVirtual = null;	
+			var multimediaArticulo = null;	
 
-			$(".guardarCambiosProducto").click(function(){
+			$(".guardarCambiosArticulo").click(function(){
 
 					/*=============================================
 					PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
 					=============================================*/
+					
 
-					if($("#modalEditarProducto .tituloProducto").val() != "" && 
-					   $("#modalEditarProducto .seleccionarTipo").val() != "" && 
-					   $("#modalEditarProducto .seleccionarCategoria").val() != "" &&
-					   $("#modalEditarProducto .seleccionarSubCategoria").val() != "" &&
-					   $("#modalEditarProducto .descripcionProducto").val() != "" &&
-					   $("#modalEditarProducto .pClavesProducto").val() != ""){
+					if($("#modalEditarArticulo .tituloArticulo").val() != "" && 
+					   $("#modalEditarArticulo .seleccionarCategoria").val() != "" && 
+					   $("#modalEditarArticulo .descripcionArticulo").val() != ""){
 
-						/*=============================================
-					   	PREGUNTAMOS SI VIENEN IMÁGENES PARA MULTIMEDIA O LINK DE YOUTUBE
-					   	=============================================*/
+							
+						if(arrayMFiles.length > 0 && $("#modalEditarArticulo .rutaArticulo").val() != ""){
 
-					   	if($("#modalEditarProducto .seleccionarTipo").val() != "virtual"){	
+							var listaMultimedia = [];
+							var finalFor = 0;
 
-						   	if(arrayFiles.length > 0 && $("#modalEditarProducto .rutaProducto").val() != ""){
-
-						   		var listaMultimedia = [];
-						   		var finalFor = 0;
-
-								for(var i = 0; i < arrayFiles.length; i++){
-									
-									var datosMultimedia = new FormData();
-									datosMultimedia.append("file", arrayFiles[i]);
-									datosMultimedia.append("ruta", $("#modalEditarProducto .rutaProducto").val());
-
-									$.ajax({
-										url:"ajax/productos.ajax.php",
-										method: "POST",
-										data: datosMultimedia,
-										cache: false,
-										contentType: false,
-										processData: false,
-										beforeSend: function(){
-
-											$(".modal-footer .preload").html(`
-
-
-												<center>
-
-													<img src="vistas/img/plantilla/status.gif" id="status" />
-													<br>
-
-												</center>
-
-											`);
-
-										},
-										success: function(respuesta){
-
-											$("#status").remove();
-
-											listaMultimedia.push({"foto" : respuesta.substr(3)});
-											multimediaFisica = JSON.stringify(listaMultimedia);
-											
-											if(localStorage.getItem("multimediaFisica") != null){
-
-												var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaFisica"));
-
-												var jsonMultimediaFisica = listaMultimedia.concat(jsonLocalStorage);
-
-												multimediaFisica = JSON.stringify(jsonMultimediaFisica);												
-											}
-																			
-											multimediaVirtual = null;
-
-											if(multimediaFisica == null){
-
-												 swal({
-												      title: "El campo de multimedia no debe estar vacío",
-												      type: "error",
-												      confirmButtonText: "¡Cerrar!"
-												    });
-
-												 return;
-											}
-
-
-											if((finalFor + 1) == arrayFiles.length){
-
-												editarMiProducto(multimediaFisica);
-												finalFor = 0;
-
-											}
-
-											finalFor++;							
+							for(var i = 0; i < arrayMFiles.length; i++){
 								
+								var datosMultimedia = new FormData();
+								datosMultimedia.append("fileM", arrayMFiles[i]);
+								datosMultimedia.append("rutaM", $("#modalEditarArticulo .rutaArticulo").val());
+
+								$.ajax({
+									url:"ajax/articulos.ajax.php",
+									method: "POST",
+									data: datosMultimedia,
+									cache: false,
+									contentType: false,
+									processData: false,
+									beforeSend: function(){
+
+										$(".modal-footer .preload").html(`
+
+
+											<center>
+
+												<img src="vistas/img/plantilla/status.gif" id="status" />
+												<br>
+
+											</center>
+
+										`);
+
+									},
+									success: function(respuesta){
+
+										$("#status").remove();
+
+										listaMultimedia.push({"foto" : respuesta.substr(3)});
+										multimediaArticulo = JSON.stringify(listaMultimedia);
+										
+										if(localStorage.getItem("multimediaAdd") != null){
+
+											var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
+
+											var jsonMultimediaAdd = listaMultimedia.concat(jsonLocalStorage);
+
+											multimediaArticulo = JSON.stringify(jsonMultimediaAdd);												
 										}
 
-									})
+										if(multimediaArticulo == null){
 
-								}
+												swal({
+													title: "El campo de multimedia no debe estar vacío",
+													type: "error",
+													confirmButtonText: "¡Cerrar!"
+												});
 
-							}else{
-					
-								var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaFisica"));
+												return;
+										}
 
-								multimediaFisica = JSON.stringify(jsonLocalStorage);
+										if((finalFor + 1) == arrayMFiles.length){
 
-								editarMiProducto(multimediaFisica);												
-								
+											editarMiArticulo(multimediaArticulo);
+											finalFor = 0;
+
+										}
+
+										finalFor++;							
+							
+									}
+
+								})
+
 							}
 
 						}else{
+				
+							var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
 
-							multimediaVirtual = $("#modalEditarProducto .multimedia").val();
-							multimediaFisica = null;
+							multimediaArticulo = JSON.stringify(jsonLocalStorage);
 
-							if(multimediaVirtual == null){
-
-					 			 swal({
-								      title: "El campo de multimedia no debe estar vacío",
-								      type: "error",
-								      confirmButtonText: "¡Cerrar!"
-								    });
-
-					 			  return;
-							}	
-
-							editarMiProducto(multimediaVirtual);	
+							editarMiArticulo(multimediaArticulo);										
 							
 						}
 
@@ -766,6 +757,94 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 	})
 
 })
+
+
+
+
+
+
+function editarMiArticulo(imagen){
+
+	
+
+	var idArticulo = $("#modalEditarArticulo .idArticulo").val();
+	var tituloArticulo = $("#modalEditarArticulo .tituloArticulo").val();
+	var rutaArticulo = $("#modalEditarArticulo .rutaArticulo").val();
+	var seleccionarCategoria = $("#modalEditarArticulo .seleccionarCategoria").val();
+	var descripcionArticulo = $("#modalEditarArticulo .descripcionArticulo").val();
+	var pClavesArticulo = $("#modalEditarArticulo .pClavesArticulo").val();
+	var precio = $("#modalEditarArticulo .precio").val();
+	var peso = $("#modalEditarArticulo .peso").val();
+	var disponible = $("#modalEditarArticulo .disponible").val();
+	var antiguaFotoPrincipalA = $("#modalEditarArticulo .antiguaFotoPrincipalA").val();
+
+
+	///alert(imagenFotoPrincipalA);
+
+	var datosArticulo = new FormData();
+	datosArticulo.append("idA", idArticulo);
+	datosArticulo.append("editarArticulo", tituloArticulo);
+	datosArticulo.append("rutaArticulo", rutaArticulo);
+	datosArticulo.append("seleccionarCategoria", seleccionarCategoria);	
+	datosArticulo.append("descripcionArticulo", descripcionArticulo);	
+	datosArticulo.append("pClavesArticulo", pClavesArticulo);
+	datosArticulo.append("precio", precio);
+	datosArticulo.append("peso", peso);
+	datosArticulo.append("disponible", disponible);
+
+	if(imagen == null){
+
+		multimediaArticulo = localStorage.getItem("multimediaAdd");
+		datosArticulo.append("multimedia", multimediaArticulo);
+
+	}else{
+
+		datosArticulo.append("multimedia", imagen);
+	}	
+
+	datosArticulo.append("fotoPrincipal", imagenFotoPrincipalA);
+	datosArticulo.append("antiguaFotoPrincipalA", antiguaFotoPrincipalA);
+
+	$.ajax({
+			url:"ajax/articulos.ajax.php",
+			method: "POST",
+			data: datosArticulo,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+									
+				
+				if(respuesta == "ok"){
+
+					swal({
+					  type: "success",
+					  title: "El articulo ha sido cambiado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+						if (result.value) {
+
+						localStorage.removeItem("multimediaAdd");
+						localStorage.clear();
+						window.location = "articulos";
+
+						}
+					})
+				}else{
+					swal({
+						title: "ERROR MANITO",
+					      type: "error",
+					      confirmButtonText: "¡Cerrar!"
+						});
+				}
+
+			}
+
+	})
+	
+}
+
 
 
 

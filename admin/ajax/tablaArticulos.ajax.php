@@ -21,7 +21,7 @@ class TablaArticulos{
 
   	$datosJson = '
 
-  		{	
+  		{
   			"data":[';
 
 	 	for($i = 0; $i < count($productos); $i++){
@@ -108,7 +108,6 @@ class TablaArticulos{
 					"'.$productos[$i]["titulo"].'",
 					"'.$disponible.'",
 					"'.$imagenPrincipal.'",
-					"'.$vistaMultimedia.'",
 					"'.$productos[$i]["descripcion"].'",
 					"'.$productos[$i]["prestados"].'",
 					"'.$productos[$i]["peso"].'",
