@@ -1,4 +1,23 @@
+<!--
+<form id="form1" action="ajax/tablaCodArticulos.ajax.php" method="post">
+	<input style="display:none" id="IDCODPRODET" name="IDCODPRODET" <?php echo 'value="'.$rutas[0].'"'; ?> >
+	<input type="submit" value="Envar">
+</form>
+-->
 
+<input style="display:none" id="IDCODPRODET" name="IDCODPRODET" <?php echo 'value="'.$rutas[0].'"'; ?> >
+
+<!--
+<table id="datatable_example" class="display" width="100%" cellspacing="0">
+<thead>
+<tr>
+<th>Empid</th>
+<th>Name</th>
+<th>Salary</th>
+</tr>
+</thead>
+</table>
+-->
 <!--=====================================
 INFOPRODUCTOS
 ======================================-->
@@ -126,6 +145,7 @@ INFOPRODUCTOS
 				REGRESAR A LA TIENDA
 				======================================-->
 
+				<!--
 				<div class="col-xs-6">
 					
 					<h6>
@@ -139,7 +159,7 @@ INFOPRODUCTOS
 					</h6>
 
 				</div>
-
+				-->
 				<div class="clearfix"></div>
 
 				<!--=====================================
@@ -191,7 +211,6 @@ INFOPRODUCTOS
 
 
 
-
 					/*=============================================
 					DESCRIPCIÓN
 					=============================================*/		
@@ -201,144 +220,79 @@ INFOPRODUCTOS
 				?>
 				
 				<!--=====================================
-				CARACTERÍSTICAS DEL PRODUCTO
+				GRAFICAS ARTICULO
 				======================================-->
-					<input type="text" class="knob" value="55" data-width="90" data-height="90" data-fgcolor="blue" data-readonly="true">
-	
-					<p class="text-muted text-center" style="font-size:12px"> 55% disponible</p>
-
-				<hr>
-
-				<div class="form-group row">
+					<br>
 					
-				<?php
-							echo '
-							<br><br>
-							<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-
-									<i class="fa fa-tasks" style="margin-right:5px"></i> 4
-									Unidades Disponibles  | 
-									
-
-									<i class="fa fa-balance-scale" style="margin:0px 5px"></i>
-									'.$infoarticulo["peso"].' Kg |
-									
-									
-									<i class="fa fa-credit-card-alt" style="margin:0px 5px"></i>
-									Precio: S/.<span class="vistas">'.$infoarticulo["precio"].'</span> .00
-
-								</span>
-
-							</h4>
-
-							';
-
-
-				?>
-
-				</div>
-
-				<!--=====================================
-				BOTONES DE COMPRA
-				======================================-->
-
-				<div class="row botonesCompra">
-
-				<?php
-/*
-					if($infoproducto["precio"]==0){
-*/
-						echo '<div class="col-md-6 col-xs-12">';
-
-						if(isset($_SESSION["validarSesion"]) && $_SESSION["validarSesion"] == "ok"){
-
-
-
-
-
-
-
-
-
-
-
-							/*
-							if($infoproducto["tipo"]=="virtual"){
+					<div class="chart-responsive">
 						
-								echo '<button class="btn btn-default btn-block btn-lg backColor agregarGratis" idProducto="'.$infoproducto["id"].'" idUsuario="'.$_SESSION["id"].'" tipo="'.$infoproducto["tipo"].'" titulo="'.$infoproducto["titulo"].'">ACCEDER AHORA</button>';
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<canvas id="pieDisponible" height="210"></canvas>
+							<p class="text-muted text-center" style="font-size:12px"> 55% disponible</p>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<canvas id="pieDisponible2" height="210"></canvas>
+							<p class="text-muted text-center" style="font-size:12px"> 55% en baja</p>
+						</div>
 
-							}else{
+	        		</div>
 
-								echo '<button class="btn btn-default btn-block btn-lg backColor agregarGratis" idProducto="'.$infoproducto["id"].'" idUsuario="'.$_SESSION["id"].'" tipo="'.$infoproducto["tipo"].'" titulo="'.$infoproducto["titulo"].'">SOLICITAR AHORA</button>
 
-									<br>
+					<!--
+					<input type="text" class="knob" value="80" data-width="200" data-height="200" data-fgcolor="blue" data-readonly="true">
+					-->
+					
 
-									<div class="col-xs-12 panel panel-info text-left">
 
-									<strong>¡Atención!</strong>
 
-										El producto a solicitar es totalmente gratuito y se enviará a la dirección solicitada, sólo se cobrará los cargos de envío.
 
-									</div>
+					<div class="form-group row">
+						
+						<?php
+								echo '
+								
+								<h4 class="col-md-12 col-sm-0 col-xs-0">
+
+									<span class="label label-default" style="font-weight:100">
+
+										<i class="fa fa-tasks" style="margin-right:5px"></i> 4
+										Unidades Disponibles  | 
+										
+										<i class="fa fa-balance-scale" style="margin:0px 5px"></i>
+										'.$infoarticulo["peso"].' Kg |
+										
+										<i class="fa fa-credit-card-alt" style="margin:0px 5px"></i>
+										Precio: S/.<span class="vistas">'.$infoarticulo["precio"].'</span> .00
+
+									</span>
+
+								</h4>
+
 								';
 
-							}
 
-							*/
+						?>
 
-
-
-
-
-
-						}else{
-
-							echo '<a href="#modalNotificacion" data-toggle="modal">
-
-								<button class="btn btn-default btn-block btn-lg backColor">	SOLICITAR AHORA</button>
-
-							</a>';
-
-						}
-
-						echo '</div>';
-
-				?>
-
-				</div>
-				
-				<!--=====================================
-				ZONA DE LUPA
-				======================================-->
-
-				<figure class="lupa">
-					
-					<img src="">
-
-				</figure>
+					</div>
 
 				</div>
 			</div>
 			</div>
 			
 			
+			<br>
 
 
-
-			<div class="box-header with-border container">
+			<div class="box-header with-border">
 	 
 				<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCodArticulo">
 				
-				Agregar Articulo
+				Agregar Nuevo Articulo
 
 				</button>
 
 			</div>
-			<div class="box-body container">
+			<div class="box-body ">
 
 				<table class="table table-bordered table-striped dt-responsive tablaCodArticulos" width="100%">
 
@@ -349,9 +303,10 @@ INFOPRODUCTOS
 						<th style="width:10px">#</th>
 						<th>Codigo Natural</th>
 						<th>Codigo Patrimonial</th>
+						<th>Operatividad</th>
 						<th>Estado</th>
 						<th>Fecha de creacion</th>
-						<th>Acciones</th>
+						<th style="width:10px">Acciones</th>
 
 						</tr> 
 
@@ -362,19 +317,7 @@ INFOPRODUCTOS
 			</div>
 
 
-						
-
-
-
-
-
 		</div>
-
-		<?php
-
-			echo $infoarticulo["idDetalleArticulo"];		///AQUI BROO			
-
-		?>
 
 		</div>
 
@@ -383,12 +326,101 @@ INFOPRODUCTOS
 </div>
 
 
+
+
+
+
+
 <?php
 
-echo $infoarticulo["idDetalleArticulo"];		///AQUI BROO			
+$productos = ControladorProductos::ctrMostrarTotalProductos("ventas");
 
-$idProductS = IdProducto::IdProductoGET();
-
-echo $idProductS;
+$colores = array("#5DADE2","#EAEDED","#E74C3C","#EAEDED","purple");
 
 ?>
+
+<script>
+	
+// -------------
+  // - PIE CHART -
+  // -------------
+  // Get context with jQuery - using jQuery's .get() method.
+  var pieChartCanvas = $('#pieDisponible').get(0).getContext('2d');
+  var pieChartCanvas2 = $('#pieDisponible2').get(0).getContext('2d');
+  var pieChart       = new Chart(pieChartCanvas);
+  var pieChart2       = new Chart(pieChartCanvas2);
+  var PieData        = [
+
+  <?php
+
+	for($i = 0; $i < 2; $i++){
+
+		echo "{
+			value    : ".$productos[$i]["ventas"].",
+			color    : '".$colores[$i]."',
+			highlight: '".$colores[$i]."',
+			label    : '".$productos[$i]["titulo"]."'
+		},";
+
+	}
+
+  ?>
+    
+  ];
+
+  var PieData2        = [
+
+	<?php
+
+		for($i = 2; $i < 4; $i++){
+
+			echo "{
+				value    : ".$productos[$i]["ventas"].",
+				color    : '".$colores[$i]."',
+				highlight: '".$colores[$i]."',
+				label    : '".$productos[$i]["titulo"]."'
+			},";
+
+		}
+
+	?>
+	
+	];
+
+
+  var pieOptions     = {
+    // Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke    : true,
+    // String - The colour of each segment stroke
+    segmentStrokeColor   : '#fff',
+    // Number - The width of each segment stroke
+    segmentStrokeWidth   : 1,
+    // Number - The percentage of the chart that we cut out of the middle
+    percentageInnerCutout: 50, // This is 0 for Pie charts
+    // Number - Amount of animation steps
+    animationSteps       : 150,
+    // String - Animation easing effect
+    animationEasing      : 'easeOutBounce',
+    // Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate        : true,
+    // Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale         : false,
+    // Boolean - whether to make the chart responsive to window resizing
+    responsive           : true,
+    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+    maintainAspectRatio  : false,
+    // String - A legend template
+    legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
+    // String - A tooltip template
+    tooltipTemplate      : '<%=value %> <%=label%>'
+  };
+  // Create pie or douhnut chart
+  // You can switch between pie and douhnut using the method below.
+  pieChart.Doughnut(PieData, pieOptions);
+  pieChart2.Doughnut(PieData2, pieOptions);
+  // -----------------
+  // - END PIE CHART -
+  // -----------------
+
+	
+</script>

@@ -30,6 +30,8 @@ class ControladorArticulos{
 
 	}
 
+	
+
 	/*=============================================
 	MOSTRAR SUMA VENTAS
 	=============================================*/
@@ -55,6 +57,20 @@ class ControladorArticulos{
 	static public function ctrMostrarArticulos($item, $valor){
 
 		$tabla = "detallearticulo";
+
+		$respuesta = ModeloArticulos::mdlMostrarArticulos($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
+	/*=============================================
+	MOSTRAR ARTICULOS
+	=============================================*/
+
+	static public function ctrMostrarCodArticulos($item, $valor){
+
+		$tabla = "articulos";
 
 		$respuesta = ModeloArticulos::mdlMostrarArticulos($tabla, $item, $valor);
 

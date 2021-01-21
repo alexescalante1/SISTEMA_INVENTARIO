@@ -36,7 +36,7 @@ class IdProducto{
 
 	public function IdProductoGET(){
 		
-		return $idProduct;
+		//return $idProduct;
 
 	}
 }
