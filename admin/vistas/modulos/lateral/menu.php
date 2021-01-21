@@ -39,8 +39,13 @@ MENU
 -->
 
   <li><a href="articulos"><i class="fa fa-product-hunt"></i> <span>Gestor Articulos</span></a></li>
-  <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
 
+  <li><a href="prestamos"><i class="fa fa-product-hunt"></i> <span>Gestor De Prestamos</span></a></li>
+
+  <li><a href="notificacionesM"><i class="fa fa-product-hunt"></i> <span>Gestor De Notificaciones</span></a></li>
+  <!--
+    <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
+  -->
 <!--
   <li><a href="banner"><i class="fa fa-map-o"></i> <span>Gestor Banner</span></a></li>
 -->
@@ -49,14 +54,15 @@ MENU
 
   if($_SESSION["perfil"] == "administrador"){
 
-  echo '<li><a href="ventas"><i class="fa fa-shopping-cart"></i> <span>Gestor Ventas</span></a></li>';
-
+    /*echo '<li><a href="ventas"><i class="fa fa-shopping-cart"></i> <span>Gestor Ventas</span></a></li>';
+*/
   }
 
   ?>
 
-  <li><a href="visitas"><i class="fa fa-map-marker"></i> <span>Gestor Visitas</span></a></li>
-
+  <!--
+    <li><a href="visitas"><i class="fa fa-map-marker"></i> <span>Gestor Visitas</span></a></li>
+  -->
   
 
   <?php

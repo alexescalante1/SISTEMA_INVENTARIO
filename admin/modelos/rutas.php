@@ -23,3 +23,20 @@ class Ruta{
 	}
 
 }
+
+class IdProducto{
+
+	public $idProduct = 4;
+
+	public function IdProductoSET($ID){
+
+		$idProduct = $ID;
+
+	}
+
+	public function IdProductoGET(){
+		
+		return $idProduct;
+
+	}
+}

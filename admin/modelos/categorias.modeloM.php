@@ -36,6 +36,22 @@ class ModeloCategoria{
 	
 	}
 
+	static public function mdlValidarCategoria($tabla, $item, $valor){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+		
+		$stmt = null;
+	
+	}
+
 	/*=============================================
 	ACTIVAR CATEGORIA
 	=============================================*/
@@ -67,18 +83,12 @@ class ModeloCategoria{
 	CREAR CATEGORIA
 	=============================================*/
 
-	static public function mdlIngresarCategoria($tabla, $datos){
+	static public function mdlIngresarCategoriaM($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, ruta, estado, oferta, precioOferta, descuentoOferta, imgOferta, finOferta) VALUES (:categoria, :ruta, :estado, :oferta, :precioOferta, :descuentoOferta, :imgOferta, :finOferta)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(ruta, titulo) VALUES (:ruta, :titulo)");
 
-		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
 		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
-		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
-		$stmt->bindParam(":oferta", $datos["oferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":precioOferta", $datos["precioOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":descuentoOferta", $datos["descuentoOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":imgOferta", $datos["imgOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":finOferta", $datos["finOferta"], PDO::PARAM_STR);
+		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
@@ -134,9 +144,9 @@ class ModeloCategoria{
 
 	static public function mdlEliminarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idCategoria = :idCategoria");
 
-		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+		$stmt -> bindParam(":idCategoria", $datos, PDO::PARAM_INT);
 
 		if($stmt -> execute()){
 

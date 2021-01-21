@@ -3,6 +3,20 @@
 class ControladorArticulos{
 
 	/*=============================================
+	MOSTRAR INFOARTICULOS
+	=============================================*/
+
+	static public function ctrMostrarInfoArticulo($item, $valor){
+
+		$tabla = "detallearticulo";
+
+		$respuesta = ModeloArticulos::mdlMostrarInfoArticulo($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+	
+	/*=============================================
 	MOSTRAR TOTAL ARTICULOS
 	=============================================*/
 

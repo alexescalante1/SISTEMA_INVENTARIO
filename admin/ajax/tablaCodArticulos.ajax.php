@@ -6,8 +6,10 @@ require_once "../modelos/articulos.modelo.php";
 require_once "../controladores/categorias.controladorM.php";
 require_once "../modelos/categorias.modeloM.php";
 
-class TablaArticulos{
+require_once "../modelos/rutas.php";
 
+class TablaArticulos{
+	
   /*=============================================
   MOSTRAR LA TABLA DE PRODUCTOS
   =============================================*/ 
@@ -16,6 +18,8 @@ class TablaArticulos{
 	
   	$item = null;
   	$valor = null;
+	  
+	
 
   	$productos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
 
@@ -69,13 +73,6 @@ class TablaArticulos{
   			=============================================*/
 
 
-			  
-									
-					
-								
-
-
-
 			$imagenPrincipal = "<a href='".$productos[$i]["ruta"]."'><img src='".$productos[$i]["portada"]."' class='img-thumbnail imgTablaPrincipal' width='100px'></a>";
 
 			/*=============================================
@@ -117,7 +114,6 @@ class TablaArticulos{
 					"'.$productos[$i]["titulo"].'",
 					"'.$disponible.'",
 					"'.$imagenPrincipal.'",
-					"'.$productos[$i]["descripcion"].'",
 					"'.$productos[$i]["prestados"].'",
 					"'.$productos[$i]["peso"].'",
 					"'.$productos[$i]["precio"].'",

@@ -49,6 +49,23 @@ class AjaxArticulo{
 	}
 
 	/*=============================================
+	VALIDAR NO REPETIR CATEGORIA
+	=============================================*/	
+
+	public $validarCategoriaM;
+
+	public function ajaxValidarCategoriaM(){
+
+		$item = "titulo";
+		$valor = $this->validarCategoriaM;
+
+		$respuesta = ControladorCategoria::ctrValidarCategoria($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+	/*=============================================
 	RECIBIR MULTIMEDIA
 	=============================================*/
 
@@ -150,6 +167,24 @@ class AjaxArticulo{
 
 	}
 
+	/*=============================================
+	GUARDAR CATEGORIA Y EDITAR CATEGORIA
+	=============================================*/	
+	public $tituloCategoriaM;
+	public $rutaCategoriaM;
+
+	public function  ajaxCrearCategoriaM(){
+
+		$datos = array(
+			"tituloCategoriaM"=>$this->tituloCategoriaM,
+			"rutaCategoriaM"=>$this->rutaCategoriaM
+			);
+
+		$respuesta = ControladorCategoria::ctrCrearCategoria($datos);
+
+		echo $respuesta;
+
+	}
 
  }
 
@@ -182,6 +217,18 @@ if(isset($_POST["validarArticulo"])){
 	$valArticulo = new AjaxArticulo();
 	$valArticulo -> validarArticulo = $_POST["validarArticulo"];
 	$valArticulo -> ajaxValidarArticulo();
+
+}
+
+/*=============================================
+VALIDAR NO REPETIR CATEGORIA
+=============================================*/
+
+if(isset($_POST["validarCategoriaM"])){
+
+	$valCategoriaM = new AjaxArticulo();
+	$valCategoriaM -> validarCategoriaM = $_POST["validarCategoriaM"];
+	$valCategoriaM -> ajaxValidarCategoriaM();
 
 }
 
@@ -228,32 +275,17 @@ if(isset($_POST["tituloArticulo"])){
 
 }
 
-/*
-$articulos = new AjaxArticulo();
-	$articulos -> tituloArticulo = $_POST["tituloArticulo"];
-	$articulos -> rutaArticulo = $_POST["rutaArticulo"];
-	$articulos -> seleccionarCategoria = $_POST["seleccionarCategoria"];
-	$articulos -> descripcionArticulo = $_POST["descripcionArticulo"];
-	$articulos -> pClavesArticulo = $_POST["pClavesArticulo"];
-	$articulos -> precio = $_POST["precio"];
-	$articulos -> peso = $_POST["peso"];
-	$articulos -> disponible = $_POST["disponible"];
+#CREAR CATEGORIA
+#-----------------------------------------------------------
+if(isset($_POST["tituloCategoriaM"])){
 
-	$articulos -> multimedia = $_POST["multimedia"];
+	$categoriaM = new AjaxArticulo();
+	$categoriaM -> tituloCategoriaM = $_POST["tituloCategoriaM"];
+	$categoriaM -> rutaCategoriaM = $_POST["rutaCategoriaM"];
 
-	if(isset($_FILES["fotoPrincipal"])){
+	$categoriaM -> ajaxCrearCategoriaM();
 
-		$articulos -> fotoPrincipal = $_FILES["fotoPrincipal"];
-
-	}else{
-
-		$articulos -> fotoPrincipal = null;
-
-	}
-
-	$articulos -> ajaxCrearArticulo();
-*/
-
+}
 
 
 /*=============================================
@@ -300,3 +332,5 @@ if(isset($_POST["idA"])){
 	$editarArticulo -> ajaxEditarArticulo();
 
 }
+
+

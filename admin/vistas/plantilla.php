@@ -158,7 +158,28 @@ session_start();
      CONTENIDO
      =============================================*/
 
+     $rutas = array();
+     $infoArticulos = null;
+
      if(isset($_GET["ruta"])){
+
+
+        $rutas = explode("/", $_GET["ruta"]);
+        $item = "ruta";
+        $valor =  $rutas[0];
+
+        /*=============================================
+        URL'S AMIGABLES IFO ARTICULOS
+        =============================================*/
+
+        $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $valor);
+	
+        if($rutas[0] == $rutaArticulos["ruta"]){
+
+          $infoArticulos = $rutas[0];
+
+        }
+        
 
         if($_GET["ruta"]== "inicio" ||
            $_GET["ruta"]== "comercio" ||
@@ -174,17 +195,25 @@ session_start();
            $_GET["ruta"]== "perfiles" ||
            $_GET["ruta"]== "perfil" ||
            $_GET["ruta"]== "articulos" ||
+           $_GET["ruta"]== "prestamos" ||
+           $_GET["ruta"]== "notificacionesM" ||
            $_GET["ruta"]== "salir"){
-
 
           include "modulos/".$_GET["ruta"].".php";
 
+        }else if($infoArticulos != null){
+	
+          include "modulos/infoarticulos.php";
+      
         }
+        
 
      }else{
 
        include "modulos/inicio.php";
 
+       /*include "modulos/infoarticulos.php";
+      */
      }
 
      /*=============================================

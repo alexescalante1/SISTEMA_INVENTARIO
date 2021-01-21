@@ -57,7 +57,6 @@
                <th>Categoria</th>
                <th>Palabras Clave</th>
                <th>Acciones</th>
-               <th>Acciones</th>
 
             </tr> 
 
@@ -83,9 +82,18 @@
 
   <section class="content-header">
 
-    <h1>
+   <h1>
       Gestor Categorias
     </h1>
+
+    <!-- BARRA DE NAV-->
+    <ol class="breadcrumb">
+
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+      <li class="active">Gestor Categorias</li>
+
+    </ol>
     
   </section>
 

@@ -15,6 +15,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 $('.tablaArticulos').DataTable({
 
+	
 	"ajax":"ajax/tablaArticulos.ajax.php",
 	"deferRender": true,
 	"retrieve": true,
@@ -47,6 +48,81 @@ $('.tablaArticulos').DataTable({
 	}
 
 });
+
+
+
+$('.tablaCategoriasM').DataTable({
+
+	"ajax":"ajax/tablaCategorias.ajaxM.php",
+	"deferRender": true,
+	"retrieve": true,
+	"processing": true,
+    "language": {
+
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ningún dato disponible en esta tabla",
+			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+			"sFirst":    "Primero",
+			"sLast":     "Último",
+			"sNext":     "Siguiente",
+			"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+
+	}
+
+});
+
+
+$('.tablaCodArticulos').DataTable({
+
+	
+	"ajax":"ajax/tablaCodArticulos.ajax.php",
+	"deferRender": true,
+	"retrieve": true,
+	"processing": true,
+    "language": {
+
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ningún dato disponible en esta tabla",
+			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+			"sFirst":    "Primero",
+			"sLast":     "Último",
+			"sNext":     "Siguiente",
+			"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+
+	}
+
+});
+
 
 /*=============================================
 ACTIVAR ARTICULO
@@ -134,6 +210,45 @@ $(".validarArticulo").change(function(){
 
 })
 
+
+/*=============================================
+REVISAR SI EL TITULO DE LA CATEGORIA YA EXISTE
+=============================================*/
+
+
+$(".validarCategoriaM").change(function(){
+
+	$(".alert").remove();
+
+	var categoriaM = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarCategoriaM", categoriaM);
+
+	 $.ajax({
+	    url:"ajax/articulos.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+
+    		if(respuesta.length != 0){
+
+    			$(".validarCategoriaM").parent().after('<div class="alert alert-warning">Este título de articulo ya existe en la base de datos</div>');
+
+	    		$(".validarCategoriaM").val("");
+
+    		}
+
+	    }
+
+   	})
+
+})
+
 /*=============================================
 RUTA ARTICULO
 =============================================*/
@@ -150,12 +265,18 @@ function limpiarURL(texto){
 	return texto;
   }
   
-  $(".tituloArticulo").change(function(){
+
+$(".tituloArticulo").change(function(){
   
 	  $(".rutaArticulo").val(limpiarURL($(".tituloArticulo").val()));
   
-  })
+})
 
+$(".tituloCategoriaM").change(function(){
+  
+	$(".rutaCategoriaM").val(limpiarURL($(".tituloCategoriaM").val()));
+
+})
 
 
 /*=============================================
@@ -888,6 +1009,124 @@ $('.tablaArticulos tbody').on("click", ".btnEliminarArticulo", function(){
 	  if(result.value){
   
 		window.location = "index.php?ruta=articulos&idArticulo="+idArticulo+"&rutaCabecera="+rutaCabecera+"&imgPrincipal="+imgPrincipal;
+  
+	  }
+  
+	})
+  
+
+  
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+GUARDAR EL CATEGORIA
+=============================================*/
+
+$(".guardarCategoriaM").click(function(){
+
+	if($(".tituloCategoriaM").val() != ""){
+
+		agregarMiCategoriaM();
+
+	}else{
+
+		swal({
+	      title: "Llenar todos los campos obligatorios",
+	      type: "error",
+	      confirmButtonText: "¡Cerrar!"
+	    });
+
+		return;
+	}
+
+})
+
+
+
+function agregarMiCategoriaM(){
+
+		var tituloCategoriaM = $(".tituloCategoriaM").val();
+		var rutaCategoriaM = $(".rutaCategoriaM").val();
+
+	 	var datosCategoriaM = new FormData();
+		 datosCategoriaM.append("tituloCategoriaM", tituloCategoriaM);
+		 datosCategoriaM.append("rutaCategoriaM", rutaCategoriaM);
+
+		$.ajax({
+				url:"ajax/articulos.ajax.php",
+				method: "POST",
+				data: datosCategoriaM,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(respuesta){
+					
+					if(respuesta == "ok"){
+
+						swal({
+						  type: "success",
+						  title: "La categoria se ha guardado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "articulos";
+
+							}
+						})
+					}else{
+						swal({
+							type: "error",
+							title: "La categoria no se ha guardado correctamente",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+							})
+					}
+
+				}
+
+		})
+
+}
+
+
+
+
+/*=============================================
+ELIMINAR CATEGORIA
+=============================================*/
+
+$('.tablaCategoriasM tbody').on("click", ".btnEliminarCategoriaM", function(){
+
+	var idCategoriaM = $(this).attr("idCategoriaM");
+  
+	swal({
+	  title: '¿Está seguro de borrar el producto?',
+	  text: "¡Si no lo está puede cancelar la accíón!",
+	  type: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancelar',
+		confirmButtonText: 'Si, borrar producto!'
+	}).then(function(result){
+  
+	  if(result.value){
+  
+		window.location = "index.php?ruta=articulos&idCategoriaM="+idCategoriaM;
   
 	  }
   
