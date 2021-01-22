@@ -9,33 +9,57 @@ require_once "../modelos/categorias.modeloM.php";
 class TablaArticulos{
 
   /*=============================================
-  MOSTRAR LA TABLA DE PRODUCTOS
+  MOSTRAR LA TABLA DE ARTICULOS
   =============================================*/ 
 
   public function mostrarTablaArticulos(){
 	
   	$item = null;
   	$valor = null;
+	$tituloCateg = null;
 
-  	$productos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
+	$idCat = array();
+	$NameCat = array();
+	
+	$categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
+	
+	for($i = 0; $i < count($categoria); $i++){
+	
+		$idCat[$i] = $categoria[$i]["idCategoria"];
+		$NameCat[$i] = $categoria[$i]["titulo"];
+	
+	}
+
+  	$articulos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
 
   	$datosJson = '
 
   		{
   			"data":[';
 
-	 	for($i = 0; $i < count($productos); $i++){
+	 	for($i = 0; $i < count($articulos); $i++){
 
 			/*=============================================
   			TRAER LAS CATEGORÍAS
   			=============================================*/
+			
+			
+			for($j = 0; $j < count($categoria); $j++){
+				
+				if($idCat[$j] == $articulos[$i]["idCategoria"]){
+					$tituloCateg = $NameCat[$j];
+					break;
+				}
+			
+			}
 
+			/*
   			$item = "idCategoria";
-			$valor = $productos[$i]["idCategoria"];
+			$valor = $articulos[$i]["idCategoria"];
 
 			
 			$categorias = ControladorCategoria::ctrMostrarCategoria($item, $valor);
-
+			
 			if($categorias["titulo"] == ""){
 
 				$categoria = "SIN CATEGORÍA";
@@ -44,12 +68,19 @@ class TablaArticulos{
 
 				$categoria = $categorias["titulo"];
 			}
+			*/
+
+			if($tituloCateg == null){
+
+				$tituloCateg = "SIN CATEGORÍA";
+			
+			}
 
 			/*=============================================
   			AGREGAR ETIQUETAS DE ESTADO
   			=============================================*/
 
-  			if($productos[$i]["disponible"] == 0){
+  			if($articulos[$i]["disponible"] == 0){
 
 				$colorEstado = "btn-danger";
 				$textoEstado = "Desactivado";
@@ -63,28 +94,20 @@ class TablaArticulos{
 
 			}
 
-			$disponible = "<button class='btn btn-xs btnActivar ".$colorEstado."' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>".$textoEstado."</button>";
+			$disponible = "<button class='btn btn-xs btnActivar ".$colorEstado."' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>".$textoEstado."</button>";
 			/*=============================================
   			TRAER IMAGEN PRINCIPAL
   			=============================================*/
 
-
-			  
-									
-					
-								
-
-
-
-			$imagenPrincipal = "<a href='".$productos[$i]["ruta"]."'><img src='".$productos[$i]["portada"]."' class='img-thumbnail imgTablaPrincipal' width='100px'></a>";
+			$imagenPrincipal = "<a href='".$articulos[$i]["ruta"]."'><img src='".$articulos[$i]["portada"]."' class='img-thumbnail imgTablaPrincipal' width='100px'></a>";
 
 			/*=============================================
 			TRAER MULTIMEDIA
   			=============================================*/
 
-  			if($productos[$i]["multimedia"] != null){
+  			if($articulos[$i]["multimedia"] != null){
 
-				$multimedia = json_decode($productos[$i]["multimedia"],true);
+				$multimedia = json_decode($articulos[$i]["multimedia"],true);
 
 				if($multimedia[0]["foto"] != ""){
 
@@ -92,7 +115,7 @@ class TablaArticulos{
 
 				}else{
 
-					$vistaMultimedia = "<img src='http://i3.ytimg.com/vi/".$productos[$i]["multimedia"]."/hqdefault.jpg' class='img-thumbnail imgTablaMultimedia' width='100px'>";
+					$vistaMultimedia = "<img src='http://i3.ytimg.com/vi/".$articulos[$i]["multimedia"]."/hqdefault.jpg' class='img-thumbnail imgTablaMultimedia' width='100px'>";
 					
 				}
 
@@ -106,23 +129,23 @@ class TablaArticulos{
   			TRAER LAS ACCIONES
   			=============================================*/
 
-			$accionesV = "<div class='btn-group'><a href='".$productos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'> Ver Articulo</i></button></a></div>";
+			$accionesV = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'> Ver Articulo</i></button></a></div>";
 
-			$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$productos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$productos[$i]["idDetalleArticulo"]."' rutaCabecera='".$productos[$i]["ruta"]."' imgPrincipal='".$productos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
+			$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
 
 			$datosJson .='[
 					
 					"'.($i+1).'",
-					"'.$productos[$i]["ruta"].'",
-					"'.$productos[$i]["titulo"].'",
+					"'.$articulos[$i]["ruta"].'",
+					"'.$articulos[$i]["titulo"].'",
+					"'.$tituloCateg.'",
+					"'.$articulos[$i]["palabrasClave"].'",
 					"'.$disponible.'",
 					"'.$imagenPrincipal.'",
-					"'.$productos[$i]["descripcion"].'",
-					"'.$productos[$i]["prestados"].'",
-					"'.$productos[$i]["peso"].'",
-					"'.$productos[$i]["precio"].'",
-					"'.$categoria.'",
-					"'.$productos[$i]["palabrasClave"].'",
+					"'.$articulos[$i]["descripcion"].'",
+					"'.$articulos[$i]["prestados"].'",
+					"'.$articulos[$i]["peso"]." Kg".'",
+					"'."S/.".$articulos[$i]["precio"].".00".'",
 					"'.$accionesV.'",
 					"'.$acciones.'"	   
 
@@ -144,7 +167,7 @@ class TablaArticulos{
 }
 
 /*=============================================
-ACTIVAR TABLA DE PRODUCTOS
+ACTIVAR TABLA DE ARTICULOS
 =============================================*/ 
 $activarArticulo = new TablaArticulos();
 $activarArticulo -> mostrarTablaArticulos();

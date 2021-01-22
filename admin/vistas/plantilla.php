@@ -163,7 +163,6 @@ session_start();
 
      if(isset($_GET["ruta"])){
 
-
         $rutas = explode("/", $_GET["ruta"]);
         $item = "ruta";
         $valor =  $rutas[0];
@@ -173,7 +172,7 @@ session_start();
         =============================================*/
 
         $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $valor);
-	
+
         if($rutas[0] == $rutaArticulos["ruta"]){
 
           $infoArticulos = $rutas[0];

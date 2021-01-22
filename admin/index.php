@@ -18,6 +18,9 @@ require_once "controladores/visitas.controlador.php";
 require_once "controladores/notificaciones.controlador.php";
 
 
+require_once "controladores/notificaciones.controladorM.php";
+
+
 require_once "controladores/articulos.controlador.php";
 
 
@@ -39,6 +42,8 @@ require_once "modelos/visitas.modelo.php";
 require_once "modelos/notificaciones.modelo.php";
 require_once "modelos/articulos.modelo.php";
 
+
+require_once "modelos/notificaciones.modeloM.php";
 
 require_once "modelos/rutas.php";
 

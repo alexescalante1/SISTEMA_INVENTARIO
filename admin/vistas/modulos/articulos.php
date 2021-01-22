@@ -20,9 +20,6 @@
 
 
 
-
-
-
   <section class="content">
 
     <div class="box">
@@ -48,14 +45,14 @@
                <th style="width:10px">#</th>
                <th>Ruta</th>
                <th>Titulo</th>
+               <th>Categoria</th>
+               <th>Palabras Clave</th>
                <th>Disponible</th>
                <th>Portada</th>
                <th>Descripción</th>
                <th>Prestados</th>
                <th>Peso</th>
                <th>Precio</th>
-               <th>Categoria</th>
-               <th>Palabras Clave</th>
                <th>Acciones</th>
                <th>Acciones</th>
 
