@@ -186,6 +186,43 @@ class AjaxArticulo{
 
 	}
 
+	/*=============================================
+	TRAER CATEGORIAS
+	=============================================*/	
+
+	public $idCategoriaM;
+
+	public function ajaxTraerCategoria(){
+
+		$item = "idCategoria";
+		$valor = $this->idCategoriaM;
+
+		$respuesta = ControladorCategoria::ctrValidarCategoria($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+	/*=============================================
+	EDITAR CATEGORIA
+	=============================================*/	
+
+	public $idC;
+
+	public function  ajaxEditarCategoria(){
+
+		$datos = array(
+			"idCategoria"=>$this->idC,
+			"tituloCategoriaM"=>$this->tituloCategoriaM,
+			"rutaCategoriaM"=>$this->rutaCategoriaM
+			);
+
+		$respuesta = ControladorCategoria::ctrEditarCategoriaM($datos);
+	
+		echo $respuesta;
+
+	}
+
  }
 
 
@@ -334,3 +371,29 @@ if(isset($_POST["idA"])){
 }
 
 
+
+/*=============================================
+TRAER CATEGORIA
+=============================================*/
+if(isset($_POST["idCategoriaM"])){
+
+	$traerCategoria = new AjaxArticulo();
+	$traerCategoria -> idCategoriaM = $_POST["idCategoriaM"];
+	$traerCategoria -> ajaxTraerCategoria();
+
+}
+
+
+/*=============================================
+EDITAR CATEGORIA
+=============================================*/
+if(isset($_POST["idC"])){
+
+	$editarCategoria = new AjaxArticulo();
+	$editarCategoria -> idC = $_POST["idC"];
+	$editarCategoria -> tituloCategoriaM = $_POST["editarCategoriaM"];
+	$editarCategoria -> rutaCategoriaM = $_POST["rutaCategoriaM"];
+
+	$editarCategoria -> ajaxEditarCategoria();
+
+}

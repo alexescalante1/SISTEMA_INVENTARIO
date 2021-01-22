@@ -74,7 +74,7 @@ class TablaArticulos{
 				$tipoDoc = "CODIGO";
 			}
 
-			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo'><i class='fa fa-eye'> Prestar</i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
+			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
 
 			$datosJson .='[
 					

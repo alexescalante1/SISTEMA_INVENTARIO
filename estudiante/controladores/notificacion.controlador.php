@@ -32,6 +32,18 @@ class ControladorNotificacion{
 
 				if($respuesta == "ok"){
 
+					echo'<script>
+						
+						swal({
+							type: "success",
+							title: "La notificacion se ha enviado correctamente",
+							showConfirmButton: true,
+						}, function (inputValue) {
+							window.location = "inicio";
+						});
+
+					</script>';
+					
 					/*=============================================
 					ACTUALIZAR NOTIFICACIONES NUEVOS USUARIOS
 					=============================================*/
@@ -49,7 +61,7 @@ class ControladorNotificacion{
 	
 							swal({
 								  title: "¡ERROR!",
-								  text: "¡Error al registrar el usuario, salio mal",
+								  text: "¡Error al registrar la notificacion!",
 								  type:"error",
 								  confirmButtonText: "Cerrar",
 								  closeOnConfirm: false
@@ -72,7 +84,7 @@ class ControladorNotificacion{
 
 						swal({
 							  title: "¡ERROR!",
-							  text: "¡Error al registrar el usuario, no se permiten caracteres especiales!",
+							  text: "¡Error al registrar la notificacion, no se permiten caracteres especiales!",
 							  type:"error",
 							  confirmButtonText: "Cerrar",
 							  closeOnConfirm: false

@@ -21,9 +21,16 @@ $base = 0;
 $tope = 6;
 
 $ordenar = "prestados";
+$item = null;
+$valor = null;
+$modo = "DESC";
+
+/*
+$ordenar = "prestados";
 $item = "disponible";
 $valor = 1;
 $modo = "DESC";
+*/
 
 $ventas = ControladorArticulos::ctrMostrarArticulos($ordenar, $item, $valor, $base, $tope, $modo);
 
@@ -71,9 +78,7 @@ $modulos = $ventas;
 
 				foreach ($ventas as $key => $value) {
 					
-					if($value["disponible"] != 0){
-					
-					//echo $value["multimedia"];
+					//if($value["disponible"] != 0){
 
 					echo '<li class="col-md-2 col-sm-6 col-xs-12">
 
@@ -119,92 +124,12 @@ $modulos = $ventas;
 
 								</small>			
 
-							</h4>
-
-							<div class="col-xs-6 precio">';
-							/*					
-							if($value["precio"] == 0){
-
-								echo '<h2><small>GRATIS</small></h2>';
-
-							}else{
-
-								if($value["oferta"] != 0){
-
-									echo '<h2>
-
-											<small>
-						
-												<strong class="oferta">USD $'.$value["precio"].'</strong>
-
-											</small>
-
-											<small>$'.$value["precioOferta"].'</small>
-										
-										</h2>';
-
-								}else{
-
-									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
-
-								}
-								
-							}
-							*/				
-							/*
-							echo '</div>
+							</h4>';
 							
-							<div class="col-xs-6 enlaces">
-								
-								<div class="btn-group pull-right">
-									
-									<button type="button" class="btn btn-default btn-xs deseos" idProducto="'.$value["id"].'" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-										
-										<i class="fa fa-heart" aria-hidden="true"></i>
-
-									</button>';
-
-									if($value["tipo"] == "virtual" && $value["precio"] != 0){
-
-										if($value["oferta"] != 0){
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precioOferta"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}else{
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}
-
-									}
-
-									echo '<a href="'.$value["ruta"].'" class="pixelProducto">
-									
-										<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
-											
-											<i class="fa fa-eye" aria-hidden="true"></i>
-
-										</button>	
-									
-									</a>
-
-								</div>
-
-							</div>
-
-							*/
 
 						echo '</li>';
 
-					}
+					//}
 				}
 
 				echo '</ul>

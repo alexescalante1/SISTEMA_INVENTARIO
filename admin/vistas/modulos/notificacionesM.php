@@ -40,7 +40,7 @@
                <th>Detalle</th>
                <th>Fecha</th>
                <th>visto</th>
-               <th>Acciones</th>
+               <th style="width:10px">Acciones</th>
 
             </tr> 
 
@@ -59,8 +59,8 @@
 
 
 <?php
-  /*
-  $eliminarNotificaciones = new ControladorArticulos();
-  $eliminarNotificaciones -> ctrEliminarArticulo();
-  */
+  
+  $eliminarNotificaciones = new ControladorNotificacionesM();
+  $eliminarNotificaciones -> ctrEliminarNotificacion();
+  
 ?>

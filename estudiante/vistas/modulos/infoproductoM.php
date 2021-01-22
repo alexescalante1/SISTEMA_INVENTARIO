@@ -661,6 +661,7 @@ INFOPRODUCTOS
 
 						if(isset($_SESSION["validarSesion"]) && $_SESSION["validarSesion"] == "ok"){
 
+							/*
 							if($infoproducto["tipo"]=="virtual"){
 						
 								echo '<button class="btn btn-default btn-block btn-lg backColor agregarGratis" idProducto="'.$infoproducto["id"].'" idUsuario="'.$_SESSION["id"].'" tipo="'.$infoproducto["tipo"].'" titulo="'.$infoproducto["titulo"].'">ACCEDER AHORA</button>';
@@ -680,15 +681,28 @@ INFOPRODUCTOS
 									</div>
 								';
 
-							}
+							}*/
 
 						}else{
 
-							echo '<a href="#modalNotificacion" data-toggle="modal">
+							if($infoarticulo["disponible"]){
 
-								<button class="btn btn-default btn-block btn-lg backColor">	SOLICITAR AHORA</button>
+								echo '<a href="#modalNotificacion" data-toggle="modal">
 
-							</a>';
+								<button class="btn btn-default btn-block btn-lg backColor">SOLICITAR AHORA</button>
+
+								</a>';
+
+							}else{
+
+								echo '<a href="#" data-toggle="modal">
+
+								<button class="btn btn-default btn-block btn-lg">NO DISPONIBLE</button>
+
+								</a>';
+							}
+
+							
 
 						}
 

@@ -22,4 +22,30 @@ class ModeloNotificacionesM{
 
 	}
 
+	/*=============================================
+	ELIMINAR NOTIFICACION
+	=============================================*/
+
+	static public function mdlEliminarNotificacion($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idNotificacion = :idNotificacion");
+
+		$stmt -> bindParam(":idNotificacion", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 }

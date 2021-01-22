@@ -554,7 +554,7 @@ class ControladorArticulos{
 
 				swal({
 					  type: "success",
-					  title: "El producto ha sido borrado correctamente",
+					  title: "El articulo ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){

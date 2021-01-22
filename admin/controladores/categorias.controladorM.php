@@ -68,269 +68,26 @@ class ControladorCategoria{
 
 
 
+
 	/*=============================================
-	EDITAR CATEGORIAS
+	EDITAR CATEGORIA
 	=============================================*/
 
-	static public function ctrEditarCategoria(){
+	static public function ctrEditarCategoriaM($datos){
 
-		if(isset($_POST["editarTituloCategoria"])){
+		if(isset($datos["idCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarTituloCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionCategoria"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloCategoriaM"])){
 
-				/*=============================================
-				VALIDAR IMAGEN PORTADA
-				=============================================*/
+				$datosCategoria = array(
+								"idCategoria"=>$datos["idCategoria"],
+								"tituloCategoriaM"=>$datos["tituloCategoriaM"],
+								"rutaCategoriaM"=>$datos["rutaCategoriaM"]
+				);
 
-				$rutaPortada = $_POST["antiguaFotoPortada"];
+				$respuesta = ModeloCategoria::mdlEditarCategoriaM("categoria", $datosCategoria);
 
-				if(isset($_FILES["fotoPortada"]["tmp_name"]) && !empty($_FILES["fotoPortada"]["tmp_name"])){
-
-					/*=============================================
-					BORRAMOS ANTIGUA FOTO PORTADA
-					=============================================*/
-
-					unlink($_POST["antiguaFotoPortada"]);
-
-					/*=============================================
-					DEFINIMOS LAS MEDIDAS
-					=============================================*/
-
-					list($ancho, $alto) = getimagesize($_FILES["fotoPortada"]["tmp_name"]);
-
-					$nuevoAncho = 1280;
-					$nuevoAlto = 720;
-
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/	
-
-					if($_FILES["fotoPortada"]["type"] == "image/jpeg"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$rutaPortada = "vistas/img/cabeceras/".$_POST["rutaCategoria"].".jpg";
-
-						$origen = imagecreatefromjpeg($_FILES["fotoPortada"]["tmp_name"]);	
-
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagejpeg($destino, $rutaPortada);
-
-					}
-
-					if($_FILES["fotoPortada"]["type"] == "image/png"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$rutaPortada = "vistas/img/cabeceras/".$_POST["rutaCategoria"].".png";
-
-						$origen = imagecreatefrompng($_FILES["fotoPortada"]["tmp_name"]);						
-
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagealphablending($destino, FALSE);
-    			
-    					imagesavealpha($destino, TRUE);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagepng($destino, $rutaPortada);
-
-					}
-
-
-				}
-
-				/*=============================================
-				VALIDAR IMAGEN OFERTA
-				=============================================*/
-
-				$rutaOferta = $_POST["antiguaFotoOferta"];
-
-				if(isset($_FILES["fotoOferta"]["tmp_name"]) && !empty($_FILES["fotoOferta"]["tmp_name"])){
-
-					/*=============================================
-					BORRAMOS ANTIGUA FOTO OFERTA
-					=============================================*/
-
-					unlink($_POST["antiguaFotoOferta"]);
-
-					/*=============================================
-					DEFINIMOS LAS MEDIDAS
-					=============================================*/
-
-					list($ancho, $alto) = getimagesize($_FILES["fotoOferta"]["tmp_name"]);
-
-					$nuevoAncho = 640;
-					$nuevoAlto = 430;
-
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/	
-
-					if($_FILES["fotoOferta"]["type"] == "image/jpeg"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$rutaOferta = "vistas/img/ofertas/".$_POST["rutaCategoria"].".jpg";
-
-						$origen = imagecreatefromjpeg($_FILES["fotoOferta"]["tmp_name"]);	
-
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagejpeg($destino, $rutaOferta);
-
-					}
-
-					if($_FILES["fotoOferta"]["type"] == "image/png"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
-						$rutaOferta = "vistas/img/ofertas/".$_POST["rutaCategoria"].".png";
-
-						$origen = imagecreatefrompng($_FILES["fotoOferta"]["tmp_name"]);						
-
-						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-						imagealphablending($destino, FALSE);
-    			
-    					imagesavealpha($destino, TRUE);
-
-						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-						imagepng($destino, $rutaOferta);
-
-					}
-
-
-				}
-
-				/*=============================================
-				PREGUNTAMOS SI VIENE OFERTA EN CAMINO
-				=============================================*/
-				if($_POST["selActivarOferta"] == "oferta"){
-
-					$datos = array("id"=>$_POST["editarIdCategoria"],
-								   "categoria"=>strtoupper($_POST["editarTituloCategoria"]),
-								   "ruta"=>$_POST["rutaCategoria"],
-								   "estado"=> 1,
-								   "idCabecera"=>$_POST["editarIdCabecera"],
-								   "titulo"=>$_POST["editarTituloCategoria"],
-								   "descripcion"=> $_POST["descripcionCategoria"],
-								   "palabrasClaves"=>$_POST["pClavesCategoria"],
-								   "imgPortada"=>$rutaPortada,
-								   "oferta"=>1,
-								   "precioOferta"=>$_POST["precioOferta"],
-								   "descuentoOferta"=>$_POST["descuentoOferta"],
-								   "imgOferta"=>$rutaOferta,								   
-								   "finOferta"=>$_POST["finOferta"]);					
-
-				}else{
-
-					$datos = array("id"=>$_POST["editarIdCategoria"],
-								   "categoria"=>strtoupper($_POST["editarTituloCategoria"]),
-								   "ruta"=>$_POST["rutaCategoria"],
-								   "estado"=> 1,
-								   "idCabecera"=>$_POST["editarIdCabecera"],
-								   "titulo"=>$_POST["editarTituloCategoria"],
-								   "descripcion"=> $_POST["descripcionCategoria"],
-								   "palabrasClaves"=>$_POST["pClavesCategoria"],
-								   "imgPortada"=>$rutaPortada,
-								   "oferta"=>0,
-								   "precioOferta"=>0,
-								   "descuentoOferta"=>0,
-								   "imgOferta"=>"",								   
-								   "finOferta"=>"");
-
-					if($_POST["antiguaFotoOferta"] != ""){
-
-						unlink($_POST["antiguaFotoOferta"]);
-
-					}
-
-				}
-
-				ModeloSubCategorias::mdlActualizarOfertaSubcategorias("subcategorias", $datos, "ofertadoPorCategoria");	
-				
-				$traerProductos = ModeloProductos::mdlMostrarProductos("productos", "id_categoria", $datos["id"]);
-
-				foreach ($traerProductos as $key => $value) {
-					
-					if($datos["oferta"] != 0 && $datos["precioOferta"] == 0){
-
-						if($value["precio"] != 0){
-
-							$precioOfertaActualizado = $value["precio"]-($value["precio"]*$datos["descuentoOferta"]/100);
-							$descuentoOfertaActualizado = $datos["descuentoOferta"];
-
-						}else{
-
-							$precioOfertaActualizado = 0;
-							$descuentoOfertaActualizado = 0;
-
-						}
-
-					}
-
-
-					if($datos["oferta"] != 0 && $datos["descuentoOferta"] == 0){
-
-						if($value["precio"] != 0){
-
-							$precioOfertaActualizado = $datos["precioOferta"];
-							$descuentoOfertaActualizado = 100 - ($datos["precioOferta"]*100/$value["precio"]);
-	
-
-						}else{
-
-							$precioOfertaActualizado = 0;
-							$descuentoOfertaActualizado = 0;
-
-						}
-						
-					}
-
-					ModeloProductos::mdlActualizarOfertaProductos("productos", $datos, "ofertadoPorCategoria", $precioOfertaActualizado, $descuentoOfertaActualizado, $value["id"]);
-
-				}
-				
-				ModeloCabeceras::mdlEditarCabecera("cabeceras", $datos);
-
-				$respuesta = ModeloCategorias::mdlEditarCategoria("categorias", $datos);
-
-				if($respuesta == "ok"){
-
-					echo'<script>
-
-					swal({
-						  type: "success",
-						  title: "La categoría ha sido editada correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-							if (result.value) {
-
-							window.location = "categorias";
-
-							}
-						})
-
-					</script>';
-
-				}
+				return $respuesta;
 
 			}else{
 
@@ -338,19 +95,23 @@ class ControladorCategoria{
 
 					swal({
 						  type: "error",
-						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El nombre del producto no puede ir vacío o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
-						  })
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "articulos";
+
+							}
+						})
 
 			  	</script>';
-
-			  	return;
 
 			}
 
 		}
-
+		
 	}
 
 	/*=============================================

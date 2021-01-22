@@ -842,8 +842,18 @@ MODAL EDITAR ARTICULO
 
 
 
+
+
+
+
+
+
+
+
+
+
 <!--=====================================
-MODAL AGREGAR NUEVO ARTICULO
+MODAL AGREGAR NUEVA CATEGORIA
 ======================================-->
 
 <div id="modalAgregarCategoriaM" class="modal fade" role="dialog">
@@ -918,6 +928,101 @@ MODAL AGREGAR NUEVO ARTICULO
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
           <button type="button" class="btn btn-primary guardarCategoriaM">Guardar categoria</button>
+
+        </div>
+
+       <!-- </form> -->
+
+     </div>
+
+   </div>
+
+</div>
+
+
+
+
+
+
+
+<!--=====================================
+MODAL EDITAR CATEGORIA
+======================================-->
+
+<div id="modalEditarCategoriaM" class="modal fade" role="dialog">
+  
+   <div class="modal-dialog">
+     
+     <div class="modal-content">
+       
+       <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
+         
+         <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Categoria</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!--=====================================
+            ENTRADA PARA EL TÍTULO
+            ======================================-->
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                  <input type="text" class="form-control input-lg validarCategoriaM tituloCategoriaM">
+                  
+                  <input type="hidden" class="idCategoriaM">
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA RUTA DEL PRODUCTO
+            ======================================-->
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
+
+                  <input type="text" class="form-control input-lg rutaCategoriaM" readonly>
+
+                </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="button" class="btn btn-primary guardarCambiosCategoriaM">Guardar cambios</button>
 
         </div>
 

@@ -329,6 +329,12 @@ $(".tituloCategoriaM").change(function(){
 
 })
 
+$("#modalEditarCategoriaM .tituloCategoriaM").change(function(){
+
+	$("#modalEditarCategoriaM .rutaCategoriaM").val(limpiarURL($("#modalEditarCategoriaM .tituloCategoriaM").val()));
+
+})
+
 
 /*=============================================
 AGREGAR MULTIMEDIA CON DROPZONE
@@ -937,8 +943,6 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 
 function editarMiArticulo(imagen){
 
-	
-
 	var idArticulo = $("#modalEditarArticulo .idArticulo").val();
 	var tituloArticulo = $("#modalEditarArticulo .tituloArticulo").val();
 	var rutaArticulo = $("#modalEditarArticulo .rutaArticulo").val();
@@ -949,7 +953,6 @@ function editarMiArticulo(imagen){
 	var peso = $("#modalEditarArticulo .peso").val();
 	var disponible = $("#modalEditarArticulo .disponible").val();
 	var antiguaFotoPrincipalA = $("#modalEditarArticulo .antiguaFotoPrincipalA").val();
-
 
 	///alert(imagenFotoPrincipalA);
 
@@ -1018,23 +1021,6 @@ function editarMiArticulo(imagen){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
 ELIMINAR ARTICULO
 =============================================*/
@@ -1047,14 +1033,14 @@ $('.tablaArticulos tbody').on("click", ".btnEliminarArticulo", function(){
 	var imgPrincipal = $(this).attr("imgPrincipal");
   
 	swal({
-	  title: '¿Está seguro de borrar el producto?',
+	  title: '¿Está seguro de borrar el articulo?',
 	  text: "¡Si no lo está puede cancelar la accíón!",
 	  type: 'warning',
 	  showCancelButton: true,
 	  confirmButtonColor: '#3085d6',
 		cancelButtonColor: '#d33',
 		cancelButtonText: 'Cancelar',
-		confirmButtonText: 'Si, borrar producto!'
+		confirmButtonText: 'Si, borrar articulo!'
 	}).then(function(result){
   
 	  if(result.value){
@@ -1081,8 +1067,22 @@ $('.tablaArticulos tbody').on("click", ".btnEliminarArticulo", function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
-GUARDAR EL CATEGORIA
+GUARDAR CATEGORIA
 =============================================*/
 
 $(".guardarCategoriaM").click(function(){
@@ -1155,6 +1155,119 @@ function agregarMiCategoriaM(){
 
 
 
+/*=============================================
+EDITAR CATEGORIA
+=============================================*/
+
+$('.tablaCategoriasM tbody').on("click", ".btnEditarCategoriaM", function(){
+	
+	var idCategoriaM = $(this).attr("idCategoriaM");
+	
+	var datos = new FormData();
+	datos.append("idCategoriaM", idCategoriaM);
+
+	$.ajax({
+
+		url:"ajax/articulos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			
+			$("#modalEditarCategoriaM .idCategoriaM").val(respuesta[0]["idCategoria"]);
+			$("#modalEditarCategoriaM .tituloCategoriaM").val(respuesta[0]["titulo"]);
+			$("#modalEditarCategoriaM .rutaCategoriaM").val(respuesta[0]["ruta"]);
+
+			/*=============================================
+			GUARDAR CAMBIOS DE CATEGORIA
+			=============================================*/	
+
+			$(".guardarCambiosCategoriaM").click(function(){
+				
+					/*=============================================
+					PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
+					=============================================*/
+					
+					if($("#modalEditarCategoriaM .tituloCategoriaM").val() != ""){
+							
+						editarMiCategoriaM();
+
+					}else{
+
+						 swal({
+					      title: "Llenar todos los campos obligatorios",
+					      type: "error",
+					      confirmButtonText: "¡Cerrar!"
+					    });
+
+						return;
+
+					}					
+
+			})
+					
+		}
+
+	})
+
+})
+
+
+
+
+function editarMiCategoriaM(){
+
+	var idCategoriaM = $("#modalEditarCategoriaM .idCategoriaM").val();
+	var tituloCategoriaM = $("#modalEditarCategoriaM .tituloCategoriaM").val();
+	var rutaCategoriaM = $("#modalEditarCategoriaM .rutaCategoriaM").val();
+	
+	var datosCategoria = new FormData();
+	datosCategoria.append("idC", idCategoriaM);
+	datosCategoria.append("editarCategoriaM", tituloCategoriaM);
+	datosCategoria.append("rutaCategoriaM", rutaCategoriaM);
+
+	$.ajax({
+			url:"ajax/articulos.ajax.php",
+			method: "POST",
+			data: datosCategoria,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+									
+				if(respuesta == "ok"){
+
+					swal({
+					  type: "success",
+					  title: "La Categoria ha sido cambiada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+							if (result.value) {
+							
+							window.location = "articulos";
+
+							}
+						});
+				
+				}else{
+					swal({
+						title: "ERROR MANITO",
+					      type: "error",
+					      confirmButtonText: "¡Cerrar!"
+						});
+				}
+
+			}
+
+	})
+	
+}
+
+
 
 /*=============================================
 ELIMINAR CATEGORIA
@@ -1163,16 +1276,16 @@ ELIMINAR CATEGORIA
 $('.tablaCategoriasM tbody').on("click", ".btnEliminarCategoriaM", function(){
 
 	var idCategoriaM = $(this).attr("idCategoriaM");
-  
+
 	swal({
-	  title: '¿Está seguro de borrar el producto?',
+	  title: '¿Está seguro de borrar la cartegoria?',
 	  text: "¡Si no lo está puede cancelar la accíón!",
 	  type: 'warning',
 	  showCancelButton: true,
 	  confirmButtonColor: '#3085d6',
 		cancelButtonColor: '#d33',
 		cancelButtonText: 'Cancelar',
-		confirmButtonText: 'Si, borrar producto!'
+		confirmButtonText: 'Si, borrar categoria!'
 	}).then(function(result){
   
 	  if(result.value){
@@ -1182,8 +1295,5 @@ $('.tablaCategoriasM tbody').on("click", ".btnEliminarCategoriaM", function(){
 	  }
   
 	})
-  
-  
-  
   
   })

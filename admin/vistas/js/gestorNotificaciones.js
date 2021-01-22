@@ -83,3 +83,33 @@ $(".actualizarNotificaciones").click(function(e){
 
   	})
 })
+
+
+/*=============================================
+ELIMINAR CATEGORIA
+=============================================*/
+
+$('.tablaNotificaciones tbody').on("click", ".btnEliminarNotificacion", function(){
+
+	var idNotificacion = $(this).attr("idNotificacion");
+
+	swal({
+	  title: '¿Está seguro de borrar esta notificacion?',
+	  text: "¡Si no lo está puede cancelar la accíón!",
+	  type: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancelar',
+		confirmButtonText: 'Si, borrar notificacion!'
+	}).then(function(result){
+  
+	  if(result.value){
+  
+		window.location = "index.php?ruta=notificacionesM&idNotificacion="+idNotificacion;
+  
+	  }
+  
+	})
+  
+  })

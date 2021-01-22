@@ -161,7 +161,7 @@ LISTAR PRODUCTOS
 
 					foreach ($productos as $key => $value) {
 
-					if($value["disponible"] != 0){
+					//if($value["disponible"] != 0){
 
 					$estado = 1;
 					
@@ -196,11 +196,11 @@ LISTAR PRODUCTOS
 							</h4>
 						</li>';
 
-					}else{
+					//}else{
 
-						$estado = 0;
+					//	$estado = 0;
 						
-					}
+					//}
 				}
 
 				if($estado == 0){
@@ -249,7 +249,7 @@ LISTAR PRODUCTOS
 
 				foreach ($productos as $key => $value) {
 
-					if($value["disponible"] != 0){
+					//if($value["disponible"] != 0){
 
 						echo '<li class="col-xs-12">
 					  
@@ -303,10 +303,10 @@ LISTAR PRODUCTOS
 
 					</li>';
 
-					}else{
+					//}else{
 
-						$estado = 0;	
-					}
+					//	$estado = 0;	
+					//}
 
 				}
 

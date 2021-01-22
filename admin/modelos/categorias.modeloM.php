@@ -36,6 +36,10 @@ class ModeloCategoria{
 	
 	}
 
+	/*=============================================
+	VALIDAR CATEGORIA
+	=============================================*/
+
 	static public function mdlValidarCategoria($tabla, $item, $valor){
 
 		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
@@ -105,23 +109,18 @@ class ModeloCategoria{
 
 	}
 
+
 	/*=============================================
 	EDITAR CATEGORIA
 	=============================================*/
 
-	static public function mdlEditarCategoria($tabla, $datos){
+	static public function mdlEditarCategoriaM($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria, ruta = :ruta, estado = :estado, oferta = :oferta, precioOferta = :precioOferta, descuentoOferta = :descuentoOferta, imgOferta = :imgOferta, finOferta = :finOferta WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET ruta = :ruta, titulo = :titulo WHERE idCategoria = :idCategoria");
 
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
-		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
-		$stmt->bindParam(":oferta", $datos["oferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":precioOferta", $datos["precioOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":descuentoOferta", $datos["descuentoOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":imgOferta", $datos["imgOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":finOferta", $datos["finOferta"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+		$stmt->bindParam(":ruta", $datos["rutaCategoriaM"], PDO::PARAM_STR);
+		$stmt->bindParam(":titulo", $datos["tituloCategoriaM"], PDO::PARAM_STR);
+		$stmt -> bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
 
@@ -137,7 +136,7 @@ class ModeloCategoria{
 		$stmt = null;
 
 	}
-
+	
 	/*=============================================
 	ELIMINAR CATEGORIA
 	=============================================*/
