@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2021 at 05:56 PM
+-- Generation Time: Jan 22, 2021 at 02:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -375,27 +375,25 @@ CREATE TABLE `detallearticulo` (
   `peso` float NOT NULL,
   `precio` float NOT NULL,
   `idCategoria` int(11) NOT NULL,
-  `palabrasClave` text NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `palabrasClave` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `detallearticulo`
 --
 
-INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripcion`, `disponible`, `portada`, `multimedia`, `prestados`, `peso`, `precio`, `idCategoria`, `palabrasClave`, `fecha`) VALUES
-(68, 'data-display', 'Data Display', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/data-display.png', '[{\"foto\":\"vistas/img/multimedia/data-display/data2.png\"},{\"foto\":\"vistas/img/multimedia/data-display/data1.png\"}]', 0, 1, 1500, 1, 'proyector', '2021-01-23 14:32:33'),
-(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 0, 2, 1550, 1, 'ordenador', '2021-01-23 14:32:33'),
-(74, 'monitor-asus', 'Monitor Asus', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/monitor-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor1.jpg\"}]', 0, 2, 1000, 1, 'pantalla', '2021-01-23 14:32:33'),
-(93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd', '2021-01-23 14:32:33'),
-(130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 0, 1, 'as', '2021-01-23 14:32:33'),
-(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 0, 0, 0, 1, 'asd', '2021-01-23 14:32:33'),
-(162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'as', '2021-01-23 14:32:33'),
-(164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad', '2021-01-23 14:32:33'),
-(175, 'laptop-asus', 'Laptop ASUS', 'asd', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 0, 2, 4000, 1, 'pc', '2021-01-23 14:32:33'),
-(181, 'computadora-gaming', 'Computadora Gaming', 'lorem', 1, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/360c4822e04f1606b975b170e1af0891.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 0, 4, 5000, 3, 'jaja', '2021-01-23 14:32:33'),
-(185, 'new-item', 'new item', 'sad qda', 0, 'vistas/img/productos/new-item.jpg', '[{\"foto\":\"vistas/img/multimedia/new-item/38984.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38979.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38980.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38977.jpg\"}]', 400, 0.2, 8000, 1, 'tv', '2021-01-23 16:31:04'),
-(189, 'otro', 'otro', 'asd', 1, 'vistas/img/productos/otro.jpg', '[{\"foto\":\"vistas/img/multimedia/otro/21231264_1425337020867966_2743322337299293899_n.jpg\"},{\"foto\":\"vistas/img/multimedia/otro/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"},{\"foto\":\"vistas/img/multimedia/otro/EJ348zYXkAEgmIq.jpg\"}]', 0, 12, 112, 1, 'asd', '2021-01-23 15:02:59');
+INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripcion`, `disponible`, `portada`, `multimedia`, `prestados`, `peso`, `precio`, `idCategoria`, `palabrasClave`) VALUES
+(68, 'data-display', 'Data Display', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/data-display.png', '[{\"foto\":\"vistas/img/multimedia/data-display/data2.png\"},{\"foto\":\"vistas/img/multimedia/data-display/data1.png\"}]', 0, 1, 1500, 1, 'proyector'),
+(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 0, 2, 1550, 1, 'ordenador'),
+(74, 'monitor-asus', 'Monitor Asus', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/monitor-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor1.jpg\"}]', 0, 2, 1000, 1, 'pantalla'),
+(93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd'),
+(130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 0, 1, 'as'),
+(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 0, 0, 0, 1, 'asd'),
+(162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'as'),
+(164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad'),
+(175, 'laptop-asus', 'Laptop ASUS', 'asd', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 0, 2, 4000, 1, 'pc'),
+(181, 'computadora-gaming', 'Computadora Gaming', 'lorem', 1, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/360c4822e04f1606b975b170e1af0891.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 0, 4, 5000, 3, 'jaja'),
+(185, 'new-item', 'new item', 'sad qda', 1, 'vistas/img/productos/new-item.jpg', '[{\"foto\":\"vistas/img/multimedia/new-item/38984.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38979.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38980.jpg\"},{\"foto\":\"vistas/img/multimedia/new-item/38977.jpg\"}]', 0, 0.2, 8000, 1, 'tv');
 
 -- --------------------------------------------------------
 
@@ -422,12 +420,15 @@ CREATE TABLE `notificacion` (
 --
 
 INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
+(21, 1, '162892', 'Alex', 'One', 2, 2, 'xd', '2021-01-16 03:52:03', 0, 130),
+(22, 1, '162985', 'Maria', 'Quisppe', 2, 2, 'qwqw', '2021-01-16 03:56:36', 0, 74),
+(23, 1, '162895', 'Fredy', 'Fake', 5, 5, 'clases', '2021-01-16 04:11:16', 0, 68),
 (24, 1, '162984', 'Alex Fredy', 'Escalante Maron', 2, 2, 'Trabajos en la U', '2021-01-20 01:43:28', 0, 72),
+(25, 1, '213213', 'Josue', 'Maron', 2, 2, 'adfdfdaf', '2021-01-21 18:39:44', 0, 181),
 (26, 0, '73104795', 'Luz Maria', 'Quispe Quispe', 3, 4, 's', '2021-01-22 01:07:15', 0, 181),
-(30, 0, '78526498', 'Lourdes Maria', 'Maron Mamani', 2, 2, 'no se tu dime', '2021-01-22 20:32:07', 0, 74),
-(74, 0, '2131231', 'Marco', 'Quispe Quispe', 2, 2, 'sad', '2021-01-22 21:29:07', 0, 185),
-(77, 0, '12458965', 'Johel Vordigold', 'Aroapaza Tello', 2, 2, 'desconocido', '2021-01-23 16:33:03', 0, 74),
-(78, 0, '12365487', 'Boran Yenco', 'Usumaki Tukasa', 3, 3, 'tu dime', '2021-01-23 16:34:30', 0, 68);
+(27, 1, '154844', 'Jean', 'Marquez', 2, 2, 'tu dime', '2021-01-22 01:08:40', 0, 68),
+(28, 1, '154844', 'Jean', 'Marquez', 2, 2, 'tu dime', '2021-01-22 01:27:34', 0, 68),
+(29, 1, '154844', 'Jean', 'Marquez', 2, 2, 'tu dime', '2021-01-22 01:27:42', 0, 68);
 
 -- --------------------------------------------------------
 
@@ -681,7 +682,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `password`, `email`, `modo`, `foto`, `ve
 (30, 'treee', '$2a$07$asxx54ahjppf45sd87a5auAyx05AcdGkrjKvkn/WpH/.CQkfXyKuq', 'asdtree@gmail.com', 'directo', '', 0, 'fa3772d3fbdb66c52aee7ae1612c3f9c', '2021-01-10 05:23:14'),
 (31, 'olll', '$2a$07$asxx54ahjppf45sd87a5auL/JSJiKUwe1trfwTLd9uQWXI6T4KdC2', 'asdasdwww@asddsad.com', 'directo', '', 0, '12606cfc4e2c082b302f01b2933c4fd5', '2021-01-10 05:23:15'),
 (32, 'swfdsdyyyyyyyyyyy', '$2a$07$asxx54ahjppf45sd87a5au1IqHW5zIvEOoUrYbS66ZCQOK7CUeMXi', 'dsfdsfdsf@gmail.com', 'directo', '', 0, 'f86deaf9a794378f25d2991ea07afba5', '2021-01-10 14:39:51'),
-(33, 'ttyu', '$2a$07$asxx54ahjppf45sd87a5auAA.fg2640C7Hc.Z/1pp2c5xAm047OmW', 'asdasd@sadasd.com', 'directo', '', 0, '6842713166d807eb30f3eafaffed10ed', '2021-01-22 17:26:52');
+(33, 'ttyu', '$2a$07$asxx54ahjppf45sd87a5auAA.fg2640C7Hc.Z/1pp2c5xAm047OmW', 'asdasd@sadasd.com', 'directo', '', 1, '6842713166d807eb30f3eafaffed10ed', '2021-01-21 22:55:27');
 
 -- --------------------------------------------------------
 
@@ -994,7 +995,7 @@ ALTER TABLE `cabeceras`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `categorias`
@@ -1030,13 +1031,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`

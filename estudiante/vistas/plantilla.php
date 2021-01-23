@@ -9,7 +9,6 @@
 	<?php
 		
 
-
 		session_start();
 
 		$servidor = Ruta::ctrRutaServidor();
@@ -194,6 +193,7 @@ if(isset($_GET["ruta"])){
 
 	if($ruta != null || $rutas[0] == "mas-destacados"){
 
+		include "modulos/intemBuscadorSecundario.php";
 		include "modulos/productosM.php";
 
 	}else if($infoProducto != null){
@@ -201,15 +201,22 @@ if(isset($_GET["ruta"])){
 		include "modulos/infoproducto.php";
 
 	}else if($infoArticulos != null){
-	
+		
+		include "modulos/intemBuscadorSecundario.php";
 		include "modulos/infoproductoM.php";
 
-	}else if($rutas[0] == "buscador" || $rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "carrito-de-compras" || $rutas[0] == "error" || $rutas[0] == "finalizar-compra" || $rutas[0] == "curso" || $rutas[0] == "ofertas"){
+	}else if($rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "carrito-de-compras" || $rutas[0] == "error" || $rutas[0] == "finalizar-compra" || $rutas[0] == "curso" || $rutas[0] == "ofertas"){
 
 		include "modulos/".$rutas[0].".php";
 
+	}else if($rutas[0] == "buscador"){
+		
+		include "modulos/intemBuscadorSecundario.php";
+		include "modulos/buscador.php";
+
 	}else if($rutas[0] == "inicio"){
 
+		include "modulos/intemBuscadorPrincipal.php";
 		include "modulos/destacadosM.php";
 
 	}else{
@@ -220,6 +227,7 @@ if(isset($_GET["ruta"])){
 
 }else{
 
+	include "modulos/intemBuscadorPrincipal.php";
 	include "modulos/destacadosM.php";
 
 }

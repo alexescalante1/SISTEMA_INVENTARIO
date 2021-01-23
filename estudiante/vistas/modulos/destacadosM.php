@@ -14,7 +14,7 @@ $banner = ControladorProductos::ctrMostrarBanner($ruta);
 PRODUCTOS DESTACADOS
 =============================================*/
 
-$titulosModulos = "DESTACADO";
+$titulosModulos = "ARTICULOS DESTACADOS";
 $rutaModulos = "mas-destacados";
 
 $base = 0;

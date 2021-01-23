@@ -2,7 +2,7 @@
 BARRA PRODUCTOS
 ======================================-->
 
-<div class="container-fluid well well-sm barraProductos">
+<div class="container-fluid barraProductos">
 
 	<div class="container">
 		
@@ -60,6 +60,12 @@ BARRA PRODUCTOS
 	</div>
 
 </div>
+
+
+
+<br>
+
+
 
 <!--=====================================
 LISTAR PRODUCTOS
