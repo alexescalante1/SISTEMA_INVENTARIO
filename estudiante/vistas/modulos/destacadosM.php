@@ -8,8 +8,6 @@ $servidor = Ruta::ctrRutaServidor();
 
 $ruta = "sin-categoria";
 
-$banner = ControladorProductos::ctrMostrarBanner($ruta);
-
 /*=============================================
 PRODUCTOS DESTACADOS
 =============================================*/
@@ -103,11 +101,11 @@ $modulos = $ventas;
 										'.$value["titulo"].'<br>
 										<!--
 										<span style="color:rgba(0,0,0,0)">-</span>-->';
-
+										/*
 										$fecha = date('Y-m-d');
 										$fechaActual = strtotime('-30 day', strtotime($fecha));
 										$fechaNueva = date('Y-m-d', $fechaActual);
-										/*
+										
 										if($fechaNueva < $value["fecha"]){
 
 											echo '<span class="label label-warning fontSize">Nuevo</span> ';

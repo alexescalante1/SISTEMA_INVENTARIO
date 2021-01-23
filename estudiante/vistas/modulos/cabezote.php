@@ -21,72 +21,6 @@ if(isset($_SESSION["validarSesion"])){
 	
 }
 
-/*=============================================
-API DE GOOGLE
-=============================================*/
-
-// https://console.developers.google.com/apis
-// https://github.com/google/google-api-php-client
-
-/*=============================================
-CREAR EL OBJETO DE LA API GOOGLE
-=============================================*/
-
-$cliente = new Google_Client();
-$cliente->setAuthConfig('modelos/client_secret.json');
-$cliente->setAccessType("offline");
-$cliente->setScopes(['profile','email']);
-
-/*=============================================
-RUTA PARA EL LOGIN DE GOOGLE
-=============================================*/
-
-$rutaGoogle = $cliente->createAuthUrl();
-
-/*=============================================
-RECIBIMOS LA VARIABLE GET DE GOOGLE LLAMADA CODE
-=============================================*/
-
-if(isset($_GET["code"])){
-
-	$token = $cliente->authenticate($_GET["code"]);
-
-	$_SESSION['id_token_google'] = $token;
-
-	$cliente->setAccessToken($token);
-
-}
-
-/*=============================================
-RECIBIMOS LOS DATOS CIFRADOS DE GOOGLE EN UN ARRAY
-=============================================*/
-
-if($cliente->getAccessToken()){
-
- 	$item = $cliente->verifyIdToken();
-
- 	$datos = array("nombre"=>$item["name"],
-				   "email"=>$item["email"],
-				   "foto"=>$item["picture"],
-				   "password"=>"null",
-				   "modo"=>"google",
-				   "verificacion"=>0,
-				   "emailEncriptado"=>"null");
-
- 	$respuesta = ControladorUsuarios::ctrRegistroRedesSociales($datos);
-
- 	echo '<script>
-		
-	setTimeout(function(){
-
-		window.location = localStorage.getItem("rutaActual");
-
-	},1000);
-
- 	</script>';
-
-}
-
 ?>
 
 <!--=====================================
@@ -239,42 +173,12 @@ VENTANA MODAL PARA EL REGISTRO
         	<h3 class="backColor">REGISTRARSE</h3>
 
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        	
-			<!--=====================================
-			REGISTRO FACEBOOK
-			======================================-->
-
-			<div class="col-sm-6 col-xs-12 facebook">
-				
-				<p>
-				  <i class="fa fa-facebook"></i>
-					Registro con Facebook
-				</p>
-
-			</div>
-
-			<!--=====================================
-			REGISTRO GOOGLE
-			======================================-->
-			<a href="<?php echo $rutaGoogle; ?>">
-
-				<div class="col-sm-6 col-xs-12 google">
-					
-					<p>
-					  <i class="fa fa-google"></i>
-						Registro con Google
-					</p>
-
-				</div>
-			</a>
 
 			<!--=====================================
 			REGISTRO DIRECTO
 			======================================-->
 
 			<form method="post" onsubmit="return registroUsuario()">
-				
-			<hr>
 
 				<div class="form-group">
 					
@@ -413,43 +317,12 @@ VENTANA MODAL PARA EL INGRESO
         	<h3 class="backColor">INGRESAR</h3>
 
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        	
-			<!--=====================================
-			INGRESO FACEBOOK
-			======================================-->
-
-			<div class="col-sm-6 col-xs-12 facebook">
-				
-				<p>
-				  <i class="fa fa-facebook"></i>
-					Ingreso con Facebook
-				</p>
-
-			</div>
-
-			<!--=====================================
-			INGRESO GOOGLE
-			======================================-->
-			<a href="<?php echo $rutaGoogle; ?>">
-			
-				<div class="col-sm-6 col-xs-12 google">
-					
-					<p>
-					  <i class="fa fa-google"></i>
-						Ingreso con Google
-					</p>
-
-				</div>
-
-			</a>
-
+    
 			<!--=====================================
 			INGRESO DIRECTO
 			======================================-->
 
 			<form method="post">
-				
-			<hr>
 
 				<div class="form-group">
 					

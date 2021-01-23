@@ -41,11 +41,8 @@ INFOARTICULOS
 
 				$item =  "ruta";
 				$valor = $rutas[0];
-				$infoproducto = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
-
+				
 				$infoarticulo = ControladorArticulos::ctrMostrarInfoArticulo($item, $valor);
-
-				$multimedia = json_decode($infoproducto["multimedia"],true);
 
 				$mda = json_decode($infoarticulo["multimedia"],true);
 				/*=============================================

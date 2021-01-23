@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<?php
-		
 
 		session_start();
 
@@ -87,10 +86,6 @@
 
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/perfil.css">
 
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/carrito-de-compras.css">
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/ofertas.css">
-
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/footer.css">
 
 	<!--=====================================
@@ -141,7 +136,6 @@ CONTENIDO DINÁMICO
 
 $rutas = array();
 $ruta = null;
-$infoProducto = null;
 $infoArticulos = null;
 
 if(isset($_GET["ruta"])){
@@ -160,18 +154,6 @@ if(isset($_GET["ruta"])){
 	if($rutas[0] == $rutaCategorias["ruta"]){
 
 		$ruta = $rutas[0];
-
-	}
-
-	/*=============================================
-	URL'S AMIGABLES DE PRODUCTOS
-	=============================================*/
-
-	$rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
-	
-	if($rutas[0] == $rutaProductos["ruta"]){
-
-		$infoProducto = $rutas[0];
 
 	}
 
@@ -196,16 +178,12 @@ if(isset($_GET["ruta"])){
 		include "modulos/intemBuscadorSecundario.php";
 		include "modulos/productosM.php";
 
-	}else if($infoProducto != null){
-
-		include "modulos/infoproducto.php";
-
 	}else if($infoArticulos != null){
 		
 		include "modulos/intemBuscadorSecundario.php";
 		include "modulos/infoproductoM.php";
 
-	}else if($rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "carrito-de-compras" || $rutas[0] == "error" || $rutas[0] == "finalizar-compra" || $rutas[0] == "curso" || $rutas[0] == "ofertas"){
+	}else if($rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "error"){
 
 		include "modulos/".$rutas[0].".php";
 
@@ -248,8 +226,6 @@ JAVASCRIPT PERSONALIZADO
 <script src="<?php echo $url; ?>vistas/js/infoproducto.js"></script>
 <script src="<?php echo $url; ?>vistas/js/usuarios.js"></script>
 <script src="<?php echo $url; ?>vistas/js/notificacion.js"></script>
-<script src="<?php echo $url; ?>vistas/js/registroFacebook.js"></script>
-<script src="<?php echo $url; ?>vistas/js/carrito-de-compras.js"></script>
 <script src="<?php echo $url; ?>vistas/js/visitas.js"></script>
 
 </body>
