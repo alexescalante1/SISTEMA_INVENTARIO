@@ -91,42 +91,6 @@ class ModeloArticulos{
 	}
 
 	/*=============================================
-	ACTUALIZAR OFERTA ARTICULOS
-	=============================================*/
-	static public function mdlActualizarOfertaArticulos($tabla, $datos, $ofertadoPor, $precioOfertaActualizado, $descuentoOfertaActualizado, $idOferta){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $ofertadoPor = :$ofertadoPor, oferta = :oferta, precioOferta = :precioOferta, descuentoOferta = :descuentoOferta, imgOferta = :imgOferta, finOferta = :finOferta WHERE id = :id");
-
-		$stmt->bindParam(":".$ofertadoPor, $datos["oferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":oferta", $datos["oferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":precioOferta", $precioOfertaActualizado, PDO::PARAM_STR);
-		$stmt->bindParam(":descuentoOferta", $descuentoOfertaActualizado, PDO::PARAM_STR);
-		$stmt->bindParam(":imgOferta", $datos["imgOferta"], PDO::PARAM_STR);
-		$stmt->bindParam(":finOferta", $datos["finOferta"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $idOferta, PDO::PARAM_INT);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
-
-	}
-
-
-
-
-
-
-	/*=============================================
 	MOSTRAR ARTICULOS
 	=============================================*/
 
@@ -166,7 +130,7 @@ class ModeloArticulos{
 
 	static public function mdlIngresarArticulo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(ruta, titulo, descripcion, disponible, portada, multimedia, prestados, peso, precio, idCategoria, palabrasClave) VALUES (:ruta, :titulo, :descripcion, :disponible, :portada, :multimedia, :prestados, :peso, :precio, :idCategoria, :palabrasClave)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(ruta, titulo, descripcion, disponible, portada, multimedia, prestados, peso, precio, idCategoria, palabrasClave, fecha) VALUES (:ruta, :titulo, :descripcion, :disponible, :portada, :multimedia, :prestados, :peso, :precio, :idCategoria, :palabrasClave, :fecha)");
 
 		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
 		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
@@ -178,6 +142,7 @@ class ModeloArticulos{
 		$stmt->bindParam(":peso", $datos["peso"], PDO::PARAM_STR);
 		$stmt->bindParam(":precio", $datos["precio"], PDO::PARAM_STR);
 		$stmt->bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_STR);
+		$stmt->bindParam(":fecha", $datos["fechact"], PDO::PARAM_STR);
 		$stmt->bindParam(":palabrasClave", $datos["palabrasClave"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
@@ -261,5 +226,85 @@ class ModeloArticulos{
 
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	CREAR COD
+	=============================================*/
+
+	static public function mdlIngresarCodigoPatrimonial($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(estado, idDetalleArticulo, codigoPatrimonial, fecha) VALUES (:estado, :idDetalleArticulo, :codigoPatrimonial, :fecha)");
+
+		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
+		$stmt->bindParam(":idDetalleArticulo", $datos["idDetalleArticulo"], PDO::PARAM_STR);
+		$stmt->bindParam(":codigoPatrimonial", $datos["codigoPatrimonial"], PDO::PARAM_STR);
+		$stmt->bindParam(":fecha", $datos["fechact"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+
+
+	/*=============================================
+	ELIMINAR COD
+	=============================================*/
+
+	static public function mdlEliminarCodArticulo($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idArticulo = :idArticulo");
+
+		$stmt -> bindParam(":idArticulo", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 
 }

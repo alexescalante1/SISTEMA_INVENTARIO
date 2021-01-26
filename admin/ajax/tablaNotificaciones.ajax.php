@@ -20,6 +20,15 @@ class TablaArticulos{
 	$tituloArticulo = null;
 	
 	$idArt = array();
+	$articulos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
+	
+	for($i = 0; $i < count($articulos); $i++){
+	
+	  $idArt[$articulos[$i]["idDetalleArticulo"]] = $articulos[$i]["titulo"];
+	
+	}
+	/*
+	$idArt = array();
 	$NameArt = array();
 	
 	$articulos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
@@ -30,7 +39,7 @@ class TablaArticulos{
 	  $NameArt[$i] = $articulos[$i]["titulo"];
 	
 	}
-
+	*/
   	$notific = ControladorNotificacionesM::ctrMostrarNotificaciones();
 
   	$datosJson = '
@@ -40,6 +49,7 @@ class TablaArticulos{
 
 	 	for($i = 0; $i < count($notific); $i++){
 
+			/*
 			for($j = 0; $j < count($articulos); $j++){
 				
 				if($idArt[$j] == $notific[$i]["idDetalleArticulo"]){
@@ -47,6 +57,13 @@ class TablaArticulos{
 					break;
 				}
 			
+			}
+			*/
+
+			if($notific[$i]["idDetalleArticulo"]){
+				$tituloArticulo = $idArt[$notific[$i]["idDetalleArticulo"]];
+			}else{
+				$tituloArticulo = "NO EXISTE EL ARTICULO";
 			}
 
 			/*=============================================
@@ -92,6 +109,24 @@ class TablaArticulos{
 
 			],';
 
+		}
+
+		if($notific==null){
+			$datosJson .='[
+				
+				"0",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null"	   
+
+			],';
 		}
 
 		$datosJson = substr($datosJson, 0, -1);

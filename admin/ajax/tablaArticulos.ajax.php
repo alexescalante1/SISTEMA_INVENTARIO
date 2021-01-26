@@ -16,11 +16,21 @@ class TablaArticulos{
 	
   	$item = null;
   	$valor = null;
-	$tituloCateg = null;
+	$idCat = array();
+	
+	$categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
+	
+	for($i = 0; $i < count($categoria); $i++){
+	
+		$idCat[$categoria[$i]["idCategoria"]] = $categoria[$i]["titulo"];
+	
+	}
 
+	/*
 	$idCat = array();
 	$NameCat = array();
-	
+	$tituloCateg = null;
+
 	$categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
 	
 	for($i = 0; $i < count($categoria); $i++){
@@ -29,6 +39,7 @@ class TablaArticulos{
 		$NameCat[$i] = $categoria[$i]["titulo"];
 	
 	}
+	*/
 
   	$articulos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
 
@@ -44,6 +55,7 @@ class TablaArticulos{
   			=============================================*/
 			
 			
+			/*
 			for($j = 0; $j < count($categoria); $j++){
 				
 				if($idCat[$j] == $articulos[$i]["idCategoria"]){
@@ -53,6 +65,14 @@ class TablaArticulos{
 			
 			}
 
+
+			if($tituloCateg == null){
+
+				$tituloCateg = "SIN CATEGORÍA";
+			
+			}
+
+			*/
 			/*
   			$item = "idCategoria";
 			$valor = $articulos[$i]["idCategoria"];
@@ -70,11 +90,7 @@ class TablaArticulos{
 			}
 			*/
 
-			if($tituloCateg == null){
-
-				$tituloCateg = "SIN CATEGORÍA";
 			
-			}
 
 			/*=============================================
   			AGREGAR ETIQUETAS DE ESTADO
@@ -138,7 +154,7 @@ class TablaArticulos{
 					"'.($i+1).'",
 					"'.$articulos[$i]["ruta"].'",
 					"'.$articulos[$i]["titulo"].'",
-					"'.$tituloCateg.'",
+					"'.$idCat[$articulos[$i]["idCategoria"]].'",
 					"'.$articulos[$i]["palabrasClave"].'",
 					"'.$disponible.'",
 					"'.$imagenPrincipal.'",
@@ -151,6 +167,26 @@ class TablaArticulos{
 
 			],';
 
+		}
+
+		if($articulos==null){
+			$datosJson .='[
+				
+				"0",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null",
+				"null"	   
+
+			],';
 		}
 
 		$datosJson = substr($datosJson, 0, -1);

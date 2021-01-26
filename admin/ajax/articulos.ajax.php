@@ -66,6 +66,31 @@ class AjaxArticulo{
 	}
 
 	/*=============================================
+	VALIDAR NO REPETIR CODIGO
+	=============================================*/	
+
+	public $validarCodPatrimonial;
+
+	public function ajaxValidarCodPatrimonial(){
+
+		$item = "codigoPatrimonial";
+		$valor = $this->validarCodPatrimonial;
+
+		$respuesta = ControladorArticulos::ctrMostrarCodArticulos($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
+
+
+
+
+
+
+
+	/*=============================================
 	RECIBIR MULTIMEDIA
 	=============================================*/
 
@@ -223,6 +248,34 @@ class AjaxArticulo{
 
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	GUARDAR COD Y EDITAR COD
+	=============================================*/	
+	public $codPatrimonialI;
+	public $idDetArticulo;
+
+	public function  ajaxCrearCodPatrimonial(){
+
+		$idDetArt = $this->idDetArticulo;
+		$codP = $this->codPatrimonialI;
+
+		$respuesta = ControladorArticulos::ctrCrearCodPatrimonial($idDetArt, $codP);
+
+		echo $respuesta;
+
+	}
+
  }
 
 
@@ -266,6 +319,19 @@ if(isset($_POST["validarCategoriaM"])){
 	$valCategoriaM = new AjaxArticulo();
 	$valCategoriaM -> validarCategoriaM = $_POST["validarCategoriaM"];
 	$valCategoriaM -> ajaxValidarCategoriaM();
+
+}
+
+
+/*=============================================
+VALIDAR CODIGO PATRIMONIAL
+=============================================*/
+
+if(isset($_POST["validarCodPatrimonial"])){
+
+	$valCodPatrimonial = new AjaxArticulo();
+	$valCodPatrimonial -> validarCodPatrimonial = $_POST["validarCodPatrimonial"];
+	$valCodPatrimonial -> ajaxValidarCodPatrimonial();
 
 }
 
@@ -321,6 +387,19 @@ if(isset($_POST["tituloCategoriaM"])){
 	$categoriaM -> rutaCategoriaM = $_POST["rutaCategoriaM"];
 
 	$categoriaM -> ajaxCrearCategoriaM();
+
+}
+
+
+#CREAR CODIGO
+#-----------------------------------------------------------
+if(isset($_POST["codigoPatrimonial"])){
+
+	$codPatrimonialC = new AjaxArticulo();
+	$codPatrimonialC -> codPatrimonialI = $_POST["codigoPatrimonial"];
+	$codPatrimonialC -> idDetArticulo = $_POST["idDetalleArticulo"];
+
+	$codPatrimonialC -> ajaxCrearCodPatrimonial();
 
 }
 

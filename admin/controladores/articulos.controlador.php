@@ -187,6 +187,10 @@ class ControladorArticulos{
 
 	static public function ctrCrearArticulo($datos){
 
+		date_default_timezone_set('America/Lima');
+
+		$fechaAct = date('Y-m-d H:i:s');
+
 		if(isset($datos["tituloArticulo"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloArticulo"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionArticulo"]) ){
@@ -269,6 +273,7 @@ class ControladorArticulos{
 						"precio"=> $datos["precio"],
 						"peso"=> $datos["peso"],
 						"disponible"=> $datos["disponible"],
+						"fechact"=> $fechaAct,
 						"imgFotoPrincipal"=>substr($rutaFotoPrincipal,3)
 				);
 
@@ -574,6 +579,120 @@ class ControladorArticulos{
 		}
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	CREAR CODIGOS
+	=============================================*/
+
+	static public function ctrCrearCodPatrimonial($idDetArt, $codi){
+
+		date_default_timezone_set('America/Lima');
+
+		$fechaAct = date('Y-m-d H:i:s');
+		
+		if(isset($codi)){
+
+			if(preg_match('/^[a-zA-Z0-9]+$/', $codi)){
+
+				$datosINGR = array(
+					"estado"=> 1,
+					"codigoPatrimonial"=>$codi,
+					"idDetalleArticulo"=>$idDetArt,
+					"fechact"=>$fechaAct
+				);
+
+				$respuesta = ModeloArticulos::mdlIngresarCodigoPatrimonial("articulos", $datosINGR);
+
+				return $respuesta;
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡La codigo no puede ir vacío o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  })
+
+			  	</script>';
+
+			  	return;
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+
+
+
+	/*=============================================
+	ELIMINAR CATEGORIA
+	=============================================*/
+
+	static public function ctrEliminarCodArticulo(){
+
+		if(isset($_GET["idCodArticulo"])){
+
+			$respuesta = ModeloArticulos::mdlEliminarCodArticulo("articulos", $_GET["idCodArticulo"]);
+			
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El codigo se ha eliminado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "'.$_GET["rutaCodArt"].'";
+
+								}
+							})
+
+				</script>';
+
+			}		
+
+
+		}
+
+	}
+
 
 
 }

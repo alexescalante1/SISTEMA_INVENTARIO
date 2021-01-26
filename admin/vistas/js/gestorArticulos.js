@@ -288,7 +288,7 @@ $(".validarCategoriaM").change(function(){
 
     		if(respuesta.length != 0){
 
-    			$(".validarCategoriaM").parent().after('<div class="alert alert-warning">Este título de articulo ya existe en la base de datos</div>');
+    			$(".validarCategoriaM").parent().after('<div class="alert alert-warning">El título de la categoria ya existe en la base de datos</div>');
 
 	    		$(".validarCategoriaM").val("");
 
@@ -299,6 +299,57 @@ $(".validarCategoriaM").change(function(){
    	})
 
 })
+
+
+
+/*=============================================
+REVISAR SI EL CODIGO YA EXISTE
+=============================================*/
+
+$(".validarCodPatrimonial").change(function(){
+
+	$(".alert").remove();
+
+	var codigoPatr = $(this).val();
+
+	if(codigoPatr.length>8&&codigoPatr.length<10){
+
+		var datos = new FormData();
+		datos.append("validarCodPatrimonial", codigoPatr);
+
+		$.ajax({
+			url:"ajax/articulos.ajax.php",
+			method:"POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType: "json",
+			success:function(respuesta){
+
+				if(respuesta.length != 0){
+
+					$(".validarCodPatrimonial").parent().after('<div class="alert alert-warning">Este codigo ya existe en la base de datos</div>');
+
+					$(".validarCodPatrimonial").val("");
+
+				}
+
+			}
+
+		})
+
+	}else{
+
+		$(".validarCodPatrimonial").parent().after('<div class="alert alert-warning">El codigo debe Contener 9 caracteres</div>');
+		
+	}
+
+
+})
+
+
+
 
 /*=============================================
 RUTA ARTICULO
@@ -1008,7 +1059,7 @@ function editarMiArticulo(imagen){
 					})
 				}else{
 					swal({
-						title: "ERROR MANITO",
+						title: "ERROR...",
 					      type: "error",
 					      confirmButtonText: "¡Cerrar!"
 						});
@@ -1062,6 +1113,16 @@ $('.tablaArticulos tbody').on("click", ".btnEliminarArticulo", function(){
 
 
 
+
+
+
+
+
+
+
+/*=====================================================================================================================
+CATEGORIAS
+=====================================================================================================================*/
 
 
 
@@ -1291,6 +1352,126 @@ $('.tablaCategoriasM tbody').on("click", ".btnEliminarCategoriaM", function(){
 	  if(result.value){
   
 		window.location = "index.php?ruta=articulos&idCategoriaM="+idCategoriaM;
+  
+	  }
+  
+	})
+  
+  })
+
+
+
+
+
+
+
+
+/*=====================================================================================================================
+COD PRODUCTOS
+=====================================================================================================================*/
+
+
+
+/*=============================================
+GUARDAR CODIGO
+=============================================*/
+
+$(".guardarCodPatrimonial").click(function(){
+
+	if($(".codPatrimonial").val() != ""){
+
+		agregarNuevoCodigo();
+		
+	}else{
+
+		swal({
+	      title: "Llenar todos los campos obligatorios",
+	      type: "error",
+	      confirmButtonText: "¡Cerrar!"
+	    });
+
+		return;
+	}
+
+})
+
+
+function agregarNuevoCodigo(){
+
+	var codigoPatrimonial = $(".codPatrimonial").val();
+	var idDetalleArticulo = $(".idArticuloRef").val();
+	var rutaArticulo = $(".rutaArticulo").val();
+
+	var datosCodigo = new FormData();
+	datosCodigo.append("codigoPatrimonial", codigoPatrimonial);
+	datosCodigo.append("idDetalleArticulo", idDetalleArticulo);
+
+	$.ajax({
+			url:"ajax/articulos.ajax.php",
+			method: "POST",
+			data: datosCodigo,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+				
+				if(respuesta == "ok"){
+
+					swal({
+					  type: "success",
+					  title: "El codigo se ha guardado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+						if (result.value) {
+
+						window.location = rutaArticulo;
+
+						}
+					})
+				}else{
+					swal({
+						type: "error",
+						title: "El codigo no se ha guardado correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						})
+				}
+
+			}
+
+	})
+
+}
+
+
+
+
+
+
+/*=============================================
+ELIMINAR CODIGO
+=============================================*/
+
+$('.tablaCodArticulos tbody').on("click", ".btnEliminarArticulo", function(){
+
+	var idCodArticulo = $(this).attr("idCodArticulo");
+	var rutaCodArticulo = $(this).attr("rutaCodArticulo");
+
+	swal({
+	  title: '¿Está seguro de borrar la cartegoria?',
+	  text: "¡Si no lo está puede cancelar la accíón!",
+	  type: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancelar',
+		confirmButtonText: 'Si, borrar categoria!'
+	}).then(function(result){
+  
+	  if(result.value){
+  
+		window.location = "index.php?ruta="+rutaCodArticulo+"&idCodArticulo="+idCodArticulo+"&rutaCodArt="+rutaCodArticulo;
   
 	  }
   

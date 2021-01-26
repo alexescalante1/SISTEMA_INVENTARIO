@@ -287,7 +287,7 @@ INFOPRODUCTOS
 	 
 				<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCodArticulo">
 				
-				Agregar Nuevo Articulo
+				Agregar Nuevo Codigo
 
 				</button>
 
@@ -301,11 +301,12 @@ INFOPRODUCTOS
 						<tr>
 						
 						<th style="width:10px">#</th>
+						<th>Operatividad</th>
+						<th>Mantenimiento</th>
 						<th>Codigo Natural</th>
 						<th>Codigo Patrimonial</th>
-						<th>Operatividad</th>
-						<th>Estado</th>
 						<th>Fecha de creacion</th>
+						<th>Estado</th>
 						<th style="width:10px">Acciones</th>
 
 						</tr> 
@@ -324,6 +325,103 @@ INFOPRODUCTOS
 	</div>
 
 </div>
+
+
+
+
+
+
+<!--==============================================================================================================================================================================================================================
+MODAL AGREGAR COD ARTICULO
+===============================================================================================================================================================================================================================-->
+
+<div id="modalAgregarCodArticulo" class="modal fade" role="dialog">
+  
+   <div class="modal-dialog">
+     
+     <div class="modal-content">
+       
+       <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
+         
+         <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Agregar Codigo Patrimonial</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!--=====================================
+            ENTRADA PARA EL CODIGO PATRIMONIAL
+            ======================================-->
+			
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                  <input type="text" class="form-control input-lg validarCodPatrimonial codPatrimonial"  placeholder="Ingresar Codigo Patrimonial">
+						
+				  <input type="hidden" class="idArticuloRef" <?php echo 'value="'.$infoarticulo["idDetalleArticulo"].'"'; ?> >
+
+				  <input type="hidden" class="rutaArticulo" <?php echo 'value="'.$valor.'"'; ?> >
+
+                </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="button" class="btn btn-primary guardarCodPatrimonial">Guardar Codigo</button>
+
+        </div>
+
+       <!-- </form> -->
+
+     </div>
+
+   </div>
+
+</div>
+
+
+
+<?php
+
+  $eliminarCodArticulo = new ControladorArticulos();
+  $eliminarCodArticulo -> ctrEliminarCodArticulo();
+
+?>
+
+
+
+
+
+
+
+
 
 
 
