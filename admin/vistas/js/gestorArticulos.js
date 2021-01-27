@@ -224,6 +224,106 @@ $('.tablaArticulos tbody').on("click", ".btnActivar", function(){
 
 
 /*=============================================
+DAR DE BAJA CODIGO
+=============================================*/
+$('.tablaCodArticulos tbody').on("click", ".btnBaja", function(){
+
+	var idCodArticulo = $(this).attr("idCodArticulo");
+	var estadoCodArticulo = $(this).attr("estadoCodArticulo");
+
+	var datos = new FormData();
+ 	datos.append("bajaIdCodA", idCodArticulo);
+  	datos.append("bajaCodArticulo", estadoCodArticulo);
+
+  	$.ajax({
+
+	  url:"ajax/articulos.ajax.php",
+	  method: "POST",
+	  data: datos,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      success: function(respuesta){    
+          
+          // console.log("respuesta", respuesta);
+
+      }
+
+  	})
+
+	if(estadoCodArticulo == 0){
+
+  		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-danger');
+  		$(this).html('Baja');
+  		$(this).attr('estadoCodArticulo',1);
+
+  	}else{
+
+  		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-danger');
+  		$(this).html('Activo');
+  		$(this).attr('estadoCodArticulo',0);
+
+  	}
+
+})
+
+
+/*=============================================
+MANTENIMIENTO CODIGO
+=============================================*/
+$('.tablaCodArticulos tbody').on("click", ".btnMantenimiento", function(){
+
+	var idCodArticulo = $(this).attr("idCodArticulo");
+	var estadoCodArticulo = $(this).attr("estadoCodArticulo");
+
+	//$('.'+idCodArticulo).attr('estadoCodArticuloP',1);
+
+	var datos = new FormData();
+ 	datos.append("mantenimientoIdCodA", idCodArticulo);
+  	datos.append("mantenimientoCodArticulo", estadoCodArticulo);
+
+  	$.ajax({
+
+	  url:"ajax/articulos.ajax.php",
+	  method: "POST",
+	  data: datos,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      success: function(respuesta){    
+          
+          // console.log("respuesta", respuesta);
+
+      }
+
+  	})
+
+	if(estadoCodArticulo == 1){
+		
+		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-warning');
+  		$(this).html('Funcional');
+		$(this).attr('estadoCodArticulo',3);
+
+  	}else{
+
+		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-warning');
+  		$(this).html('Mantenimiento');
+		$(this).attr('estadoCodArticulo',1);
+
+  	}
+
+})
+
+$(".tablaCodArticulos tbody .btnMantenimiento").change(function(){
+	alert("ha cambiao");
+})
+
+
+/*=============================================
 REVISAR SI EL TITULO DEL ARTICULO YA EXISTE
 =============================================*/
 

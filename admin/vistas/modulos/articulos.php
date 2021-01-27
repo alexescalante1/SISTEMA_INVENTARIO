@@ -68,6 +68,57 @@
 
   </section>
 
+
+
+
+
+  <section class="content-header">
+
+  <h1>
+    Gestor Categorias
+  </h1>
+
+  </section>
+
+  <section class="content">
+
+  <div class="box">
+    
+    <div class="box-header with-border">
+      
+      <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
+        
+        Agregar Nueva Categoria
+
+      </button>
+
+    </div>
+
+    <div class="box-body">
+
+      <table class="table table-bordered table-striped dt-responsive tablaCategoriasM" width="100%">
+      
+        <thead>
+      
+          <tr>
+          
+            <th style="width:10px">#</th>
+            <th>Titulo</th>
+            <th style="width:10px">Acciones</th>
+
+          </tr> 
+
+        </thead>   
+  
+      </table>
+        
+    </div>
+
+  </div>
+
+  </section>
+
+
 </div>
 
 
@@ -75,7 +126,7 @@
 
 
 
-
+<!--
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -124,19 +175,8 @@
 
   </section>
 
-
-<?php
-
-date_default_timezone_set('America/Lima');
-
-$fecha = date('Y-m-d H:i:s');
-
-echo '<h1>'.$fecha.'</h1>';
-
-?>
-
 </div>
-
+-->
 
 
 

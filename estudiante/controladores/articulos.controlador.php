@@ -125,4 +125,35 @@ class ControladorArticulos{
 		return $respuesta;
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	CONT CODIGOS
+	=============================================*/
+
+	static public function ctrContarCodArticulos($item, $valor, $item2, $valor2){
+
+		$tabla = "articulos";
+
+		$respuesta = ModeloArticulos::mdlContarCodArticulos($tabla, $item, $valor, $item2, $valor2);
+
+		return $respuesta;
+	
+	}
+
 }

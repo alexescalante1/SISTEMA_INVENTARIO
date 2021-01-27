@@ -186,13 +186,32 @@ INFOARTICULOS
 				======================================-->
 				
 				<br>
-
-
-				<input type="text" class="knob" value="65" data-width="220" data-height="220" data-fgcolor="blue" data-readonly="true">
-
-				<p class="text-muted text-center" style="font-size:12px"> 65% disponible</p>
-
 				
+				<div class="col-md-6 col-sm-0 col-xs-0" style="display: table-cell;vertical-align: middle;text-align: center;">
+				<?php
+
+					$CantDisponible = ControladorArticulos::ctrContarCodArticulos("estado", 1, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+					$CantPrestados = ControladorArticulos::ctrContarCodArticulos("estado", 2, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+					
+					$CantTotal = $CantDisponible[0]+$CantPrestados[0];
+
+					if($CantTotal){
+						
+						echo '
+						<input type="text" class="knob" value="'.round( ($CantDisponible[0]*100)/$CantTotal, 1, PHP_ROUND_HALF_UP).'" data-width="220" data-height="220" data-fgcolor="#5AB0FF" data-readonly="true">
+
+						<p class="text-muted text-center" style="font-size:14px"> '.round( ($CantDisponible[0]*100)/$CantTotal, 1, PHP_ROUND_HALF_UP).'% DISPONIBLE</p>';
+
+					}else{
+						echo '
+						<input type="text" class="knob" value="0" data-width="220" data-height="220" data-fgcolor="blue" data-readonly="true">
+
+						<p class="text-muted text-center" style="font-size:14px"> 0% DISPONIBLE</p>';
+					}
+
+				?>
+				</div>
+
 
 				<div class="form-group row">
 					
@@ -203,7 +222,7 @@ INFOARTICULOS
 
 					<span class="label label-default" style="font-weight:100">
 
-						<i class="fa fa-tasks" style="margin-right:5px"></i> 4
+						<i class="fa fa-tasks" style="margin-right:5px"></i> '.$CantDisponible[0].'
 						Unidades Disponibles  | 
 						
 

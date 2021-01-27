@@ -30,6 +30,13 @@ class TablaArticulos{
 	  
   	$productos = ControladorArticulos::ctrMostrarCodArticulos($item, $valor);
 
+
+	$OpBaja = 0;
+	$OpDisponible = 1;
+	$OpPrestado = 2;
+	$OpMantenimiento = 3;
+
+
   	$datosJson = '
 
   		{
@@ -44,37 +51,29 @@ class TablaArticulos{
 			  
 			if($productos[$i]["estado"] == 0){
 
-				$estadoArticulo = 1;
-
-				$operatividad = "<button class='btn btn-xs btnActivar btn-danger' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Baja</button>";
-				$mantenimiento = "<button class='btn btn-xs btnActivar btn-secondary'>No Disponible</button>";
-				$estado = "<button class='btn btn-xs btnActivar btn-secondary'>No Disponible</button>";
+				$operatividad = "<button class='btn btn-xs btnBaja btn-danger' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticulo='".$OpDisponible."'>Baja</button>";
+				$mantenimiento = "<button class='btn btn-xs btn-secondary'>No Disponible</button>";
+				$estado = "<button class='btn btn-xs btn-secondary'>No Disponible</button>";
 
 			}else{
 
 				if($productos[$i]["estado"] == 1){
-
-					$estadoArticulo = 0;
-
-					$operatividad = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Activo</button>";
-					$mantenimiento = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Funcional</button>";
-					$estado = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Disponible</button>";
+					
+					$operatividad = "<button class='btn btn-xs btnBaja btn-success' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticulo='".$OpBaja."'>Activo</button>";
+					$mantenimiento = "<button class='btn btn-xs btnMantenimiento btn-success' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticulo='".$OpMantenimiento."'>Funcional</button>";
+					$estado = "<button class='btn btn-xs btnPrestamo btn-success' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticuloP='".$OpPrestado."'>Disponible</button>";
 					
 				}else if($productos[$i]["estado"] == 2){
 
-					$estadoArticulo = 1;
-
-					$operatividad = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Activo</button>";
-					$mantenimiento = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Funcional</button>";
-					$estado = "<button class='btn btn-xs btnActivar btn-info' >Prestado</button>";
+					$operatividad = "<button class='btn btn-xs btnBaja btn-success'>Activo</button>";
+					$mantenimiento = "<button class='btn btn-xs btnMantenimiento btn-success'>Funcional</button>";
+					$estado = "<button class='btn btn-xs btnPrestamo btn-info' >Prestado</button>";
 
 				}else if($productos[$i]["estado"] == 3){
 
-					$estadoArticulo = 1;
-
-					$operatividad = "<button class='btn btn-xs btnActivar btn-success' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>Activo</button>";
-					$mantenimiento = "<button class='btn btn-xs btnActivar btn-warning' idArticulo='".$productos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>En Mantenimiento</button>";
-					$estado = "<button class='btn btn-xs btnActivar btn-secondary'>No Disponible</button>";
+					$operatividad = "<button class='btn btn-xs btnBaja btn-success' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticulo='".$OpBaja."'>Activo</button>";
+					$mantenimiento = "<button class='btn btn-xs btnMantenimiento btn-warning' idCodArticulo='".$productos[$i]["idArticulo"]."' estadoCodArticulo='".$OpDisponible."'>En Mantenimiento</button>";
+					$estado = "<button class='btn btn-xs btnPrestamo btn-secondary' estadoCodArticuloP='".$OpPrestado."'>No Disponible</button>";
 
 				}
 

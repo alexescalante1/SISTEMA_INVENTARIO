@@ -3,7 +3,7 @@
   <section class="content-header">
 
    <h1>
-      Gestor Articulos
+      Gestor De Prestamos
     </h1>
 
     <!-- BARRA DE NAV-->
@@ -11,7 +11,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Gestor Articulos</li>
+      <li class="active">Gestor De Prestamos</li>
 
     </ol>
     
@@ -27,19 +27,11 @@
 
     <div class="box">
        
-      <div class="box-header with-border">
-         
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArticulo">
-          
-          Agregar Articulo
-
-        </button>
-
-      </div>
+      
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaArticulos" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaPrestamos" width="100%">
         
           <thead>
          

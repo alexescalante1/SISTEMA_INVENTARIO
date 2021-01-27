@@ -31,6 +31,50 @@ class AjaxArticulo{
 
 	}
 
+
+
+
+	/*=============================================
+  	DAR DE BAJA COD ARTICULOS
+ 	=============================================*/	
+
+ 	public $bajaCodArticulo;
+	public $bajaIdCodA;
+
+	public function ajaxBajaCodArticulo(){
+
+		$tabla = "articulos";
+
+		$item1 = "estado";
+		$valor1 = $this->bajaCodArticulo;
+
+		$item2 = "idArticulo";
+		$valor2 = $this->bajaIdCodA;
+
+		$respuesta = ModeloArticulos::mdlActualizarArticulos($tabla, $item1, $valor1, $item2, $valor2);
+
+		echo $respuesta;
+
+	}
+
+	public function ajaxMantenimientoCodArticulo(){
+
+		$tabla = "articulos";
+
+		$item1 = "estado";
+		$valor1 = $this->bajaCodArticulo;
+
+		$item2 = "idArticulo";
+		$valor2 = $this->bajaIdCodA;
+
+		$respuesta = ModeloArticulos::mdlActualizarArticulos($tabla, $item1, $valor1, $item2, $valor2);
+
+		echo $respuesta;
+
+	}
+
+
+
 	/*=============================================
 	VALIDAR NO REPETIR ARTICULOS
 	=============================================*/	
@@ -292,6 +336,35 @@ if(isset($_POST["activarArticulo"])){
 	$activarArticulo -> activarArticulo = $_POST["activarArticulo"];
 	$activarArticulo -> activarIdA = $_POST["activarIdA"];
 	$activarArticulo -> ajaxActivarArticulo();
+
+}
+
+
+/*=============================================
+BAJA COD ARTICULO
+=============================================*/	
+
+if(isset($_POST["bajaIdCodA"])){
+	
+	$bajaCodigoArticuloM = new AjaxArticulo();
+	$bajaCodigoArticuloM -> bajaCodArticulo = $_POST["bajaCodArticulo"];
+	$bajaCodigoArticuloM -> bajaIdCodA = $_POST["bajaIdCodA"];
+	$bajaCodigoArticuloM -> ajaxBajaCodArticulo();
+
+}
+
+
+
+/*=============================================
+MANTENIMIENTO ARTICULO
+=============================================*/	
+
+if(isset($_POST["mantenimientoIdCodA"])){
+	
+	$mantenimientoCodigoArticuloM = new AjaxArticulo();
+	$mantenimientoCodigoArticuloM -> bajaCodArticulo = $_POST["mantenimientoCodArticulo"];
+	$mantenimientoCodigoArticuloM -> bajaIdCodA = $_POST["mantenimientoIdCodA"];
+	$mantenimientoCodigoArticuloM -> ajaxMantenimientoCodArticulo();
 
 }
 

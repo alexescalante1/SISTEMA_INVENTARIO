@@ -226,38 +226,118 @@ INFOPRODUCTOS
 					
 					<div class="chart-responsive">
 						
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<canvas id="pieDisponible" height="210"></canvas>
-							<p class="text-muted text-center" style="font-size:12px"> 55% disponible</p>
+						<div class="col-md-6 col-sm-6 col-xs-12">
+							<canvas id="pieDisponible" height="250"></canvas>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<canvas id="pieDisponible2" height="210"></canvas>
-							<p class="text-muted text-center" style="font-size:12px"> 55% en baja</p>
+						
+						<?php
+
+						$colores = array("#FF4C4C","#90FF4C","#4CD2FF","#FFC112");
+						$datosGraficaText = array("Baja","Disponible","Prestado","Mantenimiento");
+
+						$Gbaja = ControladorArticulos::ctrContarCodArticulos("estado", 0, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+
+						$Gdisponible = ControladorArticulos::ctrContarCodArticulos("estado", 1, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+
+						$Gprestado = ControladorArticulos::ctrContarCodArticulos("estado", 2, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+
+						$Gmantenimiento = ControladorArticulos::ctrContarCodArticulos("estado", 3, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+
+						$datosGraficaT = array($Gbaja[0],$Gdisponible[0],$Gprestado[0],$Gmantenimiento[0]);
+
+						?>
+
+						<script>
+						
+						var pieChartCanvas = $('#pieDisponible').get(0).getContext('2d');
+						var pieChart       = new Chart(pieChartCanvas);
+						
+						var PieData        = [
+
+						<?php
+
+							if($Gbaja[0]+$Gdisponible[0]+$Gprestado[0]+$Gmantenimiento[0]){
+								for($i = 0; $i < 4; $i++){
+
+									echo "{
+										value    : ".$datosGraficaT[$i].",
+										color    : '".$colores[$i]."',
+										highlight: '".$colores[$i]."',
+										label    : '".$datosGraficaText[$i]."'
+									},";
+							
+								}
+							}else{
+								echo "{
+									value    : 1,
+									color    : '#D8D8D8',
+									highlight: '#D8D8D8',
+									label    : 'sin articulos'
+								},";
+							}
+
+						?>
+							
+						];
+
+						var pieOptions     = {
+							segmentShowStroke    : true,
+							segmentStrokeColor   : '#fff',
+							segmentStrokeWidth   : 1,
+							percentageInnerCutout: 50,
+							animationSteps       : 150,
+							animationEasing      : 'easeOutBounce',
+							animateRotate        : true,
+							animateScale         : false,
+							responsive           : true,
+							maintainAspectRatio  : false,
+							legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
+							tooltipTemplate      : '<%=label%>'
+						};
+
+						pieChart.Doughnut(PieData, pieOptions);
+
+						</script>
+						
+
+						<div class="col-md-6 col-sm-6 col-xs-12">
+
+						<ul class="chart-legend clearfix">
+
+							<?php
+
+							for($i = 0; $i < 4; $i++){
+
+								echo '<li><i class="fa fa-circle-o" style="color:'.$colores[$i].';margin:0px 7px"></i> '.$datosGraficaT[$i].' '.$datosGraficaText[$i].'</li>';
+
+							}
+
+							?>
+
+						</ul>
+							
+							
 						</div>
 
 	        		</div>
-
-
+					
 					<!--
 					<input type="text" class="knob" value="80" data-width="200" data-height="200" data-fgcolor="blue" data-readonly="true">
 					-->
+				
+
+					<div class="form-group">
 					
-
-
-
-
-					<div class="form-group row">
-						
 						<?php
 								echo '
 								
-								<h4 class="col-md-12 col-sm-0 col-xs-0">
+								<h4 class="col-md-12 col-sm-0 col-xs-0" style="margin-top: 20px">
 
 									<span class="label label-default" style="font-weight:100">
 
-										<i class="fa fa-tasks" style="margin-right:5px"></i> 4
-										Unidades Disponibles  | 
-										
+										<i class="fa fa-line-chart" style="margin:0px 5px"></i> Prestado 
+										'.$infoarticulo["prestados"].' veces | 
+
 										<i class="fa fa-balance-scale" style="margin:0px 5px"></i>
 										'.$infoarticulo["peso"].' Kg |
 										
@@ -270,12 +350,13 @@ INFOPRODUCTOS
 
 								';
 
-
 						?>
 
 					</div>
 
 				</div>
+
+				
 			</div>
 			</div>
 			
@@ -429,96 +510,4 @@ MODAL AGREGAR COD ARTICULO
 
 
 
-<?php
 
-$productos = ControladorProductos::ctrMostrarTotalProductos("ventas");
-
-$colores = array("#5DADE2","#EAEDED","#E74C3C","#EAEDED","purple");
-
-?>
-
-<script>
-	
-// -------------
-  // - PIE CHART -
-  // -------------
-  // Get context with jQuery - using jQuery's .get() method.
-  var pieChartCanvas = $('#pieDisponible').get(0).getContext('2d');
-  var pieChartCanvas2 = $('#pieDisponible2').get(0).getContext('2d');
-  var pieChart       = new Chart(pieChartCanvas);
-  var pieChart2       = new Chart(pieChartCanvas2);
-  var PieData        = [
-
-  <?php
-
-	for($i = 0; $i < 2; $i++){
-
-		echo "{
-			value    : ".$productos[$i]["ventas"].",
-			color    : '".$colores[$i]."',
-			highlight: '".$colores[$i]."',
-			label    : '".$productos[$i]["titulo"]."'
-		},";
-
-	}
-
-  ?>
-    
-  ];
-
-  var PieData2        = [
-
-	<?php
-
-		for($i = 2; $i < 4; $i++){
-
-			echo "{
-				value    : ".$productos[$i]["ventas"].",
-				color    : '".$colores[$i]."',
-				highlight: '".$colores[$i]."',
-				label    : '".$productos[$i]["titulo"]."'
-			},";
-
-		}
-
-	?>
-	
-	];
-
-
-  var pieOptions     = {
-    // Boolean - Whether we should show a stroke on each segment
-    segmentShowStroke    : true,
-    // String - The colour of each segment stroke
-    segmentStrokeColor   : '#fff',
-    // Number - The width of each segment stroke
-    segmentStrokeWidth   : 1,
-    // Number - The percentage of the chart that we cut out of the middle
-    percentageInnerCutout: 50, // This is 0 for Pie charts
-    // Number - Amount of animation steps
-    animationSteps       : 150,
-    // String - Animation easing effect
-    animationEasing      : 'easeOutBounce',
-    // Boolean - Whether we animate the rotation of the Doughnut
-    animateRotate        : true,
-    // Boolean - Whether we animate scaling the Doughnut from the centre
-    animateScale         : false,
-    // Boolean - whether to make the chart responsive to window resizing
-    responsive           : true,
-    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-    maintainAspectRatio  : false,
-    // String - A legend template
-    legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
-    // String - A tooltip template
-    tooltipTemplate      : '<%=value %> <%=label%>'
-  };
-  // Create pie or douhnut chart
-  // You can switch between pie and douhnut using the method below.
-  pieChart.Doughnut(PieData, pieOptions);
-  pieChart2.Doughnut(PieData2, pieOptions);
-  // -----------------
-  // - END PIE CHART -
-  // -----------------
-
-	
-</script>
