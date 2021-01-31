@@ -101,35 +101,6 @@ TOP
 							 <li>|</li>
 							 <li><a href="'.$url.'salir">Salir</a></li>';
 
-
-						}
-
-						if($_SESSION["modo"] == "facebook"){
-
-							echo '<li>
-
-									<img class="img-circle" src="'.$_SESSION["foto"].'" width="10%">
-
-								   </li>
-								   <li>|</li>
-						 		   <li><a href="'.$url.'perfil">Ver Perfil</a></li>
-						 		   <li>|</li>
-						 		   <li><a href="'.$url.'salir" class="salir">Salir</a></li>';
-
-						}
-
-						if($_SESSION["modo"] == "google"){
-
-							echo '<li>
-
-									<img class="img-circle" src="'.$_SESSION["foto"].'" width="10%">
-
-								   </li>
-								   <li>|</li>
-						 		   <li><a href="'.$url.'perfil">Ver Perfil</a></li>
-						 		   <li>|</li>
-						 		   <li><a href="'.$url.'salir">Salir</a></li>';
-
 						}
 
 					}
@@ -190,7 +161,57 @@ VENTANA MODAL PARA EL REGISTRO
 						
 						</span>
 
+						<input type="text" class="form-control text-uppercase" id="regCodigo" name="regCodigo" placeholder="Codigo" required>
+
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
 						<input type="text" class="form-control text-uppercase" id="regUsuario" name="regUsuario" placeholder="Nombre Completo" required>
+
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-user"></i>
+						
+						</span>
+
+						<input type="text" class="form-control" id="regUser" name="regUser" placeholder="User" required>
+
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					
+					<div class="input-group">
+						
+						<span class="input-group-addon">
+							
+							<i class="glyphicon glyphicon-lock"></i>
+						
+						</span>
+
+						<input type="password" class="form-control" id="regPassword" name="regPassword" placeholder="CONTRASEÑA" required>
 
 					</div>
 
@@ -206,49 +227,9 @@ VENTANA MODAL PARA EL REGISTRO
 						
 						</span>
 
-						<input type="email" class="form-control" id="regEmail" name="regEmail" placeholder="Correo Electrónico" required>
+						<input type="email" class="form-control" id="regEmail" name="regEmail" placeholder="CORREO ELECTRONICO" required>
 
 					</div>
-
-				</div>
-
-				<div class="form-group">
-					
-					<div class="input-group">
-						
-						<span class="input-group-addon">
-							
-							<i class="glyphicon glyphicon-lock"></i>
-						
-						</span>
-
-						<input type="password" class="form-control" id="regPassword" name="regPassword" placeholder="Contraseña" required>
-
-					</div>
-
-				</div>
-
-				<!--=====================================
-				https://www.iubenda.com/ CONDICIONES DE USO Y POLÍTICAS DE PRIVACIDAD
-				======================================-->
-
-				<div class="checkBox">
-					
-					<label>
-						
-						<input id="regPoliticas" type="checkbox">
-					
-							<small>
-								
-								Al registrarse, usted acepta nuestras condiciones de uso y políticas de privacidad
-
-								<br>
-
-								<a href="//www.iubenda.com/privacy-policy/8146355" class="iubenda-white iubenda-embed" title="condiciones de uso y políticas de privacidad">Leer más</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-
-							</small>
-
-					</label>
 
 				</div>
 
@@ -334,7 +315,7 @@ VENTANA MODAL PARA EL INGRESO
 						
 						</span>
 
-						<input type="email" class="form-control" id="ingEmail" name="ingEmail" placeholder="Correo Electrónico" required>
+						<input type="text" class="form-control" id="ingUser" name="ingUser" placeholder="Usuario" required>
 
 					</div>
 

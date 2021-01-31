@@ -46,10 +46,11 @@
             <tr>
               
               <th style="width:10px">#</th>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Modo</th>
-              <th>Foto</th>
+              <th>Tipo Doc</th>
+              <th>Codigo</th>
+              <th>Usuario</th>
+              <th>Nombres y Apellidos</th>
+              <th>E-mail</th>
               <th>Estado</th>
               <th>Fecha</th>
 

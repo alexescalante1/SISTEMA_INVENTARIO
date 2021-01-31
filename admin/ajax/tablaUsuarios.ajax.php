@@ -12,7 +12,9 @@ class TablaUsuarios{
 	public function mostrarTabla(){	
 
 		$item = null;
- 		$valor = null;
+		$valor = null;
+		 
+		$tipoDoc = null;
 
  		$usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
@@ -28,11 +30,11 @@ class TablaUsuarios{
 
 			if($usuarios[$i]["foto"] != "" ){
 
-				$foto = "<img class='img-circle' src='".$usuarios[$i]["foto"]."' width='60px'>";
+				$foto = "<img class='img-circle' src='".$usuarios[$i]["foto"]."' width='50px'>";
 
 			}else{
 
-				$foto = "<img class='img-circle' src='vistas/img/usuarios/default/anonymous.png' width='60px'>";
+				$foto = "<img class='img-circle' src='vistas/img/usuarios/default/anonymous.png' width='50px'>";
 			}
 
 			/*=============================================
@@ -63,6 +65,15 @@ class TablaUsuarios{
 
 	  		}
 
+			/*=============================================
+			TIPO DE DOCUMENTO
+			=============================================*/
+			
+			if(strlen($usuarios[$i]["codigo"])==6){
+				$tipoDoc = "CODIGO";
+			}else{
+				$tipoDoc = "DNI";
+			}
 
 	 		/*=============================================
 			DEVOLVER DATOS JSON
@@ -70,10 +81,11 @@ class TablaUsuarios{
 
 			$datosJson	 .= '[
 				      "'.($i+1).'",
-				      "'.$usuarios[$i]["nombre"].'",
+					  "'.$tipoDoc.'", 
+					  "'.$usuarios[$i]["codigo"].'",
+					  "'.$usuarios[$i]["user"].'",
+					  "'.$usuarios[$i]["nombre"].'",
 				      "'.$usuarios[$i]["email"].'",
-				      "'.$usuarios[$i]["modo"].'",
-				      "'.$foto.'",
 				      "'.$estado.'",
 				      "'.$usuarios[$i]["fecha"].'"    
 				    ],';

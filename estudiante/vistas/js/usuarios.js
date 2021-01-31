@@ -107,6 +107,36 @@ VALIDAR EL REGISTRO DE USUARIO
 function registroUsuario(){
 
 	/*=============================================
+	VALIDAR EL CODIGO
+	=============================================*/
+
+	var nombre = $("#regCodigo").val();
+	
+	if(nombre != ""){
+
+		var expresion = /^[0-9]*$/;
+
+		if(!expresion.test(nombre)){
+
+			$("#regCodigo").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo se admite Numeros</div>')
+
+			return false;
+
+		}else if(nombre.length != 6 && nombre.length != 8){
+			
+			$("#regCodigo").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo Se admite 6 o 8 digitos</div>')
+
+			return false;
+		}
+
+	}else{
+
+		$("#regCodigo").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
+
+		return false;
+	}
+	
+	/*=============================================
 	VALIDAR EL NOMBRE
 	=============================================*/
 
@@ -127,6 +157,31 @@ function registroUsuario(){
 	}else{
 
 		$("#regUsuario").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
+
+		return false;
+	}
+
+	/*=============================================
+	VALIDAR EL USER
+	=============================================*/
+
+	var nombre = $("#regUser").val();
+
+	if(nombre != ""){
+
+		var expresion = /^[a-zA-Z0-9]*$/;
+
+		if(!expresion.test(nombre)){
+
+			$("#regUser").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong> No se permiten caracteres especiales</div>')
+
+			return false;
+
+		}
+
+	}else{
+
+		$("#regUser").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
 
 		return false;
 	}
@@ -188,20 +243,6 @@ function registroUsuario(){
 		$("#regPassword").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
 
 		return false;
-	}
-
-	/*=============================================
-	VALIDAR POLÍTICAS DE PRIVACIDAD
-	=============================================*/
-
-	var politicas = $("#regPoliticas:checked").val();
-	
-	if(politicas != "on"){
-
-		$("#regPoliticas").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Debe aceptar nuestras condiciones de uso y políticas de privacidad</div>')
-
-		return false;
-
 	}
 
 	return true;
