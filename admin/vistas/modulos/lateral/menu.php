@@ -37,10 +37,11 @@ MENU
 
   </li>
 -->
+  <li><a href="prestar"><i class="fa fa-product-hunt"></i> <span>Prestar Articulos</span></a></li>
 
   <li><a href="articulos"><i class="fa fa-product-hunt"></i> <span>Gestor Articulos</span></a></li>
 
-  <li><a href="prestamos"><i class="fa fa-product-hunt"></i> <span>Gestor De Prestamos</span></a></li>
+  <li><a href="prestamos"><i class="fa fa-product-hunt"></i> <span>Gestor De Actividades</span></a></li>
 
   <li><a href="notificacionesM"><i class="fa fa-product-hunt"></i> <span>Gestor De Notificaciones</span></a></li>
   <!--

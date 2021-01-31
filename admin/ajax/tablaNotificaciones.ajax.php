@@ -86,9 +86,9 @@ class TablaArticulos{
 			$visto = "<button class='btn btn-xs btnActivar ".$colorEstado."' idNotificacion='".$notific[$i]["idNotificacion"]."' estadoArticulo='".$estadoNotificacion."'>".$textoEstado."</button>";
 
 			if($notific[$i]["tipoDocTitular"] == 0){
-				$tipoDoc = "DNI";
-			}else{
 				$tipoDoc = "CODIGO";
+			}else{
+				$tipoDoc = "DNI";
 			}
 
 			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";

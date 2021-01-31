@@ -1,5 +1,6 @@
 
-<input style="display:none" id="IDCODPRODET" name="IDCODPRODET" <?php echo 'value="'.$infoArticulos.'"'; ?> >
+<input style="display:none" id="IDCODPRODET" name="IDCODPRODET" <?php echo 'value="'.$infoArticulosP.'"'; ?> >
+
 
 <!--=====================================
 INFOPRODUCTOS
@@ -18,7 +19,7 @@ INFOPRODUCTOS
 
 				$item =  "ruta";
 				
-				$infoarticulo = ControladorArticulos::ctrMostrarInfoArticulo($item, $infoArticulos);
+				$infoarticulo = ControladorArticulos::ctrMostrarInfoArticulo($item, $infoArticulosP);
 
 				$mda = json_decode($infoarticulo["multimedia"],true);
 				/*=============================================
@@ -370,7 +371,6 @@ INFOPRODUCTOS
 						<th>Codigo Patrimonial</th>
 						<th>Fecha de creacion</th>
 						<th>Estado</th>
-						<th style="width:10px">Acciones</th>
 
 						</tr> 
 
@@ -439,7 +439,7 @@ MODAL AGREGAR COD ARTICULO
 						
 				  <input type="hidden" class="idArticuloRef" <?php echo 'value="'.$infoarticulo["idDetalleArticulo"].'"'; ?> >
 
-				  <input type="hidden" class="rutaArticulo" <?php echo 'value="'.$infoArticulos.'"'; ?> >
+				  <input type="hidden" class="rutaArticulo" <?php echo 'value="'.$valor.'"'; ?> >
 
                 </div>
 

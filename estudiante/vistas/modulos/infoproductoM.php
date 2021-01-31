@@ -426,7 +426,12 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regTipoDocT" name="regTipoDocT" placeholder="Tipo de Documento" required  min="0" max="1" value="0">
+						<select class="form-control input-lg"  id="regTipoDocT" name="regTipoDocT" required>
+
+							<option value="0">CODIGO</option>
+							<option value="1">DNI</option>
+
+						</select>
 
 					</div>
 
@@ -490,7 +495,25 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regCant" name="regCant" placeholder="Cantidad de Articulos" required  min="0" max="5" value="0">
+						<select class="form-control input-lg"  id="regCant" name="regCant" required>
+
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="10">11</option>
+							<option value="10">12</option>
+							<option value="10">13</option>
+							<option value="10">14</option>
+							<option value="10">15</option>
+
+						</select>
 
 					</div>
 
@@ -506,7 +529,18 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="number" class="form-control" id="regDias" name="regDias" placeholder="Dias de prestamo" required  min="0" max="12" value="0">
+						<select class="form-control input-lg"  id="regDias" name="regDias" required>
+
+							<option value="1">3</option>
+							<option value="2">6</option>
+							<option value="3">9</option>
+							<option value="4">12</option>
+							<option value="5">15</option>
+							<option value="6">20</option>
+							<option value="7">30</option>
+							<option value="8">40</option>
+
+						</select>
 
 					</div>
 
@@ -522,7 +556,7 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="text" class="form-control" id="regDetalle" name="regDetalle" placeholder="Detallar Motivos" required>
+						<textarea type="text" maxlength="320" rows="3" class="form-control input-lg" id="regDetalle" name="regDetalle" placeholder="Ingresar descripción del articulo"></textarea>
 
 					</div>
 

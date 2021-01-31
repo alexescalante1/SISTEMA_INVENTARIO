@@ -3,7 +3,7 @@
   <section class="content-header">
 
    <h1>
-      Gestor Articulos
+      Prestar Articulos
     </h1>
 
     <!-- BARRA DE NAV-->
@@ -11,7 +11,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Gestor Articulos</li>
+      <li class="active">Prestar Articulos</li>
 
     </ol>
     
@@ -23,38 +23,26 @@
   <section class="content">
 
     <div class="box">
-       
-      <div class="box-header with-border">
-         
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArticulo">
-          
-          Agregar Articulo
-
-        </button>
-
-      </div>
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaArticulos" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaPrestarArticulos" width="100%">
         
           <thead>
          
             <tr>
              
                <th style="width:10px">#</th>
-               <th>Ruta</th>
+               <th>Acciones</th>
+               <th>Portada</th>
                <th>Titulo</th>
                <th>Categoria</th>
+               <th>Descripcion</th>
                <th>Palabras Clave</th>
-               <th>Disponible</th>
-               <th>Portada</th>
-               <th>Descripción</th>
                <th>Prestados</th>
                <th>Peso</th>
                <th>Precio</th>
-               <th>Acciones</th>
-               <th>Acciones</th>
+               
 
             </tr> 
 
@@ -67,57 +55,6 @@
     </div>
 
   </section>
-
-
-
-
-
-  <section class="content-header">
-
-  <h1>
-    Gestor Categorias
-  </h1>
-
-  </section>
-
-  <section class="content">
-
-  <div class="box">
-    
-    <div class="box-header with-border">
-      
-      <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-        
-        Agregar Nueva Categoria
-
-      </button>
-
-    </div>
-
-    <div class="box-body">
-
-      <table class="table table-bordered table-striped dt-responsive tablaCategoriasM" width="100%">
-      
-        <thead>
-      
-          <tr>
-          
-            <th style="width:10px">#</th>
-            <th>Titulo</th>
-            <th style="width:10px">Acciones</th>
-
-          </tr> 
-
-        </thead>   
-  
-      </table>
-        
-    </div>
-
-  </div>
-
-  </section>
-
 
 </div>
 
@@ -184,7 +121,7 @@
 MODAL AGREGAR NUEVO ARTICULO
 ======================================-->
 
-<div id="modalAgregarArticulo" class="modal fade" role="dialog">
+<div id="modalPrestarArticulo" class="modal fade" role="dialog">
   
    <div class="modal-dialog">
      
@@ -199,13 +136,9 @@ MODAL AGREGAR NUEVO ARTICULO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Articulo</h4>
-
+          <h4 class="modal-title">Prestar Articulo</h4>
+          
         </div>
-
-
-
-
 
 
 
@@ -217,22 +150,24 @@ MODAL AGREGAR NUEVO ARTICULO
 
           <div class="box-body">
 
+            <div class="row">
+              <div class="col-md-6">
 
-
-
-            <!--=====================================
-            ENTRADA PARA EL TÍTULO
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
-                  <input type="text" class="form-control input-lg validarArticulo tituloArticulo"  placeholder="Ingresar título producto">
-
+                <div class="form-group">
+                    
+                    <img src="vistas/img/productos/default/default.jpg" class="img-thumbnail previsualizarPrincipalA" width="400px">
+      
                 </div>
+
+              </div>
+              <div class="col-md-6">
+              
+                <!--<input type="text" class="form-control input-lg tituloArticulo" placeholder="xd" readonly>
+-->
+                <div id="TituloArticuloP"></div>
+               
+              
+              </div>
 
             </div>
 
@@ -246,44 +181,109 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-link"></i></span> 
 
-                  <input type="text" class="form-control input-lg rutaArticulo" placeholder="Ruta url del producto" readonly>
+                  <input type="text" class="form-control input-lg nombrePrestamista" placeholder="<?php echo $_SESSION["nombre"];?>" readonly>
 
                 </div>
 
             </div>
 
-           <!--=====================================
-            ENTRADA PARA LA RUTA DEL PRODUCTO
+
+            <!--=====================================
+            ENTRADA PARA EL TÍTULO
             ======================================-->
 
-            <!--
             <div class="form-group">
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-bookmark-o"></i></span> 
+                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                  <select class="form-control input-lg seleccionarTipo">
-                    
-                    <option value="">Selecionar tipo de producto</option>
+                  <input type="text" class="form-control input-lg validarArticulo CodEstudiante"  placeholder="Ingresar el Codigo del estudiante">
 
-                    <option value="virtual">Virtual</option>
-
-                    <option value="fisico">Físico</option>            
-    
-                  </select>
+                  <input type="hidden" class="idArticulo">
 
                 </div>
 
             </div>
-            -->
+
+          
+            <!--=====================================
+            AGREGAR PRECIO, PESO Y ENTREGA
+            ======================================-->
+
+            <div class="form-group row">
+               
+              <!-- PRECIO -->
+
+              <div class="col-md-8 col-xs-12">
+  
+                <div class="panel">CANTIDAD DE ARTICULOS</div>
+
+                <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                    <select class="form-control input-lg seleccionarCategoria">
+
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="10">11</option>
+                      <option value="10">12</option>
+                      <option value="10">13</option>
+                      <option value="10">14</option>
+                      <option value="10">15</option>
+
+                    </select>
+                  
+                </div>
 
 
-            
+              </div>
+
+              <!-- PESO -->
+
+              <div class="col-md-4 col-xs-12">
+  
+                <div class="panel">DIAS</div>
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
+
+                  <select class="form-control input-lg seleccionarCategoria">
+
+                    <option value="1">3</option>
+                    <option value="2">6</option>
+                    <option value="3">9</option>
+                    <option value="4">12</option>
+                    <option value="5">15</option>
+                    <option value="6">20</option>
+                    <option value="7">30</option>
+                    <option value="8">40</option>
+
+                  </select>
+
+                </div>
+
+              </div>
 
 
-           <!--=====================================
-            AGREGAR CATEGORÍA
+            </div>
+
+                  
+            <br>
+            <h5>LISTA DE ARTICULOS</h5>
+
+            <!--=====================================
+            LISTAR CODIGOS
             ======================================-->
 
             <div class="form-group">
@@ -294,10 +294,15 @@ MODAL AGREGAR NUEVO ARTICULO
 
                   <select class="form-control input-lg seleccionarCategoria">
                   
-                    <option value="">Selecionar categoría</option>
+                    <option value="">CODIGO</option>
+                    <option value="">123456789</option>
+                    <option value="">785694221</option>
+                    <option value="">457865424</option>
+                    <option value="">145257825</option>
 
                     <?php
 
+                    /*
                     $item = null;
                     $valor = null;
 
@@ -307,6 +312,7 @@ MODAL AGREGAR NUEVO ARTICULO
                       
                       echo '<option value="'.$value["idCategoria"].'">'.$value["titulo"].'</option>';
                     }
+                    */
 
                     ?>
 
@@ -318,182 +324,6 @@ MODAL AGREGAR NUEVO ARTICULO
 
 
 
-
-            <!--=====================================
-            AGREGAR SUBCATEGORÍA
-            ======================================-->
-            <!--
-            <div class="form-group  entradaSubcategoria" style="display:none">
-              
-               <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg seleccionarSubCategoria">
-
-                  </select>
-
-                </div>
-
-            </div>
-            -->
-           <!--=====================================
-            AGREGAR DESCRIPCIÓN
-            ======================================-->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
-
-                <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionArticulo" placeholder="Ingresar descripción del articulo"></textarea>
-
-              </div>
-
-            </div>
-
-
-            <!--=====================================
-            AGREGAR PALABRAS CLAVES
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                  <input type="text" class="form-control input-lg tagsInput pClavesArticulo" data-role="tagsinput"  placeholder="Ingresar palabras claves">
-
-                </div>
-
-            </div>
-
-
-
-
-            <!--=====================================
-            AGREGAR FOTO DE PORTADA
-            ======================================-->
-            <!--
-            <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO PORTADA</div>
-
-              <input type="file" class="fotoPortada">
-
-              <p class="help-block">Tamaño recomendado 1280px * 720px <br> Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortada" width="100%">
-
-            </div>
-            -->
-            
-            <!--=====================================
-            AGREGAR FOTO DE MULTIMEDIA
-            ======================================-->
-
-            <div class="form-group">
-                
-              <div class="panel">SUBIR FOTO PRINCIPAL DEL ARTICULO</div>
-
-              <input type="file" class="fotoPrincipalA">
-
-              <p class="help-block">Tamaño recomendado 500px * 500px <br> Peso máximo de la foto 5MB</p>
-
-              <img src="vistas/img/productos/default/default.jpg" class="img-thumbnail previsualizarPrincipalA" width="400px">
-
-            </div>
-
-
-            <!--=====================================
-            ENTRADA PARA AGREGAR MULTIMEDIA
-            ======================================-->
-
-            <div class="form-group agregarMultimedia">
-              
-              <div class="panel">SUBIR IMAGENES DEL ARTICULO</div>
-
-              <div class="multimediaAdd needsclick dz-clickable">
-
-                <div class="dz-message needsclick">
-                  
-                  Arrastrar o dar click para subir imagenes.
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-
-
-            <!--=====================================
-            AGREGAR PRECIO, PESO Y ENTREGA
-            ======================================-->
-
-            <div class="form-group row">
-               
-              <!-- PRECIO -->
-
-              <div class="col-md-4 col-xs-12">
-  
-                <div class="panel">PRECIO</div>
-                
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
-
-                  <input type="number" class="form-control input-lg precio" min="0" step="any" value="0">
-
-                </div>
-
-              </div>
-
-              <!-- PESO -->
-
-              <div class="col-md-4 col-xs-12">
-  
-                <div class="panel">PESO</div>
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
-
-                  <input type="number" class="form-control input-lg peso" min="0" step="any" value="0">
-
-                </div>
-
-              </div>
-
-              <!-- DISPONIBLE -->
-
-              <div class="col-md-4 col-xs-12">
-  
-                <div class="panel">DISPONIBLE</div>
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-truck"></i></span> 
-
-                  <!--<input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
-                    -->
-                  <select class="form-control input-lg disponible">
-
-                    <option value="1">Si</option>
-                    <option value="0">No</option>
-
-                  </select>
-
-                </div>
-
-              </div>
-
-            </div>
-
-        
           
           </div>
 
@@ -505,9 +335,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
         <div class="modal-footer">
   
-          <!--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-                  -->
-          <button type="button" class="btn btn-primary guardarArticulo" style="width:100%;">GUARDAR ARTICULO</button>
+          <button type="button" class="btn btn-primary guardarArticulo" style="width:100%;">PRESTAR</button>
 
         </div>
 
@@ -518,20 +346,6 @@ MODAL AGREGAR NUEVO ARTICULO
    </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -847,14 +661,8 @@ MODAL EDITAR ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-truck"></i></span> 
 
-                  <!--<input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
-                  -->
-                  <select class="form-control input-lg disponible">
+                  <input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
 
-                    <option value="1">Si</option>
-                    <option value="0">No</option>
-
-                  </select>
                 </div>
 
               </div>
@@ -872,8 +680,10 @@ MODAL EDITAR ARTICULO
         ======================================-->
 
         <div class="modal-footer">
+  
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="button" class="btn btn-primary guardarCambiosArticulo" style="width:100%;">GUARDAR ARTICULO</button>
+          <button type="button" class="btn btn-primary guardarCambiosArticulo">Guardar cambios</button>
 
         </div>
 
@@ -987,7 +797,9 @@ MODAL AGREGAR NUEVA CATEGORIA
 
         <div class="modal-footer">
   
-          <button type="button" class="btn btn-primary guardarCategoriaM" style="width:100%;">GUARDAR CATEGORIA</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="button" class="btn btn-primary guardarCategoriaM">Guardar categoria</button>
 
         </div>
 
@@ -1080,7 +892,9 @@ MODAL EDITAR CATEGORIA
 
         <div class="modal-footer">
   
-          <button type="button" class="btn btn-primary guardarCambiosCategoriaM" style="width:100%;">GUARDAR CAMBIOS</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="button" class="btn btn-primary guardarCambiosCategoriaM">Guardar cambios</button>
 
         </div>
 

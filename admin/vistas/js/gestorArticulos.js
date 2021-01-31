@@ -132,17 +132,10 @@ $('.tablaCodArticulos').DataTable({
 });
 
 
-
-$( document ).ready(function() {
-	var selectedOption = $('#IDCODPRODET').val();
-	var table = $('#datatable_example').dataTable({
-		"bProcessing": true,
-		"ajax":{
-			"url": "ajax/tablaCodArticulos.ajax.php",
-			"type": "POST",
-			data : {action:"SLC",name:selectedOption}
-		},
-		"deferRender": true,
+$('.tablaPrestarArticulos').DataTable({
+	
+	"ajax":"ajax/tablaPrestarArticulos.ajax.php",
+	"deferRender": true,
 	"retrieve": true,
 	"processing": true,
     "language": {
@@ -171,7 +164,7 @@ $( document ).ready(function() {
 			}
 
 	}
-	});
+
 });
 
 
@@ -318,9 +311,8 @@ $('.tablaCodArticulos tbody').on("click", ".btnMantenimiento", function(){
 
 })
 
-$(".tablaCodArticulos tbody .btnMantenimiento").change(function(){
-	alert("ha cambiao");
-})
+
+
 
 
 /*=============================================
@@ -822,12 +814,14 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 			$("#modalEditarArticulo .descripcionArticulo").val(respuesta[0]["descripcion"]);
 
 			if(respuesta[0]["palabrasClave"] != null){
-
+				
+				
+				
 				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
 	  
 				'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
 
-				'<input type="text" class="form-control input-lg tagsInput pClavesArticulo" value="'+respuesta[0]["palabrasClave"]+'" data-role="tagsinput">'+
+				'<input type="text" style="width:100%;" class="form-control input-lg tagsInput pClavesArticulo" value="'+respuesta[0]["palabrasClave"]+'" data-role="tagsinput">'+
 				
 
 				'</div>');
@@ -1578,3 +1572,185 @@ $('.tablaCodArticulos tbody').on("click", ".btnEliminarArticulo", function(){
 	})
   
   })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+PRESTAR ARTICULO
+=============================================*/
+
+$('.tablaPrestarArticulos tbody').on("click", ".btnPrestarArticulo", function(){
+	
+	$(".previsualizarImgAdd").html("");
+
+	const tituloV = document.getElementById("TituloArticuloP");
+
+	var idArticulo = $(this).attr("idArticulo");
+	
+	var datos = new FormData();
+	datos.append("idArticulo", idArticulo);
+
+	$.ajax({
+
+		url:"ajax/articulos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			
+			$("#modalPrestarArticulo .idArticulo").val(respuesta[0]["idDetalleArticulo"]);
+			$("#modalPrestarArticulo .tituloArticulo").val(respuesta[0]["titulo"]);
+			
+			tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5><h5>STOCK: 10</h5>";
+			
+			/*=============================================
+			CARGAMOS LA IMAGEN PRINCIPAL
+			=============================================*/
+
+			$("#modalPrestarArticulo .previsualizarPrincipalA").attr("src", respuesta[0]["portada"]);
+
+			
+
+
+
+			/*=============================================
+			GUARDAR CAMBIOS DEL PRODUCTO
+			=============================================*/	
+
+			$(".guardarCambiosArticulos").click(function(){
+
+					/*=============================================
+					PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
+					=============================================*/
+					
+					if($("#modalEditarArticulo .tituloArticulo").val() != "" && 
+					   $("#modalEditarArticulo .seleccionarCategoria").val() != "" && 
+					   $("#modalEditarArticulo .descripcionArticulo").val() != ""){
+
+							
+						if(arrayMFiles.length > 0 && $("#modalEditarArticulo .rutaArticulo").val() != ""){
+
+							var listaMultimedia = [];
+							var finalFor = 0;
+
+							for(var i = 0; i < arrayMFiles.length; i++){
+								
+								var datosMultimedia = new FormData();
+								datosMultimedia.append("fileM", arrayMFiles[i]);
+								datosMultimedia.append("rutaM", $("#modalEditarArticulo .rutaArticulo").val());
+
+								$.ajax({
+									url:"ajax/articulos.ajax.php",
+									method: "POST",
+									data: datosMultimedia,
+									cache: false,
+									contentType: false,
+									processData: false,
+									beforeSend: function(){
+
+										$(".modal-footer .preload").html(`
+
+
+											<center>
+
+												<img src="vistas/img/plantilla/status.gif" id="status" />
+												<br>
+
+											</center>
+
+										`);
+
+									},
+									success: function(respuesta){
+
+										$("#status").remove();
+
+										listaMultimedia.push({"foto" : respuesta.substr(3)});
+										multimediaArticulo = JSON.stringify(listaMultimedia);
+										
+										if(localStorage.getItem("multimediaAdd") != null){
+
+											var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
+
+											var jsonMultimediaAdd = listaMultimedia.concat(jsonLocalStorage);
+
+											multimediaArticulo = JSON.stringify(jsonMultimediaAdd);												
+										}
+
+										if(multimediaArticulo == null){
+
+												swal({
+													title: "El campo de multimedia no debe estar vacío",
+													type: "error",
+													confirmButtonText: "¡Cerrar!"
+												});
+
+												return;
+										}
+
+										if((finalFor + 1) == arrayMFiles.length){
+
+											editarMiArticulo(multimediaArticulo);
+											finalFor = 0;
+
+										}
+
+										finalFor++;							
+							
+									}
+
+								})
+
+							}
+
+						}else{
+				
+							var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
+
+							multimediaArticulo = JSON.stringify(jsonLocalStorage);
+
+							editarMiArticulo(multimediaArticulo);										
+							
+						}
+
+					}else{
+
+						 swal({
+					      title: "Llenar todos los campos obligatorios",
+					      type: "error",
+					      confirmButtonText: "¡Cerrar!"
+					    });
+
+						return;
+
+					}					
+
+			})
+					
+		}
+
+	})
+
+})
+
+
