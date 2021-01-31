@@ -140,8 +140,8 @@ class ControladorUsuarios{
 						echo'<script>
 
 							swal({
-								  title: "¡NO HA VERIFICADO SU CORREO ELECTRÓNICO!",
-								  text: "¡Por favor revise la bandeja de entrada o la carpeta de SPAM de su correo para verififcar la dirección de correo electrónico '.$respuesta["email"].'!",
+								  title: "ESTA SUSPENDIDO",
+								  text: "¡Por favor comuniquese con el administrador!",
 								  type: "error",
 								  confirmButtonText: "Cerrar",
 								  closeOnConfirm: false

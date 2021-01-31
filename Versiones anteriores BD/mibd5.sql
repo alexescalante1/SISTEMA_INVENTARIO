@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2021 at 06:09 AM
+-- Generation Time: Jan 27, 2021 at 06:48 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -49,8 +49,6 @@ INSERT INTO `accesorapido` (`idacceso`, `titulo`, `ruta`, `portada`) VALUES
 
 CREATE TABLE `administradores` (
   `id` int(11) NOT NULL,
-  `dniAdmin` text COLLATE utf8_spanish_ci NOT NULL,
-  `userAdmin` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `email` text COLLATE utf8_spanish_ci NOT NULL,
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
@@ -64,11 +62,9 @@ CREATE TABLE `administradores` (
 -- Dumping data for table `administradores`
 --
 
-INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `fecha`) VALUES
-(5, '12345674', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-01-31 02:01:50'),
-(6, '12345677', '', 'Alex Escalante TWO', 'editor@gmail.com', 'vistas/img/perfiles/701.jpg', '$2a$07$asxx54ahjppf45sd87a5auBnK0T8g/TaNYrkZQmRmlyohJLox8X9S', 'laboratorista', 1, '2021-01-31 02:10:25'),
-(7, '12345678', '', 'Fredy ONE', 'fredy@gmail.com', 'vistas/img/perfiles/719.jpg', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'administrador', 1, '2021-01-31 01:59:29'),
-(8, '12345678', '', 'Jose Marin', 'laboratorista@gmail.com', 'vistas/img/perfiles/897.jpg', '$2a$07$asxx54ahjppf45sd87a5auBMC0hyDzSIj.ET6H5mmag4zkgE6FuWe', 'laboratorista', 1, '2021-01-31 02:09:18');
+INSERT INTO `administradores` (`id`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `fecha`) VALUES
+(5, 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-01-10 05:23:28'),
+(6, 'Alex Escalante TWO', 'editor@gmail.com', 'vistas/img/perfiles/701.jpg', '$2a$07$asxx54ahjppf45sd87a5auBnK0T8g/TaNYrkZQmRmlyohJLox8X9S', 'editor', 1, '2021-01-23 23:14:10');
 
 -- --------------------------------------------------------
 
@@ -91,26 +87,22 @@ CREATE TABLE `articulos` (
 INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
 (74, 0, '2021-01-25 23:38:29', 160, '132321321'),
 (77, 0, '2021-01-25 23:42:23', 160, '213123213'),
-(78, 0, '2021-01-25 23:42:28', 160, '123123213'),
-(79, 3, '2021-01-25 23:42:39', 160, '789678678'),
-(80, 3, '2021-01-25 23:43:06', 160, '324234234'),
-(83, 3, '2021-01-26 00:04:57', 160, '432435435'),
-(84, 3, '2021-01-26 08:49:17', 160, '342524555'),
-(85, 3, '2021-01-26 09:01:17', 181, '675675675'),
+(78, 3, '2021-01-25 23:42:28', 160, '123123213'),
+(79, 1, '2021-01-25 23:42:39', 160, '789678678'),
+(80, 1, '2021-01-25 23:43:06', 160, '324234234'),
+(83, 1, '2021-01-26 00:04:57', 160, '432435435'),
+(84, 1, '2021-01-26 08:49:17', 160, '342524555'),
+(85, 0, '2021-01-26 09:01:17', 181, '675675675'),
 (86, 1, '2021-01-26 22:31:38', 164, '213432423'),
 (87, 1, '2021-01-26 22:37:22', 74, '134123213'),
 (88, 2, '2021-01-26 22:37:28', 74, '689678768'),
 (89, 1, '2021-01-26 22:37:38', 74, '345345345'),
-(90, 3, '2021-01-26 22:47:56', 160, '235245245'),
-(91, 1, '2021-01-26 22:48:03', 160, '245453453'),
-(92, 1, '2021-01-26 22:48:09', 160, '587568568'),
-(93, 1, '2021-01-26 23:33:09', 160, '312332133'),
-(94, 1, '2021-01-26 23:33:32', 160, '324434444'),
-(95, 3, '2021-01-27 12:45:43', 160, '453423123'),
-(96, 3, '2021-01-29 12:54:16', 175, '213214134'),
-(97, 1, '2021-01-29 12:54:22', 175, '351351345'),
-(98, 1, '2021-01-31 00:02:00', 162, '232132133'),
-(99, 1, '2021-01-31 00:02:18', 68, '223234234');
+(90, 1, '2021-01-26 22:47:56', 160, '235245245'),
+(91, 0, '2021-01-26 22:48:03', 160, '245453453'),
+(92, 0, '2021-01-26 22:48:09', 160, '587568568'),
+(93, 0, '2021-01-26 23:33:09', 160, '312332133'),
+(94, 0, '2021-01-26 23:33:32', 160, '324434444'),
+(95, 3, '2021-01-27 12:45:43', 160, '453423123');
 
 -- --------------------------------------------------------
 
@@ -178,8 +170,7 @@ CREATE TABLE `categoria` (
 INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
 (1, 'equipos-electronicos', 'Equipos Electronicos'),
 (2, 'moviliario', 'Moviliario'),
-(3, 'conectores', 'Conectores'),
-(36, 'comidas', 'comidas');
+(3, 'conectores', 'Conectores');
 
 -- --------------------------------------------------------
 
@@ -342,11 +333,11 @@ CREATE TABLE `detallearticulo` (
 
 INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripcion`, `disponible`, `portada`, `multimedia`, `prestados`, `peso`, `precio`, `idCategoria`, `palabrasClave`, `fecha`) VALUES
 (68, 'data-display', 'Data Display', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/data-display.png', '[{\"foto\":\"vistas/img/multimedia/data-display/data2.png\"},{\"foto\":\"vistas/img/multimedia/data-display/data1.png\"}]', 0, 1, 1500, 1, 'proyector', '2021-01-23 09:32:00'),
-(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 0, 2, 1550, 1, 'ordenador fdg', '2021-01-23 09:32:33'),
+(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 0, 2, 1550, 1, 'ordenador', '2021-01-23 09:32:33'),
 (74, 'monitor-asus', 'Monitor Asus', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/monitor-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor1.jpg\"}]', 0, 2, 1000, 1, 'pantalla', '2021-01-23 09:32:33'),
-(93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd asdas', '2021-01-23 09:32:33'),
-(130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 40, 1, 'asasd', '2021-01-23 09:32:33'),
-(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 11, 0, 25, 1, 'asd', '2021-01-23 09:32:33'),
+(93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd', '2021-01-23 09:32:33'),
+(130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 0, 1, 'as', '2021-01-23 09:32:33'),
+(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 11, 0, 0, 1, 'asd', '2021-01-23 09:32:33'),
 (162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'as', '2021-01-23 09:32:33'),
 (164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad', '2021-01-23 09:32:33'),
 (175, 'laptop-asus', 'Laptop ASUS', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 0, 2, 4000, 1, 'pc', '2021-01-23 09:32:33'),
@@ -377,13 +368,9 @@ CREATE TABLE `notificacion` (
 --
 
 INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
-(105, 0, '162894', 'Alex escalante maron', '', 1, 3, 'sadasd', '2021-01-31 04:50:42', 0, 160),
-(106, 0, '162894', 'Alex escalante maron', '', 1, 3, 'xdpes ale', '2021-01-31 04:51:27', 0, 164),
-(113, 0, '12345678', 'Docente Xd', '', 1, 3, 'a', '2021-01-31 04:59:21', 0, 160),
-(114, 0, '12345678', 'Docente Xd', '', 1, 12, 'as', '2021-01-31 04:59:33', 0, 160),
-(115, 0, '12345678', 'Docente Xd', '', 1, 3, 'xd pw', '2021-01-31 05:00:32', 0, 74),
-(116, 0, '12345678', 'Docente Xd', '', 1, 3, 'jeje lo quiero', '2021-01-31 05:02:30', 0, 68),
-(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-01-31 05:04:47', 0, 160);
+(92, 0, '213213', 'wqeqwe', 'qwewqe', 0, 0, 'qweqweqwe', '2021-01-25 16:09:41', 0, 93),
+(93, 0, '213213', 'el pepe', 'qwe', 0, 0, 'qweqwe', '2021-01-25 16:11:16', 0, NULL),
+(94, 0, '21312', 'asdasd', 'asdasd', 0, 0, 'asdasd', '2021-01-26 01:43:33', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -587,9 +574,7 @@ INSERT INTO `subcategorias` (`id`, `subcategoria`, `id_categoria`, `ruta`, `esta
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `codigo` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `user` text COLLATE utf8_spanish_ci NOT NULL,
   `password` text COLLATE utf8_spanish_ci NOT NULL,
   `email` text COLLATE utf8_spanish_ci NOT NULL,
   `modo` text COLLATE utf8_spanish_ci NOT NULL,
@@ -603,11 +588,10 @@ CREATE TABLE `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
-(34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 0, '926e57bdcca18a1cffcf9d80651893dc', '2021-01-31 01:21:34'),
-(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 1, 'a090e5266ceecd6caa3e44d295de8652', '2021-01-31 05:06:12'),
-(49, '123456', 'Axel One', 'fredy2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'fredy@gmail.com', 'directo', '', 0, '1b6113a146ba93a43311cc83bd8a4ed2', '2021-01-31 01:19:01'),
-(51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33');
+INSERT INTO `usuarios` (`id`, `nombre`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
+(2, 'Francisco gomez', '$2a$07$asxx54ahjppf45sd87a5auxq/SS293XhTEeizKWMnfhnpfay0AALe', 'pepe@gmail.com', 'directo', '', 1, '6b0becddecd5a06042b3f8078c97f2e0', '2020-12-24 03:14:07'),
+(23, 'axel', '$2a$07$asxx54ahjppf45sd87a5auBfG/7KkYv5vtcvFUlYe.DaloBK759v.', 'asdsd@asdasd.com', 'directo', '', 0, 'd892d767dcd46401f4819212a4b4cf82', '2021-01-09 04:05:24'),
+(34, 'usuariotwo', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 0, '926e57bdcca18a1cffcf9d80651893dc', '2021-01-23 21:31:06');
 
 -- --------------------------------------------------------
 
@@ -819,13 +803,13 @@ ALTER TABLE `accesorapido`
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -843,7 +827,7 @@ ALTER TABLE `cabeceras`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `categorias`
@@ -879,13 +863,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
@@ -933,7 +917,7 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `visitaspaises`
