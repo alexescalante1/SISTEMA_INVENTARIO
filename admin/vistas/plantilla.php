@@ -188,6 +188,7 @@ session_start();
             $infoArticulosP = $rutaArticulos["ruta"];
 
           }
+          
         }
 
         if($_GET["ruta"]== "inicio" ||
