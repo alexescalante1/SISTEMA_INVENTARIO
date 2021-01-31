@@ -10,12 +10,10 @@ class ModeloNotificacion{
 
 	static public function mdlRegistroNotificacion($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(tipoDocTitular, numDocTitular, nombreTitular, apellidoTitular, cantidad, dias, detalle, visto, idDetalleArticulo) VALUES (:tipoDocTitular, :numDocTitular, :nombreTitular, :apellidoTitular, :cantidad, :dias, :detalle, :visto, :idDetalleArticulo)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numDocTitular, nombreTitular, cantidad, dias, detalle, visto, idDetalleArticulo) VALUES (:numDocTitular, :nombreTitular, :cantidad, :dias, :detalle, :visto, :idDetalleArticulo)");
 
-		$stmt->bindParam(":tipoDocTitular", $datos["tipoDocTitular"], PDO::PARAM_INT);
 		$stmt->bindParam(":numDocTitular", $datos["numDocTitular"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombreTitular", $datos["nombreTitular"], PDO::PARAM_STR);
-		$stmt->bindParam(":apellidoTitular", $datos["apellidoTitular"], PDO::PARAM_STR);
 		$stmt->bindParam(":cantidad", $datos["cantidad"], PDO::PARAM_INT);
 		$stmt->bindParam(":dias", $datos["dias"], PDO::PARAM_INT);
 		$stmt->bindParam(":detalle", $datos["detalle"], PDO::PARAM_STR);

@@ -110,13 +110,13 @@ function registroNotificacion(){
 	VALIDAR DATOS
 	=============================================*/
 
-	var nombre = $("#regNumDocT").val();
+	var Ndoc = $("#regNumDocT").val();
 
-	if(nombre != ""){
+	if(Ndoc != ""){
 
 		var expresion = /^[0-9]*$/;
 
-		if(!expresion.test(nombre)){
+		if(!expresion.test(Ndoc)){
 
 			$("#regNumDocT").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo se permite numeros</div>')
 
@@ -153,36 +153,13 @@ function registroNotificacion(){
 		return false;
 	}
 
+	var detalleA = $("#regDetalle").val();
 
-	var nombre = $("#regApellidoT").val();
-
-	if(nombre != ""){
-
-		var expresion = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/;
-
-		if(!expresion.test(nombre)){
-
-			$("#regApellidoT").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo se permite numeros</div>')
-
-			return false;
-
-		}
-
-	}else{
-
-		$("#regApellidoT").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
-
-		return false;
-	}
-
-
-	var nombre = $("#regDetalle").val();
-
-	if(nombre != ""){
+	if(detalleA != ""){
 
 		var expresion = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
 
-		if(!expresion.test(nombre)){
+		if(!expresion.test(detalleA)){
 
 			$("#regDetalle").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo se permite numeros</div>')
 

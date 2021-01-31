@@ -16,6 +16,7 @@ class TablaArticulos{
 	
   	$item = null;
   	$valor = null;
+	$perfilU = null;
 	$tipoDoc = null;
 	$tituloArticulo = null;
 	
@@ -85,10 +86,12 @@ class TablaArticulos{
 			}
 			$visto = "<button class='btn btn-xs btnActivar ".$colorEstado."' idNotificacion='".$notific[$i]["idNotificacion"]."' estadoArticulo='".$estadoNotificacion."'>".$textoEstado."</button>";
 
-			if($notific[$i]["tipoDocTitular"] == 0){
+			if(strlen($notific[$i]["numDocTitular"]) == 6){
 				$tipoDoc = "CODIGO";
+				$perfilU = "ESTUDIANTE";
 			}else{
 				$tipoDoc = "DNI";
+				$perfilU = "DOCENTE";
 			}
 
 			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
@@ -96,9 +99,10 @@ class TablaArticulos{
 			$datosJson .='[
 					
 					"'.($i+1).'",
+					"'.$perfilU.'",
 					"'.$tipoDoc.'",
 					"'.$notific[$i]["numDocTitular"].'",
-					"'.$notific[$i]["nombreTitular"].", ".$notific[$i]["apellidoTitular"].'",
+					"'.$notific[$i]["nombreTitular"].'",
 					"'.$tituloArticulo.'",
 					"'.$notific[$i]["cantidad"]." Unidades".'",
 					"'.$notific[$i]["dias"].'",

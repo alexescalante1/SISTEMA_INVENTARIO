@@ -251,49 +251,39 @@ INFOARTICULOS
 
 					echo '<div class="col-md-6 col-xs-12">';
 
-					if(isset($_SESSION["validarSesion"]) && $_SESSION["validarSesion"] == "ok"){
+					if($CantTotal){
+						if(isset($_SESSION["validarSesionUSERSIUNAP"]) && $_SESSION["validarSesionUSERSIUNAP"] == "ok"){
 
-						/*
-						if($infoproducto["tipo"]=="virtual"){
-					
-							echo '<button class="btn btn-default btn-block btn-lg backColor agregarGratis" idProducto="'.$infoproducto["id"].'" idUsuario="'.$_SESSION["id"].'" tipo="'.$infoproducto["tipo"].'" titulo="'.$infoproducto["titulo"].'">ACCEDER AHORA</button>';
-
+							if($infoarticulo["disponible"]){
+	
+								echo '<a href="#modalNotificacion" data-toggle="modal">
+	
+								<button class="btn btn-default btn-block btn-lg backColor">SOLICITAR AHORA</button>
+	
+								</a>';
+	
+							}else{
+	
+								echo '<a href="#" data-toggle="modal">
+	
+								<button class="btn btn-default btn-block btn-lg">NO DISPONIBLE PARA PRESTAMO</button>
+	
+								</a>';
+							}
+	
 						}else{
-
-							echo '<button class="btn btn-default btn-block btn-lg backColor agregarGratis" idProducto="'.$infoproducto["id"].'" idUsuario="'.$_SESSION["id"].'" tipo="'.$infoproducto["tipo"].'" titulo="'.$infoproducto["titulo"].'">SOLICITAR AHORA</button>
-
-								<br>
-
-								<div class="col-xs-12 panel panel-info text-left">
-
-								<strong>¡Atención!</strong>
-
-									El producto a solicitar es totalmente gratuito y se enviará a la dirección solicitada, sólo se cobrará los cargos de envío.
-
-								</div>
-							';
-
-						}*/
-
-					}else{
-
-						if($infoarticulo["disponible"]){
-
-							echo '<a href="#modalNotificacion" data-toggle="modal">
-
-							<button class="btn btn-default btn-block btn-lg backColor">SOLICITAR AHORA</button>
-
-							</a>';
-
-						}else{
-
-							echo '<a href="#" data-toggle="modal">
-
-							<button class="btn btn-default btn-block btn-lg">NO DISPONIBLE</button>
+							echo '<a href="#modalIngreso" data-toggle="modal">
+	
+							<button class="btn btn-default btn-block btn-lg backColor">INGRESAR</button>
 
 							</a>';
 						}
+					}else{
+						echo '<a href="#" data-toggle="modal">
 
+							<button class="btn btn-default btn-block btn-lg">SIN STOCK</button>
+
+							</a>';
 					}
 
 					echo '</div>';
@@ -416,6 +406,7 @@ VENTANA MODAL PARA NOTIFICACION
 				
 			<!--<form method="post">-->
 
+				<!--
 				<div class="form-group">
 					
 					<div class="input-group">
@@ -428,14 +419,16 @@ VENTANA MODAL PARA NOTIFICACION
 
 						<select class="form-control input-lg"  id="regTipoDocT" name="regTipoDocT" required>
 
-							<option value="0">CODIGO</option>
-							<option value="1">DNI</option>
+							<option value="0">ESTUDIANTE</option>
+							<option value="1">DOCENTE</option>
 
 						</select>
 
 					</div>
 
 				</div>
+-->
+				
 
 				<div class="form-group">
 					
@@ -447,7 +440,7 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="text" class="form-control" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" required>
+						<input type="text" class="form-control" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" value="<?php echo $_SESSION["codigoUSERSIUNAP"];?>" required readonly>
 
 					</div>
 
@@ -463,27 +456,12 @@ VENTANA MODAL PARA NOTIFICACION
 						
 						</span>
 
-						<input type="text" class="form-control" id="regNombreT" name="regNombreT" placeholder="Nombres" required>
+						<input type="text" class="form-control" id="regNombreT" name="regNombreT" value="<?php echo $_SESSION["nombreUSERSIUNAP"];?>" required readonly>
 
 					</div>
 
 				</div>
 
-				<div class="form-group">
-					
-					<div class="input-group">
-						
-						<span class="input-group-addon">
-							
-							<i class="glyphicon glyphicon-user"></i>
-						
-						</span>
-
-						<input type="text" class="form-control" id="regApellidoT" name="regApellidoT" placeholder="Apellidos" required>
-
-					</div>
-
-				</div>
 
 				<div class="form-group">
 					
@@ -507,11 +485,11 @@ VENTANA MODAL PARA NOTIFICACION
 							<option value="8">8</option>
 							<option value="9">9</option>
 							<option value="10">10</option>
-							<option value="10">11</option>
-							<option value="10">12</option>
-							<option value="10">13</option>
-							<option value="10">14</option>
-							<option value="10">15</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
 
 						</select>
 
@@ -531,14 +509,14 @@ VENTANA MODAL PARA NOTIFICACION
 
 						<select class="form-control input-lg"  id="regDias" name="regDias" required>
 
-							<option value="1">3</option>
-							<option value="2">6</option>
-							<option value="3">9</option>
-							<option value="4">12</option>
-							<option value="5">15</option>
-							<option value="6">20</option>
-							<option value="7">30</option>
-							<option value="8">40</option>
+							<option value="3">3</option>
+							<option value="6">6</option>
+							<option value="9">9</option>
+							<option value="12">12</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
 
 						</select>
 

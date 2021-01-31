@@ -31,6 +31,7 @@
             <tr>
              
                <th style="width:10px">#</th>
+               <th>Perfil</th>
                <th>Tipo de Documento</th>
                <th>Numero de Documento</th>
                <th>Nombres y Apellidos</th>

@@ -8,18 +8,15 @@ class ControladorNotificacion{
 
 	public function ctrRegistroNotificacion($articulo){
 
-		if(isset($_POST["regTipoDocT"])){
+		if(isset($_POST["regNumDocT"])){
 
 			if(preg_match('/^[0-9]+$/', $_POST["regNumDocT"]) &&
 				preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["regNombreT"]) &&
-				preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["regApellidoT"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["regDetalle"])){
 					
 
-				$datos = array("tipoDocTitular"=>$_POST["regTipoDocT"],
-							   "numDocTitular"=> $_POST["regNumDocT"],
+				$datos = array("numDocTitular"=> $_POST["regNumDocT"],
 							   "nombreTitular"=> $_POST["regNombreT"],
-							   "apellidoTitular"=>$_POST["regApellidoT"],
 							   "cantidad"=> $_POST["regCant"],
 							   "dias"=> $_POST["regDias"],
 							   "detalle"=>$_POST["regDetalle"],

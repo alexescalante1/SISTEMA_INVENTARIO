@@ -71,8 +71,9 @@ class ModeloAdministradores{
 
 	static public function mdlIngresarPerfil($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, email, password, perfil, foto, estado) VALUES (:nombre, :email, :password, :perfil, :foto, :estado)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(dniAdmin, nombre, email, password, perfil, foto, estado) VALUES (:dniAdmin, :nombre, :email, :password, :perfil, :foto, :estado)");
 
+		$stmt->bindParam(":dniAdmin", $datos["dniAdmin"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);

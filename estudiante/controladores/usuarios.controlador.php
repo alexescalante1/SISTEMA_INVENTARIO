@@ -157,15 +157,15 @@ class ControladorUsuarios{
 
 					}else{
 
-						$_SESSION["validarSesion"] = "ok";
-						$_SESSION["id"] = $respuesta["id"];
-						$_SESSION["codigo"] = $respuesta["codigo"];
-						$_SESSION["nombre"] = $respuesta["nombre"];
-						$_SESSION["user"] = $respuesta["user"];
-						$_SESSION["foto"] = $respuesta["foto"];
-						$_SESSION["email"] = $respuesta["email"];
-						$_SESSION["password"] = $respuesta["password"];
-						$_SESSION["modo"] = $respuesta["modo"];
+						$_SESSION["validarSesionUSERSIUNAP"] = "ok";
+						$_SESSION["idUSERSIUNAP"] = $respuesta["id"];
+						$_SESSION["codigoUSERSIUNAP"] = $respuesta["codigo"];
+						$_SESSION["nombreUSERSIUNAP"] = $respuesta["nombre"];
+						$_SESSION["userUSERSIUNAP"] = $respuesta["user"];
+						$_SESSION["fotoUSERSIUNAP"] = $respuesta["foto"];
+						$_SESSION["emailUSERSIUNAP"] = $respuesta["email"];
+						$_SESSION["passwordUSERSIUNAP"] = $respuesta["password"];
+						$_SESSION["modoUSERSIUNAP"] = $respuesta["modo"];
 
 						echo '<script>
 							
@@ -630,13 +630,13 @@ class ControladorUsuarios{
 
 			if($respuesta == "ok"){
 
-				$_SESSION["validarSesion"] = "ok";
-				$_SESSION["id"] = $datos["id"];
-				$_SESSION["nombre"] = $datos["nombre"];
-				$_SESSION["foto"] = $datos["foto"];
-				$_SESSION["email"] = $datos["email"];
-				$_SESSION["password"] = $datos["password"];
-				$_SESSION["modo"] = $_POST["modoUsuario"];
+				$_SESSION["validarSesionUSERSIUNAP"] = "ok";
+				$_SESSION["idUSERSIUNAP"] = $datos["id"];
+				$_SESSION["nombreUSERSIUNAP"] = $datos["nombre"];
+				$_SESSION["fotoUSERSIUNAP"] = $datos["foto"];
+				$_SESSION["emailUSERSIUNAP"] = $datos["email"];
+				$_SESSION["passwordUSERSIUNAP"] = $datos["password"];
+				$_SESSION["modoUSERSIUNAP"] = $_POST["modoUsuario"];
 
 				echo '<script> 
 

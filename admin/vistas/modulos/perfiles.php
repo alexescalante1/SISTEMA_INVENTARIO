@@ -57,6 +57,7 @@ return;
            <tr>
              
              <th style="width:10px">#</th>
+             <th>DNI</th>
              <th>Nombre</th>
              <th>Email</th>
              <th>Foto</th>
@@ -81,6 +82,7 @@ return;
 
                  echo ' <tr>
                           <td>'.($key+1).'</td>
+                          <td>'.$value["dniAdmin"].'</td>
                           <td>'.$value["nombre"].'</td>
                           <td>'.$value["email"].'</td>';
 
@@ -168,6 +170,20 @@ MODAL AGREGAR PERFIL
 
           <div class="box-body">
 
+            <!-- ENTRADA PARA EL DNI -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoDNI" placeholder="Ingresar DNI" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -224,7 +240,7 @@ MODAL AGREGAR PERFIL
 
                   <option value="administrador">Administrador</option>
 
-                  <option value="editor">Editor</option>
+                  <option value="laboratorista">Laboratorista</option>
 
                 </select>
 

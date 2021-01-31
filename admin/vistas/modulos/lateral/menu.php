@@ -39,7 +39,16 @@ MENU
 -->
   <li><a href="prestar"><i class="fa fa-product-hunt"></i> <span>Prestar Articulos</span></a></li>
 
-  <li><a href="articulos"><i class="fa fa-product-hunt"></i> <span>Gestor Articulos</span></a></li>
+
+  <?php
+
+  if($_SESSION["perfil"] == "administrador"){
+
+    echo '<li><a href="articulos"><i class="fa fa-product-hunt"></i> <span>Gestor Articulos</span></a></li>';
+
+  }
+
+  ?>
 
   <li><a href="prestamos"><i class="fa fa-product-hunt"></i> <span>Gestor De Actividades</span></a></li>
 
@@ -54,6 +63,8 @@ MENU
   <?php
 
   if($_SESSION["perfil"] == "administrador"){
+
+    
 
     /*echo '<li><a href="ventas"><i class="fa fa-shopping-cart"></i> <span>Gestor Ventas</span></a></li>';
 */

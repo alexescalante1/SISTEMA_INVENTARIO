@@ -81,7 +81,8 @@ class ControladorAdministradores{
 
 		if(isset($_POST["nuevoPerfil"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
+			if(preg_match('/^[0-9]+$/', $_POST["nuevoDNI"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 			   	/*=============================================
@@ -148,7 +149,8 @@ class ControladorAdministradores{
 
 				$encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
-				$datos = array("nombre" => $_POST["nuevoNombre"],
+				$datos = array("dniAdmin" => $_POST["nuevoDNI"],
+							   "nombre" => $_POST["nuevoNombre"],
 					           "email" => $_POST["nuevoEmail"],
 					           "password" => $encriptar,
 					           "perfil" => $_POST["nuevoPerfil"],			       

@@ -7,7 +7,7 @@ VALIDAR SESIÓN
 $url = Ruta::ctrRuta();
 $servidor = Ruta::ctrRutaServidor();
 
-if(!isset($_SESSION["validarSesion"])){
+if(!isset($_SESSION["validarSesionUSERSIUNAP"])){
 
 	echo '<script>
 	
@@ -92,17 +92,17 @@ SECCIÓN PERFIL
 								
 							<?php
 
-							echo '<input type="hidden" value="'.$_SESSION["id"].'" id="idUsuario" name="idUsuario">
-							      <input type="hidden" value="'.$_SESSION["password"].'" name="passUsuario">
-							      <input type="hidden" value="'.$_SESSION["foto"].'" name="fotoUsuario" id="fotoUsuario">
-							      <input type="hidden" value="'.$_SESSION["modo"].'" name="modoUsuario" id="modoUsuario">';
+							echo '<input type="hidden" value="'.$_SESSION["idUSERSIUNAP"].'" id="idUsuario" name="idUsuario">
+							      <input type="hidden" value="'.$_SESSION["passwordUSERSIUNAP"].'" name="passUsuario">
+							      <input type="hidden" value="'.$_SESSION["fotoUSERSIUNAP"].'" name="fotoUsuario" id="fotoUsuario">
+							      <input type="hidden" value="'.$_SESSION["modoUSERSIUNAP"].'" name="modoUsuario" id="modoUsuario">';
 
 
-							if($_SESSION["modo"] == "directo"){
+							if($_SESSION["modoUSERSIUNAP"] == "directo"){
 
-								if($_SESSION["foto"] != ""){
+								if($_SESSION["fotoUSERSIUNAP"] != ""){
 
-									echo '<img src="'.$url.$_SESSION["foto"].'" class="img-thumbnail">';
+									echo '<img src="'.$url.$_SESSION["fotoUSERSIUNAP"].'" class="img-thumbnail">';
 
 								}else{
 
@@ -113,7 +113,7 @@ SECCIÓN PERFIL
 
 							}else{
 
-								echo '<img src="'.$_SESSION["foto"].'" class="img-thumbnail">';
+								echo '<img src="'.$_SESSION["fotoUSERSIUNAP"].'" class="img-thumbnail">';
 							}		
 
 							?>
@@ -124,7 +124,7 @@ SECCIÓN PERFIL
 
 							<?php
 
-							if($_SESSION["modo"] == "directo"){
+							if($_SESSION["modoUSERSIUNAP"] == "directo"){
 							
 							echo '<button type="button" class="btn btn-default" id="btnCambiarFoto">
 									
@@ -152,14 +152,14 @@ SECCIÓN PERFIL
 							
 						<?php
 
-						if($_SESSION["modo"] != "directo"){
+						if($_SESSION["modoUSERSIUNAP"] != "directo"){
 
 							echo '<label class="control-label text-muted text-uppercase">Nombre:</label>
 									
 									<div class="input-group">
 								
 										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-										<input type="text" class="form-control"  value="'.$_SESSION["nombre"].'" readonly>
+										<input type="text" class="form-control"  value="'.$_SESSION["nombreUSERSIUNAP"].'" readonly>
 
 									</div>
 
@@ -170,7 +170,7 @@ SECCIÓN PERFIL
 									<div class="input-group">
 								
 										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-										<input type="text" class="form-control"  value="'.$_SESSION["email"].'" readonly>
+										<input type="text" class="form-control"  value="'.$_SESSION["emailUSERSIUNAP"].'" readonly>
 
 									</div>
 
@@ -180,8 +180,8 @@ SECCIÓN PERFIL
 									
 									<div class="input-group">
 								
-										<span class="input-group-addon"><i class="fa fa-'.$_SESSION["modo"].'"></i></span>
-										<input type="text" class="form-control text-uppercase"  value="'.$_SESSION["modo"].'" readonly>
+										<span class="input-group-addon"><i class="fa fa-'.$_SESSION["modoUSERSIUNAP"].'"></i></span>
+										<input type="text" class="form-control text-uppercase"  value="'.$_SESSION["modoUSERSIUNAP"].'" readonly>
 
 									</div>
 
@@ -195,7 +195,7 @@ SECCIÓN PERFIL
 									<div class="input-group">
 								
 										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-										<input type="text" class="form-control" id="editarNombre" name="editarNombre" value="'.$_SESSION["nombre"].'">
+										<input type="text" class="form-control" id="editarNombre" name="editarNombre" value="'.$_SESSION["nombreUSERSIUNAP"].'">
 
 									</div>
 
@@ -206,7 +206,7 @@ SECCIÓN PERFIL
 								<div class="input-group">
 								
 										<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-										<input type="text" class="form-control" id="editarEmail" name="editarEmail" value="'.$_SESSION["email"].'">
+										<input type="text" class="form-control" id="editarEmail" name="editarEmail" value="'.$_SESSION["emailUSERSIUNAP"].'">
 
 									</div>
 

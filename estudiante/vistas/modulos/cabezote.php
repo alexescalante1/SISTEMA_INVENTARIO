@@ -7,13 +7,13 @@ $url = Ruta::ctrRuta();
 INICIO DE SESIÓN USUARIO
 =============================================*/
 
-if(isset($_SESSION["validarSesion"])){
+if(isset($_SESSION["validarSesionUSERSIUNAP"])){
 
-	if($_SESSION["validarSesion"] == "ok"){
+	if($_SESSION["validarSesionUSERSIUNAP"] == "ok"){
 
 		echo '<script>
 		
-			localStorage.setItem("usuario","'.$_SESSION["id"].'");
+			localStorage.setItem("usuario","'.$_SESSION["idUSERSIUNAP"].'");
 
 		</script>';
 
@@ -72,17 +72,17 @@ TOP
 
 				<?php
 
-				if(isset($_SESSION["validarSesion"])){
+				if(isset($_SESSION["validarSesionUSERSIUNAP"])){
 
-					if($_SESSION["validarSesion"] == "ok"){
+					if($_SESSION["validarSesionUSERSIUNAP"] == "ok"){
 
-						if($_SESSION["modo"] == "directo"){
+						if($_SESSION["modoUSERSIUNAP"] == "directo"){
 
-							if($_SESSION["foto"] != ""){
+							if($_SESSION["fotoUSERSIUNAP"] != ""){
 
 								echo '<li>
 
-										<img class="img-circle" src="'.$url.$_SESSION["foto"].'" width="10%">
+										<img class="img-circle" src="'.$url.$_SESSION["fotoUSERSIUNAP"].'" width="10%">
 
 									 </li>';
 
