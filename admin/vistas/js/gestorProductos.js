@@ -1266,7 +1266,6 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function(){
 					})
 
 			}else{
-
 				
 				$("#modalEditarProducto .optionEditarCategoria").html("SIN CATEGORÍA");
 
@@ -1882,8 +1881,6 @@ $('.tablaProductos tbody').on("click", ".btnEliminarProducto", function(){
     }
 
   })
-
-
 
 
 })

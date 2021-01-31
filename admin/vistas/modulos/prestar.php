@@ -200,7 +200,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
                   <input type="text" class="form-control input-lg validarArticulo CodEstudiante"  placeholder="Ingresar el Codigo del estudiante">
 
-                  <input type="hidden" class="idArticulo">
+                  <input type="hidden" class="idDetalleArticulo">
 
                 </div>
 
@@ -208,12 +208,12 @@ MODAL AGREGAR NUEVO ARTICULO
 
           
             <!--=====================================
-            AGREGAR PRECIO, PESO Y ENTREGA
+            AGREGAR CANTIDAD Y DIAS
             ======================================-->
 
             <div class="form-group row">
                
-              <!-- PRECIO -->
+              <!-- CANTIDAD -->
 
               <div class="col-md-8 col-xs-12">
   
@@ -222,7 +222,7 @@ MODAL AGREGAR NUEVO ARTICULO
                 <div class="input-group">
                   
                     <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
+                    <!--
                     <select class="form-control input-lg seleccionarCategoria">
 
                       <option value="1">1</option>
@@ -242,13 +242,32 @@ MODAL AGREGAR NUEVO ARTICULO
                       <option value="10">15</option>
 
                     </select>
-                  
+                  -->
+
+                  <select class="form-control input-lg selecNumCodigosArticulo" name="form-control" id="numero-codigos" name="numero-codigos" oninput="camposCodigos();">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                  </select>
+
                 </div>
 
 
               </div>
 
-              <!-- PESO -->
+              <!-- DIAS -->
 
               <div class="col-md-4 col-xs-12">
   
@@ -258,7 +277,7 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
 
-                  <select class="form-control input-lg seleccionarCategoria">
+                  <select class="form-control input-lg selecDiasPrestamo">
 
                     <option value="1">3</option>
                     <option value="2">6</option>
@@ -285,7 +304,7 @@ MODAL AGREGAR NUEVO ARTICULO
             <!--=====================================
             LISTAR CODIGOS
             ======================================-->
-
+            <!--
             <div class="form-group">
                 
                 <div class="input-group">
@@ -321,10 +340,37 @@ MODAL AGREGAR NUEVO ARTICULO
                 </div>
 
             </div>
+-->
+
+            <div class="row" id="lista-parcelas"></div>
+
+            <span id="span-modelo-listar-codigos" style="display:none;">
+
+              <div class="form-group">
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                  <!--
+                  <input class="form-control input-lg seleccionarCodigoArticulo-0" type="text" name="parcela-0" id="parcela-0">
+                    -->
+                  <select class="form-control input-lg seleccionarCodigoArticulo-0">
+                    
+                    <option value="">CODIGO</option>
+                    <option>LIST</option>
+
+                  </select>
+                    
+
+                </div>
+
+              </div>
+
+            </span>
+
+            <span id="span-real-listar-codigos"></span>
 
 
-
-          
           </div>
 
         </div>
@@ -335,7 +381,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
         <div class="modal-footer">
   
-          <button type="button" class="btn btn-primary guardarArticulo" style="width:100%;">PRESTAR</button>
+          <button type="button" class="btn btn-primary guardarPrestamo" style="width:100%;">PRESTAR</button>
 
         </div>
 
@@ -346,6 +392,26 @@ MODAL AGREGAR NUEVO ARTICULO
    </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

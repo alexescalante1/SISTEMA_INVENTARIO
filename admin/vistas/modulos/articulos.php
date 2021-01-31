@@ -117,11 +117,77 @@
   </div>
 
   </section>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="numero-parcelas">Numero parcelas</label>
+          <select name="form-control" id="numero-parcelas" name="numero-parcelas" oninput="camposParcela();">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
+    <div class="row" id="lista-parcelas"></div>
+
+    <span id="span-modelo" style="display:none;">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="parcela-0">Valor (R$)</label>
+            <input type="text" class="form-control" name="parcela-0" id="parcela-0">
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <span id="span-real"></span>
+
+  </div>
 
 </div>
 
 
+
+<script>
+  
+  function camposParcela(){
+    var spantestemodelo = $('#span-modelo').html();
+    var spantestemodelo_strinf = spantestemodelo.toString();
+    var campos = $('#numero-parcelas').val();
+
+    var i;
+
+    i=1;
+
+    var texto = '';
+    while(i<=campos){
+      texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
+      i = i + 1; 
+    }
+
+    $("#span-real").html(texto);
+  }
+
+  camposParcela();
+
+</script>
 
 
 
