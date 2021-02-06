@@ -225,8 +225,8 @@ $('.tablaCodArticulos tbody').on("click", ".btnBaja", function(){
 	var estadoCodArticulo = $(this).attr("estadoCodArticulo");
 
 	var datos = new FormData();
- 	datos.append("bajaIdCodA", idCodArticulo);
-  	datos.append("bajaCodArticulo", estadoCodArticulo);
+ 	datos.append("estadoIdCodA", idCodArticulo);
+  	datos.append("estadoCodArticulo", estadoCodArticulo);
 
   	$.ajax({
 
@@ -274,8 +274,8 @@ $('.tablaCodArticulos tbody').on("click", ".btnMantenimiento", function(){
 	//$('.'+idCodArticulo).attr('estadoCodArticuloP',1);
 
 	var datos = new FormData();
- 	datos.append("mantenimientoIdCodA", idCodArticulo);
-  	datos.append("mantenimientoCodArticulo", estadoCodArticulo);
+ 	datos.append("estadoIdCodA", idCodArticulo);
+  	datos.append("estadoCodArticulo", estadoCodArticulo);
 
   	$.ajax({
 
@@ -1794,7 +1794,7 @@ function camposCodigos(){
 
 				//if(item["estado"]==1){
 					//console.log(item["codigoPatrimonial"]);
-					CodNume = CodNume + '<option value="'+item["codigoPatrimonial"]+'">'+item["codigoPatrimonial"]+'</option>';
+					CodNume = CodNume + '<option value="'+item["codigoPatrimonial"]+'Y'+item["idArticulo"]+'">'+item["codigoPatrimonial"]+'</option>';
 				//}
 
 				/*$("#modalEditarProducto .seleccionarSubCategoria").append(
@@ -1895,6 +1895,7 @@ $(".guardarPrestamo").click(function(){
 	}
 
 	var listaCodigos = {};
+
 	for(var k=1;k<=NumCodArticulos;k++){
 
 		if(!$('.seleccionarCodigoArticulo-'+k).val()){
@@ -1912,27 +1913,6 @@ $(".guardarPrestamo").click(function(){
 
 	}
 
-	console.log(listaCodigos);
-
-	/*for(var k=1;k<NumCodArticulos;k++){
-
-		for(var n=k+1;n<=NumCodArticulos;n++){
-
-			if(listaCodigos[k]==listaCodigos[n]){
-
-				console.log(k+"-"+n);
-				
-				$(".seleccionarCodigoArticulo-"+n).parent().after('<div class="alert alert-warning">El Codigo Se Repite</div>');
-				$(".seleccionarCodigoArticulo-"+n).val("");
-				
-				return;
-			}
-			
-		}
-		
-	}
-	*/
-
 	/*=============================================
 	PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
 	=============================================*/
@@ -1940,10 +1920,113 @@ $(".guardarPrestamo").click(function(){
 	if($("#modalPrestarArticulo .nombrePrestamista").val() != "" && 
 	   $("#modalPrestarArticulo .codUsuario").val() != "" && 
 	   $("#modalPrestarArticulo .selecDiasPrestamo").val() != ""){
-
-		console.log("QUE BIEN");
 		
 
+		var nombrePrestamista = $(".nombrePrestamista").val();
+		var nombreUsuario = $(".nombreUsuario").val();
+	   	var codUsuario = $(".codUsuario").val();
+	    var selecDiasPrestamo = $(".selecDiasPrestamo").val();
+
+	 	var datosPrestamo = new FormData();
+		 datosPrestamo.append("nombrePrestamista", nombrePrestamista);
+		 datosPrestamo.append("nombreUsuario", nombreUsuario);
+		 datosPrestamo.append("codUsuario", codUsuario);
+		 datosPrestamo.append("selecDiasPrestamo", selecDiasPrestamo);
+
+		$.ajax({
+				url:"ajax/prestamos.ajax.php",
+				method: "POST",
+				data: datosPrestamo,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(respuesta){
+					
+					// expected output: "The quick brown fox jumps over the lazy ferret. If the dog reacted, was it really lazy?"
+
+					//console.log(idDetArticulo+' - '+respuesta);
+
+					for(var k=1;k<=NumCodArticulos;k++){
+
+						//console.log(listaCodigos[k].replace(/[0-9]*Y/, ''));
+						//console.log(listaCodigos[k].replace(/Y[0-9]*/, ''));
+						
+						//console.log(listaCodigos[k]);
+
+						const idART = listaCodigos[k].replace(/[0-9]*Y/, '');
+						const codPA = listaCodigos[k].replace(/Y[0-9]*/, '');
+				
+						var datosCod = new FormData();
+						datosCod.append("idPrestamo", respuesta);
+						datosCod.append("idArticulo", idART);
+						datosCod.append("codPatrimonial", codPA);
+				
+						$.ajax({
+								url:"ajax/prestamos.ajax.php",
+								method: "POST",
+								data: datosCod,
+								cache: false,
+								contentType: false,
+								processData: false,
+								success: function(respuesta){
+									
+									if(respuesta != "ok"){
+										swal({
+											type: "error",
+											title: "El prestamo no se ha guardado correctamente",
+											showConfirmButton: true,
+											confirmButtonText: "Cerrar"
+											}).then(function(result){
+												if (result.value) {
+					  
+												window.location = "prestar";
+					  
+												}
+										  })
+									}
+									
+								}
+				
+						})
+
+						var datos = new FormData();
+						datos.append("estadoIdCodA", idART);
+						 datos.append("estadoCodArticulo", 2);
+				   
+						 $.ajax({
+				   
+						 url:"ajax/articulos.ajax.php",
+						 method: "POST",
+						 data: datos,
+						 cache: false,
+						 contentType: false,
+						 processData: false,
+						 success: function(respuesta){    
+							 
+							 // console.log("respuesta", respuesta);
+				   
+						 }
+				   
+						 })
+
+					}
+
+					swal({
+						type: "success",
+						title: "Prestamo Satisfactorio",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
+						  if (result.value) {
+
+						  window.location = "prestar";
+
+						  }
+					})
+
+				}
+
+		})
 
 
 		

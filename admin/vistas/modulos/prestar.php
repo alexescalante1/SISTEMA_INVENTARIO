@@ -281,14 +281,14 @@ MODAL AGREGAR NUEVO ARTICULO
 
                   <select class="form-control input-lg selecDiasPrestamo">
 
-                    <option value="1">3</option>
-                    <option value="2">6</option>
-                    <option value="3">9</option>
-                    <option value="4">12</option>
-                    <option value="5">15</option>
-                    <option value="6">20</option>
-                    <option value="7">30</option>
-                    <option value="8">40</option>
+                    <option value="3">3</option>
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
 
                   </select>
 

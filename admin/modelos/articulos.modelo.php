@@ -356,4 +356,105 @@ class ModeloArticulos{
 
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	CREAR PRESTAMO
+	=============================================*/
+
+	static public function mdlIngresarPrestamo($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(estado, numDocTitular, nombreTitular, plazoDias, nombrePrestamista) VALUES (:estado, :numDocTitular, :nombreTitular, :plazoDias, :nombrePrestamista)");
+
+		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
+		$stmt->bindParam(":numDocTitular", $datos["codUsuario"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombreTitular", $datos["nombreUsuario"], PDO::PARAM_STR);
+		$stmt->bindParam(":plazoDias", $datos["selecDiasPrestamo"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombrePrestamista", $datos["nombrePrestamista"], PDO::PARAM_STR);
+		
+		if($stmt->execute()){
+
+			//SELECT MAX(idPrestamo) AS idPrestamo FROM prestamos
+
+			$stmt2 = Conexion::conectar()->prepare("SELECT MAX(idPrestamo) AS id FROM prestamos");
+			
+			$stmt2 -> execute();
+
+			return $stmt2 -> fetch();
+	
+			$stmt2 -> close();
+	
+			$stmt2 = null;
+			
+			//return "ok";
+			//return $stmt2 -> fetch();
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	CREAR PRESTAMO CODIGOS
+	=============================================*/
+
+	static public function mdlIngresarPrestamoCod($tabla, $datos){
+
+		//return $datos["codPatrimonial"];
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idPrestamo, idArticulo, codigoPatrimonial) VALUES (:idPrestamo, :idArticulo, :codigoPatrimonial)");
+
+		$stmt->bindParam(":idPrestamo", $datos["idPrestamo"], PDO::PARAM_STR);
+		$stmt->bindParam(":idArticulo", $datos["idArticulo"], PDO::PARAM_STR);
+		$stmt->bindParam(":codigoPatrimonial", $datos["codPatrimonial"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
 }

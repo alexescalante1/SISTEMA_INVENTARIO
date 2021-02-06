@@ -729,4 +729,106 @@ class ControladorArticulos{
 	}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*=============================================
+	CREAR PRESTAMOS
+	=============================================*/
+
+	static public function ctrCrearPrestamo($datos){
+
+		if(isset($datos["nombrePrestamista"])){
+
+			if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $datos["nombrePrestamista"])){
+
+				$datosPrestamo = array(
+						"nombrePrestamista"=>$datos["nombrePrestamista"],
+						"nombreUsuario"=>$datos["nombreUsuario"],
+						"codUsuario"=>$datos["codUsuario"],
+						"selecDiasPrestamo"=>$datos["selecDiasPrestamo"],
+						"estado"=>1
+				);
+
+				$respuesta = ModeloArticulos::mdlIngresarPrestamo("prestamos", $datosPrestamo);
+
+				return $respuesta;
+
+			}else{
+
+					echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡El nombre del prestamista contiene caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "prestar";
+
+							}
+						})
+
+			  	</script>';
+
+			}
+		
+		}
+
+	}
+
+
+	/*=============================================
+	CREAR PRESTAMOS COD
+	=============================================*/
+
+	static public function ctrCrearPrestamoCod($datos){
+
+		if(isset($datos["idPrestamo"])){
+
+			$datosPrestamoC = array(
+					"idPrestamo"=>$datos["idPrestamo"],
+					"idArticulo"=>$datos["idArticulo"],
+					"codPatrimonial"=>$datos["codPatrimonial"]
+			);
+
+			$respuesta = ModeloArticulos::mdlIngresarPrestamoCod("prestamosarticulos", $datosPrestamoC);
+
+			return $respuesta;
+		
+		}
+
+	}
+
+	
 }

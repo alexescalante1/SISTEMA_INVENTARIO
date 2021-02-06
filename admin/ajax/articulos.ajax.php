@@ -38,41 +38,24 @@ class AjaxArticulo{
   	DAR DE BAJA COD ARTICULOS
  	=============================================*/	
 
- 	public $bajaCodArticulo;
-	public $bajaIdCodA;
+ 	public $estadoCodArticulo;
+	public $estadoIdCodA;
 
-	public function ajaxBajaCodArticulo(){
+	public function ajaxEstadoCodArticulo(){
 
 		$tabla = "articulos";
 
 		$item1 = "estado";
-		$valor1 = $this->bajaCodArticulo;
+		$valor1 = $this->estadoCodArticulo;
 
 		$item2 = "idArticulo";
-		$valor2 = $this->bajaIdCodA;
+		$valor2 = $this->estadoIdCodA;
 
 		$respuesta = ModeloArticulos::mdlActualizarArticulos($tabla, $item1, $valor1, $item2, $valor2);
 
 		echo $respuesta;
 
 	}
-
-	public function ajaxMantenimientoCodArticulo(){
-
-		$tabla = "articulos";
-
-		$item1 = "estado";
-		$valor1 = $this->bajaCodArticulo;
-
-		$item2 = "idArticulo";
-		$valor2 = $this->bajaIdCodA;
-
-		$respuesta = ModeloArticulos::mdlActualizarArticulos($tabla, $item1, $valor1, $item2, $valor2);
-
-		echo $respuesta;
-
-	}
-
 
 
 	/*=============================================
@@ -421,31 +404,14 @@ if(isset($_POST["activarArticulo"])){
 BAJA COD ARTICULO
 =============================================*/	
 
-if(isset($_POST["bajaIdCodA"])){
+if(isset($_POST["estadoIdCodA"])){
 	
 	$bajaCodigoArticuloM = new AjaxArticulo();
-	$bajaCodigoArticuloM -> bajaCodArticulo = $_POST["bajaCodArticulo"];
-	$bajaCodigoArticuloM -> bajaIdCodA = $_POST["bajaIdCodA"];
-	$bajaCodigoArticuloM -> ajaxBajaCodArticulo();
+	$bajaCodigoArticuloM -> estadoCodArticulo = $_POST["estadoCodArticulo"];
+	$bajaCodigoArticuloM -> estadoIdCodA = $_POST["estadoIdCodA"];
+	$bajaCodigoArticuloM -> ajaxEstadoCodArticulo();
 
 }
-
-
-
-/*=============================================
-MANTENIMIENTO ARTICULO
-=============================================*/	
-
-if(isset($_POST["mantenimientoIdCodA"])){
-	
-	$mantenimientoCodigoArticuloM = new AjaxArticulo();
-	$mantenimientoCodigoArticuloM -> bajaCodArticulo = $_POST["mantenimientoCodArticulo"];
-	$mantenimientoCodigoArticuloM -> bajaIdCodA = $_POST["mantenimientoIdCodA"];
-	$mantenimientoCodigoArticuloM -> ajaxMantenimientoCodArticulo();
-
-}
-
-
 
 
 /*=============================================
