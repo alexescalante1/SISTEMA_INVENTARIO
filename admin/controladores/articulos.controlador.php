@@ -76,6 +76,20 @@ class ControladorArticulos{
 	}
 
 
+	/*=============================================
+	MOSTRAR COD ARTICULOS DISPONIBLES
+	=============================================*/
+
+	static public function ctrMostrarCodArticulosDisponibles($item, $valor){
+
+		$tabla = "articulos";
+
+		$respuesta = ModeloArticulos::mdlMostrarArticulosDisponibles($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
 
 
 

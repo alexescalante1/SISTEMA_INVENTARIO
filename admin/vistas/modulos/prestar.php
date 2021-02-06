@@ -54,6 +54,8 @@
 
     </div>
 
+
+
   </section>
 
 </div>
@@ -181,7 +183,20 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-link"></i></span> 
 
-                  <input type="text" class="form-control input-lg nombrePrestamista" placeholder="<?php echo $_SESSION["nombre"];?>" readonly>
+                  <input type="text" class="form-control input-lg nombrePrestamista" value="<?php echo $_SESSION["nombre"];?>" readonly>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
+
+                  <input type="text" class="form-control input-lg nombreUsuario" readonly>
 
                 </div>
 
@@ -198,7 +213,7 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                  <input type="text" class="form-control input-lg validarArticulo CodEstudiante"  placeholder="Ingresar el Codigo del estudiante">
+                  <input type="text" class="form-control input-lg validarUsuarioP codUsuario"  placeholder="Ingresar el Codigo del estudiante">
 
                   <input type="hidden" class="idDetalleArticulo">
 
@@ -246,20 +261,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
                   <select class="form-control input-lg selecNumCodigosArticulo" name="form-control" id="numero-codigos" name="numero-codigos" oninput="camposCodigos();">
                     <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    
                   </select>
 
                 </div>
@@ -354,7 +356,7 @@ MODAL AGREGAR NUEVO ARTICULO
                   <!--
                   <input class="form-control input-lg seleccionarCodigoArticulo-0" type="text" name="parcela-0" id="parcela-0">
                     -->
-                  <select class="form-control input-lg seleccionarCodigoArticulo-0">
+                  <select class="form-control input-lg seleccionarCodigoArticulo-0 validarCod" onchange="getval(this);">
                     
                     <option value="">CODIGO</option>
                     <option>LIST</option>

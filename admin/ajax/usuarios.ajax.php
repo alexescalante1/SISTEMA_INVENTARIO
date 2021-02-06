@@ -20,6 +20,25 @@ class AjaxUsuarios{
 
   }
 
+
+  /*=============================================
+  VALIDAR USUARIO
+  =============================================*/	
+
+  public $validarUsuario;
+
+  public function ajaxValidarUsuario(){
+
+    $item = "codigo";
+		$valor = $this->validarUsuario;
+
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+		echo json_encode($respuesta);
+
+  }
+
+
 }
 
 /*=============================================
@@ -32,5 +51,15 @@ if(isset($_POST["activarUsuario"])){
 	$activarUsuario -> activarUsuario = $_POST["activarUsuario"];
 	$activarUsuario -> activarId = $_POST["activarId"];
 	$activarUsuario -> ajaxActivarUsuario();
+
+}
+
+
+
+if(isset($_POST["validarUsuarioP"])){
+
+	$validaUsuario = new AjaxUsuarios();
+	$validaUsuario -> validarUsuario = $_POST["validarUsuarioP"];
+	$validaUsuario -> ajaxValidarUsuario();
 
 }

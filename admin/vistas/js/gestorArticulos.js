@@ -1621,7 +1621,6 @@ $('.tablaPrestarArticulos tbody').on("click", ".btnPrestarArticulo", function(){
 			$("#modalPrestarArticulo .idDetalleArticulo").val(respuesta[0]["idDetalleArticulo"]);
 			$("#modalPrestarArticulo .tituloArticulo").val(respuesta[0]["titulo"]);
 			
-			tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5><h5>STOCK: 10</h5>";
 			
 			/*=============================================
 			CARGAMOS LA IMAGEN PRINCIPAL
@@ -1631,16 +1630,81 @@ $('.tablaPrestarArticulos tbody').on("click", ".btnPrestarArticulo", function(){
 
 
 
-			camposCodigos();
 
 
+
+
+			var datosUnDisponibles = new FormData();
+			datosUnDisponibles.append("UnDisponibles", respuesta[0]["idDetalleArticulo"]);
 			
+			$.ajax({
+
+					url:"ajax/articulos.ajax.php",
+					method: "POST",
+					data: datosUnDisponibles,
+					cache: false,
+					contentType: false,
+					processData: false,
+					dataType: "json",
+					success: function(stock){
+
+						tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5><h5>STOCK: "+stock[0]+" Unidades</h5>";
+			
+						//console.log(stock[0]);
+						
+						$(".selecNumCodigosArticulo").html('<option value="1">1</option>');
+
+						var spantestemodeloNC = $('.selecNumCodigosArticulo').html();
+						var spantestemodelo_strinfNC = spantestemodeloNC.toString();
+						var CodNume = '';
+
+
+						if(stock[0]<15){
+
+							if(stock[0]==0){
+
+								$(".selecNumCodigosArticulo").html('<option value="0">0</option>');
+
+								swal({
+									title: "No Hay Stock",
+									type: "error",
+									confirmButtonText: "¡Cerrar!"
+								});
+
+							}else{
+
+								for(var o = 1; o <= stock[0]; o++){
+									CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+								}
+
+								spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+
+								$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
+
+							}
+						
+						}else{
+
+							for(var o = 1; o <= 15; o++){
+								CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+							}
+
+							spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+
+							$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
+						}
+
+						camposCodigos();
+
+					}
+
+			})
+
 
 			/*=============================================
-			GUARDAR CAMBIOS DEL PRODUCTO
+			GUARDAR CAMBIOS DEL PRESTAMO
 			=============================================*/	
 
-			
 					
 		}
 
@@ -1648,41 +1712,166 @@ $('.tablaPrestarArticulos tbody').on("click", ".btnPrestarArticulo", function(){
 
 })
 
+
+/*=============================================
+REVISAR SI EL USUARIO EXISTE
+=============================================*/
+
+
+$(".validarUsuarioP").change(function(){
+
+	$(".alert").remove();
+
+	var codUser = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarUsuarioP", codUser);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+
+			//console.log(respuesta);
+    		if(!respuesta){
+
+    			$(".validarUsuarioP").parent().after('<div class="alert alert-warning">Este Usuario No Existe</div>');
+				$("#modalPrestarArticulo .nombreUsuario").val("");
+
+    		}else{
+
+				$("#modalPrestarArticulo .nombreUsuario").val(respuesta["nombre"]);
+				
+			}
+
+	    }
+
+   	})
+
+})
+
+
 /*=============================================
 LISTAR CODIGOS
 =============================================*/
 
-
 function camposCodigos(){
 	
+
+	$("#span-modelo-listar-codigos").html('<div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span><select class="form-control input-lg seleccionarCodigoArticulo-0 validarCod" onchange="getval(this);"><option value="">CODIGO</option><option>LIST</option></select></div></div>');
+
     var spantestemodelo = $('#span-modelo-listar-codigos').html();
     var spantestemodelo_strinf = spantestemodelo.toString();
+	
     var campos = $('.selecNumCodigosArticulo').val();
 
 	var idartt = $('.idDetalleArticulo').val();
 
-	var Ccod = 0;
 	var CodNume = '';
-	while(Ccod<15){
-		CodNume = CodNume + '<option value="000000'+Ccod+'">000000'+Ccod+'</option>';
-		Ccod = Ccod + 1;
-	}
 
-	spantestemodelo_strinf = spantestemodelo_strinf.replace('<option>LIST</option>',CodNume);
+	var idDetalleArticulo = new FormData();
+	idDetalleArticulo.append("idDetalleArticuloCOD", idartt);
+
+	$.ajax({
+
+		url:"ajax/articulos.ajax.php",
+		method: "POST",
+		data: idDetalleArticulo,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+
+			respuesta.forEach(funcionForEach);
+
+			function funcionForEach(item, index){
+
+				//if(item["estado"]==1){
+					//console.log(item["codigoPatrimonial"]);
+					CodNume = CodNume + '<option value="'+item["codigoPatrimonial"]+'">'+item["codigoPatrimonial"]+'</option>';
+				//}
+
+				/*$("#modalEditarProducto .seleccionarSubCategoria").append(
+
+					'<option value="'+item["id"]+'">'+item["subcategoria"]+'</option>'
+
+				)*/
+
+			}
+
+			spantestemodelo_strinf = spantestemodelo_strinf.replace('<option>LIST</option>',CodNume);
 
 
-	var i;
-    i=1;
+			var i;
+			i=1;
 
-    var texto = '';
-    while(i<=campos){
-      texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
-      i = i + 1; 
-    }
+			var texto = '';
+			while(i<=campos){
+			texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
+			i = i + 1; 
+			}
 
-	$("#span-real-listar-codigos").html(texto);
+			$("#span-real-listar-codigos").html(texto);
+
+		}
+
+	})
+	
 	
 }
+
+/*=============================================
+REVISAR LOS CODIGOS A PRESTAR NO SON IGUALES
+=============================================*/
+function getval(sel)
+{
+    $(".alert").remove();
+	//alert(sel.value);
+	
+	var NumCodArticulos = $('.selecNumCodigosArticulo').val();
+	
+	var listaCodigos = {};
+	for(var k=1;k<=NumCodArticulos;k++){
+
+		listaCodigos[k] = $('.seleccionarCodigoArticulo-'+k).val();
+
+	}
+
+	//console.log(listaCodigos);
+
+	for(var k=1;k<NumCodArticulos;k++){
+
+		for(var n=k+1;n<=NumCodArticulos;n++){
+
+			if(listaCodigos[n]!=''){
+
+				//console.log("epa");
+
+				if(listaCodigos[k]==listaCodigos[n]){
+
+					//console.log(k+"-"+n);
+					
+					$(sel).parent().after('<div class="alert alert-warning">El Codigo Ya esta seleccionado</div>');
+					$(sel).val("");
+					
+					return;
+				}
+
+			}
+			
+		}
+		
+	}
+	//$(sel).parent().after('<div class="alert alert-warning">El Codigo Se Repite</div>');
+	//$(sel).val("");
+}
+
 
 /*=============================================
 GUARDAR PRESTAMO
@@ -1691,104 +1880,73 @@ GUARDAR PRESTAMO
 
 $(".guardarPrestamo").click(function(){
 
-	var xdpws = $('.seleccionarCodigoArticulo-3').val();
+	var NumCodArticulos = $('.selecNumCodigosArticulo').val();
 
-	alert(xdpws);
+	if(NumCodArticulos==0){
+		
+		swal({
+			title: "No Hay Stock",
+			type: "error",
+			confirmButtonText: "¡Cerrar!"
+		});
+
+		return;
+
+	}
+
+	var listaCodigos = {};
+	for(var k=1;k<=NumCodArticulos;k++){
+
+		if(!$('.seleccionarCodigoArticulo-'+k).val()){
+
+			swal({
+				title: "Llenar todos los campos del codigo",
+				type: "error",
+				confirmButtonText: "¡Cerrar!"
+			});
+	
+			return;
+		}
+
+		listaCodigos[k] = $('.seleccionarCodigoArticulo-'+k).val();
+
+	}
+
+	console.log(listaCodigos);
+
+	/*for(var k=1;k<NumCodArticulos;k++){
+
+		for(var n=k+1;n<=NumCodArticulos;n++){
+
+			if(listaCodigos[k]==listaCodigos[n]){
+
+				console.log(k+"-"+n);
+				
+				$(".seleccionarCodigoArticulo-"+n).parent().after('<div class="alert alert-warning">El Codigo Se Repite</div>');
+				$(".seleccionarCodigoArticulo-"+n).val("");
+				
+				return;
+			}
+			
+		}
+		
+	}
+	*/
 
 	/*=============================================
 	PREGUNTAMOS SI LOS CAMPOS OBLIGATORIOS ESTÁN LLENOS
 	=============================================*/
 	
-	if($("#modalEditarArticulo .tituloArticulo").val() != "" && 
-	   $("#modalEditarArticulo .seleccionarCategoria").val() != "" && 
-	   $("#modalEditarArticulo .descripcionArticulo").val() != ""){
+	if($("#modalPrestarArticulo .nombrePrestamista").val() != "" && 
+	   $("#modalPrestarArticulo .codUsuario").val() != "" && 
+	   $("#modalPrestarArticulo .selecDiasPrestamo").val() != ""){
 
-			
-		if(arrayMFiles.length > 0 && $("#modalEditarArticulo .rutaArticulo").val() != ""){
-
-			var listaMultimedia = [];
-			var finalFor = 0;
-
-			for(var i = 0; i < arrayMFiles.length; i++){
-				
-				var datosMultimedia = new FormData();
-				datosMultimedia.append("fileM", arrayMFiles[i]);
-				datosMultimedia.append("rutaM", $("#modalEditarArticulo .rutaArticulo").val());
-
-				$.ajax({
-					url:"ajax/articulos.ajax.php",
-					method: "POST",
-					data: datosMultimedia,
-					cache: false,
-					contentType: false,
-					processData: false,
-					beforeSend: function(){
-
-						$(".modal-footer .preload").html(`
+		console.log("QUE BIEN");
+		
 
 
-							<center>
 
-								<img src="vistas/img/plantilla/status.gif" id="status" />
-								<br>
-
-							</center>
-
-						`);
-
-					},
-					success: function(respuesta){
-
-						$("#status").remove();
-
-						listaMultimedia.push({"foto" : respuesta.substr(3)});
-						multimediaArticulo = JSON.stringify(listaMultimedia);
-						
-						if(localStorage.getItem("multimediaAdd") != null){
-
-							var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
-
-							var jsonMultimediaAdd = listaMultimedia.concat(jsonLocalStorage);
-
-							multimediaArticulo = JSON.stringify(jsonMultimediaAdd);												
-						}
-
-						if(multimediaArticulo == null){
-
-								swal({
-									title: "El campo de multimedia no debe estar vacío",
-									type: "error",
-									confirmButtonText: "¡Cerrar!"
-								});
-
-								return;
-						}
-
-						if((finalFor + 1) == arrayMFiles.length){
-
-							editarMiArticulo(multimediaArticulo);
-							finalFor = 0;
-
-						}
-
-						finalFor++;							
-			
-					}
-
-				})
-
-			}
-
-		}else{
-
-			var jsonLocalStorage = JSON.parse(localStorage.getItem("multimediaAdd"));
-
-			multimediaArticulo = JSON.stringify(jsonLocalStorage);
-
-			editarMiArticulo(multimediaArticulo);										
-			
-		}
-
+		
 	}else{
 
 		 swal({

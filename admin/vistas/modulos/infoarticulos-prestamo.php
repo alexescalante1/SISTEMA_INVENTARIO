@@ -439,7 +439,7 @@ MODAL AGREGAR COD ARTICULO
 						
 				  <input type="hidden" class="idArticuloRef" <?php echo 'value="'.$infoarticulo["idDetalleArticulo"].'"'; ?> >
 
-				  <input type="hidden" class="rutaArticulo" <?php echo 'value="'.$valor.'"'; ?> >
+				  <input type="hidden" class="rutaArticulo" <?php echo 'value="'.$infoArticulosP.'"'; ?> >
 
                 </div>
 

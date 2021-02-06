@@ -300,6 +300,37 @@ class AjaxArticulo{
 
 
 
+	/*=============================================
+	TRAER UNIDADES  DISPONIBLES
+	=============================================*/	
+
+	public $idDetArticuloDis;
+
+	public function ajaxTraerUnDisponibles(){
+
+		$item = "idDetalleArticulo";
+		$valor = $this->idDetArticuloDis;
+
+		$respuesta = ModeloArticulos::mdlContarCodArticulos("articulos",$item, $valor,"estado",1);
+
+		//echo $respuesta;
+		echo json_encode($respuesta);
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -320,7 +351,53 @@ class AjaxArticulo{
 
 	}
 
+
+	/*=============================================
+	TRAER ARTICULOS CODIGOS
+	=============================================*/	
+
+	public $idArticuloCodP;
+
+	public function ajaxTraerArticulosCodigos(){
+
+		$item = "idDetalleArticulo";
+		$valor = $this->idArticuloCodP;
+
+        $respuesta = ControladorArticulos::ctrMostrarCodArticulosDisponibles($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
+	
+
+
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -489,6 +566,21 @@ if(isset($_POST["idArticulo"])){
 }
 
 
+
+/*=============================================
+TRAER ARTICULOS DISPONIBLES
+=============================================*/
+if(isset($_POST["idDetalleArticuloCOD"])){
+
+	$traerArtcCod = new AjaxArticulo();
+	$traerArtcCod -> idArticuloCodP = $_POST["idDetalleArticuloCOD"];
+	$traerArtcCod -> ajaxTraerArticulosCodigos();
+
+}
+
+
+
+
 /*=============================================
 EDITAR ARTICULO
 =============================================*/
@@ -547,5 +639,19 @@ if(isset($_POST["idC"])){
 	$editarCategoria -> rutaCategoriaM = $_POST["rutaCategoriaM"];
 
 	$editarCategoria -> ajaxEditarCategoria();
+
+}
+
+
+
+
+/*=============================================
+ARTICULOS DISPONIBLES
+=============================================*/
+if(isset($_POST["UnDisponibles"])){
+
+	$traerUnDisponibles = new AjaxArticulo();
+	$traerUnDisponibles -> idDetArticuloDis = $_POST["UnDisponibles"];
+	$traerUnDisponibles -> ajaxTraerUnDisponibles();
 
 }

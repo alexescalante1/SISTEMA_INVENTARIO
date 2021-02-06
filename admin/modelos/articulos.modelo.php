@@ -123,6 +123,31 @@ class ModeloArticulos{
 
 	}
 
+	/*=============================================
+	MOSTRAR ARTICULOS DISPONIBLES
+	=============================================*/
+
+	static public function mdlMostrarArticulosDisponibles($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item AND estado = 1");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+
+	}
+
 
 	/*=============================================
 	CREAR ARTICULO
