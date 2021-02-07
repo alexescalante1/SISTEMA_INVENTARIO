@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2021 at 05:34 AM
+-- Generation Time: Jan 31, 2021 at 06:09 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -89,32 +89,28 @@ CREATE TABLE `articulos` (
 --
 
 INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
-(74, 2, '2021-01-25 23:38:29', 160, '132321321'),
-(77, 2, '2021-01-25 23:42:23', 160, '213123213'),
-(78, 2, '2021-01-25 23:42:28', 160, '123123213'),
-(79, 1, '2021-01-25 23:42:39', 160, '789678678'),
-(80, 2, '2021-01-25 23:43:06', 160, '324234234'),
-(83, 2, '2021-01-26 00:04:57', 160, '432435435'),
-(84, 2, '2021-01-26 08:49:17', 160, '342524555'),
-(85, 1, '2021-01-26 09:01:17', 181, '675675675'),
-(86, 2, '2021-01-26 22:31:38', 164, '213432423'),
-(87, 2, '2021-01-26 22:37:22', 74, '134123213'),
+(74, 0, '2021-01-25 23:38:29', 160, '132321321'),
+(77, 0, '2021-01-25 23:42:23', 160, '213123213'),
+(78, 0, '2021-01-25 23:42:28', 160, '123123213'),
+(79, 3, '2021-01-25 23:42:39', 160, '789678678'),
+(80, 3, '2021-01-25 23:43:06', 160, '324234234'),
+(83, 3, '2021-01-26 00:04:57', 160, '432435435'),
+(84, 3, '2021-01-26 08:49:17', 160, '342524555'),
+(85, 3, '2021-01-26 09:01:17', 181, '675675675'),
+(86, 1, '2021-01-26 22:31:38', 164, '213432423'),
+(87, 1, '2021-01-26 22:37:22', 74, '134123213'),
 (88, 2, '2021-01-26 22:37:28', 74, '689678768'),
 (89, 1, '2021-01-26 22:37:38', 74, '345345345'),
-(90, 1, '2021-01-26 22:47:56', 160, '235245245'),
+(90, 3, '2021-01-26 22:47:56', 160, '235245245'),
 (91, 1, '2021-01-26 22:48:03', 160, '245453453'),
-(92, 2, '2021-01-26 22:48:09', 160, '587568568'),
-(93, 0, '2021-01-26 23:33:09', 160, '312332133'),
+(92, 1, '2021-01-26 22:48:09', 160, '587568568'),
+(93, 1, '2021-01-26 23:33:09', 160, '312332133'),
 (94, 1, '2021-01-26 23:33:32', 160, '324434444'),
-(95, 2, '2021-01-27 12:45:43', 160, '453423123'),
-(96, 0, '2021-01-29 12:54:16', 175, '213214134'),
-(97, 2, '2021-01-29 12:54:22', 175, '351351345'),
+(95, 3, '2021-01-27 12:45:43', 160, '453423123'),
+(96, 3, '2021-01-29 12:54:16', 175, '213214134'),
+(97, 1, '2021-01-29 12:54:22', 175, '351351345'),
 (98, 1, '2021-01-31 00:02:00', 162, '232132133'),
-(99, 1, '2021-01-31 00:02:18', 68, '223234234'),
-(100, 2, '2021-02-01 21:11:51', 175, '123456789'),
-(101, 2, '2021-02-01 21:23:26', 160, '455455455'),
-(102, 2, '2021-02-06 18:10:29', 213, '123456879'),
-(103, 2, '2021-02-06 18:10:45', 213, '123456784');
+(99, 1, '2021-01-31 00:02:18', 68, '223234234');
 
 -- --------------------------------------------------------
 
@@ -183,9 +179,7 @@ INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
 (1, 'equipos-electronicos', 'Equipos Electronicos'),
 (2, 'moviliario', 'Moviliario'),
 (3, 'conectores', 'Conectores'),
-(37, 'celulares-1', 'Celulares 1'),
-(38, 'laboratorio-telematica', 'Laboratorio telematica'),
-(39, 'you-know', 'you know');
+(36, 'comidas', 'comidas');
 
 -- --------------------------------------------------------
 
@@ -356,8 +350,7 @@ INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripci
 (162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'as', '2021-01-23 09:32:33'),
 (164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad', '2021-01-23 09:32:33'),
 (175, 'laptop-asus', 'Laptop ASUS', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 0, 2, 4000, 1, 'pc', '2021-01-23 09:32:33'),
-(181, 'computadora-gaming', 'Computadora Gaming', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 0, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"}]', 0, 4, 5000, 1, 'jaja', '2021-01-23 09:32:33'),
-(213, 'dada', 'dada', 'zas', 0, 'vistas/img/productos/dada.jpg', '[{\"foto\":\"vistas/img/multimedia/dada/e66bd27867a1695d5acb79107be4fe69405438228f14566622cc5b2983b8be87.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/images.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 0, 33, 12, 38, 'paspas', '2021-02-06 18:09:28');
+(181, 'computadora-gaming', 'Computadora Gaming', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/360c4822e04f1606b975b170e1af0891.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 0, 4, 5000, 3, 'jaja', '2021-01-23 09:32:33');
 
 -- --------------------------------------------------------
 
@@ -390,15 +383,7 @@ INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`,
 (114, 0, '12345678', 'Docente Xd', '', 1, 12, 'as', '2021-01-31 04:59:33', 0, 160),
 (115, 0, '12345678', 'Docente Xd', '', 1, 3, 'xd pw', '2021-01-31 05:00:32', 0, 74),
 (116, 0, '12345678', 'Docente Xd', '', 1, 3, 'jeje lo quiero', '2021-01-31 05:02:30', 0, 68),
-(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-01-31 05:04:47', 0, 160),
-(118, 0, '162894', 'Alex escalante maron', '', 1, 6, 'a', '2021-01-31 05:12:58', 0, 74),
-(119, 0, '162894', 'Alex escalante maron', '', 1, 3, 'yolo', '2021-01-31 05:17:45', 0, 74),
-(120, 0, '162894', 'Alex escalante maron', '', 1, 3, 'fgsdfdsf', '2021-01-31 16:54:05', 0, 160),
-(121, 0, '162894', 'Alex escalante maron', '', 1, 3, 'trabajos', '2021-02-02 02:01:09', 0, 160),
-(122, 0, '162894', 'Alex escalante maron', '', 2, 12, 'cal', '2021-02-06 05:42:13', 0, 74),
-(123, 0, '162894', 'Alex escalante maron', '', 1, 3, 'jeje', '2021-02-06 05:43:12', 0, 74),
-(124, 0, '162894', 'Alex escalante maron', '', 1, 12, 'i need ', '2021-02-06 05:44:20', 0, 160),
-(125, 0, '162894', 'Alex escalante maron', '', 1, 3, 'please', '2021-02-06 23:08:45', 0, 160);
+(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-01-31 05:04:47', 0, 160);
 
 -- --------------------------------------------------------
 
@@ -446,7 +431,7 @@ CREATE TABLE `plantilla` (
 --
 
 INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `colorTexto`, `logo`, `icono`, `redesSociales`, `apiFacebook`, `pixelFacebook`, `googleAnalytics`, `fecha`) VALUES
-(1, '#000000', '#ffffff', '#000000', '#ffffff', 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '[{\"red\":\"fa-facebook\",\"estilo\":\"facebookBlanco\",\"url\":\"http://facebook.com/\",\"activo\":1},{\"red\":\"fa-youtube\",\"estilo\":\"youtubeBlanco\",\"url\":\"http://youtube.com/\",\"activo\":1},{\"red\":\"fa-twitter\",\"estilo\":\"twitterBlanco\",\"url\":\"http://twitter.com/\",\"activo\":1},{\"red\":\"fa-google-plus\",\"estilo\":\"google-plusBlanco\",\"url\":\"http://google.com/\",\"activo\":1},{\"red\":\"fa-instagram\",\"estilo\":\"instagramBlanco\",\"url\":\"http://instagram.com/\",\"activo\":1}]', '\r\n      		<script>   window.fbAsyncInit = function() {     FB.init({       appId      : \'131737410786111\',       cookie     : true,       xfbml      : true,       version    : \'v2.10\'     });            FB.AppEvents.logPageView();             };    (function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)) {return;}      js = d.createElement(s); js.id = id;      js.src = \"https://connect.facebook.net/en_US/sdk.js\";      fjs.parentNode.insertBefore(js, fjs);    }(document, \'script\', \'facebook-jssdk\'));  </script>\r\n      		', '\r\n  			<!-- Facebook Pixel Code --> 	<script> 	  !function(f,b,e,v,n,t,s) 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\'; 	  n.queue=[];t=b.createElement(e);t.async=!0; 	  t.src=v;s=b.getElementsByTagName(e)[0]; 	  s.parentNode.insertBefore(t,s)}(window, document,\'script\', 	  \'https://connect.facebook.net/en_US/fbevents.js\'); 	  fbq(\'init\', \'131737410786111\'); 	  fbq(\'track\', \'PageView\'); 	</script> 	<noscript><img height=\"1\" width=\"1\" style=\"display:none\" 	  src=\"https://www.facebook.com/tr?id=149877372404434&ev=PageView&noscript=1\" 	/></noscript> <!-- End Facebook Pixel Code -->    \r\n  			', '  \r\n  				<!-- Global site tag (gtag.js) - Google Analytics --> 	<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-999999-1\"></script> 	<script> 	  window.dataLayer = window.dataLayer || []; 	  function gtag(){dataLayer.push(arguments);} 	  gtag(\'js\', new Date());  	  gtag(\'config\', \'UA-9999999-1\'); 	</script>      \r\n            \r\n            \r\n            \r\n      ', '2021-02-06 05:41:28');
+(1, '#000000', '#ffffff', '#47bac1', '#ffffff', 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '[{\"red\":\"fa-facebook\",\"estilo\":\"facebookBlanco\",\"url\":\"http://facebook.com/\",\"activo\":1},{\"red\":\"fa-youtube\",\"estilo\":\"youtubeBlanco\",\"url\":\"http://youtube.com/\",\"activo\":1},{\"red\":\"fa-twitter\",\"estilo\":\"twitterBlanco\",\"url\":\"http://twitter.com/\",\"activo\":1},{\"red\":\"fa-google-plus\",\"estilo\":\"google-plusBlanco\",\"url\":\"http://google.com/\",\"activo\":1},{\"red\":\"fa-instagram\",\"estilo\":\"instagramBlanco\",\"url\":\"http://instagram.com/\",\"activo\":1}]', '\r\n      		<script>   window.fbAsyncInit = function() {     FB.init({       appId      : \'131737410786111\',       cookie     : true,       xfbml      : true,       version    : \'v2.10\'     });            FB.AppEvents.logPageView();             };    (function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)) {return;}      js = d.createElement(s); js.id = id;      js.src = \"https://connect.facebook.net/en_US/sdk.js\";      fjs.parentNode.insertBefore(js, fjs);    }(document, \'script\', \'facebook-jssdk\'));  </script>\r\n      		', '\r\n  			<!-- Facebook Pixel Code --> 	<script> 	  !function(f,b,e,v,n,t,s) 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\'; 	  n.queue=[];t=b.createElement(e);t.async=!0; 	  t.src=v;s=b.getElementsByTagName(e)[0]; 	  s.parentNode.insertBefore(t,s)}(window, document,\'script\', 	  \'https://connect.facebook.net/en_US/fbevents.js\'); 	  fbq(\'init\', \'131737410786111\'); 	  fbq(\'track\', \'PageView\'); 	</script> 	<noscript><img height=\"1\" width=\"1\" style=\"display:none\" 	  src=\"https://www.facebook.com/tr?id=149877372404434&ev=PageView&noscript=1\" 	/></noscript> <!-- End Facebook Pixel Code -->    \r\n  			', '  \r\n  				<!-- Global site tag (gtag.js) - Google Analytics --> 	<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-999999-1\"></script> 	<script> 	  window.dataLayer = window.dataLayer || []; 	  function gtag(){dataLayer.push(arguments);} 	  gtag(\'js\', new Date());  	  gtag(\'config\', \'UA-9999999-1\'); 	</script>      \r\n            \r\n            \r\n            \r\n      ', '2018-02-02 15:38:21');
 
 -- --------------------------------------------------------
 
@@ -456,23 +441,22 @@ INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `
 
 CREATE TABLE `prestamos` (
   `idPrestamo` int(11) NOT NULL,
-  `estado` int(11) NOT NULL,
+  `tipoDocTitular` int(11) NOT NULL,
   `numDocTitular` text NOT NULL,
   `nombreTitular` text NOT NULL,
+  `apellidoTitular` text NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `plazoDias` int(11) NOT NULL,
-  `idAdmin` int(11) NOT NULL,
-  `nombrePrestamista` text NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `idAdmin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prestamos`
 --
 
-INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `fecha`) VALUES
-(145, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:23:23'),
-(146, 1, '162584', 'usuariotwo', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:25:37'),
-(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', '2021-02-07 03:33:39');
+INSERT INTO `prestamos` (`idPrestamo`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `fecha`, `plazoDias`, `idAdmin`) VALUES
+(1, 1, '162892', 'Alex Fredy', 'Escalante Maron', '2021-01-04 19:36:36', 2, 5),
+(2, 1, '162893', 'Fredy', 'Soto', '2021-01-04 19:39:32', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -483,35 +467,8 @@ INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular
 CREATE TABLE `prestamos-articulos` (
   `id` int(11) NOT NULL,
   `idPrestamo` int(11) NOT NULL,
-  `idArticulo` int(11) NOT NULL,
-  `codigoPatrimonial` text NOT NULL
+  `idArticulo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `prestamosarticulos`
---
-
-CREATE TABLE `prestamosarticulos` (
-  `idPrestamosArt` int(11) NOT NULL,
-  `idPrestamo` int(11) NOT NULL,
-  `idArticulo` int(11) NOT NULL,
-  `codigoPatrimonial` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `prestamosarticulos`
---
-
-INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, `codigoPatrimonial`) VALUES
-(54, 145, 74, '132321321'),
-(55, 145, 77, '213123213'),
-(56, 146, 78, '123123213'),
-(57, 146, 84, '342524555'),
-(58, 147, 80, '324234234'),
-(59, 147, 83, '432435435'),
-(60, 147, 92, '587568568');
 
 -- --------------------------------------------------------
 
@@ -648,7 +605,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
 (34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 0, '926e57bdcca18a1cffcf9d80651893dc', '2021-01-31 01:21:34'),
-(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 0, 'a090e5266ceecd6caa3e44d295de8652', '2021-01-31 05:12:25'),
+(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 1, 'a090e5266ceecd6caa3e44d295de8652', '2021-01-31 05:06:12'),
 (49, '123456', 'Axel One', 'fredy2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'fredy@gmail.com', 'directo', '', 0, '1b6113a146ba93a43311cc83bd8a4ed2', '2021-01-31 01:19:01'),
 (51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33');
 
@@ -801,7 +758,8 @@ ALTER TABLE `plantilla`
 -- Indexes for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  ADD PRIMARY KEY (`idPrestamo`);
+  ADD PRIMARY KEY (`idPrestamo`),
+  ADD KEY `idAdmin` (`idAdmin`) USING BTREE;
 
 --
 -- Indexes for table `prestamos-articulos`
@@ -810,13 +768,6 @@ ALTER TABLE `prestamos-articulos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idPrestamo` (`idPrestamo`) USING BTREE,
   ADD KEY `idArticulo` (`idArticulo`) USING BTREE;
-
---
--- Indexes for table `prestamosarticulos`
---
-ALTER TABLE `prestamosarticulos`
-  ADD PRIMARY KEY (`idPrestamosArt`),
-  ADD KEY `prestamosart` (`idPrestamo`);
 
 --
 -- Indexes for table `productos`
@@ -874,7 +825,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -892,7 +843,7 @@ ALTER TABLE `cabeceras`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `categorias`
@@ -928,13 +879,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
@@ -952,19 +903,13 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prestamos-articulos`
 --
 ALTER TABLE `prestamos-articulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `prestamosarticulos`
---
-ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `productos`
@@ -1025,17 +970,17 @@ ALTER TABLE `notificacion`
   ADD CONSTRAINT `notf-art` FOREIGN KEY (`idDetalleArticulo`) REFERENCES `detallearticulo` (`idDetalleArticulo`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
+-- Constraints for table `prestamos`
+--
+ALTER TABLE `prestamos`
+  ADD CONSTRAINT `prestamos-admin` FOREIGN KEY (`idAdmin`) REFERENCES `administradores` (`id`);
+
+--
 -- Constraints for table `prestamos-articulos`
 --
 ALTER TABLE `prestamos-articulos`
   ADD CONSTRAINT `articulo-prestamo` FOREIGN KEY (`idArticulo`) REFERENCES `articulos` (`idArticulo`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `prestamo-articulo` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamos` (`idPrestamo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `prestamosarticulos`
---
-ALTER TABLE `prestamosarticulos`
-  ADD CONSTRAINT `prestamosart` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamos` (`idPrestamo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
