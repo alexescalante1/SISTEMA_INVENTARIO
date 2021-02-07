@@ -32,11 +32,11 @@
             
                <th style="width:10px">#</th>
                <th style="width:10px">Acciones</th>
-               <th>Numero De Documento</th>
+               <th style="width:150px">Numero De Documento</th>
                <th>Nombres y Apellidos</th>
                <th>Dias de Plazo</th>
                <th>Laboratorista</th>
-               <th>Fecha</th>
+               <th style="width:100px">Fecha</th>
 
             </tr> 
 

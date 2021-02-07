@@ -31,16 +31,16 @@
             <tr>
              
                <th style="width:10px">#</th>
-               <th>Perfil</th>
-               <th>Tipo de Documento</th>
-               <th>Numero de Documento</th>
+               <th style="width:70px">Perfil</th>
+               <th style="width:70px">Tipo de Documento</th>
+               <th style="width:70px">Numero de Documento</th>
                <th>Nombres y Apellidos</th>
                <th>Articulo</th>
                <th>Cantidad</th>
                <th>Dias</th>
                <th>Detalle</th>
-               <th>Fecha</th>
-               <th>visto</th>
+               <th style="width:130px">Fecha</th>
+               <th style="width:50px">visto</th>
                <th style="width:10px">Acciones</th>
 
             </tr> 

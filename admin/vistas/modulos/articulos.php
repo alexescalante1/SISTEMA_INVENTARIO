@@ -54,7 +54,7 @@
                <th>Peso</th>
                <th>Precio</th>
                <th>Acciones</th>
-               <th>Acciones</th>
+               <th style="width:50px">Acciones</th>
 
             </tr> 
 
