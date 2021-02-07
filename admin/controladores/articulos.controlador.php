@@ -830,5 +830,20 @@ class ControladorArticulos{
 
 	}
 
+
+	/*=============================================
+	MOSTRAR PRESTAMOS
+	=============================================*/
+
+	static public function ctrMostrarPrestamos($item, $valor){
+
+		$tabla = "prestamos";
+
+		$respuesta = ModeloArticulos::mdlMostrarPrestamos($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
 	
 }
