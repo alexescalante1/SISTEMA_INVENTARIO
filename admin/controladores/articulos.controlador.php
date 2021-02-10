@@ -30,6 +30,21 @@ class ControladorArticulos{
 
 	}
 
+
+	/*=============================================
+	MOSTRAR 5 ULTIMOS ARTICULOS
+	=============================================*/
+
+	static public function ctrMostrarUltimosArticulos($orden, $tope){
+
+		$tabla = "detallearticulo";
+
+		$respuesta = ModeloArticulos::mdlMostrarUltimosArticulos($tabla, $orden, $tope);
+
+		return $respuesta;
+
+	}
+
 	
 
 	/*=============================================

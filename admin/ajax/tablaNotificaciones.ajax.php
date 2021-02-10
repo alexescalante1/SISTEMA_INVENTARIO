@@ -94,7 +94,7 @@ class TablaArticulos{
 				$perfilU = "DOCENTE";
 			}
 
-			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
+			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticuloN' idArticulo='".$notific[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
 
 			$datosJson .='[
 					

@@ -43,6 +43,24 @@ class ModeloArticulos{
 
 	}
 
+	/*=============================================
+	MOSTRAR ULTIMOS ARTICULOS
+	=============================================*/	
+
+	static public function mdlMostrarUltimosArticulos($tabla, $orden, $tope){
+	
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC  LIMIT 0, $tope");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt-> close();
+
+		$stmt = null;
+
+	}
+
 
 
 	/*=============================================

@@ -1748,6 +1748,40 @@ $('.tablaPrestarArticulos tbody').on("click", ".btnPrestarArticulo", function(){
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============================================
 REVISAR SI EL USUARIO EXISTE
 =============================================*/
@@ -2078,6 +2112,12 @@ $(".guardarPrestamo").click(function(){
 	}					
 
 })
+
+
+
+
+
+
 
 
 
