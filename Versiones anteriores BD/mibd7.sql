@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2021 at 01:51 PM
+-- Generation Time: Feb 07, 2021 at 05:34 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -92,7 +92,7 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `
 (74, 2, '2021-01-25 23:38:29', 160, '132321321'),
 (77, 2, '2021-01-25 23:42:23', 160, '213123213'),
 (78, 2, '2021-01-25 23:42:28', 160, '123123213'),
-(79, 2, '2021-01-25 23:42:39', 160, '789678678'),
+(79, 1, '2021-01-25 23:42:39', 160, '789678678'),
 (80, 2, '2021-01-25 23:43:06', 160, '324234234'),
 (83, 2, '2021-01-26 00:04:57', 160, '432435435'),
 (84, 2, '2021-01-26 08:49:17', 160, '342524555'),
@@ -100,12 +100,12 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `
 (86, 2, '2021-01-26 22:31:38', 164, '213432423'),
 (87, 2, '2021-01-26 22:37:22', 74, '134123213'),
 (88, 2, '2021-01-26 22:37:28', 74, '689678768'),
-(89, 2, '2021-01-26 22:37:38', 74, '345345345'),
-(90, 2, '2021-01-26 22:47:56', 160, '235245245'),
-(91, 2, '2021-01-26 22:48:03', 160, '245453453'),
+(89, 1, '2021-01-26 22:37:38', 74, '345345345'),
+(90, 1, '2021-01-26 22:47:56', 160, '235245245'),
+(91, 1, '2021-01-26 22:48:03', 160, '245453453'),
 (92, 2, '2021-01-26 22:48:09', 160, '587568568'),
 (93, 0, '2021-01-26 23:33:09', 160, '312332133'),
-(94, 2, '2021-01-26 23:33:32', 160, '324434444'),
+(94, 1, '2021-01-26 23:33:32', 160, '324434444'),
 (95, 2, '2021-01-27 12:45:43', 160, '453423123'),
 (96, 0, '2021-01-29 12:54:16', 175, '213214134'),
 (97, 2, '2021-01-29 12:54:22', 175, '351351345'),
@@ -114,10 +114,7 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `
 (100, 2, '2021-02-01 21:11:51', 175, '123456789'),
 (101, 2, '2021-02-01 21:23:26', 160, '455455455'),
 (102, 2, '2021-02-06 18:10:29', 213, '123456879'),
-(103, 2, '2021-02-06 18:10:45', 213, '123456784'),
-(104, 1, '2021-02-09 21:49:07', 72, '542453455'),
-(105, 2, '2021-02-09 21:52:19', 214, '213213213'),
-(106, 2, '2021-02-09 21:52:31', 214, '548645454');
+(103, 2, '2021-02-06 18:10:45', 213, '123456784');
 
 -- --------------------------------------------------------
 
@@ -351,17 +348,16 @@ CREATE TABLE `detallearticulo` (
 
 INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripcion`, `disponible`, `portada`, `multimedia`, `prestados`, `peso`, `precio`, `idCategoria`, `palabrasClave`, `fecha`) VALUES
 (68, 'data-display', 'Data Display', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/data-display.png', '[{\"foto\":\"vistas/img/multimedia/data-display/data2.png\"},{\"foto\":\"vistas/img/multimedia/data-display/data1.png\"}]', 0, 1, 1500, 1, 'proyector', '2021-01-23 09:32:00'),
-(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 50, 2, 1550, 1, 'ordenador fdg', '2021-01-23 09:32:33'),
+(72, 'laptop-hp', 'Laptop HP', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-hp.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/5_27.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/16963488_2.jpg\"}]', 0, 2, 1550, 1, 'ordenador fdg', '2021-01-23 09:32:33'),
 (74, 'monitor-asus', 'Monitor Asus', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/monitor-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor1.jpg\"}]', 0, 2, 1000, 1, 'pantalla', '2021-01-23 09:32:33'),
 (93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd asdas', '2021-01-23 09:32:33'),
 (130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 40, 1, 'asasd', '2021-01-23 09:32:33'),
-(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 800, 0, 25, 1, 'asd', '2021-01-23 09:32:33'),
-(162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 82, 0, 0, 3, 'as', '2021-01-23 09:32:33'),
+(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 11, 0, 25, 1, 'asd', '2021-01-23 09:32:33'),
+(162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'as', '2021-01-23 09:32:33'),
 (164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad', '2021-01-23 09:32:33'),
-(175, 'laptop-asus', 'Laptop ASUS', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 1420, 2, 4000, 1, 'pc', '2021-01-23 09:32:33'),
+(175, 'laptop-asus', 'Laptop ASUS', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 0, 2, 4000, 1, 'pc', '2021-01-23 09:32:33'),
 (181, 'computadora-gaming', 'Computadora Gaming', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 0, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"}]', 0, 4, 5000, 1, 'jaja', '2021-01-23 09:32:33'),
-(213, 'dada', 'dada', 'zas', 0, 'vistas/img/productos/dada.jpg', '[{\"foto\":\"vistas/img/multimedia/dada/e66bd27867a1695d5acb79107be4fe69405438228f14566622cc5b2983b8be87.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/images.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 8, 33, 12, 38, 'paspas', '2021-02-06 18:09:28'),
-(214, 'mouse', 'mouse', 'xd', 1, 'vistas/img/productos/mouse.jpg', '[{\"foto\":\"vistas/img/multimedia/mouse/7391dbb71127bb931b5320d644766fdd.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/6451f32062ae5487a44a107d63f2cbde-daptv54.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/20329-sasuke-uchiha-naruto-1920x1080-anime-wallpaper.jpg\"}]', 0, 2, 123123, 38, 'will', '2021-02-09 21:51:53');
+(213, 'dada', 'dada', 'zas', 0, 'vistas/img/productos/dada.jpg', '[{\"foto\":\"vistas/img/multimedia/dada/e66bd27867a1695d5acb79107be4fe69405438228f14566622cc5b2983b8be87.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/images.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 0, 33, 12, 38, 'paspas', '2021-02-06 18:09:28');
 
 -- --------------------------------------------------------
 
@@ -402,9 +398,7 @@ INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`,
 (122, 0, '162894', 'Alex escalante maron', '', 2, 12, 'cal', '2021-02-06 05:42:13', 0, 74),
 (123, 0, '162894', 'Alex escalante maron', '', 1, 3, 'jeje', '2021-02-06 05:43:12', 0, 74),
 (124, 0, '162894', 'Alex escalante maron', '', 1, 12, 'i need ', '2021-02-06 05:44:20', 0, 160),
-(125, 0, '162894', 'Alex escalante maron', '', 1, 3, 'please', '2021-02-06 23:08:45', 0, 160),
-(126, 0, '162894', 'Alex escalante maron', '', 1, 3, '23124qwd', '2021-02-10 02:47:13', 0, 175),
-(127, 0, '162894', 'Alex escalante maron', '', 1, 3, 'asdasd', '2021-02-10 02:52:43', 0, 214);
+(125, 0, '162894', 'Alex escalante maron', '', 1, 3, 'please', '2021-02-06 23:08:45', 0, 160);
 
 -- --------------------------------------------------------
 
@@ -478,12 +472,7 @@ CREATE TABLE `prestamos` (
 INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `fecha`) VALUES
 (145, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:23:23'),
 (146, 1, '162584', 'usuariotwo', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:25:37'),
-(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', '2021-02-07 03:33:39'),
-(148, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-08 00:41:10'),
-(149, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', '2021-02-08 00:41:59'),
-(150, 1, '162895', 'Axel One Escalante', 3, 0, 'Alex Escalante ONE', '2021-02-09 03:30:26'),
-(151, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-10 02:38:06'),
-(152, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', '2021-02-10 02:52:57');
+(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', '2021-02-07 03:33:39');
 
 -- --------------------------------------------------------
 
@@ -522,14 +511,7 @@ INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, 
 (57, 146, 84, '342524555'),
 (58, 147, 80, '324234234'),
 (59, 147, 83, '432435435'),
-(60, 147, 92, '587568568'),
-(61, 148, 89, '345345345'),
-(62, 149, 79, '789678678'),
-(63, 150, 90, '235245245'),
-(64, 151, 94, '324434444'),
-(65, 151, 91, '245453453'),
-(66, 152, 106, '548645454'),
-(67, 152, 105, '213213213');
+(60, 147, 92, '587568568');
 
 -- --------------------------------------------------------
 
@@ -668,8 +650,7 @@ INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `
 (34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 0, '926e57bdcca18a1cffcf9d80651893dc', '2021-01-31 01:21:34'),
 (47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 0, 'a090e5266ceecd6caa3e44d295de8652', '2021-01-31 05:12:25'),
 (49, '123456', 'Axel One', 'fredy2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'fredy@gmail.com', 'directo', '', 0, '1b6113a146ba93a43311cc83bd8a4ed2', '2021-01-31 01:19:01'),
-(51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33'),
-(52, '162895', 'Axel One Escalante', 'axelone2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'axel@gmail.com', 'directo', '', 0, '3218da89280d03db1d26f8622068665b', '2021-02-11 00:09:59');
+(51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33');
 
 -- --------------------------------------------------------
 
@@ -893,7 +874,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -947,13 +928,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
@@ -971,7 +952,7 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `prestamos-articulos`
@@ -983,7 +964,7 @@ ALTER TABLE `prestamos-articulos`
 -- AUTO_INCREMENT for table `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `productos`
@@ -1007,7 +988,7 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `visitaspaises`
