@@ -7,7 +7,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="vistas/img/plantilla/icono.png" class="img-responsive" style="padding:10px; filter:contrast(200%);"></span>
       <!-- logo for regular state and mobile devices -->    
-      <span class="logo-lg"><img src="vistas/img/plantilla/logo.png" class="img-responsive" style="padding:10px 30px; filter:contrast(200%);"></span>
+      <span class="logo-lg"><img src="vistas/img/plantilla/logo-mini.png" class="img-responsive" style="padding:10px 30px; filter:contrast(200%);"></span>
     
     </a>
     <!-- logo -->

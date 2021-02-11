@@ -69,12 +69,7 @@ $(".actualizarNotificaciones").click(function(e){
 
       	    	if(item == "nuevasVentas"){
 
-      	    		window.location = "ventas";
-      	    	}
-
-      	    	if(item == "nuevasVisitas"){
-
-      	    		window.location = "visitas";
+      	    		window.location = "notificacionesM";
       	    	}
 
       	    }

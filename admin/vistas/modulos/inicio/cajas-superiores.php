@@ -26,55 +26,76 @@ CAJAS SUPERIORES
 
 
 <div class="col-md-3 col-sm-6 col-xs-12">
+  <a href="prestar">
   <div class="info-box">
-    <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+    <span class="info-box-icon bg-aqua"><i class="fa fa-cart-plus"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">Messages</span>
+      <span class="info-box-text">Prestar Articulos</span>
       <span class="info-box-number">1,410</span>
     </div>
     <!-- /.info-box-content -->
   </div>
   <!-- /.info-box -->
+  </a>
 </div>
 <!-- /.col -->
+
+
+
+
 <div class="col-md-3 col-sm-6 col-xs-12">
+<a href="articulos">
   <div class="info-box">
-    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+    <span class="info-box-icon bg-green"><i class="fa fa-product-hunt"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">Bookmarks</span>
+      <span class="info-box-text">Gestor de Articulos</span>
       <span class="info-box-number">410</span>
     </div>
     <!-- /.info-box-content -->
   </div>
   <!-- /.info-box -->
+  </a>
 </div>
 <!-- /.col -->
+
+
+
+
+
 <div class="col-md-3 col-sm-6 col-xs-12">
+<a href="prestamos">
   <div class="info-box">
-    <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+    <span class="info-box-icon bg-yellow"><i class="fa fa-tachometer"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">Uploads</span>
+      <span class="info-box-text">Gestor de Prestamos</span>
       <span class="info-box-number">13,648</span>
     </div>
     <!-- /.info-box-content -->
   </div>
   <!-- /.info-box -->
+  </a>
 </div>
 <!-- /.col -->
+
+
+
+
 <div class="col-md-3 col-sm-6 col-xs-12">
+<a href="notificacionesM">
   <div class="info-box">
-    <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+    <span class="info-box-icon bg-red"><i class="fa fa-bell"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">Likes</span>
+      <span class="info-box-text">Gestor de Notificaciones</span>
       <span class="info-box-number">93,139</span>
     </div>
     <!-- /.info-box-content -->
   </div>
   <!-- /.info-box -->
+  </a>
 </div>
 <!-- /.col -->
 
@@ -123,7 +144,7 @@ CAJAS SUPERIORES
       
       <h3>$<?php echo number_format($ventas["total"]); ?></h3>
 
-      <p>Ventas</p>
+      <p>Manuales de Sistema</p>
     
     </div>
     <!-- inner -->
@@ -131,12 +152,12 @@ CAJAS SUPERIORES
     <!-- icon -->
     <div class="icon">
     
-      <i class="ion ion-bag"></i>
+      <i class="fa fa-book"></i>
     
     </div>
     <!-- icon -->
     
-    <a href="ventas" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small-box -->
@@ -157,7 +178,7 @@ CAJAS SUPERIORES
       
       <h3><?php echo number_format($visitas["total"]); ?></h3>
 
-      <p>Visitas</p>
+      <p>Gestor de Caja</p>
     
     </div>
     <!-- inner -->
@@ -165,12 +186,12 @@ CAJAS SUPERIORES
     <!-- icon -->
     <div class="icon">
       
-      <i class="ion ion-stats-bars"></i>
+      <i class="fa fa-bank"></i>
     
     </div>
     <!-- icon -->
 
-    <a href="visitas" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->
@@ -204,7 +225,7 @@ CAJAS SUPERIORES
     </div>
     <!-- icon -->
 
-    <a href="usuarios" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="usuarios" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->
@@ -225,7 +246,7 @@ CAJAS SUPERIORES
     
       <h3><?php echo number_format($totalProductos); ?></h3>
 
-      <p>Productos</p>
+      <p>Sugerencias</p>
 
     </div>
     <!-- inner -->
@@ -233,12 +254,12 @@ CAJAS SUPERIORES
     <!-- icon -->
     <div class="icon">
       
-      <i class="ion ion-pie-graph"></i>
+      <i class="fa fa-skyatlas"></i>
     
     </div>
     <!-- icon -->
     
-    <a href="productos" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="#" class="small-box-footer">Más Información <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->

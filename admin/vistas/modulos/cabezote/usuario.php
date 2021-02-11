@@ -33,6 +33,7 @@ USUARIOS
 
 		<li class="user-header">
 		
+		
 			<?php
 
 			if($_SESSION["foto"] == ""){

@@ -53,8 +53,6 @@ foreach ($ventas as $key => $value) {
 
 	}
 
-
-
 }
 
 #Evitamos repetir fecha
@@ -136,13 +134,15 @@ var line = new Morris.Line({
 
     <?php
 
-    	foreach ($noRepetirFechas as $value) {
-    	
-    	echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." },";
-    		
-    	}
+		/*foreach ($noRepetirFechas as $value) {
+		
+		echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." },";
+			
+		}
 
-      echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." }";
+      	echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." },";*/
+
+	  echo "{ y: '2017-05', ventas: 800 },{ y: '2018-04', ventas: 9500 },{ y: '2019-01', ventas: 200 },{ y: '2019-09', ventas: 5100 }";
 
     ?>
 

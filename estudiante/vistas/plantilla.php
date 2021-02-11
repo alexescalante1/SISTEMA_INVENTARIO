@@ -52,7 +52,7 @@
 
 	<meta name="keyword" content="Inventario">
 
-	<title>SISTEMA INVENTARIO</title>
+	<title>SI-EPIE ESTUDIANTE</title>
 
 	<!--=====================================
 	PLUGINS DE CSS

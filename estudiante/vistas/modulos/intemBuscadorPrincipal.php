@@ -5,8 +5,8 @@
 	<div class="container">
 		
 		<div class="row">
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6" id="logotipo">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10" id="logotipo">
 					
 					<a href="<?php echo $url; ?>">
 							

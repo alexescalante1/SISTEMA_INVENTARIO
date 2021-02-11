@@ -17,7 +17,7 @@ PRODUCTOS MÁS VENDIDOS
 	<!-- box-header -->
   	<div class="box-header with-border">
   
-    	<h3 class="box-title">Articulos más vendidos</h3>
+    	<h3 class="box-title">Articulos más demandados</h3>
 
     	<div class="box-tools pull-right">
       
