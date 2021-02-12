@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2021 at 05:32 AM
+-- Generation Time: Feb 11, 2021 at 01:51 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `mibd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accesorapido`
+--
+
+CREATE TABLE `accesorapido` (
+  `idacceso` int(11) NOT NULL,
+  `titulo` text NOT NULL,
+  `ruta` text NOT NULL,
+  `portada` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accesorapido`
+--
+
+INSERT INTO `accesorapido` (`idacceso`, `titulo`, `ruta`, `portada`) VALUES
+(2, 'Equipos Electronicos', 'equipos-electronicos', '');
 
 -- --------------------------------------------------------
 
@@ -90,21 +110,14 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `
 (96, 0, '2021-01-29 12:54:16', 175, '213214134'),
 (97, 2, '2021-01-29 12:54:22', 175, '351351345'),
 (98, 1, '2021-01-31 00:02:00', 162, '232132133'),
-(99, 2, '2021-01-31 00:02:18', 68, '223234234'),
+(99, 1, '2021-01-31 00:02:18', 68, '223234234'),
 (100, 2, '2021-02-01 21:11:51', 175, '123456789'),
 (101, 2, '2021-02-01 21:23:26', 160, '455455455'),
 (102, 2, '2021-02-06 18:10:29', 213, '123456879'),
 (103, 2, '2021-02-06 18:10:45', 213, '123456784'),
 (104, 1, '2021-02-09 21:49:07', 72, '542453455'),
 (105, 2, '2021-02-09 21:52:19', 214, '213213213'),
-(106, 2, '2021-02-09 21:52:31', 214, '548645454'),
-(107, 2, '2021-02-11 21:09:56', 214, '213434234'),
-(108, 1, '2021-02-11 21:10:02', 214, '234234234'),
-(109, 1, '2021-02-11 21:10:13', 214, '234234344'),
-(110, 2, '2021-02-11 23:06:50', 216, '312321321'),
-(111, 1, '2021-02-11 23:06:58', 216, '213213333'),
-(112, 1, '2021-02-11 23:07:04', 216, 'qweqweqwe'),
-(113, 1, '2021-02-11 23:07:38', 216, 'eqweqweee');
+(106, 2, '2021-02-09 21:52:31', 214, '548645454');
 
 -- --------------------------------------------------------
 
@@ -175,8 +188,7 @@ INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
 (3, 'conectores', 'Conectores'),
 (37, 'celulares-1', 'Celulares 1'),
 (38, 'laboratorio-telematica', 'Laboratorio telematica'),
-(39, 'you-know', 'you know'),
-(40, 'otro-lab', 'otro lab');
+(39, 'you-know', 'you know');
 
 -- --------------------------------------------------------
 
@@ -343,15 +355,13 @@ INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripci
 (74, 'monitor-asus', 'Monitor Asus', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/monitor-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/monitor-asus/monitor1.jpg\"}]', 0, 2, 1000, 1, 'pantalla', '2021-01-23 09:32:33'),
 (93, 'mesa', 'Mesa', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/mesa.jpg', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.jpg\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.jpg\"}]', 0, 1, 120, 2, 'asdasd asdas', '2021-01-23 09:32:33'),
 (130, 'arduino-uno', 'Arduino Uno', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-uno.png', '[{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino2.png\"},{\"foto\":\"vistas/img/multimedia/arduino-uno/arduino1.png\"}]', 0, 0.1, 40, 1, 'asasd', '2021-01-23 09:32:33'),
-(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 800, 0.2, 25, 1, 'asd', '2021-01-23 09:32:33'),
+(160, 'arduino-nano', 'Arduino Nano', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/arduino-nano.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino2.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-nano/arduino1.jpg\"}]', 800, 0, 25, 1, 'asd', '2021-01-23 09:32:33'),
 (162, 'cable-vga', 'Cable VGA', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-vga.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-vga/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-vga/trdfdsf.jpg\"}]', 82, 0, 0, 3, 'as', '2021-01-23 09:32:33'),
 (164, 'cable-hdmi', 'Cable HDMI', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/cable-hdmi.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-hdmi/dsffsdf.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-hdmi/trdfdsf.jpg\"}]', 0, 0, 0, 3, 'sad', '2021-01-23 09:32:33'),
 (175, 'laptop-asus', 'Laptop ASUS', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 1, 'vistas/img/productos/laptop-asus.jpg', '[{\"foto\":\"vistas/img/multimedia/laptop-asus/6_23_1.jpg\"},{\"foto\":\"vistas/img/multimedia/laptop-asus/16963488_2.jpg\"}]', 1420, 2, 4000, 1, 'pc', '2021-01-23 09:32:33'),
 (181, 'computadora-gaming', 'Computadora Gaming', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', 0, 'vistas/img/productos/computadora-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/computadora-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/computadora-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"}]', 0, 4, 5000, 1, 'jaja', '2021-01-23 09:32:33'),
-(213, 'dada', 'dada', 'zas', 1, 'vistas/img/productos/dada.jpg', '[{\"foto\":\"vistas/img/multimedia/dada/e66bd27867a1695d5acb79107be4fe69405438228f14566622cc5b2983b8be87.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/images.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 8, 33, 12, 38, 'paspas', '2021-02-06 18:09:28'),
-(214, 'mouse', 'mouse', 'xd', 1, 'vistas/img/productos/mouse.jpg', '[{\"foto\":\"vistas/img/multimedia/mouse/7391dbb71127bb931b5320d644766fdd.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/6451f32062ae5487a44a107d63f2cbde-daptv54.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/20329-sasuke-uchiha-naruto-1920x1080-anime-wallpaper.jpg\"}]', 0, 2, 123123, 38, 'will', '2021-02-09 21:51:53'),
-(215, 'asddasd', 'asddasd', 'asdasd', 1, 'vistas/img/productos/asddasd.jpg', '[{\"foto\":\"vistas/img/multimedia/asddasd/icono.png\"},{\"foto\":\"vistas/img/multimedia/asddasd/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"},{\"foto\":\"vistas/img/multimedia/asddasd/f1a81ad0a1b15ca68c74b41ae5f649ac31bf95e8bdcb9167ce09b35ba401b89b.jpg\"},{\"foto\":\"vistas/img/multimedia/asddasd/EJ348zYXkAEgmIq.jpg\"}]', 0, 0, 0, 38, 'asdasd', '2021-02-11 08:05:12'),
-(216, 'asdasd', 'asdasd', 'asdfasd', 1, 'vistas/img/productos/asdasd.png', '[{\"foto\":\"vistas/img/multimedia/asdasd/monitor2.jpg\"},{\"foto\":\"vistas/img/multimedia/asdasd/monitor1.jpg\"},{\"foto\":\"vistas/img/multimedia/asdasd/Logo_UNAP.png\"}]', 0, 202, 12, 40, 'asdasd', '2021-02-11 23:06:29');
+(213, 'dada', 'dada', 'zas', 0, 'vistas/img/productos/dada.jpg', '[{\"foto\":\"vistas/img/multimedia/dada/e66bd27867a1695d5acb79107be4fe69405438228f14566622cc5b2983b8be87.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/images.jpg\"},{\"foto\":\"vistas/img/multimedia/dada/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"}]', 8, 33, 12, 38, 'paspas', '2021-02-06 18:09:28'),
+(214, 'mouse', 'mouse', 'xd', 1, 'vistas/img/productos/mouse.jpg', '[{\"foto\":\"vistas/img/multimedia/mouse/7391dbb71127bb931b5320d644766fdd.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/6451f32062ae5487a44a107d63f2cbde-daptv54.jpg\"},{\"foto\":\"vistas/img/multimedia/mouse/20329-sasuke-uchiha-naruto-1920x1080-anime-wallpaper.jpg\"}]', 0, 2, 123123, 38, 'will', '2021-02-09 21:51:53');
 
 -- --------------------------------------------------------
 
@@ -378,15 +388,23 @@ CREATE TABLE `notificacion` (
 --
 
 INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
-(105, 0, '162894', 'Alex escalante maron', '', 1, 3, 'sadasd', '2021-02-12 04:05:53', 1, 160),
-(113, 0, '12345678', 'Docente Xd', '', 1, 3, 'a', '2021-02-12 04:05:50', 1, 160),
-(114, 0, '12345678', 'Docente Xd', '', 1, 12, 'as', '2021-02-12 04:05:48', 1, 160),
-(115, 0, '12345678', 'Docente Xd', '', 1, 3, 'xd pw', '2021-02-12 04:05:46', 1, 74),
-(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-02-12 03:25:41', 1, 160),
-(118, 0, '162894', 'Alex escalante maron', '', 1, 6, 'a', '2021-02-12 04:02:22', 1, 74),
-(119, 0, '162894', 'Alex escalante maron', '', 1, 3, 'yolo', '2021-02-12 04:04:36', 1, 74),
-(120, 0, '162894', 'Alex escalante maron', '', 1, 3, 'fgsdfdsf', '2021-02-12 03:55:48', 1, 160),
-(121, 0, '162894', 'Alex escalante maron', '', 1, 3, 'trabajos', '2021-02-12 03:55:40', 1, 160);
+(105, 0, '162894', 'Alex escalante maron', '', 1, 3, 'sadasd', '2021-01-31 04:50:42', 0, 160),
+(106, 0, '162894', 'Alex escalante maron', '', 1, 3, 'xdpes ale', '2021-01-31 04:51:27', 0, 164),
+(113, 0, '12345678', 'Docente Xd', '', 1, 3, 'a', '2021-01-31 04:59:21', 0, 160),
+(114, 0, '12345678', 'Docente Xd', '', 1, 12, 'as', '2021-01-31 04:59:33', 0, 160),
+(115, 0, '12345678', 'Docente Xd', '', 1, 3, 'xd pw', '2021-01-31 05:00:32', 0, 74),
+(116, 0, '12345678', 'Docente Xd', '', 1, 3, 'jeje lo quiero', '2021-01-31 05:02:30', 0, 68),
+(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-01-31 05:04:47', 0, 160),
+(118, 0, '162894', 'Alex escalante maron', '', 1, 6, 'a', '2021-01-31 05:12:58', 0, 74),
+(119, 0, '162894', 'Alex escalante maron', '', 1, 3, 'yolo', '2021-01-31 05:17:45', 0, 74),
+(120, 0, '162894', 'Alex escalante maron', '', 1, 3, 'fgsdfdsf', '2021-01-31 16:54:05', 0, 160),
+(121, 0, '162894', 'Alex escalante maron', '', 1, 3, 'trabajos', '2021-02-02 02:01:09', 0, 160),
+(122, 0, '162894', 'Alex escalante maron', '', 2, 12, 'cal', '2021-02-06 05:42:13', 0, 74),
+(123, 0, '162894', 'Alex escalante maron', '', 1, 3, 'jeje', '2021-02-06 05:43:12', 0, 74),
+(124, 0, '162894', 'Alex escalante maron', '', 1, 12, 'i need ', '2021-02-06 05:44:20', 0, 160),
+(125, 0, '162894', 'Alex escalante maron', '', 1, 3, 'please', '2021-02-06 23:08:45', 0, 160),
+(126, 0, '162894', 'Alex escalante maron', '', 1, 3, '23124qwd', '2021-02-10 02:47:13', 0, 175),
+(127, 0, '162894', 'Alex escalante maron', '', 1, 3, 'asdasd', '2021-02-10 02:52:43', 0, 214);
 
 -- --------------------------------------------------------
 
@@ -450,7 +468,6 @@ CREATE TABLE `prestamos` (
   `plazoDias` int(11) NOT NULL,
   `idAdmin` int(11) NOT NULL,
   `nombrePrestamista` text NOT NULL,
-  `idDetalleArticulo` int(11) DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -458,49 +475,15 @@ CREATE TABLE `prestamos` (
 -- Dumping data for table `prestamos`
 --
 
-INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `idDetalleArticulo`, `fecha`) VALUES
-(145, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:23:23'),
-(146, 1, '162584', 'usuariotwo', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:25:37'),
-(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:33:39'),
-(148, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-08 00:41:10'),
-(149, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', NULL, '2021-02-08 00:41:59'),
-(150, 1, '162895', 'Axel One Escalante', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-09 03:30:26'),
-(151, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-10 02:38:06'),
-(152, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', NULL, '2021-02-10 02:52:57'),
-(153, 1, '162894', 'Alex escalante maron', 6, 0, 'Alex Escalante ONE', NULL, '2021-02-12 00:06:41'),
-(154, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', NULL, '2021-02-12 00:51:42'),
-(155, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:05:14'),
-(156, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:20'),
-(157, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:42'),
-(158, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:55'),
-(159, 1, '162894', 'Alex escalante maron', 6, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:38:54'),
-(160, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:41:04'),
-(161, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:42:04'),
-(162, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:42:23'),
-(163, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:52:59'),
-(164, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:54:22'),
-(165, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:54:44'),
-(166, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:55:33'),
-(167, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:56:35'),
-(168, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:57:33'),
-(169, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:00:52'),
-(170, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:02:11'),
-(171, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:06:39'),
-(172, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:07:02'),
-(173, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:07:53'),
-(174, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:08:31'),
-(175, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:08:47'),
-(176, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 175, '2021-02-12 02:09:00'),
-(177, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 175, '2021-02-12 02:09:17'),
-(178, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 214, '2021-02-12 02:10:36'),
-(179, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:12:07'),
-(180, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 74, '2021-02-12 02:13:30'),
-(181, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 160, '2021-02-12 03:26:44'),
-(182, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 74, '2021-02-12 03:26:55'),
-(183, 1, '12345678', 'Docente Xd', 3, 0, 'Alex Escalante ONE', 68, '2021-02-12 03:27:29'),
-(184, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 164, '2021-02-12 03:32:34'),
-(185, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', 216, '2021-02-12 04:08:37'),
-(186, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 216, '2021-02-12 04:13:31');
+INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `fecha`) VALUES
+(145, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:23:23'),
+(146, 1, '162584', 'usuariotwo', 3, 0, 'Alex Escalante ONE', '2021-02-07 03:25:37'),
+(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', '2021-02-07 03:33:39'),
+(148, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-08 00:41:10'),
+(149, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', '2021-02-08 00:41:59'),
+(150, 1, '162895', 'Axel One Escalante', 3, 0, 'Alex Escalante ONE', '2021-02-09 03:30:26'),
+(151, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', '2021-02-10 02:38:06'),
+(152, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', '2021-02-10 02:52:57');
 
 -- --------------------------------------------------------
 
@@ -546,54 +529,7 @@ INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, 
 (64, 151, 94, '324434444'),
 (65, 151, 91, '245453453'),
 (66, 152, 106, '548645454'),
-(67, 152, 105, '213213213'),
-(68, 153, 78, '123123213'),
-(69, 153, 79, '789678678'),
-(70, 153, 80, '324234234'),
-(71, 154, 90, '235245245'),
-(72, 154, 95, '453423123'),
-(73, 154, 91, '245453453'),
-(74, 154, 83, '432435435'),
-(75, 155, 84, '342524555'),
-(76, 156, 77, '213123213'),
-(77, 157, 92, '587568568'),
-(78, 158, 94, '324434444'),
-(79, 159, 101, '455455455'),
-(80, 160, 74, '132321321'),
-(81, 160, 78, '123123213'),
-(82, 160, 77, '213123213'),
-(83, 160, 79, '789678678'),
-(84, 161, 80, '324234234'),
-(85, 162, 83, '432435435'),
-(86, 163, 84, '342524555'),
-(87, 164, 91, '245453453'),
-(88, 165, 94, '324434444'),
-(89, 166, 90, '235245245'),
-(90, 167, 92, '587568568'),
-(91, 168, 95, '453423123'),
-(92, 169, 74, '132321321'),
-(93, 170, 77, '213123213'),
-(94, 171, 78, '123123213'),
-(95, 171, 79, '789678678'),
-(96, 171, 80, '324234234'),
-(97, 172, 83, '432435435'),
-(98, 173, 84, '342524555'),
-(99, 174, 90, '235245245'),
-(100, 175, 91, '245453453'),
-(101, 176, 97, '351351345'),
-(102, 177, 100, '123456789'),
-(103, 178, 107, '213434234'),
-(104, 179, 92, '587568568'),
-(105, 179, 94, '324434444'),
-(106, 179, 101, '455455455'),
-(107, 180, 88, '689678768'),
-(108, 180, 87, '134123213'),
-(109, 181, 95, '453423123'),
-(110, 182, 89, '345345345'),
-(111, 183, 99, '223234234'),
-(112, 184, 86, '213432423'),
-(113, 185, 0, 'qweqweqwe'),
-(114, 186, 110, '312321321');
+(67, 152, 105, '213213213');
 
 -- --------------------------------------------------------
 
@@ -729,8 +665,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
-(34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 1, '926e57bdcca18a1cffcf9d80651893dc', '2021-02-12 03:51:51'),
-(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 0, 'a090e5266ceecd6caa3e44d295de8652', '2021-02-12 04:12:15'),
+(34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 0, '926e57bdcca18a1cffcf9d80651893dc', '2021-01-31 01:21:34'),
+(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 0, 'a090e5266ceecd6caa3e44d295de8652', '2021-01-31 05:12:25'),
 (49, '123456', 'Axel One', 'fredy2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'fredy@gmail.com', 'directo', '', 0, '1b6113a146ba93a43311cc83bd8a4ed2', '2021-01-31 01:19:01'),
 (51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33'),
 (52, '162895', 'Axel One Escalante', 'axelone2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'axel@gmail.com', 'directo', '', 0, '3218da89280d03db1d26f8622068665b', '2021-02-11 00:09:59');
@@ -786,6 +722,12 @@ INSERT INTO `visitaspersonas` (`id`, `ip`, `pais`, `visitas`, `fecha`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accesorapido`
+--
+ALTER TABLE `accesorapido`
+  ADD PRIMARY KEY (`idacceso`);
 
 --
 -- Indexes for table `administradores`
@@ -936,6 +878,12 @@ ALTER TABLE `visitaspersonas`
 --
 
 --
+-- AUTO_INCREMENT for table `accesorapido`
+--
+ALTER TABLE `accesorapido`
+  MODIFY `idacceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
@@ -945,7 +893,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -963,7 +911,7 @@ ALTER TABLE `cabeceras`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `categorias`
@@ -999,13 +947,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
@@ -1023,7 +971,7 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `prestamos-articulos`
@@ -1035,7 +983,7 @@ ALTER TABLE `prestamos-articulos`
 -- AUTO_INCREMENT for table `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `productos`
