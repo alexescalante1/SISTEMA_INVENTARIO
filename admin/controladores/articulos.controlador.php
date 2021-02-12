@@ -861,5 +861,19 @@ class ControladorArticulos{
 	
 	}
 
+
+	/*=============================================
+	BUSCAR ARTICULOS
+	=============================================*/
+
+	static public function ctrBuscarPrestamo($item, $valor){
+
+		$tabla = "prestamos";
+
+		$respuesta = ModeloArticulos::mdlBuscarPrestamo($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
 	
 }

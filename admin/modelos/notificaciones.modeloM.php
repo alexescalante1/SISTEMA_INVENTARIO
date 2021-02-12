@@ -26,7 +26,7 @@ class ModeloNotificacionesM{
 	BUSCAR NOTIFICACIONES
 	=============================================*/
 
-	static public function mdlctrBuscarNotificaciones($tabla, $item, $valor){
+	static public function mdlBuscarNotificaciones($tabla, $item, $valor){
 
 		if($item != null){
 

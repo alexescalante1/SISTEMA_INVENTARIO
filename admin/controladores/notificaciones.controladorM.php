@@ -25,7 +25,7 @@ Class ControladorNotificacionesM{
 
 		$tabla = "notificacion";
 
-		$respuesta = ModeloNotificacionesM::mdlctrBuscarNotificaciones($tabla, $item, $valor);
+		$respuesta = ModeloNotificacionesM::mdlBuscarNotificaciones($tabla, $item, $valor);
 
 		return $respuesta;
 	

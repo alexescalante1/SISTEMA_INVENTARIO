@@ -76,6 +76,23 @@ class AjaxPrestamo{
 	}
 
 
+
+	/*=============================================
+	TRAER PRESTAMO
+	=============================================*/	
+
+	public function ajaxTraerPrestamo(){
+
+		$item = "idPrestamo";
+		$valor = $this->idPrestamo;
+
+		$respuesta = ControladorArticulos::ctrBuscarPrestamo($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
 	/*=============================================
 	TRAER ARTICULOS
 	=============================================*/	
@@ -241,4 +258,15 @@ if(isset($_POST["idPrestamo"])){
 
 	$prestamoCod -> ajaxCrearPrestamoCod();
 
+}
+
+
+#TRAER PRESTAMO
+#-----------------------------------------------------------
+if(isset($_POST["idVerPrestamo"])){
+
+	$traerPrestamoS = new AjaxPrestamo();
+	$traerPrestamoS -> idPrestamo = $_POST["idVerPrestamo"];
+	$traerPrestamoS -> ajaxTraerPrestamo();
+	
 }

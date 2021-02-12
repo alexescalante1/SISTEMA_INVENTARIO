@@ -54,8 +54,19 @@ MENU
 
   ?>
 
-  <li><a href="prestamos"><i class="fa fa-tachometer"></i> <span>Gestor De Prestamos</span></a></li>
-
+  <!--<li><a href="prestamos"><i class="fa fa-tachometer"></i> <span>Gestor De Prestamos</span></a></li>-->
+  <li class="treeview">
+    <a href="###">
+      <i class="fa fa-tachometer"></i> <span>Gestor De Prestamos</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li><a href="prestamos"><i class="fa fa-circle-o"></i> Devoluciones</a></li>
+      <li><a href="prestamos"><i class="fa fa-circle-o"></i> Registros</a></li>
+    </ul>
+  </li>
 
   
   <li><a href="notificacionesM"><i class="fa fa-bell"></i> <span>Gestor De Notificaciones</span>
@@ -101,7 +112,7 @@ MENU
 
 
   <li>
-    <a href="#">
+    <a href="##">
       <i class="fa fa-book"></i> <span>Manuales del Sistema</span>
       <span class="pull-right-container">
         <small class="label pull-right bg-green">55</small>

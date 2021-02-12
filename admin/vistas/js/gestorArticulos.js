@@ -2128,6 +2128,170 @@ $(".guardarPrestamo").click(function(){
 
 
 
+/*=============================================
+VER EDITAR ARTICULO
+=============================================*/
+
+$('.tablaGestorPrestamos tbody').on("click", ".btnVerPrestamo", function(){
+	
+	$(".previsualizarImgAdd").html("");
+
+	const tituloV = document.getElementById("TituloArticuloP");
+
+	var idPrestamo = $(this).attr("idPrestamo");
+	
+	//console.log(idPrestamo);
+
+	var datos = new FormData();
+	datos.append("idVerPrestamo", idPrestamo);
+
+	$.ajax({
+
+		url:"ajax/prestamos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(idPrestamo){
+			
+			
+			//console.log(idPrestamo[0]["nombrePrestamista"]);
+
+			$("#modalVerPrestamo .nombrePrestamista").val(idPrestamo[0]["nombrePrestamista"]);
+			$("#modalVerPrestamo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
+			$("#modalVerPrestamo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
+			$("#modalVerPrestamo .selecDiasPrestamo").val(idPrestamo[0]["plazoDias"]);
+
+			/*
+			$("#modalPrestarArticulo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
+			$("#modalPrestarArticulo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
+			$("#modalPrestarArticulo .selecDiasPrestamo").val(idPrestamo[0]["dias"]);
+			$("#modalPrestarArticulo .idNotificacions").val(idPrestamo[0]["idNotificacion"]);
+			*/
+
+			var idArticulo = idPrestamo[0]["idDetalleArticulo"];
+			
+			var datos = new FormData();
+			datos.append("idArticulo", idArticulo);
+		
+			$.ajax({
+		
+				url:"ajax/articulos.ajax.php",
+				method: "POST",
+				data: datos,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(respuesta){
+
+
+					//console.log(respuesta);
+					
+					
+					$("#modalVerPrestamo .idDetalleArticulo").val(respuesta[0]["idDetalleArticulo"]);
+					$("#modalVerPrestamo .tituloArticulo").val(respuesta[0]["titulo"]);
+					
+					$("#modalVerPrestamo .previsualizarPrincipalA").attr("src", respuesta[0]["portada"]);
+		
+					tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5>";
+					
+		/*
+					var datosUnDisponibles = new FormData();
+					datosUnDisponibles.append("UnDisponibles", respuesta[0]["idDetalleArticulo"]);
+					
+					$.ajax({
+		
+							url:"ajax/articulos.ajax.php",
+							method: "POST",
+							data: datosUnDisponibles,
+							cache: false,
+							contentType: false,
+							processData: false,
+							dataType: "json",
+							success: function(stock){
+		
+								tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5><h5>STOCK: "+stock[0]+" Unidades</h5>";
+					
+								//console.log(stock[0]);
+								
+								$(".selecNumCodigosArticulo").html('<option value="1">1</option>');
+		
+								var spantestemodeloNC = $('.selecNumCodigosArticulo').html();
+								var spantestemodelo_strinfNC = spantestemodeloNC.toString();
+								var CodNume = '';
+		
+		
+								if(stock[0]<15){
+		
+									if(stock[0]==0){
+		
+										$(".selecNumCodigosArticulo").html('<option value="0">0</option>');
+		
+										swal({
+											title: "No Hay Stock",
+											type: "error",
+											confirmButtonText: "¡Cerrar!"
+										});
+		
+									}else{
+		
+										for(var o = 1; o <= stock[0]; o++){
+											CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+										}
+		
+										spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+		
+										$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
+		
+									}
+								
+								}else{
+		
+									for(var o = 1; o <= 15; o++){
+										CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+									}
+		
+									spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+		
+									$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
+								}
+
+								$("#modalPrestarArticulo .selecNumCodigosArticulo").val(idNotif[0]["cantidad"]);
+			
+								camposCodigos();
+		
+							}
+		
+					})
+
+					*/
+							
+				}
+		
+			})
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+		}
+
+	})
+
+
+})
 
 
 

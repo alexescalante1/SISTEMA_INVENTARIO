@@ -130,7 +130,7 @@ class TablaArticulos{
   			TRAER LAS ACCIONES
   			=============================================*/
 
-			$accionesV = "<div class='btn-group'><button class='btn btn-success btnPrestarArticulo' idArticulo='".$prestamos[$i]["idPrestamo"]."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-eye'></i></button></div>";
+			$accionesV = "<div class='btn-group'><button class='btn btn-success btnVerPrestamo' idPrestamo='".$prestamos[$i]["idPrestamo"]."' data-toggle='modal' data-target='#modalVerPrestamo'><i class='fa fa-eye'></i></button></div>";
 
 			//$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
 
@@ -143,8 +143,7 @@ class TablaArticulos{
 					"'.$prestamos[$i]["plazoDias"].'",
 					"'.$prestamos[$i]["nombrePrestamista"].'",
 					"'.$prestamos[$i]["fecha"].'"
-					
-
+				
 			],';
 
 		}
