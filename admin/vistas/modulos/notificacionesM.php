@@ -161,9 +161,10 @@ MODAL AGREGAR NUEVO ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                  <input type="text" class="form-control input-lg validarUsuarioP codUsuario"  placeholder="Ingresar el Codigo del estudiante">
+                  <input type="text" class="form-control input-lg validarUsuarioP codUsuario" readonly>
 
                   <input type="hidden" class="idDetalleArticulo">
+                  <input type="hidden" class="idNotificacions">
 
                 </div>
 

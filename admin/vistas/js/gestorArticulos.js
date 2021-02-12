@@ -1995,12 +1995,15 @@ $(".guardarPrestamo").click(function(){
 		var nombreUsuario = $(".nombreUsuario").val();
 	   	var codUsuario = $(".codUsuario").val();
 	    var selecDiasPrestamo = $(".selecDiasPrestamo").val();
+		var idDetalleArticulo = $(".idDetalleArticulo").val();
+		
 
 	 	var datosPrestamo = new FormData();
 		 datosPrestamo.append("nombrePrestamista", nombrePrestamista);
 		 datosPrestamo.append("nombreUsuario", nombreUsuario);
 		 datosPrestamo.append("codUsuario", codUsuario);
 		 datosPrestamo.append("selecDiasPrestamo", selecDiasPrestamo);
+		 datosPrestamo.append("idDetalleArticuloPresta", idDetalleArticulo);
 
 		$.ajax({
 				url:"ajax/prestamos.ajax.php",
@@ -2087,8 +2090,15 @@ $(".guardarPrestamo").click(function(){
 						confirmButtonText: "Cerrar"
 						}).then(function(result){
 						  if (result.value) {
-
-						  window.location = "prestar";
+							
+							var idNotificacions = $(".idNotificacions").val();
+						  
+							if(idNotificacions!="null"){
+								window.location = "index.php?ruta=notificacionesM&idNotificacionPrest="+idNotificacions;
+							}else{
+								window.location = "prestar";
+							}
+							
 
 						  }
 					})

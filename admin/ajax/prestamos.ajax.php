@@ -3,8 +3,6 @@
 require_once "../controladores/articulos.controlador.php";
 require_once "../modelos/articulos.modelo.php";
 
-require_once "../controladores/categorias.controladorM.php";
-require_once "../modelos/categorias.modeloM.php";
 
 class AjaxPrestamo{
 
@@ -40,6 +38,7 @@ class AjaxPrestamo{
 	public $nombreUsuario;
 	public $codUsuario;
 	public $selecDiasPrestamo;
+	public $idDetArticulo;
 
 	public function  ajaxCrearPrestamo(){
 
@@ -47,7 +46,8 @@ class AjaxPrestamo{
 			"nombrePrestamista"=>$this->nombrePrestamista,
 			"nombreUsuario"=>$this->nombreUsuario,				
 			"codUsuario"=>$this->codUsuario,
-			"selecDiasPrestamo"=>$this->selecDiasPrestamo
+			"selecDiasPrestamo"=>$this->selecDiasPrestamo,
+			"idDetalleArticulo"=>$this->idDetArticulo
 			);
 
 		$respuesta = ControladorArticulos::ctrCrearPrestamo($datos);
@@ -223,7 +223,7 @@ if(isset($_POST["nombrePrestamista"])){
 	$prestamo -> nombreUsuario = $_POST["nombreUsuario"];
 	$prestamo -> codUsuario = $_POST["codUsuario"];
 	$prestamo -> selecDiasPrestamo = $_POST["selecDiasPrestamo"];
-
+	$prestamo -> idDetArticulo = $_POST["idDetalleArticuloPresta"];
 	$prestamo -> ajaxCrearPrestamo();
 
 }

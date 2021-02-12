@@ -84,7 +84,7 @@ class TablaArticulos{
 				$estadoNotificacion = 0;
 
 			}
-			$visto = "<button class='btn btn-xs btnActivar ".$colorEstado."' idNotificacion='".$notific[$i]["idNotificacion"]."' estadoArticulo='".$estadoNotificacion."'>".$textoEstado."</button>";
+			$visto = "<button class='btn btn-xs btnActivar idTiemArt".$i." ".$colorEstado."' idNotificacion='".$notific[$i]["idNotificacion"]."' estadoArticulo='".$estadoNotificacion."' value='".$i."'>".$textoEstado."</button>";
 
 			if(strlen($notific[$i]["numDocTitular"]) == 6){
 				$tipoDoc = "CODIGO";
@@ -94,7 +94,7 @@ class TablaArticulos{
 				$perfilU = "DOCENTE";
 			}
 
-			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticuloN' idArticulo='".$notific[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
+			$acciones = "<div class='btn-group'><button class='btn btn-success btnPrestarArticuloN' idNotificacion='".$notific[$i]["idNotificacion"]."' idSelArt='".$i."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-eye'></i></button><button class='btn btn-danger btnEliminarNotificacion' idNotificacion='".$notific[$i]["idNotificacion"]."'><i class='fa fa-times'></i></button></div>";
 
 			$datosJson .='[
 					

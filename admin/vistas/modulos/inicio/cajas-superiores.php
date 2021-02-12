@@ -1,5 +1,5 @@
 <?php
-
+/*
 $ventas = ControladorVentas::ctrMostrarTotalVentas();
 
 $visitas = ControladorVisitas::ctrMostrarTotalVisitas();
@@ -9,7 +9,7 @@ $totalUsuarios = count($usuarios);
 
 $productos = ControladorProductos::ctrMostrarTotalProductos("id");
 $totalProductos = count($productos);
-
+*/
 ?>
 
 <!--=====================================
@@ -142,7 +142,8 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
       
-      <h3>$<?php echo number_format($ventas["total"]); ?></h3>
+      <!--<h3>$<php echo number_format($ventas["total"]); ?></h3>-->
+      <h3>21</h3>
 
       <p>Manuales de Sistema</p>
     
@@ -176,7 +177,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
       
-      <h3><?php echo number_format($visitas["total"]); ?></h3>
+      <h3>122</h3>
 
       <p>Gestor de Caja</p>
     
@@ -210,7 +211,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
     
-      <h3><?php echo number_format($totalUsuarios); ?></h3>
+      <h3>45</h3>
 
       <p>Usuarios</p>
     
@@ -244,7 +245,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
     
-      <h3><?php echo number_format($totalProductos); ?></h3>
+      <h3>56</h3>
 
       <p>Sugerencias</p>
 

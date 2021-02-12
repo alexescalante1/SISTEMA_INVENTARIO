@@ -10,6 +10,8 @@ MENU
   <li class="header" style="color:#fff;font-weight: bold;">INVENTARIO</li>
 
   <?php
+
+
 /*
   if($_SESSION["perfil"] == "administrador"){
 
@@ -55,11 +57,23 @@ MENU
   <li><a href="prestamos"><i class="fa fa-tachometer"></i> <span>Gestor De Prestamos</span></a></li>
 
 
+  
   <li><a href="notificacionesM"><i class="fa fa-bell"></i> <span>Gestor De Notificaciones</span>
     <span class="pull-right-container">
-      <small class="label pull-right bg-yellow">3</small>
+    <?php
+    
+      $nuevasNotificaciones = ControladorNotificacionesM::ctrContarNotificaciones("notificacion","visto", 0);
+
+      if($nuevasNotificaciones[0]!=0){
+        echo '<small class="label pull-right bg-yellow">'.$nuevasNotificaciones[0].'</small>';
+      }
+
+    ?>
     </span></a>
   </li>
+  
+      
+    
   <!--
     <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
   -->

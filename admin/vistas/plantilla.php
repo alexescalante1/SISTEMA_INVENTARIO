@@ -284,18 +284,17 @@ JS PERSONALIZADO
 ======================================-->
 
 <script src="vistas/js/plantilla.js"></script>
-<script src="vistas/js/gestorComercio.js"></script>
-<script src="vistas/js/gestorSlide.js"></script>
-<script src="vistas/js/gestorCategorias.js"></script>
-<script src="vistas/js/gestorSubCategorias.js"></script>
-<script src="vistas/js/gestorProductos.js"></script>
+<!--<script src="vistas/js/gestorComercio.js"></script>-->
+<!--<script src="vistas/js/gestorSlide.js"></script>-->
+<!--<script src="vistas/js/gestorCategorias.js"></script>-->
+<!--<script src="vistas/js/gestorSubCategorias.js"></script>-->
+<!--<script src="vistas/js/gestorProductos.js"></script>-->
 
 
 <script src="vistas/js/gestorArticulos.js"></script>
 
 
-
-<script src="vistas/js/gestorBanner.js"></script>
+<!--<script src="vistas/js/gestorBanner.js"></script>-->
 <script src="vistas/js/gestorVentas.js"></script>
 <script src="vistas/js/gestorVisitas.js"></script>
 <script src="vistas/js/gestorUsuarios.js"></script>

@@ -790,7 +790,8 @@ class ControladorArticulos{
 						"nombreUsuario"=>$datos["nombreUsuario"],
 						"codUsuario"=>$datos["codUsuario"],
 						"selecDiasPrestamo"=>$datos["selecDiasPrestamo"],
-						"estado"=>1
+						"estado"=>1,
+						"idDetalleArticulo"=>$datos["idDetalleArticulo"]
 				);
 
 				$respuesta = ModeloArticulos::mdlIngresarPrestamo("prestamos", $datosPrestamo);
