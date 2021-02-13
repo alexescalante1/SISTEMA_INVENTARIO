@@ -687,7 +687,7 @@ class ControladorArticulos{
 
 
 	/*=============================================
-	ELIMINAR CATEGORIA
+	ELIMINAR COD ART
 	=============================================*/
 
 	static public function ctrEliminarCodArticulo(){
@@ -875,5 +875,48 @@ class ControladorArticulos{
 		return $respuesta;
 	
 	}
+
+	/*=============================================
+	CONT COD PRESTADOS
+	=============================================*/
+
+	static public function ctrContarCodIdPrestamo($item, $valor){
+
+		$tabla = "prestamosarticulos";
+
+		$respuesta = ModeloArticulos::mdlContarCodIdPrestamo($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
+	/*=============================================
+	MOSTRAR ARTICULOS
+	=============================================*/
+
+	static public function ctrMostrarArticulosCodPrestados($item, $valor){
+
+		$tabla = "prestamosarticulos";
+
+		$respuesta = ModeloArticulos::mdlMostrarArticulosCodPrestados($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
+
+	/*=============================================
+	ELIMINAR COD IDPRESTAMO
+	=============================================*/
+
+	static public function ctrEliminarCodIdPrestamo($idPrestamo){
+
+			$respuesta = ModeloArticulos::mdlEliminarCodIdPrestamo("prestamosarticulos", $idPrestamo);
+			
+			return $respuesta;
+
+	}
+
+
 	
 }

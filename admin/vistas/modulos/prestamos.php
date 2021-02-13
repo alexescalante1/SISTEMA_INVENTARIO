@@ -31,9 +31,10 @@
             <tr>
             
                <th style="width:10px">#</th>
-               <th style="width:10px">Acciones</th>
-               <th style="width:150px">Numero De Documento</th>
+               <th style="width:70px">Acciones</th>
+               <th style="width:50px">N. Doc</th>
                <th>Nombres y Apellidos</th>
+               <th>Articulo</th>
                <th>Dias de Plazo</th>
                <th>Laboratorista</th>
                <th style="width:100px">Fecha</th>
@@ -47,6 +48,27 @@
       </div>
 
     </div>
+
+    <?php
+
+
+      //ControladorArticulos::ctrEliminarCodIdPrestamo(202);
+
+      //ModeloArticulos::mdlActualizarArticulos("prestamos", "plazoDias", 40, "idPrestamo", 199);
+
+
+      $contCANT = ControladorArticulos::ctrContarCodIdPrestamo("idPrestamo", 200);
+
+      echo $contCANT[0].'<br><br>';
+
+      $categoria = ControladorArticulos::ctrMostrarArticulosCodPrestados("idPrestamo", 200);
+
+      for($i = 0; $i < count($categoria); $i++){
+      
+        echo $categoria[$i]["codigoPatrimonial"].'<br>';
+
+      }
+    ?>
 
   </section>
 
@@ -151,7 +173,7 @@ MODAL AGREGAR NUEVO ARTICULO
                   <input type="text" class="form-control input-lg validarUsuarioP codUsuario" readonly>
 
                   <input type="hidden" class="idDetalleArticulo">
-                  <input type="hidden" class="idNotificacions" value="null">
+                  <input type="hidden" class="idPrestamo">
 
                 </div>
 
@@ -195,7 +217,7 @@ MODAL AGREGAR NUEVO ARTICULO
                     </select>
                   -->
 
-                  <select class="form-control input-lg selecNumCodigosArticulo" name="form-control" id="numero-codigos" name="numero-codigos" oninput="camposCodigos();">
+                  <select class="form-control input-lg selecNumCodigosArticulo" name="form-control" id="numero-codigos" name="numero-codigos" oninput="camposCodigosEditar();">
                     <option value="1">1</option>
                     
                   </select>
@@ -319,7 +341,7 @@ MODAL AGREGAR NUEVO ARTICULO
 
         <div class="modal-footer">
   
-          <button type="button" class="btn btn-primary guardarPrestamo" style="width:100%;">PRESTAR</button>
+          <button type="button" class="btn btn-primary guardarCambiosPrestamo" style="width:100%;">GUARDAR CAMBIOS</button>
 
         </div>
 

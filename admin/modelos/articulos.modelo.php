@@ -484,7 +484,7 @@ class ModeloArticulos{
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY idPrestamo DESC");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
@@ -542,5 +542,88 @@ class ModeloArticulos{
 
 
 	}
+
+
+	/*=============================================
+	CODIGO CONT PRESTAMOS
+	=============================================*/
+
+	static public function mdlContarCodIdPrestamo($tabla, $item, $valor){
+
+		$stmt = Conexion::conectar()->prepare("SELECT count(*) FROM $tabla WHERE $item = :$item");
+
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
+	/*=============================================
+	MOSTRAR ARTICULOS COD PRESTADOS
+	=============================================*/
+
+	static public function mdlMostrarArticulosCodPrestados($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idPrestamosArt DESC");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+
+	}
+
+
+	/*=============================================
+	ELIMINAR CODIGOS IDPRESTAMO
+	=============================================*/
+
+	static public function mdlEliminarCodIdPrestamo($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idPrestamo = :idPrestamo");
+
+		$stmt -> bindParam(":idPrestamo", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 
 }

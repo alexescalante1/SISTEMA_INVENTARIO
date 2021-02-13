@@ -1895,6 +1895,10 @@ function camposCodigos(){
 	
 }
 
+
+
+
+
 /*=============================================
 REVISAR LOS CODIGOS A PRESTAR NO SON IGUALES
 =============================================*/
@@ -2156,21 +2160,13 @@ $('.tablaGestorPrestamos tbody').on("click", ".btnVerPrestamo", function(){
 		dataType: "json",
 		success: function(idPrestamo){
 			
-			
-			//console.log(idPrestamo[0]["nombrePrestamista"]);
+			$("#modalVerPrestamo .idPrestamo").val(idPrestamo[0]["idPrestamo"]);
 
 			$("#modalVerPrestamo .nombrePrestamista").val(idPrestamo[0]["nombrePrestamista"]);
 			$("#modalVerPrestamo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
 			$("#modalVerPrestamo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
 			$("#modalVerPrestamo .selecDiasPrestamo").val(idPrestamo[0]["plazoDias"]);
-
-			/*
-			$("#modalPrestarArticulo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
-			$("#modalPrestarArticulo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
-			$("#modalPrestarArticulo .selecDiasPrestamo").val(idPrestamo[0]["dias"]);
-			$("#modalPrestarArticulo .idNotificacions").val(idPrestamo[0]["idNotificacion"]);
-			*/
-
+			
 			var idArticulo = idPrestamo[0]["idDetalleArticulo"];
 			
 			var datos = new FormData();
@@ -2186,10 +2182,6 @@ $('.tablaGestorPrestamos tbody').on("click", ".btnVerPrestamo", function(){
 				processData: false,
 				dataType: "json",
 				success: function(respuesta){
-
-
-					//console.log(respuesta);
-					
 					
 					$("#modalVerPrestamo .idDetalleArticulo").val(respuesta[0]["idDetalleArticulo"]);
 					$("#modalVerPrestamo .tituloArticulo").val(respuesta[0]["titulo"]);
@@ -2198,100 +2190,391 @@ $('.tablaGestorPrestamos tbody').on("click", ".btnVerPrestamo", function(){
 		
 					tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5>";
 					
-		/*
-					var datosUnDisponibles = new FormData();
-					datosUnDisponibles.append("UnDisponibles", respuesta[0]["idDetalleArticulo"]);
-					
+					var dataNC = new FormData();
+					dataNC.append("contIdPrestamo", idPrestamo[0]["idPrestamo"]);
+				
 					$.ajax({
-		
-							url:"ajax/articulos.ajax.php",
-							method: "POST",
-							data: datosUnDisponibles,
-							cache: false,
-							contentType: false,
-							processData: false,
-							dataType: "json",
-							success: function(stock){
-		
-								tituloV.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5><h5>STOCK: "+stock[0]+" Unidades</h5>";
-					
-								//console.log(stock[0]);
-								
-								$(".selecNumCodigosArticulo").html('<option value="1">1</option>');
-		
-								var spantestemodeloNC = $('.selecNumCodigosArticulo').html();
-								var spantestemodelo_strinfNC = spantestemodeloNC.toString();
-								var CodNume = '';
-		
-		
-								if(stock[0]<15){
-		
-									if(stock[0]==0){
-		
-										$(".selecNumCodigosArticulo").html('<option value="0">0</option>');
-		
-										swal({
-											title: "No Hay Stock",
-											type: "error",
-											confirmButtonText: "¡Cerrar!"
-										});
-		
-									}else{
-		
-										for(var o = 1; o <= stock[0]; o++){
-											CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+				
+						url:"ajax/prestamos.ajax.php",
+						method: "POST",
+						data: dataNC,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(Ncod){
+
+							var datosUnDisponibles = new FormData();
+							datosUnDisponibles.append("UnDisponibles", respuesta[0]["idDetalleArticulo"]);
+							
+							$.ajax({
+				
+									url:"ajax/articulos.ajax.php",
+									method: "POST",
+									data: datosUnDisponibles,
+									cache: false,
+									contentType: false,
+									processData: false,
+									dataType: "json",
+									success: function(stock){
+										
+										var totalDis = Number(Ncod) + Number(stock[0]);
+										
+										$(".selecNumCodigosArticulo").html('<option value="1">1</option>');
+				
+										var spantestemodeloNC = $('.selecNumCodigosArticulo').html();
+										var spantestemodelo_strinfNC = spantestemodeloNC.toString();
+										var CodNume = '';
+				
+										if(totalDis<15){
+				
+											for(var o = 1; o <= totalDis; o++){
+												CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+											}
+			
+											spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+			
+											$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
+										
+										}else{
+				
+											for(var o = 1; o <= 15; o++){
+												CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
+											}
+				
+											spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
+				
+											$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
 										}
 		
-										spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
-		
-										$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
-		
+										$("#modalVerPrestamo .selecNumCodigosArticulo").val(Ncod);
+					
+										camposCodigosEditar();
+				
 									}
-								
-								}else{
-		
-									for(var o = 1; o <= 15; o++){
-										CodNume = CodNume + '<option value="'+o+'">'+o+'</option>';
-									}
-		
-									spantestemodelo_strinfNC = spantestemodelo_strinfNC.replace('<option value="1">1</option>',CodNume);
-		
-									$(".selecNumCodigosArticulo").html(spantestemodelo_strinfNC);
-								}
+				
+							})
 
-								$("#modalPrestarArticulo .selecNumCodigosArticulo").val(idNotif[0]["cantidad"]);
-			
-								camposCodigos();
-		
-							}
+						}
 		
 					})
-
-					*/
-							
+			
 				}
 		
 			})
-
-
-
-
-
-
-
-
-
-
-
-
-
 			
 		}
 
 	})
 
-
 })
 
 
 
+/*=============================================
+LISTAR CODIGOS EDICION
+=============================================*/
+
+function camposCodigosEditar(){
+	
+	$("#span-modelo-listar-codigos").html('<div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span><select class="form-control input-lg seleccionarCodigoArticulo-0 validarCod" onchange="getval(this);"><option value="">CODIGO</option><option>LIST</option></select></div></div>');
+
+    var spantestemodelo = $('#span-modelo-listar-codigos').html();
+    var spantestemodelo_strinf = spantestemodelo.toString();
+	
+    var campos = $('.selecNumCodigosArticulo').val();
+
+	var idartt = $('.idDetalleArticulo').val();
+	var idPresta = $('.idPrestamo').val();
+
+	var CodNume = '';
+
+	var idDetalleArticulo = new FormData();
+	idDetalleArticulo.append("idDetalleArticuloCOD", idartt);
+
+	$.ajax({
+
+		url:"ajax/articulos.ajax.php",
+		method: "POST",
+		data: idDetalleArticulo,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+
+			var idPrestamo = new FormData();
+			idPrestamo.append("idPrestamoCods", idPresta);
+		
+			$.ajax({
+		
+				url:"ajax/prestamos.ajax.php",
+				method: "POST",
+				data: idPrestamo,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(CodPrestados){
+
+					var ContCodigos = 0;
+					CodPrestados.forEach(funcionForEachs);
+					function funcionForEachs(item, index){
+						
+						CodNume = CodNume + '<option value="'+item["codigoPatrimonial"]+'Y'+item["idArticulo"]+'">'+item["codigoPatrimonial"]+'</option>';
+						ContCodigos = ContCodigos + 1;
+					}
+
+					respuesta.forEach(funcionForEach);
+					function funcionForEach(item, index){
+
+						CodNume = CodNume + '<option value="'+item["codigoPatrimonial"]+'Y'+item["idArticulo"]+'">'+item["codigoPatrimonial"]+'</option>';
+						
+					}
+
+					spantestemodelo_strinf = spantestemodelo_strinf.replace('<option>LIST</option>',CodNume);
+
+					var i = 1;
+
+					var texto = '';
+					while(i<=campos){
+						texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
+						i = i + 1; 
+					}
+
+					$("#span-real-listar-codigos").html(texto);
+
+					var h = 0;i = 1;
+					var texto = '';
+					while(h<ContCodigos){
+
+						$("#modalVerPrestamo .seleccionarCodigoArticulo-"+i).val(CodPrestados[h]["codigoPatrimonial"]+"Y"+CodPrestados[h]["idArticulo"]);
+						h = h + 1;
+						i = i + 1;
+					}
+					
+				}
+
+			})
+
+
+		}
+
+	})
+	
+}
+
+
+
+
+/*=============================================
+GUARDAR CAMBIOS PRESTAMO
+=============================================*/
+
+
+$(".guardarCambiosPrestamo").click(function(){
+
+	var idPrestamo = $(".idPrestamo").val();
+	var selecDiasPrestamo = $(".selecDiasPrestamo").val();
+
+	var NumCodArticulos = $('.selecNumCodigosArticulo').val();
+
+	if(NumCodArticulos==0){
+
+		swal({
+			title: "No Hay Stock",
+			type: "error",
+			confirmButtonText: "¡Cerrar!"
+		});
+
+		return;
+
+	}
+
+	var listaCodigos = {};
+
+	for(var k=1;k<=NumCodArticulos;k++){
+
+		if(!$('.seleccionarCodigoArticulo-'+k).val()){
+
+			swal({
+				title: "Llenar todos los campos del codigo",
+				type: "error",
+				confirmButtonText: "¡Cerrar!"
+			});
+	
+			return;
+		}
+
+		listaCodigos[k] = $('.seleccionarCodigoArticulo-'+k).val();
+
+	}
+
+
+
+
+	var datosMPrestamo = new FormData();
+	datosMPrestamo.append("ModDiasPrestamo", selecDiasPrestamo);
+	datosMPrestamo.append("idMPrestamo", idPrestamo);
+
+   $.ajax({
+		   url:"ajax/prestamos.ajax.php",
+		   method: "POST",
+		   data: datosMPrestamo,
+		   cache: false,
+		   contentType: false,
+		   processData: false,
+		   success: function(respuesta){
+			   
+			   console.log(respuesta);
+
+		   }
+
+   })
+
+
+
+   var idPrestamoDatos = new FormData();
+   idPrestamoDatos.append("idPrestamoCods", idPrestamo);
+
+   $.ajax({
+
+	   url:"ajax/prestamos.ajax.php",
+	   method: "POST",
+	   data: idPrestamoDatos,
+	   cache: false,
+	   contentType: false,
+	   processData: false,
+	   dataType: "json",
+	   success: function(CodPrestados){
+			
+			
+			
+			CodPrestados.forEach(funcionForEachs);
+			function funcionForEachs(item){
+				
+				//console.log(item["codigoPatrimonial"]);
+
+				var datosMCodArt = new FormData();
+				datosMCodArt.append("estadoCodArt", 1);
+				datosMCodArt.append("idMCodPatrimonial", item["codigoPatrimonial"]);
+
+				$.ajax({
+						url:"ajax/prestamos.ajax.php",
+						method: "POST",
+						data: datosMCodArt,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(respuesta){
+							
+							console.log(respuesta);
+
+						}
+
+				})
+
+			}
+			
+			var datosDeleteA = new FormData();
+			datosDeleteA.append("idPrestamoDelete", idPrestamo);
+
+			$.ajax({
+					url:"ajax/prestamos.ajax.php",
+					method: "POST",
+					data: datosDeleteA,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success: function(respuesta){
+						
+						console.log(respuesta);
+
+						for(var k=1;k<=NumCodArticulos;k++){
+
+							//console.log(listaCodigos[k].replace(/[0-9]*Y/, ''));
+							//console.log(listaCodigos[k].replace(/Y[0-9]*/, ''));
+							
+							//console.log(listaCodigos[k]);
+	
+							const idART = listaCodigos[k].replace(/[0-9]*Y/, '');
+							const codPA = listaCodigos[k].replace(/Y[0-9]*/, '');
+					
+							var datosCod = new FormData();
+							datosCod.append("idPrestamo", idPrestamo);
+							datosCod.append("idArticulo", idART);
+							datosCod.append("codPatrimonial", codPA);
+					
+							$.ajax({
+									url:"ajax/prestamos.ajax.php",
+									method: "POST",
+									data: datosCod,
+									cache: false,
+									contentType: false,
+									processData: false,
+									success: function(respuesta){
+										
+										if(respuesta != "ok"){
+											swal({
+												type: "error",
+												title: "El prestamo no se ha guardado correctamente",
+												showConfirmButton: true,
+												confirmButtonText: "Cerrar"
+												}).then(function(result){
+													if (result.value) {
+						  
+													window.location = "prestar";
+						  
+													}
+											  })
+										}
+										
+									}
+					
+							})
+	
+							var datos = new FormData();
+							datos.append("estadoIdCodA", idART);
+							 datos.append("estadoCodArticulo", 2);
+					   
+							 $.ajax({
+					   
+							 url:"ajax/articulos.ajax.php",
+							 method: "POST",
+							 data: datos,
+							 cache: false,
+							 contentType: false,
+							 processData: false,
+							 success: function(respuesta){    
+								 
+								 // console.log("respuesta", respuesta);
+					   
+							 }
+					   
+							 })
+	
+						}
+
+						swal({
+							type: "success",
+							title: "Cambio Satisfactorio",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+							}).then(function(result){
+							  if (result.value) {
+								
+								window.location = "prestamos";
+						
+							  }
+							})
+
+
+					}
+
+			})
+
+		}
+
+	})
+		
+
+})

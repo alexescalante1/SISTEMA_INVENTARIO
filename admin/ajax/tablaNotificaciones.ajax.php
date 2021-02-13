@@ -128,6 +128,7 @@ class TablaArticulos{
 				"null",
 				"null",
 				"null",
+				"null",
 				"null"	   
 
 			],';
