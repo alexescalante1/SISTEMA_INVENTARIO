@@ -2270,6 +2270,9 @@ $('.tablaGestorPrestamos tbody').on("click", ".btnVerPrestamo", function(){
 
 
 
+
+
+
 /*=============================================
 LISTAR CODIGOS EDICION
 =============================================*/
@@ -2578,3 +2581,161 @@ $(".guardarCambiosPrestamo").click(function(){
 		
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+DEVOLVER ARTICULO PRESTADO
+=============================================*/
+
+$('.tablaGestorPrestamos tbody').on("click", ".btnDevolverPrestamo", function(){
+	
+	$(".previsualizarImgAdd").html("");
+
+	const tituloS = document.getElementById("TituloArticuloD");
+
+	var idPrestamo = $(this).attr("idPrestamo");
+	
+	//console.log(idPrestamo);
+
+	var datos = new FormData();
+	datos.append("idVerPrestamo", idPrestamo);
+
+	$.ajax({
+
+		url:"ajax/prestamos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(idPrestamo){
+
+			$("#modalDevolverPrestamo .idPrestamoDEV").val(idPrestamo[0]["idPrestamo"]);
+
+			$("#modalDevolverPrestamo .nombrePrestamista").val(idPrestamo[0]["nombrePrestamista"]);
+			$("#modalDevolverPrestamo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
+			$("#modalDevolverPrestamo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
+			$("#modalDevolverPrestamo .selecDiasPrestamo").val(idPrestamo[0]["plazoDias"]);
+			
+			var idArticulo = idPrestamo[0]["idDetalleArticulo"];
+			
+			var datos = new FormData();
+			datos.append("idArticulo", idArticulo);
+		
+			$.ajax({
+		
+				url:"ajax/articulos.ajax.php",
+				method: "POST",
+				data: datos,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(respuesta){
+					
+					$("#modalDevolverPrestamo .idDetalleArticulo").val(respuesta[0]["idDetalleArticulo"]);
+					$("#modalDevolverPrestamo .tituloArticulo").val(respuesta[0]["titulo"]);
+					
+					$("#modalDevolverPrestamo .previsualizarPrincipalA").attr("src", respuesta[0]["portada"]);
+
+					tituloS.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5>";
+					
+					var dataNC = new FormData();
+					dataNC.append("contIdPrestamo", idPrestamo[0]["idPrestamo"]);
+				
+					$.ajax({
+				
+						url:"ajax/prestamos.ajax.php",
+						method: "POST",
+						data: dataNC,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(Ncod){
+
+							$("#modalDevolverPrestamo .selecNumCodigosArticuloD").val(Ncod);
+					
+							camposCodigosDevolver();
+
+						}
+		
+					})
+			
+				}
+		
+			})
+			
+		}
+
+	})
+
+})
+
+
+
+
+/*=============================================
+LISTAR CODIGOS DEVOLVER
+=============================================*/
+
+function camposCodigosDevolver(){
+	
+	$("#span-modelo-listar-codigosD").html('<div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span><input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly></div></div>');
+
+    var spantestemodelo = $('#span-modelo-listar-codigosD').html();
+    var spantestemodelo_strinf = spantestemodelo.toString();
+	
+    var campos = $('.selecNumCodigosArticuloD').val();
+
+	var idartt = $('.idDetalleArticulo').val();
+	var idPresta = $('.idPrestamoDEV').val();
+
+	var CodNume = '';
+
+	var idPrestamo = new FormData();
+	idPrestamo.append("idPrestamoCods", idPresta);
+
+	$.ajax({
+
+		url:"ajax/prestamos.ajax.php",
+		method: "POST",
+		data: idPrestamo,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(CodPrestados){
+
+			var i = 1;
+			var texto = '';
+			while(i<=campos){
+				texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
+				i = i + 1; 
+			}
+
+			$("#span-real-listar-codigosD").html(texto);
+
+			for(var i=1;i<=campos;i++){
+
+				$(".seleccionarCodigoArticuloD-"+i).val(CodPrestados[i-1]["codigoPatrimonial"]);
+
+			}
+			
+		}
+
+	})
+
+	
+	
+}

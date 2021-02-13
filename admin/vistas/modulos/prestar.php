@@ -204,9 +204,9 @@ MODAL AGREGAR NUEVO ARTICULO
 
 
             <!--=====================================
-            ENTRADA PARA EL TÍTULO
+            ENTRADA PARA NAME
             ======================================-->
-
+            
             <div class="form-group">
               
                 <div class="input-group">
@@ -300,50 +300,8 @@ MODAL AGREGAR NUEVO ARTICULO
 
             </div>
 
-                  
-            <br>
+            
             <h5>LISTA DE ARTICULOS</h5>
-
-            <!--=====================================
-            LISTAR CODIGOS
-            ======================================-->
-            <!--
-            <div class="form-group">
-                
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg seleccionarCategoria">
-                  
-                    <option value="">CODIGO</option>
-                    <option value="">123456789</option>
-                    <option value="">785694221</option>
-                    <option value="">457865424</option>
-                    <option value="">145257825</option>
-
-                    <?php
-
-                    /*
-                    $item = null;
-                    $valor = null;
-
-                    $categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
-
-                    foreach ($categoria as $key => $value) {
-                      
-                      echo '<option value="'.$value["idCategoria"].'">'.$value["titulo"].'</option>';
-                    }
-                    */
-
-                    ?>
-
-                  </select>
-
-                </div>
-
-            </div>
--->
 
             <div class="row" id="lista-parcelas"></div>
 
@@ -372,7 +330,6 @@ MODAL AGREGAR NUEVO ARTICULO
             </span>
 
             <span id="span-real-listar-codigos"></span>
-
 
           </div>
 

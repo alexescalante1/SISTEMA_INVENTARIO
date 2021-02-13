@@ -51,17 +51,15 @@
 
     <?php
 
-
       //ControladorArticulos::ctrEliminarCodIdPrestamo(202);
 
       //ModeloArticulos::mdlActualizarArticulos("prestamos", "plazoDias", 40, "idPrestamo", 199);
 
-
-      $contCANT = ControladorArticulos::ctrContarCodIdPrestamo("idPrestamo", 200);
+      $contCANT = ControladorArticulos::ctrContarCodIdPrestamo("idPrestamo", 209);
 
       echo $contCANT[0].'<br><br>';
 
-      $categoria = ControladorArticulos::ctrMostrarArticulosCodPrestados("idPrestamo", 200);
+      $categoria = ControladorArticulos::ctrMostrarArticulosCodPrestados("idPrestamo", 209);
 
       for($i = 0; $i < count($categoria); $i++){
       
@@ -77,7 +75,7 @@
 
 
 <!--=====================================
-MODAL AGREGAR NUEVO ARTICULO
+MODAL MODIFICAR PRESTAMO
 ======================================-->
 
 <div id="modalVerPrestamo" class="modal fade" role="dialog">
@@ -257,50 +255,9 @@ MODAL AGREGAR NUEVO ARTICULO
 
             </div>
 
-                  
-            <br>
+                
             <h5>LISTA DE ARTICULOS</h5>
 
-            <!--=====================================
-            LISTAR CODIGOS
-            ======================================-->
-            <!--
-            <div class="form-group">
-                
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                  <select class="form-control input-lg seleccionarCategoria">
-                  
-                    <option value="">CODIGO</option>
-                    <option value="">123456789</option>
-                    <option value="">785694221</option>
-                    <option value="">457865424</option>
-                    <option value="">145257825</option>
-
-                    <?php
-
-                    /*
-                    $item = null;
-                    $valor = null;
-
-                    $categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
-
-                    foreach ($categoria as $key => $value) {
-                      
-                      echo '<option value="'.$value["idCategoria"].'">'.$value["titulo"].'</option>';
-                    }
-                    */
-
-                    ?>
-
-                  </select>
-
-                </div>
-
-            </div>
--->
 
             <div class="row" id="lista-parcelas"></div>
 
@@ -342,6 +299,229 @@ MODAL AGREGAR NUEVO ARTICULO
         <div class="modal-footer">
   
           <button type="button" class="btn btn-primary guardarCambiosPrestamo" style="width:100%;">GUARDAR CAMBIOS</button>
+
+        </div>
+
+       <!-- </form> -->
+
+     </div>
+
+   </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--=====================================
+DEVOLVER PRESTAMO
+======================================-->
+
+<div id="modalDevolverPrestamo" class="modal fade" role="dialog">
+  
+   <div class="modal-dialog">
+     
+     <div class="modal-content">
+       
+       <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
+         
+         <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Devolver Prestamo</h4>
+          
+        </div>
+
+
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="form-group">
+                    
+                    <img src="vistas/img/productos/default/default.jpg" class="img-thumbnail previsualizarPrincipalA" width="400px">
+      
+                </div>
+
+              </div>
+              <div class="col-md-6">
+              
+                <!--<input type="text" class="form-control input-lg tituloArticulo" placeholder="xd" readonly>
+-->
+                <div id="TituloArticuloD"></div>
+               
+              
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA RUTA DEL PRODUCTO
+            ======================================-->
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
+
+                  <input type="text" class="form-control input-lg nombrePrestamista" readonly>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
+
+                  <input type="text" class="form-control input-lg nombreUsuario" readonly>
+
+                </div>
+
+            </div>
+
+
+            <!--=====================================
+            ENTRADA PARA EL TÍTULO
+            ======================================-->
+
+            <div class="form-group">
+              
+                <div class="input-group">
+              
+                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                  <input type="text" class="form-control input-lg validarUsuarioP codUsuario" readonly>
+
+                  <input type="hidden" class="idDetalleArticulo">
+                  <input type="hidden" class="idPrestamoDEV">
+
+                </div>
+
+            </div>
+
+          
+            <!--=====================================
+            AGREGAR CANTIDAD Y DIAS
+            ======================================-->
+
+            <div class="form-group row">
+               
+              <!-- CANTIDAD -->
+
+              <div class="col-md-8 col-xs-12">
+  
+                <div class="panel">CANTIDAD DE ARTICULOS</div>
+
+                <div class="form-group">
+                  
+                    <div class="input-group">
+                  
+                      <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                      <input type="text" class="form-control input-lg selecNumCodigosArticuloD" readonly>
+
+                    </div>
+
+                </div>
+
+              </div>
+
+              <!-- DIAS -->
+
+              <div class="col-md-4 col-xs-12">
+                    
+                  <div class="panel">DIAS</div>
+
+
+                  <div class="form-group">
+                  
+                    <div class="input-group">
+                  
+                      <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                      <input type="text" class="form-control input-lg selecDiasPrestamo" readonly>
+
+                    </div>
+
+                  </div>
+
+
+
+              </div>
+
+
+            </div>
+
+                  
+            <h5>LISTA DE ARTICULOS</h5>
+
+            <div class="row" id="lista-parcelas"></div>
+
+            <span id="span-modelo-listar-codigosD" style="display:none;">
+
+              <div class="form-group">
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                  
+                  <input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly>
+                  
+                </div>
+
+              </div>
+
+            </span>
+
+            <span id="span-real-listar-codigosD"></span>
+
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-primary devolverPrestamo" style="width:100%;">DEVOLVER</button>
 
         </div>
 
