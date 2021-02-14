@@ -203,6 +203,41 @@ $('.tablaGestorPrestamos').DataTable({
 
 });
 
+$('.tablaRegistroPrestamos').DataTable({
+	
+	"ajax":"ajax/tablaRegistroPrestamos.ajax.php",
+	"deferRender": true,
+	"retrieve": true,
+	"processing": true,
+    "language": {
+
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ningún dato disponible en esta tabla",
+			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+			"sFirst":    "Primero",
+			"sLast":     "Último",
+			"sNext":     "Siguiente",
+			"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+
+	}
+
+});
+
 /*=============================================
 ACTIVAR ARTICULO
 =============================================*/
@@ -2737,5 +2772,181 @@ function camposCodigosDevolver(){
 	})
 
 	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=============================================
+VISUALIZAR ARTICULO PRESTADO
+=============================================*/
+
+$('.tablaRegistroPrestamos tbody').on("click", ".btnVisualizarPrestamo", function(){
+	
+	$(".previsualizarImgAdd").html("");
+
+	const tituloS = document.getElementById("TituloArticuloD");
+
+	var idVPrestamo = $(this).attr("idVPrestamo");
+
+	var datos = new FormData();
+	datos.append("idVerPrestamo", idVPrestamo);
+
+	$.ajax({
+
+		url:"ajax/prestamos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(idPrestamo){
+
+			$("#modalVisualizarPrestamo .idPrestamoDEV").val(idPrestamo[0]["idPrestamo"]);
+
+			$("#modalVisualizarPrestamo .nombrePrestamista").val(idPrestamo[0]["nombrePrestamista"]);
+			$("#modalVisualizarPrestamo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
+			$("#modalVisualizarPrestamo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
+			$("#modalVisualizarPrestamo .selecDiasPrestamo").val(idPrestamo[0]["plazoDias"]);
+			
+			var idArticulo = idPrestamo[0]["idDetalleArticulo"];
+			
+			var datos = new FormData();
+			datos.append("idArticulo", idArticulo);
+		
+			$.ajax({
+		
+				url:"ajax/articulos.ajax.php",
+				method: "POST",
+				data: datos,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(respuesta){
+					
+					$("#modalVisualizarPrestamo .idDetalleArticulo").val(respuesta[0]["idDetalleArticulo"]);
+					$("#modalVisualizarPrestamo .tituloArticulo").val(respuesta[0]["titulo"]);
+					
+					$("#modalVisualizarPrestamo .previsualizarPrincipalA").attr("src", respuesta[0]["portada"]);
+
+					tituloS.innerHTML = "<h2 style='color:rgb(83, 83, 83);text-transform: uppercase;margin-top:-4px;margin-bottom:20px;'>"+respuesta[0]["titulo"]+"</h2><h5>PRECIO : S/."+respuesta[0]["precio"]+".00</h5><h5>PESO : "+respuesta[0]["peso"]+"kg</h5>";
+					
+					var dataNC = new FormData();
+					dataNC.append("contIdPrestamo", idPrestamo[0]["idPrestamo"]);
+				
+					$.ajax({
+				
+						url:"ajax/prestamos.ajax.php",
+						method: "POST",
+						data: dataNC,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(Ncod){
+
+							$("#modalVisualizarPrestamo .selecNumCodigosArticuloD").val(Ncod);
+					
+							camposCodigosVisualizar();
+
+						}
+		
+					})
+			
+				}
+		
+			})
+			
+		}
+
+	})
+
+})
+
+/*=============================================
+VISUALIZAR PRESTAMOS
+=============================================*/
+
+function camposCodigosVisualizar(){
+	
+	$("#span-modelo-listar-codigosD").html('<div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span><input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly></div></div>');
+
+    var spantestemodelo = $('#span-modelo-listar-codigosD').html();
+    var spantestemodelo_strinf = spantestemodelo.toString();
+	
+    var campos = $('.selecNumCodigosArticuloD').val();
+
+	var idartt = $('.idDetalleArticulo').val();
+	var idPresta = $('.idPrestamoDEV').val();
+
+	var CodNume = '';
+
+	var idPrestamo = new FormData();
+	idPrestamo.append("idPrestamoCods", idPresta);
+
+	$.ajax({
+
+		url:"ajax/prestamos.ajax.php",
+		method: "POST",
+		data: idPrestamo,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(CodPrestados){
+
+			var i = 1;
+			var texto = '';
+			while(i<=campos){
+				texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
+				i = i + 1; 
+			}
+
+			$("#span-real-listar-codigosD").html(texto);
+
+			for(var i=1;i<=campos;i++){
+
+				$(".seleccionarCodigoArticuloD-"+i).val(CodPrestados[i-1]["codigoPatrimonial"]);
+
+			}
+			
+		}
+
+	})
+
 	
 }

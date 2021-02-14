@@ -49,25 +49,6 @@
 
     </div>
 
-    <?php
-
-      //ControladorArticulos::ctrEliminarCodIdPrestamo(202);
-
-      //ModeloArticulos::mdlActualizarArticulos("prestamos", "plazoDias", 40, "idPrestamo", 199);
-
-      $contCANT = ControladorArticulos::ctrContarCodIdPrestamo("idPrestamo", 209);
-
-      echo $contCANT[0].'<br><br>';
-
-      $categoria = ControladorArticulos::ctrMostrarArticulosCodPrestados("idPrestamo", 209);
-
-      for($i = 0; $i < count($categoria); $i++){
-      
-        echo $categoria[$i]["codigoPatrimonial"].'<br>';
-
-      }
-    ?>
-
   </section>
 
 </div>

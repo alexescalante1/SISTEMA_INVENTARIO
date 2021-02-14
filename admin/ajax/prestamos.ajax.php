@@ -347,8 +347,6 @@ if(isset($_POST["nombrePrestamista"])){
 #-----------------------------------------------------------
 if(isset($_POST["idPrestamo"])){
 
-	//echo $_POST["idPrestamo"];
-
 	$prestamoCod = new AjaxPrestamo();
 	$prestamoCod -> idPrestamo = $_POST["idPrestamo"];
 	$prestamoCod -> idArticulo = $_POST["idArticulo"];

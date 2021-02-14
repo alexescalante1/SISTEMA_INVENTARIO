@@ -236,6 +236,7 @@ session_start();
            $_GET["ruta"]== "articulos" ||
            $_GET["ruta"]== "prestar" ||
            $_GET["ruta"]== "prestamos" ||
+           $_GET["ruta"]== "registrodeprestamos" ||
            $_GET["ruta"]== "notificacionesM" ||
            $_GET["ruta"]== "salir"){
 

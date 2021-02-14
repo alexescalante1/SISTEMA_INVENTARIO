@@ -64,7 +64,7 @@ MENU
     </a>
     <ul class="treeview-menu">
       <li><a href="prestamos"><i class="fa fa-circle-o"></i> Devoluciones</a></li>
-      <li><a href="prestamos"><i class="fa fa-circle-o"></i> Registros</a></li>
+      <li><a href="registrodeprestamos"><i class="fa fa-circle-o"></i> Registros</a></li>
     </ul>
   </li>
 
