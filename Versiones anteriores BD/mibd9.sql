@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2021 at 05:08 PM
+-- Generation Time: Feb 12, 2021 at 05:32 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -46,6 +46,7 @@ CREATE TABLE `administradores` (
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `fecha`) VALUES
 (5, '12345674', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-01-31 02:01:50'),
+(6, '12345677', '', 'Alex Escalante TWO', 'editor@gmail.com', 'vistas/img/perfiles/701.jpg', '$2a$07$asxx54ahjppf45sd87a5auBnK0T8g/TaNYrkZQmRmlyohJLox8X9S', 'laboratorista', 1, '2021-01-31 02:10:25'),
 (7, '12345678', '', 'Fredy ONE', 'fredy@gmail.com', 'vistas/img/perfiles/719.jpg', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'administrador', 1, '2021-01-31 01:59:29'),
 (8, '12345678', '', 'Jose Marin', 'laboratorista@gmail.com', 'vistas/img/perfiles/897.jpg', '$2a$07$asxx54ahjppf45sd87a5auBMC0hyDzSIj.ET6H5mmag4zkgE6FuWe', 'laboratorista', 1, '2021-01-31 02:09:18');
 
@@ -68,43 +69,42 @@ CREATE TABLE `articulos` (
 --
 
 INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
-(74, 1, '2021-01-25 23:38:29', 160, '132321321'),
+(74, 2, '2021-01-25 23:38:29', 160, '132321321'),
 (77, 2, '2021-01-25 23:42:23', 160, '213123213'),
-(78, 1, '2021-01-25 23:42:28', 160, '123123213'),
-(79, 1, '2021-01-25 23:42:39', 160, '789678678'),
+(78, 2, '2021-01-25 23:42:28', 160, '123123213'),
+(79, 2, '2021-01-25 23:42:39', 160, '789678678'),
 (80, 2, '2021-01-25 23:43:06', 160, '324234234'),
-(83, 1, '2021-01-26 00:04:57', 160, '432435435'),
-(84, 1, '2021-01-26 08:49:17', 160, '342524555'),
+(83, 2, '2021-01-26 00:04:57', 160, '432435435'),
+(84, 2, '2021-01-26 08:49:17', 160, '342524555'),
 (85, 1, '2021-01-26 09:01:17', 181, '675675675'),
-(86, 1, '2021-01-26 22:31:38', 164, '213432423'),
-(87, 1, '2021-01-26 22:37:22', 74, '134123213'),
-(88, 1, '2021-01-26 22:37:28', 74, '689678768'),
-(89, 1, '2021-01-26 22:37:38', 74, '345345345'),
+(86, 2, '2021-01-26 22:31:38', 164, '213432423'),
+(87, 2, '2021-01-26 22:37:22', 74, '134123213'),
+(88, 2, '2021-01-26 22:37:28', 74, '689678768'),
+(89, 2, '2021-01-26 22:37:38', 74, '345345345'),
 (90, 2, '2021-01-26 22:47:56', 160, '235245245'),
-(91, 1, '2021-01-26 22:48:03', 160, '245453453'),
-(92, 1, '2021-01-26 22:48:09', 160, '587568568'),
-(93, 1, '2021-01-26 23:33:09', 160, '312332133'),
-(94, 1, '2021-01-26 23:33:32', 160, '324434444'),
-(95, 1, '2021-01-27 12:45:43', 160, '453423123'),
+(91, 2, '2021-01-26 22:48:03', 160, '245453453'),
+(92, 2, '2021-01-26 22:48:09', 160, '587568568'),
+(93, 0, '2021-01-26 23:33:09', 160, '312332133'),
+(94, 2, '2021-01-26 23:33:32', 160, '324434444'),
+(95, 2, '2021-01-27 12:45:43', 160, '453423123'),
 (96, 0, '2021-01-29 12:54:16', 175, '213214134'),
 (97, 2, '2021-01-29 12:54:22', 175, '351351345'),
 (98, 1, '2021-01-31 00:02:00', 162, '232132133'),
-(99, 1, '2021-01-31 00:02:18', 68, '223234234'),
+(99, 2, '2021-01-31 00:02:18', 68, '223234234'),
 (100, 2, '2021-02-01 21:11:51', 175, '123456789'),
-(101, 1, '2021-02-01 21:23:26', 160, '455455455'),
+(101, 2, '2021-02-01 21:23:26', 160, '455455455'),
 (102, 2, '2021-02-06 18:10:29', 213, '123456879'),
 (103, 2, '2021-02-06 18:10:45', 213, '123456784'),
 (104, 1, '2021-02-09 21:49:07', 72, '542453455'),
 (105, 2, '2021-02-09 21:52:19', 214, '213213213'),
 (106, 2, '2021-02-09 21:52:31', 214, '548645454'),
 (107, 2, '2021-02-11 21:09:56', 214, '213434234'),
-(108, 2, '2021-02-11 21:10:02', 214, '234234234'),
-(109, 2, '2021-02-11 21:10:13', 214, '234234344'),
+(108, 1, '2021-02-11 21:10:02', 214, '234234234'),
+(109, 1, '2021-02-11 21:10:13', 214, '234234344'),
 (110, 2, '2021-02-11 23:06:50', 216, '312321321'),
-(111, 2, '2021-02-11 23:06:58', 216, '213213333'),
-(114, 1, '2021-02-12 10:43:14', 160, '141344444'),
-(115, 1, '2021-02-12 17:26:35', 160, '454645665'),
-(116, 1, '2021-02-12 17:26:47', 160, '111111111');
+(111, 1, '2021-02-11 23:06:58', 216, '213213333'),
+(112, 1, '2021-02-11 23:07:04', 216, 'qweqweqwe'),
+(113, 1, '2021-02-11 23:07:38', 216, 'eqweqweee');
 
 -- --------------------------------------------------------
 
@@ -176,8 +176,7 @@ INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
 (37, 'celulares-1', 'Celulares 1'),
 (38, 'laboratorio-telematica', 'Laboratorio telematica'),
 (39, 'you-know', 'you know'),
-(40, 'otro-lab', 'otro lab'),
-(41, 'dasdasdasd', 'dasdasdasd');
+(40, 'otro-lab', 'otro lab');
 
 -- --------------------------------------------------------
 
@@ -374,6 +373,21 @@ CREATE TABLE `notificacion` (
   `idDetalleArticulo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `notificacion`
+--
+
+INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
+(105, 0, '162894', 'Alex escalante maron', '', 1, 3, 'sadasd', '2021-02-12 04:05:53', 1, 160),
+(113, 0, '12345678', 'Docente Xd', '', 1, 3, 'a', '2021-02-12 04:05:50', 1, 160),
+(114, 0, '12345678', 'Docente Xd', '', 1, 12, 'as', '2021-02-12 04:05:48', 1, 160),
+(115, 0, '12345678', 'Docente Xd', '', 1, 3, 'xd pw', '2021-02-12 04:05:46', 1, 74),
+(117, 0, '162894', 'Alex escalante maron', '', 1, 3, 'onegai', '2021-02-12 03:25:41', 1, 160),
+(118, 0, '162894', 'Alex escalante maron', '', 1, 6, 'a', '2021-02-12 04:02:22', 1, 74),
+(119, 0, '162894', 'Alex escalante maron', '', 1, 3, 'yolo', '2021-02-12 04:04:36', 1, 74),
+(120, 0, '162894', 'Alex escalante maron', '', 1, 3, 'fgsdfdsf', '2021-02-12 03:55:48', 1, 160),
+(121, 0, '162894', 'Alex escalante maron', '', 1, 3, 'trabajos', '2021-02-12 03:55:40', 1, 160);
+
 -- --------------------------------------------------------
 
 --
@@ -445,7 +459,61 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `idDetalleArticulo`, `fecha`) VALUES
-(214, 1, '162894', 'usuarioone', 15, 0, 'Alex Escalante ONE', 160, '2021-02-15 15:49:14');
+(145, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:23:23'),
+(146, 1, '162584', 'usuariotwo', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:25:37'),
+(147, 1, '12345678', 'Docente Xd', 12, 0, 'Alex Escalante ONE', NULL, '2021-02-07 03:33:39'),
+(148, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-08 00:41:10'),
+(149, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', NULL, '2021-02-08 00:41:59'),
+(150, 1, '162895', 'Axel One Escalante', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-09 03:30:26'),
+(151, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-10 02:38:06'),
+(152, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', NULL, '2021-02-10 02:52:57'),
+(153, 1, '162894', 'Alex escalante maron', 6, 0, 'Alex Escalante ONE', NULL, '2021-02-12 00:06:41'),
+(154, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', NULL, '2021-02-12 00:51:42'),
+(155, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:05:14'),
+(156, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:20'),
+(157, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:42'),
+(158, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', NULL, '2021-02-12 01:31:55'),
+(159, 1, '162894', 'Alex escalante maron', 6, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:38:54'),
+(160, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:41:04'),
+(161, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:42:04'),
+(162, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:42:23'),
+(163, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:52:59'),
+(164, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:54:22'),
+(165, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:54:44'),
+(166, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:55:33'),
+(167, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:56:35'),
+(168, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 01:57:33'),
+(169, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:00:52'),
+(170, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:02:11'),
+(171, 1, '162894', 'Alex escalante maron', 15, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:06:39'),
+(172, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:07:02'),
+(173, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:07:53'),
+(174, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:08:31'),
+(175, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:08:47'),
+(176, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 175, '2021-02-12 02:09:00'),
+(177, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 175, '2021-02-12 02:09:17'),
+(178, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 214, '2021-02-12 02:10:36'),
+(179, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 160, '2021-02-12 02:12:07'),
+(180, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 74, '2021-02-12 02:13:30'),
+(181, 1, '162894', 'Alex escalante maron', 12, 0, 'Alex Escalante ONE', 160, '2021-02-12 03:26:44'),
+(182, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 74, '2021-02-12 03:26:55'),
+(183, 1, '12345678', 'Docente Xd', 3, 0, 'Alex Escalante ONE', 68, '2021-02-12 03:27:29'),
+(184, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 164, '2021-02-12 03:32:34'),
+(185, 1, '162894', 'Alex escalante maron', 9, 0, 'Alex Escalante ONE', 216, '2021-02-12 04:08:37'),
+(186, 1, '162894', 'Alex escalante maron', 3, 0, 'Alex Escalante ONE', 216, '2021-02-12 04:13:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prestamos-articulos`
+--
+
+CREATE TABLE `prestamos-articulos` (
+  `id` int(11) NOT NULL,
+  `idPrestamo` int(11) NOT NULL,
+  `idArticulo` int(11) NOT NULL,
+  `codigoPatrimonial` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -465,9 +533,67 @@ CREATE TABLE `prestamosarticulos` (
 --
 
 INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, `codigoPatrimonial`) VALUES
-(222, 214, 90, '235245245'),
-(223, 214, 77, '213123213'),
-(224, 214, 80, '324234234');
+(54, 145, 74, '132321321'),
+(55, 145, 77, '213123213'),
+(56, 146, 78, '123123213'),
+(57, 146, 84, '342524555'),
+(58, 147, 80, '324234234'),
+(59, 147, 83, '432435435'),
+(60, 147, 92, '587568568'),
+(61, 148, 89, '345345345'),
+(62, 149, 79, '789678678'),
+(63, 150, 90, '235245245'),
+(64, 151, 94, '324434444'),
+(65, 151, 91, '245453453'),
+(66, 152, 106, '548645454'),
+(67, 152, 105, '213213213'),
+(68, 153, 78, '123123213'),
+(69, 153, 79, '789678678'),
+(70, 153, 80, '324234234'),
+(71, 154, 90, '235245245'),
+(72, 154, 95, '453423123'),
+(73, 154, 91, '245453453'),
+(74, 154, 83, '432435435'),
+(75, 155, 84, '342524555'),
+(76, 156, 77, '213123213'),
+(77, 157, 92, '587568568'),
+(78, 158, 94, '324434444'),
+(79, 159, 101, '455455455'),
+(80, 160, 74, '132321321'),
+(81, 160, 78, '123123213'),
+(82, 160, 77, '213123213'),
+(83, 160, 79, '789678678'),
+(84, 161, 80, '324234234'),
+(85, 162, 83, '432435435'),
+(86, 163, 84, '342524555'),
+(87, 164, 91, '245453453'),
+(88, 165, 94, '324434444'),
+(89, 166, 90, '235245245'),
+(90, 167, 92, '587568568'),
+(91, 168, 95, '453423123'),
+(92, 169, 74, '132321321'),
+(93, 170, 77, '213123213'),
+(94, 171, 78, '123123213'),
+(95, 171, 79, '789678678'),
+(96, 171, 80, '324234234'),
+(97, 172, 83, '432435435'),
+(98, 173, 84, '342524555'),
+(99, 174, 90, '235245245'),
+(100, 175, 91, '245453453'),
+(101, 176, 97, '351351345'),
+(102, 177, 100, '123456789'),
+(103, 178, 107, '213434234'),
+(104, 179, 92, '587568568'),
+(105, 179, 94, '324434444'),
+(106, 179, 101, '455455455'),
+(107, 180, 88, '689678768'),
+(108, 180, 87, '134123213'),
+(109, 181, 95, '453423123'),
+(110, 182, 89, '345345345'),
+(111, 183, 99, '223234234'),
+(112, 184, 86, '213432423'),
+(113, 185, 0, 'qweqweqwe'),
+(114, 186, 110, '312321321');
 
 -- --------------------------------------------------------
 
@@ -603,8 +729,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
-(53, '162894', 'usuarioone', 'estudiante', '$2a$07$asxx54ahjppf45sd87a5aueuBkuSURBtX031YZ8zZTYNNVwIDNOwS', 'estudiante@gmail.com', 'directo', 'vistas/img/usuarios/53/585.png', 0, 'f652b531bff7a32fc1b3b4b59f200070', '2021-02-15 15:47:01'),
-(54, '12345786', 'docenteone', 'docente', '$2a$07$asxx54ahjppf45sd87a5au5.80yzYkzzYfm4v0hxFjblcuW51TwIK', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/54/956.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-02-15 15:46:30');
+(34, '162584', 'usuariotwo', 'usuarioPrueba', '$2a$07$asxx54ahjppf45sd87a5au6fTot89fSFmws3JZ.tmrrNPgMS2pkt6', 'usuario@gmail.com', 'directo', 'vistas/img/usuarios/34/213.jpg', 1, '926e57bdcca18a1cffcf9d80651893dc', '2021-02-12 03:51:51'),
+(47, '162894', 'Alex escalante maron', 'alexescalante2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'alexescalante@gmail.com', 'directo', 'vistas/img/usuarios/47/604.jpg', 0, 'a090e5266ceecd6caa3e44d295de8652', '2021-02-12 04:12:15'),
+(49, '123456', 'Axel One', 'fredy2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'fredy@gmail.com', 'directo', '', 0, '1b6113a146ba93a43311cc83bd8a4ed2', '2021-01-31 01:19:01'),
+(51, '12345678', 'Docente Xd', 'docente2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/51/857.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-01-31 04:58:33'),
+(52, '162895', 'Axel One Escalante', 'axelone2020', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'axel@gmail.com', 'directo', '', 0, '3218da89280d03db1d26f8622068665b', '2021-02-11 00:09:59');
 
 -- --------------------------------------------------------
 
@@ -752,6 +881,14 @@ ALTER TABLE `prestamos`
   ADD PRIMARY KEY (`idPrestamo`);
 
 --
+-- Indexes for table `prestamos-articulos`
+--
+ALTER TABLE `prestamos-articulos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idPrestamo` (`idPrestamo`) USING BTREE,
+  ADD KEY `idArticulo` (`idArticulo`) USING BTREE;
+
+--
 -- Indexes for table `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
@@ -808,7 +945,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -826,7 +963,7 @@ ALTER TABLE `cabeceras`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `categorias`
@@ -862,13 +999,13 @@ ALTER TABLE `deseos`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
@@ -886,13 +1023,19 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+
+--
+-- AUTO_INCREMENT for table `prestamos-articulos`
+--
+ALTER TABLE `prestamos-articulos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `productos`
@@ -916,7 +1059,7 @@ ALTER TABLE `subcategorias`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `visitaspaises`
@@ -951,6 +1094,13 @@ ALTER TABLE `detallearticulo`
 --
 ALTER TABLE `notificacion`
   ADD CONSTRAINT `notf-art` FOREIGN KEY (`idDetalleArticulo`) REFERENCES `detallearticulo` (`idDetalleArticulo`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `prestamos-articulos`
+--
+ALTER TABLE `prestamos-articulos`
+  ADD CONSTRAINT `articulo-prestamo` FOREIGN KEY (`idArticulo`) REFERENCES `articulos` (`idArticulo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `prestamo-articulo` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamos` (`idPrestamo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `prestamosarticulos`
