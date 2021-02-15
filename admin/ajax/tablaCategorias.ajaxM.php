@@ -35,6 +35,16 @@ class TablaCategoriasM{
 
 		}
 
+		if($categoriasM==null){
+			$datosJson .='[
+				
+				"0",
+				"null",
+				"null"  
+
+			],';
+		}
+
 		$datosJson = substr($datosJson, 0, -1);
 
 		$datosJson .= ']

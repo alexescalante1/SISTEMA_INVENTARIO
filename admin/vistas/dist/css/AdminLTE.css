@@ -3252,13 +3252,12 @@ table.text-center th {
 .login-box,
 .register-box {
   width: 360px;
-  margin: 7% auto;
+  margin: auto;
 }
 @media (max-width: 768px) {
   .login-box,
   .register-box {
     width: 90%;
-    margin-top: 20px;
   }
 }
 .login-box-body,

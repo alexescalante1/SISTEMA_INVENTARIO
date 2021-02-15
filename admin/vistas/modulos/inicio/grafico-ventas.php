@@ -1,5 +1,5 @@
 <?php
-
+/*
 error_reporting(0);
 $ventas = ControladorVentas::ctrMostrarVentas();
 $totalVentas = ControladorVentas::ctrMostrarTotalVentas();
@@ -10,9 +10,7 @@ $totalPaypal = 0;
 
 foreach ($ventas as $key => $value) {
 
-	/*=============================================
-  	PORCENTAJES MÉTODOS DE PAGO PAYPAL
-  	=============================================*/
+	
   	if($value["metodo"] == "paypal"){
 
   		 $totalPaypal += $value["pago"];
@@ -20,9 +18,7 @@ foreach ($ventas as $key => $value) {
   		 $porcentajePaypal = $totalPaypal * 100 / $totalVentas["total"];
   	}
 
-  	/*=============================================
-  	PORCENTAJES MÉTODOS DE PAGO PAYU
-  	=============================================*/
+  	
   	if($value["metodo"] == "payu"){
 
   		 $totalPayu += $value["pago"];
@@ -30,9 +26,6 @@ foreach ($ventas as $key => $value) {
   		 $porcentajePayu = $totalPayu * 100 / $totalVentas["total"];
   	}
 
-	/*=============================================
-  	GRÁFICA EN LÍNEA
-  	=============================================*/
 	
 	if($value["metodo"] != "gratis"){
 
@@ -55,9 +48,8 @@ foreach ($ventas as $key => $value) {
 
 }
 
-#Evitamos repetir fecha
 $noRepetirFechas = array_unique($arrayFechas);
-
+*/
 ?>
 
         
@@ -102,7 +94,7 @@ GRÁFICO DE VENTAS
 	    
 	      <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
 	    
-	        <input type="text" class="knob" data-readonly="true" value="<?php echo round($porcentajePaypal); ?>" data-width="60" data-height="60" data-fgColor="#39CCCC">
+	        <input type="text" class="knob" data-readonly="true" value="100" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
 	        <div class="knob-label">Paypal</div>
 	      
@@ -110,7 +102,7 @@ GRÁFICO DE VENTAS
 
 	      <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
 	        
-	        <input type="text" class="knob" data-readonly="true" value="<?php echo round($porcentajePayu); ?>" data-width="60" data-height="60" data-fgColor="#39CCCC">
+	        <input type="text" class="knob" data-readonly="true" value="33" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
 	        <div class="knob-label">Payu</div>
 	      

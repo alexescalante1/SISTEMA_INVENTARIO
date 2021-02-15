@@ -1,4 +1,7 @@
-<div id="particles-js"></div>
+
+<div id="particles-js"style="background-color:#000;"></div>
+
+<div style="padding-top:10%;"></div>
 
 <div class="login-box" style="box-shadow: 0px 0px 15px #00FF63;">
 
@@ -40,7 +43,7 @@
 
     </form>
 
-  <!--
+      <!--
       <form class="form">
 
         <input type="text" required>
@@ -49,24 +52,13 @@
         </label>
 
       </form>
--->
-
-
-
-
-
-
-
-
-
+      -->
 
   </div>
   <!-- /.login-box-body -->
 
 </div>
 <!-- /.login-box -->
-
-
 
 
 <script src="vistas/js/particles.min.js"></script>

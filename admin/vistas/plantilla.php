@@ -163,8 +163,7 @@ session_start();
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini" style="background-color:#000;">
-
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
 
 
 <?php

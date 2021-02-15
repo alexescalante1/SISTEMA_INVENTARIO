@@ -51,18 +51,16 @@
             <tr>
              
                <th style="width:10px">#</th>
-               <th>Ruta</th>
+               <th style="width:55px">Estado</th>
                <th>Titulo</th>
                <th>Categoria</th>
                <th>Palabras Clave</th>
-               <th>Disponible</th>
                <th>Portada</th>
                <th>Descripción</th>
                <th>Prestados</th>
                <th>Peso</th>
                <th>Precio</th>
-               <th>Acciones</th>
-               <th style="width:50px">Acciones</th>
+               <th style="width:80px">Acciones</th>
 
             </tr> 
 
