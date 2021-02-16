@@ -9,7 +9,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tienda Online | Panel de Control</title>
+  <title>SI-EPIE ADMIN</title>
 
   <link rel="icon" href="vistas/img/plantilla/icono.png">
 
@@ -28,9 +28,9 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/Ionicons/css/ionicons.min.css">
 
   <!-- Theme style -->
-  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
   
-  <link rel="stylesheet" href="vistas/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="vistas/dist/css/skins/skin-blue.css">
 
   <!-- iCheck -->
   <link rel="stylesheet" href="vistas/plugins/iCheck/square/blue.css">
@@ -105,6 +105,35 @@ session_start();
 
   <script src="vistas/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 
+
+
+
+
+
+
+
+
+
+<!-- EXTRA -->
+<script src="vistas/bower_components/flot/jquery.flot.js"></script>
+
+<script src="vistas/bower_components/flot/jquery.flot.resize.js"></script>
+
+<script src="vistas/bower_components/flot/jquery.flot.pie.js"></script>
+
+<script src="vistas/bower_components/flot/jquery.flot.categories.js"></script>
+<!-- EXTRA -->
+
+
+
+
+
+
+
+
+
+
+
   <!-- ChartJS -->
   <script src="vistas/bower_components/Chart.js/Chart.js"></script>
 
@@ -134,7 +163,8 @@ session_start();
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+
 
 <?php
 
@@ -207,6 +237,7 @@ session_start();
            $_GET["ruta"]== "articulos" ||
            $_GET["ruta"]== "prestar" ||
            $_GET["ruta"]== "prestamos" ||
+           $_GET["ruta"]== "registrodeprestamos" ||
            $_GET["ruta"]== "notificacionesM" ||
            $_GET["ruta"]== "salir"){
 
@@ -255,20 +286,19 @@ JS PERSONALIZADO
 ======================================-->
 
 <script src="vistas/js/plantilla.js"></script>
-<script src="vistas/js/gestorComercio.js"></script>
-<script src="vistas/js/gestorSlide.js"></script>
-<script src="vistas/js/gestorCategorias.js"></script>
-<script src="vistas/js/gestorSubCategorias.js"></script>
-<script src="vistas/js/gestorProductos.js"></script>
+<!--<script src="vistas/js/gestorComercio.js"></script>-->
+<!--<script src="vistas/js/gestorSlide.js"></script>-->
+<!--<script src="vistas/js/gestorCategorias.js"></script>-->
+<!--<script src="vistas/js/gestorSubCategorias.js"></script>-->
+<!--<script src="vistas/js/gestorProductos.js"></script>-->
 
 
 <script src="vistas/js/gestorArticulos.js"></script>
 
 
-
-<script src="vistas/js/gestorBanner.js"></script>
-<script src="vistas/js/gestorVentas.js"></script>
-<script src="vistas/js/gestorVisitas.js"></script>
+<!--<script src="vistas/js/gestorBanner.js"></script>-->
+<!--<script src="vistas/js/gestorVentas.js"></script>-->
+<!--<script src="vistas/js/gestorVisitas.js"></script>-->
 <script src="vistas/js/gestorUsuarios.js"></script>
 <script src="vistas/js/gestorAdministradores.js"></script>
 <script src="vistas/js/gestorNotificaciones.js"></script>

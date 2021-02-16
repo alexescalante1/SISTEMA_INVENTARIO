@@ -33,6 +33,7 @@ USUARIOS
 
 		<li class="user-header">
 		
+		
 			<?php
 
 			if($_SESSION["foto"] == ""){
@@ -48,9 +49,9 @@ USUARIOS
 
 			?>	
 
-			<p>
+			<p style="color:black">
 			<?php echo $_SESSION["nombre"]; ?>
-			<h4 style="color:white"><?php echo $_SESSION["perfil"]; ?></h4>
+			<h4 style="color:green"><?php echo $_SESSION["perfil"]; ?></h4>
 			</p>
 		
 		</li>

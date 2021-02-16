@@ -370,7 +370,6 @@ INFOPRODUCTOS
 						<th>Codigo Patrimonial</th>
 						<th>Fecha de creacion</th>
 						<th>Estado</th>
-						<th style="width:10px">Acciones</th>
 
 						</tr> 
 

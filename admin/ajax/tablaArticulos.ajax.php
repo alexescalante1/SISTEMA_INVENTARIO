@@ -145,25 +145,25 @@ class TablaArticulos{
   			TRAER LAS ACCIONES
   			=============================================*/
 
-			$accionesV = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'> Ver Articulo</i></button></a></div>";
+			//$accionesV = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'> Ver Articulo</i></button></a></div>";
 
-			$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
+			//$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
+
+			$accionesFinal = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button></div>";
 
 			$datosJson .='[
 					
 					"'.($i+1).'",
-					"'.$articulos[$i]["ruta"].'",
+					"'.$disponible.'",
 					"'.$articulos[$i]["titulo"].'",
 					"'.$idCat[$articulos[$i]["idCategoria"]].'",
 					"'.$articulos[$i]["palabrasClave"].'",
-					"'.$disponible.'",
 					"'.$imagenPrincipal.'",
 					"'.$articulos[$i]["descripcion"].'",
 					"'.$articulos[$i]["prestados"].'",
 					"'.$articulos[$i]["peso"]." Kg".'",
 					"'."S/.".$articulos[$i]["precio"].".00".'",
-					"'.$accionesV.'",
-					"'.$acciones.'"	   
+					"'.$accionesFinal.'"	   
 
 			],';
 
@@ -182,9 +182,7 @@ class TablaArticulos{
 				"null",
 				"null",
 				"null",
-				"null",
-				"null",
-				"null"	   
+				"null"
 
 			],';
 		}

@@ -23,7 +23,9 @@ class TablaCategoriasM{
 
 	 	for($i = 0; $i < count($categoriasM); $i++){
 
-			$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoriaM' idCategoriaM='".$categoriasM[$i]["idCategoria"]."' data-toggle='modal' data-target='#modalEditarCategoriaM'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarCategoriaM' idCategoriaM='".$categoriasM[$i]["idCategoria"]."'><i class='fa fa-times'></i></button></div>";
+			//$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoriaM' idCategoriaM='".$categoriasM[$i]["idCategoria"]."' data-toggle='modal' data-target='#modalEditarCategoriaM'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarCategoriaM' idCategoriaM='".$categoriasM[$i]["idCategoria"]."'><i class='fa fa-times'></i></button></div>";
+
+			$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoriaM' idCategoriaM='".$categoriasM[$i]["idCategoria"]."' data-toggle='modal' data-target='#modalEditarCategoriaM'><i class='fa fa-pencil'></i></button></div>";
 
 			$datosJson .='[
 					
@@ -33,6 +35,16 @@ class TablaCategoriasM{
 
 			],';
 
+		}
+
+		if($categoriasM==null){
+			$datosJson .='[
+				
+				"0",
+				"null",
+				"null"  
+
+			],';
 		}
 
 		$datosJson = substr($datosJson, 0, -1);
