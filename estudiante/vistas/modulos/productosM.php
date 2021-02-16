@@ -70,8 +70,9 @@ BARRA PRODUCTOS
 						<span class="col-xs-0 pull-right"> LIST</span>
 
 					 </button>
+					
 				</div>		
-				
+
 			</div>
 
 		</div>

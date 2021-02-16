@@ -5,8 +5,8 @@
 	<div class="container">
 		
 		<div class="row">
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6" id="logotipo">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10" id="logotipo">
 					
 					<a href="<?php echo $url; ?>">
 							
@@ -31,21 +31,21 @@
 			BLOQUE CATEGORÍAS Y BUSCADOR
 			======================================-->
 
-			<div class="col-lg-10 col-sm-12 col-xs-12 box">
+			<div class="col-lg-10 col-sm-12 col-xs-12">
 				
 				<!--=====================================
 				BUSCADOR
 				======================================-->
 				
-				<div class="input-group col-xs-12 container-4" id="buscador">
+				<div class="input-group col-xs-12" id="buscador">
 					
-					<input type="search" name="buscar" class="" placeholder="Buscar..." id= "search">	
+					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
 					
 					<span class="input-group-btn">
 						
 						<a href="<?php echo $url; ?>buscador/1/recientes">
 
-							<button class="icon" type="submit">
+							<button class="btn btn-default transparente colorFond" type="submit">
 								
 								<i class="fa fa-search"></i>
 
@@ -77,8 +77,8 @@
 		
 
 		<div class="col-xs-12 " id="categorias">
-			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-6"></div>
-			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 listaCategorias">
+			<div class="col-lg-8 col-xs-0"></div>
+			<div class="col-lg-4 col-xs-12 listaCategorias">
 				
 			<?php
 
