@@ -134,8 +134,7 @@ class TablaArticulos{
 					"'.$codONE.$productos[$i]["idDetalleArticulo"].$codTWO.$productos[$i]["idArticulo"].'",
 					"'.$productos[$i]["codigoPatrimonial"].'",
 					"'.$productos[$i]["fecha"].'",
-					"'.$estado.'",
-					"'.$acciones.'"	   
+					"'.$estado.'"	   
 
 			],';
 
@@ -145,7 +144,6 @@ class TablaArticulos{
 			$datosJson .='[
 				
 				"0",
-				"null",
 				"null",
 				"null",
 				"null",

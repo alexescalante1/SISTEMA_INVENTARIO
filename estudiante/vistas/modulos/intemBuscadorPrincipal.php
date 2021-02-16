@@ -77,8 +77,8 @@
 		
 
 		<div class="col-xs-12 " id="categorias">
-			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-6"></div>
-			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 listaCategorias">
+			<div class="col-lg-8 col-xs-0"></div>
+			<div class="col-lg-4 col-xs-12 listaCategorias">
 				
 			<?php
 
