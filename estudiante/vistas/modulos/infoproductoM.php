@@ -53,7 +53,7 @@ INFOARTICULOS
 */
 					echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg">
 						
-							<figure class="visor">';
+							<figure class="visor sombra paddingproducto">';
 
 							if($mda != null){
 
@@ -64,6 +64,7 @@ INFOARTICULOS
 								}								
 
 								echo '</figure>
+					
 
 								<div class="flexslider">
 								  
@@ -72,16 +73,16 @@ INFOARTICULOS
 								for($i = 0; $i < count($mda); $i ++){
 
 									echo '<li>
-								     	<img value="'.($i+1).'" class="img-thumbnail" src="'.$servidor.$mda[$i]["foto"].'" alt="'.$infoarticulo["titulo"].'">
-								    </li>';
+											<div class="sombra marginproducto">
+								     			<img value="'.($i+1).'" class="img-thumbnail" src="'.$servidor.$mda[$i]["foto"].'" alt="'.$infoarticulo["titulo"].'">
+											</div>
+								    	</li>';
 
-								}
-
-							}		
-							    						 
+									}
+								}									    						 
 							  echo '</ul>
 
-							</div>
+								</div>
 
 						</div>';			
 /*
@@ -173,11 +174,7 @@ INFOARTICULOS
 
 					}
 
-					/*=============================================
-					DESCRIPCIÓN
-					=============================================*/		
-
-					echo '<p style="text-align: justify" >'.$infoarticulo["descripcion"].'</p>';
+					
 
 				?>
 				
@@ -248,6 +245,17 @@ INFOARTICULOS
 				<div class="row botonesCompra">
 
 				<?php
+					/*=============================================
+					DESCRIPCIÓN
+					=============================================*/		
+					echo '	<nav class="mynav">
+								<ul>
+									<li><a href="">DESCRIPCIÓN </a></li>
+									<li><a href="">DETALLES</a></li>
+								</ul>
+						  	</nav>
+							<span class="target"></span>';
+					echo'<p style="text-align: justify" class="text-lowercase">'.$infoarticulo["descripcion"].'</p>';
 
 					echo '<div class="col-md-6 col-xs-12">';
 
@@ -385,7 +393,7 @@ INFOARTICULOS
 
 
 <!--=====================================
-VENTANA MODAL PARA NOTIFICACION
+VENTANA MODAL PARA NOTIFICACION modificar
 ======================================-->
 
 <div class="modal fade modalFormulario" id="modalNotificacion" role="dialog">
@@ -434,12 +442,14 @@ VENTANA MODAL PARA NOTIFICACION
 					
 					<div class="input-group">
 						
+						
 						<span class="input-group-addon">
+						<label for="regNumDocT">Código</label>
 							
 							<i class="glyphicon glyphicon-user"></i>
 						
 						</span>
-
+							
 						<input type="text" class="form-control" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" value="<?php echo $_SESSION["codigoUSERSIUNAP"];?>" required readonly>
 
 					</div>
@@ -451,6 +461,7 @@ VENTANA MODAL PARA NOTIFICACION
 					<div class="input-group">
 						
 						<span class="input-group-addon">
+							<label for="regNombreT">Nombres</label>
 							
 							<i class="glyphicon glyphicon-user"></i>
 						
@@ -468,6 +479,7 @@ VENTANA MODAL PARA NOTIFICACION
 					<div class="input-group">
 						
 						<span class="input-group-addon">
+							<label for="regCant">Cantidad</label>
 							
 							<i class="glyphicon glyphicon-user"></i>
 						
@@ -502,6 +514,7 @@ VENTANA MODAL PARA NOTIFICACION
 					<div class="input-group">
 						
 						<span class="input-group-addon">
+							<label for="regDias">Días</label>
 							
 							<i class="glyphicon glyphicon-user"></i>
 						
@@ -524,11 +537,12 @@ VENTANA MODAL PARA NOTIFICACION
 
 				</div>
 
-				<div class="form-group">
+				<div class="form-group ">
 					
 					<div class="input-group">
 						
 						<span class="input-group-addon">
+							<label for="regDetalle">Descripción</label>
 							
 							<i class="glyphicon glyphicon-user"></i>
 						

@@ -79,20 +79,21 @@ $modulos = $ventas;
 					//if($value["disponible"] != 0){
 
 					echo '<li class="col-md-2 col-sm-6 col-xs-12">
-
+							<div class="sombra paddingproducto">
 							<figure>
-								
 								<a href="'.$value["ruta"].'" class="pixelProducto" >
 									
 									<center>
+									<a class="popper" href="'.$value["ruta"].'">
 									<img src="'.$servidor.$value["portada"].'" class="img-responsive" width="100%">
+									</a></br>
 									</center>
 
 								</a>
 
 							</figure>
 
-							<h4>
+							<h4 style="padding-bottom:5px;">
 					
 								<small>
 									
@@ -122,8 +123,9 @@ $modulos = $ventas;
 
 								</small>			
 
-							</h4>';
-							
+							</h4>
+							</div>
+							';
 
 						echo '</li>';
 

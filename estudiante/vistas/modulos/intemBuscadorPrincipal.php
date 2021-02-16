@@ -31,21 +31,21 @@
 			BLOQUE CATEGORÍAS Y BUSCADOR
 			======================================-->
 
-			<div class="col-lg-10 col-sm-12 col-xs-12">
+			<div class="col-lg-10 col-sm-12 col-xs-12 box">
 				
 				<!--=====================================
 				BUSCADOR
 				======================================-->
 				
-				<div class="input-group col-xs-12" id="buscador">
+				<div class="input-group col-xs-12 container-4" id="buscador">
 					
-					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
+					<input type="search" name="buscar" class="" placeholder="Buscar..." id= "search">	
 					
 					<span class="input-group-btn">
 						
 						<a href="<?php echo $url; ?>buscador/1/recientes">
 
-							<button class="btn btn-default transparente colorFond" type="submit">
+							<button class="icon" type="submit">
 								
 								<i class="fa fa-search"></i>
 

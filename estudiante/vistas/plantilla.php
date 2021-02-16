@@ -227,6 +227,5 @@ JAVASCRIPT PERSONALIZADO
 <script src="<?php echo $url; ?>vistas/js/usuarios.js"></script>
 <script src="<?php echo $url; ?>vistas/js/notificacion.js"></script>
 <script src="<?php echo $url; ?>vistas/js/visitas.js"></script>
-
 </body>
 </html>
