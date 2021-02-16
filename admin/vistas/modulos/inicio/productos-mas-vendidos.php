@@ -1,8 +1,10 @@
 <?php
 
-$productos = ControladorArticulos::ctrMostrarUltimosArticulos("prestados",10);
+$productos = ControladorProductos::ctrMostrarTotalProductos("ventas");
 
-$colores = array("#7FFF00","#32CD32","#FFD700","#00BFFF","#9932CC","#FF8C00","#A9A9A9","#9ACD32","#4169E1","#FF1493");
+$colores = array("red","green","yellow","aqua","purple");
+
+$totalVentas = ControladorProductos::ctrMostrarSumaVentas();
 
 ?>
 
@@ -17,7 +19,7 @@ PRODUCTOS MÁS VENDIDOS
 	<!-- box-header -->
   	<div class="box-header with-border">
   
-    	<h3 class="box-title">Articulos más demandados</h3>
+    	<h3 class="box-title">Productos más vendidos</h3>
 
     	<div class="box-tools pull-right">
       
@@ -40,7 +42,7 @@ PRODUCTOS MÁS VENDIDOS
 	        
 	        <div class="chart-responsive">
 	          
-	          <canvas id="pieChartPRODUC" height="200"></canvas>
+	          <canvas id="pieChart" height="150"></canvas>
 	        
 	        </div>
 
@@ -54,19 +56,13 @@ PRODUCTOS MÁS VENDIDOS
 
           <?php
 
-          foreach ($productos as $i => $valor) {
+          for($i = 0; $i < 5; $i++){
 
-              echo '<li style="font-weight: bold;text-transform: uppercase;color:'.$colores[$i].';"><i class="fa fa-circle-o" ></i>  
-              <a href="'.$productos[$i]["ruta"].'" style="font-weight: bold;text-transform: uppercase;color:#909090;"> '.$productos[$i]["titulo"].'
-              <span class="pull-right" style="color:'.$colores[$i].';"> '.$productos[$i]["prestados"].'</span>
-              
-              </a></li>';
-          
+              echo '<li><i class="fa fa-circle-o text-'.$colores[$i].'"></i> '.$productos[$i]["titulo"].'</li>';
           }
 
           ?>
 	        
-
 	        </ul>
 	      
 	      </div>
@@ -78,6 +74,30 @@ PRODUCTOS MÁS VENDIDOS
   	</div>
   	<!-- /.box-body -->
 
+  	<!-- box-footer -->
+  	<div class="box-footer no-padding">
+    
+	    <!-- nav-pills -->
+	    <ul class="nav nav-pills nav-stacked">
+
+      <?php
+
+        for($i = 0; $i < 5; $i++){
+
+            echo '<li>        
+                    <a href="#">'.$productos[$i]["titulo"].'
+                    <span class="pull-right text-'.$colores[$i].'"> '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%</span></a>
+                </li>';
+        }
+
+      ?>
+
+	    </ul>
+	    <!-- nav-pills -->
+
+  	</div>
+  	<!-- /.footer -->
+
 </div>
 <!-- box -->
 
@@ -87,16 +107,16 @@ PRODUCTOS MÁS VENDIDOS
   // - PIE CHART -
   // -------------
   // Get context with jQuery - using jQuery's .get() method.
-  var pieChartCanvas = $('#pieChartPRODUC').get(0).getContext('2d');
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
   var pieChart       = new Chart(pieChartCanvas);
   var PieData        = [
 
   <?php
 
-  foreach ($productos as $i => $valor) {
+  for($i = 0; $i < 5; $i++){
 
     echo "{
-      value    : ".$productos[$i]["prestados"].",
+      value    : ".$productos[$i]["ventas"].",
       color    : '".$colores[$i]."',
       highlight: '".$colores[$i]."',
       label    : '".$productos[$i]["titulo"]."'
@@ -118,9 +138,9 @@ PRODUCTOS MÁS VENDIDOS
     // Number - The width of each segment stroke
     segmentStrokeWidth   : 1,
     // Number - The percentage of the chart that we cut out of the middle
-    percentageInnerCutout: 0, // This is 0 for Pie charts
+    percentageInnerCutout: 50, // This is 0 for Pie charts
     // Number - Amount of animation steps
-    animationSteps       : 150,
+    animationSteps       : 100,
     // String - Animation easing effect
     animationEasing      : 'easeOutBounce',
     // Boolean - Whether we animate the rotation of the Doughnut

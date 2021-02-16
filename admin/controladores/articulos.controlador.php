@@ -30,21 +30,6 @@ class ControladorArticulos{
 
 	}
 
-
-	/*=============================================
-	MOSTRAR 5 ULTIMOS ARTICULOS
-	=============================================*/
-
-	static public function ctrMostrarUltimosArticulos($orden, $tope){
-
-		$tabla = "detallearticulo";
-
-		$respuesta = ModeloArticulos::mdlMostrarUltimosArticulos($tabla, $orden, $tope);
-
-		return $respuesta;
-
-	}
-
 	
 
 	/*=============================================
@@ -687,7 +672,7 @@ class ControladorArticulos{
 
 
 	/*=============================================
-	ELIMINAR COD ART
+	ELIMINAR CATEGORIA
 	=============================================*/
 
 	static public function ctrEliminarCodArticulo(){
@@ -790,8 +775,7 @@ class ControladorArticulos{
 						"nombreUsuario"=>$datos["nombreUsuario"],
 						"codUsuario"=>$datos["codUsuario"],
 						"selecDiasPrestamo"=>$datos["selecDiasPrestamo"],
-						"estado"=>1,
-						"idDetalleArticulo"=>$datos["idDetalleArticulo"]
+						"estado"=>1
 				);
 
 				$respuesta = ModeloArticulos::mdlIngresarPrestamo("prestamos", $datosPrestamo);
@@ -860,63 +844,6 @@ class ControladorArticulos{
 		return $respuesta;
 	
 	}
-
-
-	/*=============================================
-	BUSCAR ARTICULOS
-	=============================================*/
-
-	static public function ctrBuscarPrestamo($item, $valor){
-
-		$tabla = "prestamos";
-
-		$respuesta = ModeloArticulos::mdlBuscarPrestamo($tabla, $item, $valor);
-
-		return $respuesta;
-	
-	}
-
-	/*=============================================
-	CONT COD PRESTADOS
-	=============================================*/
-
-	static public function ctrContarCodIdPrestamo($item, $valor){
-
-		$tabla = "prestamosarticulos";
-
-		$respuesta = ModeloArticulos::mdlContarCodIdPrestamo($tabla, $item, $valor);
-
-		return $respuesta;
-	
-	}
-
-	/*=============================================
-	MOSTRAR ARTICULOS
-	=============================================*/
-
-	static public function ctrMostrarArticulosCodPrestados($item, $valor){
-
-		$tabla = "prestamosarticulos";
-
-		$respuesta = ModeloArticulos::mdlMostrarArticulosCodPrestados($tabla, $item, $valor);
-
-		return $respuesta;
-	
-	}
-
-
-	/*=============================================
-	ELIMINAR COD IDPRESTAMO
-	=============================================*/
-
-	static public function ctrEliminarCodIdPrestamo($idPrestamo){
-
-			$respuesta = ModeloArticulos::mdlEliminarCodIdPrestamo("prestamosarticulos", $idPrestamo);
-			
-			return $respuesta;
-
-	}
-
 
 	
 }

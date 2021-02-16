@@ -51,17 +51,29 @@ $url = Ruta::ctrRuta();
 
 	     	if($usuarios[$i]["foto"] != ""){
 
-		     	
-				echo '<li>
-					      <img src="'.$url.$usuarios[$i]["foto"].'" alt="User Image" style="width:150px">
+		     	if($usuarios[$i]["modo"] != "directo"){
+
+			     	echo '<li>
+					      <img src="'.$usuarios[$i]["foto"].'" alt="User Image" style="width:100px">
 					      <a class="users-list-name" href="">'.$usuarios[$i]["nombre"].'</a>
 					      <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
 					      </li>';
 
+				}else{
+
+
+			     	echo '<li>
+					      <img src="'.$url.$usuarios[$i]["foto"].'" alt="User Image" style="width:100px">
+					      <a class="users-list-name" href="">'.$usuarios[$i]["nombre"].'</a>
+					      <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
+					      </li>';
+
+				}
+
 			}else{
 
 				 echo ' <li>
-                  <img src="vistas/img/usuarios/default/anonymous.png" alt="User Image" style="width:150px;">
+                  <img src="vistas/img/usuarios/default/anonymous.png" alt="User Image" style="width:100px;">
                   <a class="users-list-name" href="#">'.$usuarios[$i]["nombre"].'</a>
                   <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
                 </li>';

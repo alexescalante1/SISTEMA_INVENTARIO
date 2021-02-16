@@ -16,34 +16,6 @@ Class ControladorNotificacionesM{
 
 	}
 
-
-	/*=============================================
-	BUSCAR ARTICULOS
-	=============================================*/
-
-	static public function ctrBuscarNotificaciones($item, $valor){
-
-		$tabla = "notificacion";
-
-		$respuesta = ModeloNotificacionesM::mdlBuscarNotificaciones($tabla, $item, $valor);
-
-		return $respuesta;
-	
-	}
-
-	/*=============================================
-	CONT NOTIFICACIONES
-	=============================================*/
-
-	static public function ctrContarNotificaciones($tabla, $item, $valor){
-
-		$respuesta = ModeloNotificacionesM::mdlContarNotificaciones($tabla, $item, $valor);
-
-		return $respuesta;
-	
-	}
-
-
 	/*=============================================
 	ELIMINAR NOTIFICACION
 	=============================================*/
@@ -77,21 +49,7 @@ Class ControladorNotificacionesM{
 
 			}		
 
-		}else if(isset($_GET["idNotificacionPrest"])){
 
-			$datos = $_GET["idNotificacionPrest"];
-
-			$respuesta = ModeloNotificacionesM::mdlEliminarNotificacion("notificacion", $datos);
-
-			if($respuesta == "ok"){
-
-				echo'<script>
-				
-					window.location = "notificacionesM";
-				
-				</script>';
-
-			}		
 
 		}
 

@@ -35,7 +35,7 @@ class AjaxArticulo{
 
 
 	/*=============================================
-  	ESTADO COD ARTICULOS
+  	DAR DE BAJA COD ARTICULOS
  	=============================================*/	
 
  	public $estadoCodArticulo;

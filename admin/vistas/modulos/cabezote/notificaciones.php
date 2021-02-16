@@ -6,10 +6,9 @@ if($_SESSION["perfil"] != "administrador"){
 
 }
 
-$nuevasNotificaciones = ControladorNotificacionesM::ctrContarNotificaciones("notificacion","visto", 0);
-$usuariosMorosos = ControladorNotificacionesM::ctrContarNotificaciones("usuarios","verificacion", 1);
+$notificaciones = ControladorNotificaciones::ctrMostrarNotificaciones();
 
-$totalNotificaciones = $usuariosMorosos[0] + $nuevasNotificaciones[0];
+$totalNotificaciones = $notificaciones["nuevosUsuarios"] + $notificaciones["nuevasVentas"] + $notificaciones["nuevasVisitas"];
 
 ?>
 
@@ -25,12 +24,10 @@ NOTIFICACIONES
 		
 		<i class="fa fa-bell-o"></i>
 		
-		<span class="label label-success"><?php  echo $totalNotificaciones; ?></span>
+		<span class="label label-warning"><?php  echo $totalNotificaciones; ?></span>
 	
 	</a>
 	<!-- dropdown-toggle -->
-
-	
 
 	<!--dropdown-menu -->
 	<ul class="dropdown-menu">
@@ -41,23 +38,34 @@ NOTIFICACIONES
 			<!-- menu -->
 			<ul class="menu">
 
-				<!-- ventas -->
+				<!-- usuarios -->
 				<li>
+				
+					<a href="" class="actualizarNotificaciones" item="nuevosUsuarios">
 					
-					<a href="notificacionesM">
-					
-						<i class="fa fa-shopping-cart text-aqua"></i> <?php  echo $nuevasNotificaciones[0]; ?> Prestamos Pendientes
+						<i class="fa fa-users text-aqua"></i> <?php  echo $notificaciones["nuevosUsuarios"] ?> nuevos usuarios registrados
 					
 					</a>
 
 				</li>
 
-				<!-- usuarios -->
+				<!-- ventas -->
 				<li>
 				
-					<a href="usuarios">
+					<a href="" class="actualizarNotificaciones" item="nuevasVentas">
 					
-						<i class="fa fa-users text-red"></i> <?php  echo $usuariosMorosos[0]; ?> Usuarios Morosos
+						<i class="fa fa-shopping-cart text-aqua"></i> <?php  echo $notificaciones["nuevasVentas"] ?> nuevas ventas
+					
+					</a>
+
+				</li>
+				
+				<!-- visitas -->
+				<li>
+				
+					<a href="" class="actualizarNotificaciones" item="nuevasVisitas">
+					
+						<i class="fa fa-map-marker text-aqua"></i> <?php  echo $notificaciones["nuevasVisitas"] ?> nuevas visitas
 					
 					</a>
 

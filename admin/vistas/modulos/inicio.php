@@ -35,10 +35,6 @@ PÁGINA DE INICIO
 
         include "inicio/cajas-superiores.php";
 
-        echo '<div class="col-lg-12">';
-        //include "inicio/grafico-All.php";
-        echo '</div>';
-
         }
       
       ?>

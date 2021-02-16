@@ -1,158 +1,91 @@
+/*=============================================
+REDES SOCIALES
+=============================================*/
 
-#particles-js {
-	height: 100%; 
-	width: 100%;
-    position: fixed;
-    z-index: -1;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
-.form{
-	width: 100%;
-	height: 50px;
-	max-width: 100%;
-	position: relative;
-	overflow: hidden;
-}
-.form input{
-	width: 100%;
-	height: 100%;
-	background: none;
-	color: rgb(90, 90, 90);
-	padding-top: 20px;
-	border: none;
-	outline: 0px;
-}
-.form .lbl-nombre{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	border-bottom: 1px solid #c7c7c7;
-}
-
-.form .lbl-nombre:after{
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: -1px;
-	width: 100%;
-	height: 100%;
-	border-bottom: 3px solid #2b96fa;
-	transform: translateX(-100%);
-	transition: all 0.3s ease;
-}
-.text-nomb{
-	position: absolute;
-	bottom: 5px;
-	left: 0;
-	transition: all 0.3s ease;
-	color: rgb(145, 145, 145);
-}
-.form input:focus + .lbl-nombre .text-nomb,.form input:valid + .lbl-nombre .text-nomb{
-	transform: translateY(-100%);
-	font-size: 14px;
-	color: #2b96fa;
-}
-.form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after{
-	transform: translateX(0%);
-}
-
-
-.form .spanIcon{
-	transform: translateY(+50%);
-}
-
-.form input:focus + .lbl-nombre .spanIcon,.form input:valid + .lbl-nombre .spanIcon{
-	
-	color: #2b96fa;
-}
-
-
-
-
-/*** ESTILOS BOTÓN SLIDE TOP ***/
-.ov-btn-slide-top {
-	margin-top: 10px;
-	background: #fff; /* color de fondo */
-	width: 100%;
-	color: #2b96fa; /* color de fuente */
-	border: 2px solid #2b96fa; /* tamaño y color de borde */
-	padding: 10px 10px;
-	border-radius: 3px; /* redondear bordes */
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	display: inline-block;
+.redSocial{
+	width:30px;
+	height:30px;
 	text-align: center;
-}
-.ov-btn-slide-top:hover {
-color: #fff; /* color de fuente hover */
-}
-.ov-btn-slide-top::after {
-content: "";
-background: #2b96fa; /* color de fondo hover */
-position: absolute;
-z-index: -1;
-padding: 16px 20px;
-display: block;
-left: 0;
-right: 0;
-top: -100%;
-bottom: 100%;
--webkit-transition: all 0.35s;
-transition: all 0.35s;
-}
-.ov-btn-slide-top:hover::after {
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
--webkit-transition: all 0.35s;
-transition: all 0.35s;
+	line-height:30px;
 }
 
+/*FACEBOOK*/
 
-/*** ESTILOS BOTÓN SLIDE TOP ***/
-.ov-btn-slide-topBut {
-	margin-top: 10px;
-	background: #0084ff; /* color de fondo */
-	width: 200px;
-	color: #ffffff; /* color de fuente */
-	border: 2px solid #2b96fa; /* tamaño y color de borde */
-	padding: 8px 8px;
-	border-radius: 3px; /* redondear bordes */
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	display: inline-block;
-	text-align: center;
+.facebookBlanco{
+	color:white;
+	background: black;
 }
-.ov-btn-slide-topBut:hover {
-color: #fff; /* color de fuente hover */
+
+.facebookNegro{
+	color:black;
 }
-.ov-btn-slide-topBut::after {
-content: "";
-background: #2b96fa; /* color de fondo hover */
-position: absolute;
-z-index: -1;
-padding: 16px 20px;
-display: block;
-left: 0;
-right: 0;
-top: -100%;
-bottom: 100%;
--webkit-transition: all 0.15s;
-transition: all 0.15s;
+
+.facebookColor{
+	color:white;
+	background:#46639f;
 }
-.ov-btn-slide-topBut:hover::after {
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
--webkit-transition: all 0.35s;
-transition: all 0.35s;
+
+/*YOUTUBE*/
+
+.youtubeColor{
+	color:white;
+	background:#d6513e;
+}
+
+.youtubeBlanco{
+	color:white;
+	background: black;
+}
+
+.youtubeNegro{
+	color:black;
+}
+
+/*TWITTER*/
+
+.twitterColor{
+	color:white;
+	background:#0ab2e6;
+}
+
+.twitterBlanco{
+	color:white;
+	background: black;
+}
+
+.twitterNegro{
+	color:black;
+}
+
+/*GOOGLE PLUS*/
+
+.google-plusColor{
+	color:white;
+	background:#d71617;
+}
+
+.google-plusBlanco{
+	color:white;
+	background: black;
+}
+
+.google-plusNegro{
+	color:black;
+}
+
+/*INSTAGRAM*/
+
+.instagramColor{
+	color:white;
+	background:linear-gradient(45deg, #fca925, #ee1d5f,  #6350a2);
+
+}
+
+.instagramBlanco{
+	color:white;
+	background: black;
+}
+
+.instagramNegro{
+	color:black;
 }

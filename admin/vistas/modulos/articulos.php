@@ -26,16 +26,8 @@
        
       <div class="box-header with-border">
          
-       <!--
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArticulo">
           
-          Agregar Articulo
-
-        </button>
--->
-
-        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarArticulo">
-
           Agregar Articulo
 
         </button>
@@ -51,16 +43,18 @@
             <tr>
              
                <th style="width:10px">#</th>
-               <th style="width:55px">Estado</th>
+               <th>Ruta</th>
                <th>Titulo</th>
                <th>Categoria</th>
                <th>Palabras Clave</th>
+               <th>Disponible</th>
                <th>Portada</th>
                <th>Descripción</th>
                <th>Prestados</th>
                <th>Peso</th>
                <th>Precio</th>
-               <th style="width:80px">Acciones</th>
+               <th>Acciones</th>
+               <th style="width:50px">Acciones</th>
 
             </tr> 
 
@@ -92,18 +86,11 @@
     
     <div class="box-header with-border">
       
-        <!--
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-          
-          Agregar Nueva Categoria
+      <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
+        
+        Agregar Nueva Categoria
 
-        </button>
--->
-        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-
-          Agregar Nueva Categoria
-
-        </button>
+      </button>
 
     </div>
 
@@ -274,11 +261,11 @@ MODAL AGREGAR NUEVO ARTICULO
          <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
-        <div class="modal-header" style="background:#2b96fa; color:white">
+        <div class="modal-header" style="background:#3c8dbc; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">AGREGAR ARTICULO</h4>
+          <h4 class="modal-title">Agregar Articulo</h4>
 
         </div>
 
@@ -296,10 +283,13 @@ MODAL AGREGAR NUEVO ARTICULO
 
           <div class="box-body">
 
+
+
+
             <!--=====================================
             ENTRADA PARA EL TÍTULO
             ======================================-->
-    
+
             <div class="form-group">
               
                 <div class="input-group">
@@ -583,11 +573,8 @@ MODAL AGREGAR NUEVO ARTICULO
   
           <!--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                   -->
-          
-          <!--<button type="button" class="btn btn-primary guardarArticulo" style="width:100%;">GUARDAR ARTICULO</button>
-                  -->    
-          <button type="button" class="ov-btn-slide-top guardarArticulo">GUARDAR ARTICULO</button>
-          
+          <button type="button" class="btn btn-primary guardarArticulo" style="width:100%;">GUARDAR ARTICULO</button>
+
         </div>
 
        <!-- </form> -->

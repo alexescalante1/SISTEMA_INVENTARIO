@@ -1,38 +1,33 @@
+<div class="login-box">
 
-<div id="particles-js"style="background-color:#000;"></div>
+  <div class="login-logo">
+    <img src="vistas/img/plantilla/logo.png" class="img-responsive" style="padding:10px 50px;">
+  </div>
+  <!-- /.login-logo -->
 
-<div style="padding-top:10%;"></div>
-
-<div class="login-box" style="box-shadow: 0px 0px 15px #00FF63;">
-
-  <div class="login-box-body" style="border-radius:3px;">
+  <div class="login-box-body">
     
-    <div class="login-logo">
-      <img src="vistas/img/plantilla/logo.png" class="img-responsive" style="padding:10px 50px;">
-    </div>
+    <p class="login-box-msg">Ingresar al sistema</p>
 
     <form  method="post">
 
-      <div class="form-group form has-feedback">
-        <input type="text" class="form-control" name="ingEmail" required>
-        <label class="lbl-nombre">
-          <span class="text-nomb">E-mail</span>
-          <span class="glyphicon glyphicon-envelope form-control-feedback spanIcon "></span>
-        </label>
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email" name="ingEmail" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 
-      <div class="form-group form has-feedback">
-        <input type="password" class="form-control" name="ingPassword" required>
-        <label class="lbl-nombre">
-          <span class="text-nomb">Password</span>
-          <span class="glyphicon glyphicon-lock form-control-feedback spanIcon"></span>
-        </label>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" name="ingPassword" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
-      <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>-->
-
-      <button type="submit" class="ov-btn-slide-top">Ingresar</button>
-      
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+        </div>
+        <!-- /.col -->
+      </div>
 
       <?php
 
@@ -43,23 +38,8 @@
 
     </form>
 
-      <!--
-      <form class="form">
-
-        <input type="text" required>
-        <label class="lbl-nombre">
-          <span class="text-nomb">Nombre</span>
-        </label>
-
-      </form>
-      -->
-
   </div>
   <!-- /.login-box-body -->
 
 </div>
 <!-- /.login-box -->
-
-
-<script src="vistas/js/particles.min.js"></script>
-<script src="vistas/js/particula.js"></script>

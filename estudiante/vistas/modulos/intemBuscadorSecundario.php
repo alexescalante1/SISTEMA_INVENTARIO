@@ -66,8 +66,9 @@
 		
 
 		<div class="col-xs-12 " id="categorias">
-			<div class="col-lg-8 col-xs-0"></div>
-			<div class="col-lg-4 col-xs-12 listaCategorias">
+			<div class="col-lg-10 col-md-10 col-sm-8 col-xs-6"></div>
+			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 listaCategorias">
+				
 			<?php
 
 				$accesoRapido = ControladorAccesoRapido::ctrMostrarAccesoRapido();

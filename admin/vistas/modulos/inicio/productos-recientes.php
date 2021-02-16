@@ -1,6 +1,6 @@
  <?php
 
-$productos = ControladorArticulos::ctrMostrarUltimosArticulos("fecha",5);
+$productos = ControladorProductos::ctrMostrarTotalProductos("fecha");
 
  ?>
 
@@ -14,7 +14,7 @@ PRODUCTOS RECIENTES
 	<!-- box-header -->
   	<div class="box-header with-border">
     
-    	<h3 class="box-title">Articulos agregados recientemente</h3>
+    	<h3 class="box-title">Productos agregados recientemente</h3>
 
     	<div class="box-tools pull-right">
       
@@ -34,17 +34,26 @@ PRODUCTOS RECIENTES
 
 	    <?php
 
-			foreach ($productos as $clave => $valor) {
+	    	for($i = 0; $i < 5; $i++){
 
-	    		echo '<li class="item" >
+	    		echo '<li class="item">
 				        <div class="product-img">
-							<a href="'.$productos[$clave]["ruta"].'">
-							<img src="'.$productos[$clave]["portada"].'" alt="Product Image" style="height:80px;width:80px;border-radius: 5px;filter: drop-shadow(1px 1px 5px rgb(151, 151, 151));">
-							</a> 
+				          <img src="'.$productos[$i]["portada"].'" alt="Product Image">
 				        </div>
-				        <div class="product-info" style="margin-top:30px;margin-left:100px;">
-				          <a href="'.$productos[$clave]["ruta"].'" class="product-title" style="font-weight: bold;text-transform: uppercase;color:#909090;">'.$productos[$clave]["titulo"].'<span class="label label-success pull-right" style="font-size:16px">'.$productos[$clave]["fecha"].'</span></a>
-						</div>
+				        <div class="product-info">
+				          <a href="" class="product-title">'.$productos[$i]["titulo"];
+
+				       	if($productos[$i]["precio"] == 0){
+				          	
+				            echo '<span class="label label-warning pull-right">GRATIS</span></a>';
+
+				         }else{
+
+				         	echo '<span class="label label-warning pull-right">$'.$productos[$i]["precio"].'</span></a>';
+
+				        }
+				              
+				     echo '</div>
 				      </li>';
 
 	    	}
@@ -60,7 +69,7 @@ PRODUCTOS RECIENTES
   	<!-- box-footer -->
   	<div class="box-footer text-center">
     
-    	<a href="prestar" class="uppercase">Ver todos los articulos</a>
+    	<a href="productos" class="uppercase">Ver todos los productos</a>
   
   	</div>
   	<!-- box-footer -->

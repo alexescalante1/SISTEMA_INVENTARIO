@@ -43,24 +43,6 @@ class ModeloArticulos{
 
 	}
 
-	/*=============================================
-	MOSTRAR ULTIMOS ARTICULOS
-	=============================================*/	
-
-	static public function mdlMostrarUltimosArticulos($tabla, $orden, $tope){
-	
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC  LIMIT 0, $tope");
-
-		$stmt -> execute();
-
-		return $stmt -> fetchAll();
-
-		$stmt-> close();
-
-		$stmt = null;
-
-	}
-
 
 
 	/*=============================================
@@ -410,14 +392,13 @@ class ModeloArticulos{
 
 	static public function mdlIngresarPrestamo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(estado, numDocTitular, nombreTitular, plazoDias, nombrePrestamista, idDetalleArticulo) VALUES (:estado, :numDocTitular, :nombreTitular, :plazoDias, :nombrePrestamista, :idDetalleArticulo)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(estado, numDocTitular, nombreTitular, plazoDias, nombrePrestamista) VALUES (:estado, :numDocTitular, :nombreTitular, :plazoDias, :nombrePrestamista)");
 
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
 		$stmt->bindParam(":numDocTitular", $datos["codUsuario"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombreTitular", $datos["nombreUsuario"], PDO::PARAM_STR);
 		$stmt->bindParam(":plazoDias", $datos["selecDiasPrestamo"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombrePrestamista", $datos["nombrePrestamista"], PDO::PARAM_STR);
-		$stmt->bindParam(":idDetalleArticulo", $datos["idDetalleArticulo"], PDO::PARAM_STR);
 		
 		if($stmt->execute()){
 
@@ -484,40 +465,6 @@ class ModeloArticulos{
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY idPrestamo DESC");
-
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}else{
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idPrestamo DESC");
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}
-
-		$stmt -> close();
-
-		$stmt = null;
-
-
-	}
-
-
-	/*=============================================
-	BUSCAR PRESTAMO
-	=============================================*/
-
-	static public function mdlBuscarPrestamo($tabla, $item, $valor){
-
-		if($item != null){
-
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
@@ -542,88 +489,5 @@ class ModeloArticulos{
 
 
 	}
-
-
-	/*=============================================
-	CODIGO CONT PRESTAMOS
-	=============================================*/
-
-	static public function mdlContarCodIdPrestamo($tabla, $item, $valor){
-
-		$stmt = Conexion::conectar()->prepare("SELECT count(*) FROM $tabla WHERE $item = :$item");
-
-		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-		$stmt -> execute();
-
-		return $stmt -> fetch();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
-
-
-	/*=============================================
-	MOSTRAR ARTICULOS COD PRESTADOS
-	=============================================*/
-
-	static public function mdlMostrarArticulosCodPrestados($tabla, $item, $valor){
-
-		if($item != null){
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}else{
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idPrestamosArt DESC");
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}
-
-		$stmt -> close();
-
-		$stmt = null;
-
-
-	}
-
-
-	/*=============================================
-	ELIMINAR CODIGOS IDPRESTAMO
-	=============================================*/
-
-	static public function mdlEliminarCodIdPrestamo($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idPrestamo = :idPrestamo");
-
-		$stmt -> bindParam(":idPrestamo", $datos, PDO::PARAM_INT);
-
-		if($stmt -> execute()){
-
-			return "ok";
-		
-		}else{
-
-			return "error";	
-
-		}
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
-
 
 }

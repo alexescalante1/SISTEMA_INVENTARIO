@@ -9,8 +9,9 @@ class ModeloProductos{
 	=============================================*/	
 
 	static public function mdlMostrarTotalProductos($tabla, $orden){
-		
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC LIMIT 0, 5");
+	
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
+
 		$stmt -> execute();
 
 		return $stmt -> fetchAll();
@@ -18,7 +19,6 @@ class ModeloProductos{
 		$stmt-> close();
 
 		$stmt = null;
-	
 
 	}
 
