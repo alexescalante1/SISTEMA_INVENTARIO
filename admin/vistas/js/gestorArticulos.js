@@ -667,6 +667,8 @@ $(".guardarArticulo").click(function(){
 	   $(".seleccionarCategoria").val() != "" &&
 	   $(".descripcionArticulo").val() != ""){
 
+		
+
 	
 		if(arrayMFiles.length > 0 && $(".rutaArticulo").val() != ""){
 
