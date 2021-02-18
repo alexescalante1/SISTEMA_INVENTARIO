@@ -423,71 +423,100 @@ DEVOLVER PRESTAMO
             <div class="form-group row">
                
               <!-- CANTIDAD -->
+              <div class="col-md-12">
 
-              <div class="col-md-8 col-xs-12">
-  
-                <div class="panel">CANTIDAD DE ARTICULOS</div>
+                <div style="width: 60%;" class="contli">
+    
+                  <div class="panel">CANTIDAD</div>
 
-                <div class="form-group">
-                  
-                    <div class="input-group">
-                  
-                      <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+                  <div class="form-group">
+                    
+                      <div class="input-group">
+                    
+                        <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                      <input type="text" class="form-control input-lg selecNumCodigosArticuloD" readonly>
+                        <input type="text" class="form-control input-lg selecNumCodigosArticuloD" readonly>
+
+                      </div>
+
+                  </div>
+
+                </div>
+
+                <!-- DIAS -->
+
+                <div style="width: 38%;margin-left:2%;" class="contli">
+                      
+                    <div class="panel">DIAS</div>
+
+
+                    <div class="form-group">
+                    
+                      <div class="input-group">
+                    
+                        <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                        <input type="text" class="form-control input-lg selecDiasPrestamoDEV" readonly>
+
+                      </div>
 
                     </div>
+
+
 
                 </div>
 
               </div>
 
-              <!-- DIAS -->
-
-              <div class="col-md-4 col-xs-12">
-                    
-                  <div class="panel">DIAS</div>
-
-
-                  <div class="form-group">
-                  
-                    <div class="input-group">
-                  
-                      <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
-                      <input type="text" class="form-control input-lg selecDiasPrestamo" readonly>
-
-                    </div>
-
-                  </div>
-
-
-
-              </div>
-
-
             </div>
 
-                  
+
             <h5>LISTA DE ARTICULOS</h5>
 
             <div class="row" id="lista-parcelas"></div>
 
             <span id="span-modelo-listar-codigosD" style="display:none;">
 
-              <div class="form-group">
 
-                <div class="input-group">
+              <div style="width: 60%;" class="contli">
 
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-                  
-                  <input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly>
-                  
+                <div class="form-group">
+
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                    
+                    <input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly>
+                    
+                  </div>
+
                 </div>
 
               </div>
+              <div style="width: 38%;margin-left:2%;" class="contli">
+
+                <div class="input-group" style="width: 100%;">
+                  
+                  <select class="form-control input-lg seleccionarEstadoCodigoArticuloD-0">
+
+                    <option value="1">Activo</option>
+                    <option value="0">Baja</option>
+                    <option value="3">Anormal</option>
+                    
+                  </select>
+
+                </div>
+
+              </div>
+           
+
+
+
 
             </span>
+
+
+
 
             <span id="span-real-listar-codigosD"></span>
 

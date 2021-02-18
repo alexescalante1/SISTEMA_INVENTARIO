@@ -74,11 +74,9 @@ VER PRESTAMO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Devolver Prestamo</h4>
+          <h4 class="modal-title">Visualizar Prestamo</h4>
           
         </div>
-
-
 
         <!--=====================================
         CUERPO DEL MODAL

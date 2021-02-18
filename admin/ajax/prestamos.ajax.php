@@ -56,6 +56,30 @@ class AjaxPrestamo{
 
 
 	/*=============================================
+  	MOD ESTADO PRESTAMO
+ 	=============================================*/	
+
+ 	public $estadoPrestamoArt;
+	public $idprestamoDev;
+
+	public function ajaxModEstadoPrestamo(){
+
+		$tabla = "prestamos";
+
+		$item1 = "estado";
+		$valor1 = $this->estadoPrestamoArt;
+
+		$item2 = "idPrestamo";
+		$valor2 = $this->idprestamoDev;
+
+		$respuesta = ModeloArticulos::mdlActualizarArticulos($tabla, $item1, $valor1, $item2, $valor2);
+
+		echo $respuesta;
+
+	}
+
+
+	/*=============================================
   	DELETE ID PRESTAMO
  	=============================================*/	
 
@@ -262,6 +286,19 @@ if(isset($_POST["estadoCodArt"])){
 	$ModDiasPresta -> estadoCodArt = $_POST["estadoCodArt"];
 	$ModDiasPresta -> idMCodPatrimonial = $_POST["idMCodPatrimonial"];
 	$ModDiasPresta -> ajaxModCodArticulo();
+
+}
+
+/*=============================================
+PLAZO DIAS ARTICULO
+=============================================*/	
+
+if(isset($_POST["estadoPrestamoArt"])){
+	
+	$ModEstadoPresta = new AjaxPrestamo();
+	$ModEstadoPresta -> estadoPrestamoArt = $_POST["estadoPrestamoArt"];
+	$ModEstadoPresta -> idprestamoDev = $_POST["idprestamoDev"];
+	$ModEstadoPresta -> ajaxModEstadoPrestamo();
 
 }
 

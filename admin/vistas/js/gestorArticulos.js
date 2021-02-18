@@ -2663,7 +2663,7 @@ $('.tablaGestorPrestamos tbody').on("click", ".btnDevolverPrestamo", function(){
 			$("#modalDevolverPrestamo .nombrePrestamista").val(idPrestamo[0]["nombrePrestamista"]);
 			$("#modalDevolverPrestamo .nombreUsuario").val(idPrestamo[0]["nombreTitular"]);
 			$("#modalDevolverPrestamo .codUsuario").val(idPrestamo[0]["numDocTitular"]);
-			$("#modalDevolverPrestamo .selecDiasPrestamo").val(idPrestamo[0]["plazoDias"]);
+			$("#modalDevolverPrestamo .selecDiasPrestamoDEV").val(idPrestamo[0]["plazoDias"]);
 			
 			var idArticulo = idPrestamo[0]["idDetalleArticulo"];
 			
@@ -2728,7 +2728,7 @@ LISTAR CODIGOS DEVOLVER
 
 function camposCodigosDevolver(){
 	
-	$("#span-modelo-listar-codigosD").html('<div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span><input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly></div></div>');
+	$("#span-modelo-listar-codigosD").html('<div style="width: 60%;" class="contli"><div class="form-group"><div class="input-group"><span class="input-group-addon"><i class="fa fa-th"></i></span> <input class="form-control input-lg seleccionarCodigoArticuloD-0" type="text" readonly></div></div></div><div style="width: 38%;margin-left:2%;" class="contli"><div class="input-group" style="width: 100%;"><select class="form-control input-lg seleccionarEstadoCodigoArticuloD-0"><option value="1">Activo</option><option value="0">Baja</option><option value="3">Anormal</option></select></div></div>');
 
     var spantestemodelo = $('#span-modelo-listar-codigosD').html();
     var spantestemodelo_strinf = spantestemodelo.toString();
@@ -2780,32 +2780,74 @@ function camposCodigosDevolver(){
 
 
 
+/*=============================================
+DEVOLVER PRESTAMO BOTON
+=============================================*/
 
 
+$(".devolverPrestamo").click(function(){
 
+	var idPrestamo = $(".idPrestamoDEV").val();
+	var cantidadPrestamo = $(".selecNumCodigosArticuloD").val();
+	
+	for(var k=1;k<=cantidadPrestamo;k++){
 
+		var datosMCodArt = new FormData();
+		datosMCodArt.append("estadoCodArt", $('.seleccionarEstadoCodigoArticuloD-'+k).val());
+		datosMCodArt.append("idMCodPatrimonial", $('.seleccionarCodigoArticuloD-'+k).val());
 
+		$.ajax({
+				url:"ajax/prestamos.ajax.php",
+				method: "POST",
+				data: datosMCodArt,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(respuesta){
+					
+					//console.log(respuesta);
 
+				}
 
+		})
 
+	}
 
+	var datosMPrest = new FormData();
+	datosMPrest.append("estadoPrestamoArt", 0);
+	datosMPrest.append("idprestamoDev", idPrestamo);
 
+	$.ajax({
+			url:"ajax/prestamos.ajax.php",
+			method: "POST",
+			data: datosMPrest,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+				
+				if(respuesta=="ok"){
+					swal({
+						type: "success",
+						title: "Devolucion Satisfactoria",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
+						if (result.value) {
+							
+							window.location = "prestamos";
+					
+						}
+					})
+				}else{
+					alert("ERROR");
+				}
 
+			}
 
+	})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 
