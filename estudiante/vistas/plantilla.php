@@ -105,24 +105,34 @@
 	<script src="<?php echo $url; ?>vistas/js/plugins/sweetalert.min.js"></script>
 
 	<script src="<?php echo $url; ?>vistas/js/plugins/md5-min.js"></script>
-
+	
 	<script src="<?php echo $url; ?>vistas/js/plugins/dscountdown.min.js"></script>
-
+		
 	<script src="<?php echo $url; ?>vistas/js/plugins/knob.jquery.js"></script>
+	
 
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<?php 
 
-	<!--=====================================
-	Pixel de Facebook
-	======================================-->
+		/* 
+		
+		
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		
+		*/
 
-	<?php ///echo $plantilla["pixelFacebook"]; ?>
+	?>
 
 </head>
 
 <body>
 
 <?php
+
+
+if(isset($_SESSION["validarSesionUSERSIUNAP"]) && $_SESSION["validarSesionUSERSIUNAP"] === "ok"){
+
+
+
 
 /*=============================================
 CABEZOTE
@@ -212,21 +222,24 @@ if(isset($_GET["ruta"])){
 
 /*include "modulos/footer.php";*/
 
+
+echo '<input type="hidden" value="'.$url.'" id="rutaOculta">
+<script src="'.$url.'vistas/js/cabezote.js"></script>
+<script src="'.$url.'vistas/js/plantilla.js"></script>
+<script src="'.$url.'vistas/js/buscador.js"></script>
+<script src="'.$url.'vistas/js/infoproducto.js"></script>
+<script src="'.$url.'vistas/js/usuarios.js"></script>
+<script src="'.$url.'vistas/js/notificacion.js"></script>
+<script src="'.$url.'vistas/js/visitas.js"></script>';
+
+
+}else{
+
+	include "modulos/login.php";
+  
+}
+
 ?>
-
-
-<input type="hidden" value="<?php echo $url; ?>" id="rutaOculta">
-<!--=====================================
-JAVASCRIPT PERSONALIZADO
-======================================-->
-
-<script src="<?php echo $url; ?>vistas/js/cabezote.js"></script>
-<script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
-<script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
-<script src="<?php echo $url; ?>vistas/js/infoproducto.js"></script>
-<script src="<?php echo $url; ?>vistas/js/usuarios.js"></script>
-<script src="<?php echo $url; ?>vistas/js/notificacion.js"></script>
-<script src="<?php echo $url; ?>vistas/js/visitas.js"></script>
 
 </body>
 </html>

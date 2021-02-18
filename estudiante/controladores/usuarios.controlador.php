@@ -169,7 +169,7 @@ class ControladorUsuarios{
 
 						echo '<script>
 							
-							window.location = localStorage.getItem("rutaActual");
+							window.location = "inicio";
 
 						</script>';
 

@@ -87,14 +87,14 @@ body {
 }
 .content-wrapper {
   min-height: 100%;
-  background-color: #ecf0f5;
+  background-color: #ffffff;
   z-index: 800;
 }
 .main-footer {
   background: #fff;
   padding: 15px;
   color: #444;
-  border-top: 1px solid #d2d6de;
+  border-top: 1px solid #edeff1;
 }
 /* Fixed layout */
 .fixed .main-header,

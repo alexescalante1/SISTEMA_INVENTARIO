@@ -222,14 +222,6 @@ session_start();
         }
 
         if($_GET["ruta"]== "inicio" ||
-           $_GET["ruta"]== "comercio" ||
-           $_GET["ruta"]== "slide" ||
-           $_GET["ruta"]== "categorias" ||
-           $_GET["ruta"]== "subcategorias" ||
-           $_GET["ruta"]== "productos" ||
-           $_GET["ruta"]== "banner" ||
-           $_GET["ruta"]== "ventas" ||
-           $_GET["ruta"]== "visitas" ||
            $_GET["ruta"]== "usuarios" ||
            $_GET["ruta"]== "mensajes" ||
            $_GET["ruta"]== "perfiles" ||
@@ -251,8 +243,11 @@ session_start();
         else if($infoArticulosP != null){
 	
           include "modulos/infoarticulos-prestamo.php";
-          echo $infoArticulosP;
       
+        }else{
+
+          include "modulos/error404.php";
+
         }
         
 
@@ -272,6 +267,7 @@ session_start();
 
     echo '</div>';
 
+
  }else{
 
   include "modulos/login.php";
@@ -286,22 +282,20 @@ JS PERSONALIZADO
 ======================================-->
 
 <script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/gestorArticulos.js"></script>
+<script src="vistas/js/gestorUsuarios.js"></script>
+<script src="vistas/js/gestorAdministradores.js"></script>
+<script src="vistas/js/gestorNotificaciones.js"></script>
+
 <!--<script src="vistas/js/gestorComercio.js"></script>-->
 <!--<script src="vistas/js/gestorSlide.js"></script>-->
 <!--<script src="vistas/js/gestorCategorias.js"></script>-->
 <!--<script src="vistas/js/gestorSubCategorias.js"></script>-->
 <!--<script src="vistas/js/gestorProductos.js"></script>-->
-
-
-<script src="vistas/js/gestorArticulos.js"></script>
-
-
 <!--<script src="vistas/js/gestorBanner.js"></script>-->
 <!--<script src="vistas/js/gestorVentas.js"></script>-->
 <!--<script src="vistas/js/gestorVisitas.js"></script>-->
-<script src="vistas/js/gestorUsuarios.js"></script>
-<script src="vistas/js/gestorAdministradores.js"></script>
-<script src="vistas/js/gestorNotificaciones.js"></script>
+
 
 </body>
 </html>
