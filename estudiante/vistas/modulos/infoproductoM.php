@@ -173,7 +173,7 @@ INFOARTICULOS
 									value    : ".$CantDisponible[0].",
 									color    : '#5AB0FF',
 									highlight: '#5AB0FF',
-									label    : 'Disponible'
+									label    : 'Disponibles'
 								},
 								{
 									value    : ".$CantPrestados[0].",
@@ -376,10 +376,6 @@ INFOARTICULOS
 
 
 
-
-
-
-
 <!--=====================================
 VENTANA MODAL PARA NOTIFICACION
 ======================================-->
@@ -424,6 +420,7 @@ VENTANA MODAL PARA NOTIFICACION
 
 				</div>
 -->
+				
 				
 
 				<div class="form-group">

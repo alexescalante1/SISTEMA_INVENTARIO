@@ -42,7 +42,7 @@ HEADER
 header #btnCategorias{
 	margin-top: -33px;
 }
-
+/*
 header #buscador{
 	margin:10px 0;
 }
@@ -58,7 +58,7 @@ header #buscador button{
 	border-radius:30px;
 	outline: none;
 }
-
+*/
 header #categorias{
 	display:none;
 	margin-top:-10px;
@@ -226,9 +226,9 @@ MOVIL (XS revisamos en 320px)
 		margin-bottom:10px;
 	}
 
-	header #buscador{
+	/*header #buscador{
 		margin-bottom:10px;
-	}
+	}*/
 
 	header #carrito{
 		margin:0px;
@@ -238,4 +238,105 @@ MOVIL (XS revisamos en 320px)
 		margin-top:-15px;
 	}
 	
+}
+
+
+/*=============================================
+BUSCADOR
+=============================================*/
+
+
+.buscadorInpt{
+	display: inline-block;
+	font-size: 20px;
+	box-sizing: border-box;
+	transition: .5s;
+}
+
+
+.buscadorInpt::-webkit-input-placeholder {
+	color: rgb(190, 190, 190);
+  }
+  
+.nameBusq{
+	background: rgb(240, 240, 240);
+	width: 88%;
+	height: 50px;
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-radius: 25px 0 0 25px;
+	border-color: rgb(90, 194, 255);
+	color: rgb(0, 101, 233);
+}
+
+.nameBusq:focus{
+	background: rgb(255, 255, 255);
+	border-style: solid;
+	border-color: rgb(90, 194, 255);
+	color: rgb(90, 194, 255);
+}
+
+.btnBusq{
+	background: rgb(240, 240, 240);
+	position: relative;
+	left: -4px;
+	width: 5%;
+	height: 50px;
+	border: none;
+	outline: none;
+	padding-top: 4.2px;
+	cursor: pointer;
+	transition: .5s;
+	color: rgb(64, 179, 255);
+}
+
+.btnBusq:hover{
+	background: rgb(90, 194, 255);
+	color: white;
+	transition: .5s;
+}
+
+.btnCatBusq{
+	background: rgb(240, 240, 240);
+	position: relative;
+	left: -9px;
+	width: 5%;
+	height: 50px;
+	border: none;
+	outline: none;
+	padding-top: 4.2px;
+	border-radius: 0 25px 25px 0;
+	cursor: pointer;
+	transition: .5s;
+	color: rgb(64, 179, 255);
+}
+
+.btnCatBusq:hover{
+	background: rgb(42, 255, 124);
+	color: white;
+	transition: .5s;	
+}
+
+/*=============================================
+MOVIL (XS revisamos en 320px)
+=============================================*/
+
+@media (max-width:767px){
+
+	.nameBusq{
+		
+		width: 76%;
+
+	}
+	.btnBusq{
+		
+		width: 10%;
+
+	}
+	.btnCatBusq{
+		
+		width: 10%;
+		
+	}
 }

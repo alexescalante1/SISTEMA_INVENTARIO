@@ -35,7 +35,7 @@ BARRA PRODUCTOS
 
 			</ul>
 
-			<div class="col-sm-6 col-xs-12">
+			<div class="col-sm-6 col-xs-6">
 				
 				<div class="btn-group">
 					
@@ -58,7 +58,7 @@ BARRA PRODUCTOS
 
 			</div>
 			
-			<div class="col-sm-6 col-xs-12 organizarProductos">
+			<div class="col-sm-6 col-xs-6 organizarProductos">
 
 				<div class="btn-group pull-right">
 

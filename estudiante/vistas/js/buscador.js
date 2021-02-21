@@ -14,10 +14,13 @@ $("#buscador a").click(function(){
 
 $("#buscador input").change(function(){
 
+	
 	var busqueda = $("#buscador input").val();
 
 	var expresion = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
-
+	
+	
+	
 	if(!expresion.test(busqueda)){
 
 		$("#buscador input").val("");
@@ -28,20 +31,22 @@ $("#buscador input").change(function(){
 
 		var rutaBuscador = $("#buscador a").attr("href");
 
-		if($("#buscador input").val() != ""){
+		var limpiar = rutaBuscador.replace(/recientes[/\w]*/g,'recientes/');
 
-			$("#buscador a").attr("href", rutaBuscador+"/"+evaluarBusqueda);
+		if($("#buscador input").val() != ""){
+			
+			$("#buscador a").attr("href", limpiar+"/"+evaluarBusqueda);
+			
 
 		}else{
 
-
 			$("#buscador a").attr("href", "inicio");
+
 		}
 
-
-
-
 	}
+	
+	 
 
 })
 

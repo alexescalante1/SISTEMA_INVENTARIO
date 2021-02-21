@@ -16,7 +16,7 @@
       <div class="form-group form has-feedback">
         <input type="text" id="ingUser" name="ingUser" required>
         <label class="lbl-nombre">
-          <span class="text-nomb">E-mail</span>
+          <span class="text-nomb">Usuario</span>
           <span class="glyphicon glyphicon-envelope form-control-feedback spanIcon "></span>
         </label>
       </div>
