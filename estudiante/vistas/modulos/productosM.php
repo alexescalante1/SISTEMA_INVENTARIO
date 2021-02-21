@@ -28,19 +28,26 @@ BARRA PRODUCTOS
 		
 		<div class="row">
 
+			<ul class="text-uppercase rutaraiz" >
+				
+				<li style="float: left;"><a href="<?php echo $url;  ?>">INICIO </a></li>
+				<li style="float: left;" class="active pagActiva"> / <?php echo $rutas[0] ?></li>
+
+			</ul>
+
 			<div class="col-sm-6 col-xs-12">
 				
 				<div class="btn-group">
 					
-					 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					 <button type="button" class="btn btn-default dropdown-toggle botonPlusNormal" data-toggle="dropdown">
 
 					  Ordenar Productos <span class="caret"></span></button>
 
-					  <ul class="dropdown-menu" role="menu">
+					  <ul class="dropdown-menu botonPlusList" role="menu">
 
 					  <?php
 					  	
-						echo '<li><a href="'.$url.$rutas[0].'/1/recientes">Más destacado</a></li>
+						echo '<li class="ListBtns"><a href="'.$url.$rutas[0].'/1/recientes">Más destacado</a></li>
 							  <li><a href="'.$url.$rutas[0].'/1/antiguos">Menos destacado</a></li>';
 
 						?>
@@ -55,7 +62,7 @@ BARRA PRODUCTOS
 
 				<div class="btn-group pull-right">
 
-					 <button type="button" class="btn btn-default btnGrid" id="btnGrid0">
+					 <button type="button" class="btn btn-default btnGrid botonPlusNormal" style="outline: none;" id="btnGrid0">
 					 	
 						<i class="fa fa-th" aria-hidden="true"></i>  
 
@@ -63,9 +70,9 @@ BARRA PRODUCTOS
 
 					 </button>
 
-					 <button type="button" class="btn btn-default btnList" id="btnList0">
+					 <button type="button" class="btn btn-default btnList botonPlusNormal" style="outline: none;" id="btnList0">
 					 	
-						<i class="fa fa-list" aria-hidden="true"></i> 
+						<i class="fa fa-list" aria-hidden="true"></i>
 
 						<span class="col-xs-0 pull-right"> LIST</span>
 
@@ -119,16 +126,6 @@ LISTAR PRODUCTOS
 		
 		<div class="row">
 
-			<!--=====================================
-			BREADCRUMB O MIGAS DE PAN
-			======================================-->
-
-			<ul class="breadcrumb fondoBreadcrumb text-uppercase">
-				
-				<li><a href="<?php echo $url;  ?>">INICIO</a></li>
-				<li class="active pagActiva"><?php echo $rutas[0] ?></li>
-
-			</ul>
 
 			<?php
 
@@ -166,14 +163,14 @@ LISTAR PRODUCTOS
 
 				}
 
-				$base = ($rutas[1] - 1)*12;
-				$tope = 12;
+				$base = ($rutas[1] - 1)*24;
+				$tope = 24;
 
 			}else{
 
 				$rutas[1] = 1;
 				$base = 0;
-				$tope = 12;
+				$tope = 24;
 				$modo = "DESC";
 				$_SESSION["ordenar"] = "DESC";
 
@@ -224,10 +221,9 @@ LISTAR PRODUCTOS
 				echo '<ul class="grid0">';
 
 					foreach ($productos as $key => $value) {
-
-					//if($value["disponible"] != 0){
 					
-						echo '<li class="col-md-2 col-sm-2 col-xs-12">
+						echo '<div class="col-md-2 col-sm-2 col-xs-12">
+							<li class=" sombra marginProducto">
 
 							<figure>
 								
@@ -239,13 +235,13 @@ LISTAR PRODUCTOS
 
 							</figure>
 
-							<h4>
+							<h4 style="height:50px;">
 					
-								<small>
-									
-									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+								<small >
+											
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto" >
 										
-										'.$value["titulo"].'<br>
+										'.$value["titulo"].'
 
 										<span style="color:rgba(0,0,0,0)">-</span>';
 
@@ -255,9 +251,9 @@ LISTAR PRODUCTOS
 
 							</h4>
 
-						</li>';
+						</li>
+					</div>';
 
-					//}
 				}
 
 				echo '</ul>
@@ -292,7 +288,7 @@ LISTAR PRODUCTOS
 
 								<small>
 		
-									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto textoInfoArt text-uppercase">
 										
 										'.$value["titulo"].'<br>';
 
@@ -300,21 +296,13 @@ LISTAR PRODUCTOS
 
 								</small>
 
-							</h1>';
-
-							echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
-
-							echo '<div class="btn-group pull-left enlaces">
-						  	
-						  		<button type="button" class="btn btn-default btn-xs deseos"  idProducto="'.$value["idDetalleArticulo"].'" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-						  			<i class="fa fa-heart" aria-hidden="true"></i>
-
-						  		</button>';
-
-						  		echo '
-							
-							</div>
+							</h1>
+							<p style="text-align: justify;">
+								'.$value["descripcion"].'
+							</p>
+							<h2>
+								<small>USD $'.$value["precio"].'</small>
+							</h2>
 
 						</div>
 
@@ -364,7 +352,7 @@ LISTAR PRODUCTOS
 
 				if(count($listaProductos) != 0){
 
-					$pagProductos = ceil(count($listaProductos)/12);
+					$pagProductos = ceil(count($listaProductos)/24);
 
 					if($pagProductos > 4){
 

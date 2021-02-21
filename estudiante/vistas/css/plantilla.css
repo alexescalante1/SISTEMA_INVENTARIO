@@ -38,93 +38,6 @@ a:visited, a:link, a:focus, a:hover, a:active{
 }
 
 /*=============================================
-REDES SOCIALES
-=============================================*/
-
-.redSocial{
-	width:30px;
-	height:30px;
-	text-align: center;
-	line-height:30px;
-}
-
-/*FACEBOOK*/
-
-.facebookBlanco{
-	color:white;
-}
-
-.facebookNegro{
-	color:black;
-}
-
-.facebookColor{
-	color:white;
-	background:#46639f;
-}
-
-/*YOUTUBE*/
-
-.youtubeColor{
-	color:white;
-	background:#d6513e;
-}
-
-.youtubeBlanco{
-	color:white;
-}
-
-.youtubeNegro{
-	color:black;
-}
-
-/*TWITTER*/
-
-.twitterColor{
-	color:white;
-	background:#0ab2e6;
-}
-
-.twitterBlanco{
-	color:white;
-}
-
-.twitterNegro{
-	color:black;
-}
-
-/*GOOGLE PLUS*/
-
-.googleColor{
-	color:white;
-	background:#d71617;
-}
-
-.googleBlanco{
-	color:white;
-}
-
-.googleNegro{
-	color:black;
-}
-
-/*INSTAGRAM*/
-
-.instagramColor{
-	color:white;
-	background:linear-gradient(45deg, #fca925, #ee1d5f,  #6350a2);
-
-}
-
-.instagramBlanco{
-	color:white;
-}
-
-.instagramNegro{
-	color:black;
-}
-
-/*=============================================
 ERROR 404, VERIFICAR
 =============================================*/
 
@@ -138,9 +51,9 @@ SCROLL UP
 #scrollUp{
 	bottom: 20px;
 	right: 20px;
-	width: 40px;
-	height: 40px;
-	border-radius: 30px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
 	background: url(../img/plantilla/flecha.jpg);
 }
 
@@ -236,14 +149,6 @@ MOVIL (XS revisamos en 320px)
 	}
 
 }
-
-
-
-
-
-
-
-
 
 
 

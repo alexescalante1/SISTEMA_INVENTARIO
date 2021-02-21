@@ -1,11 +1,27 @@
 /*=============================================
 INFOPRODUCTO
 =============================================*/
+.visor{
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.sinborde{
+	border: none;
+}
+
+.carruselimg{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
 
 .infoproducto figure.visor img{
 	display:none;
 	cursor:crosshair;
-
+	border-radius: 5px;
+	border: none;
 }
 
 .infoproducto figure.visor img:first-child{
@@ -14,6 +30,7 @@ INFOPRODUCTO
 
 .flexslider{
 	cursor: pointer;
+	margin-bottom: 20px;
 }
 
 .lupa{
@@ -22,6 +39,8 @@ INFOPRODUCTO
 	top:0;
 	left:0;
 	overflow:hidden;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.63);
 }
 
 .lupa img{
@@ -49,13 +68,6 @@ INFOPRODUCTO
 
 }
 
-.btnFacebook{
-	background:#46639f;
-}
-
-.btnGoogle{
-	background:#d6513e;
-}
 
 .alturaComentarios{
 	height:300px;

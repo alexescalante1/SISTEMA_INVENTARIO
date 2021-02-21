@@ -14,10 +14,10 @@ BREADCRUMB INFOARTICULOS
 		
 		<div class="row">
 			
-			<ul class="breadcrumb fondoBreadcrumb text-uppercase">
+			<ul class="text-uppercase rutaraiz" >
 				
-				<li><a href="<?php echo $url;  ?>">INICIO</a></li>
-				<li class="active pagActiva"><?php echo $rutas[0] ?></li>
+				<li style="float: left;"><a href="<?php echo $url;  ?>">INICIO </a></li>
+				<li style="float: left;" class="active pagActiva"> / <?php echo $rutas[0] ?></li>
 
 			</ul>
 
@@ -48,12 +48,10 @@ INFOARTICULOS
 				/*=============================================
 				VISOR DE IMÁGENES
 				=============================================*/
-/*
-				if($infoproducto["tipo"] == "fisico"){
-*/
-					echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg">
+
+					echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg ">
 						
-							<figure class="visor">';
+							<figure class="visor sombra">';
 
 							if($mda != null){
 
@@ -65,14 +63,14 @@ INFOARTICULOS
 
 								echo '</figure>
 
-								<div class="flexslider">
+								<div class="flexslider sombra">
 								  
-								  <ul class="slides">';
+								  <ul class="slides ">';
 
 								for($i = 0; $i < count($mda); $i ++){
 
-									echo '<li>
-								     	<img value="'.($i+1).'" class="img-thumbnail" src="'.$servidor.$mda[$i]["foto"].'" alt="'.$infoarticulo["titulo"].'">
+									echo '<li class="carruselimg">
+								     	<img value="'.($i+1).'" class="img-thumbnail sombra sinborde" src="'.$servidor.$mda[$i]["foto"].'" alt="'.$infoarticulo["titulo"].'">
 								    </li>';
 
 								}
@@ -84,21 +82,7 @@ INFOARTICULOS
 							</div>
 
 						</div>';			
-/*
-				}else{
 
-					/*=============================================
-					VISOR DE VIDEO
-					=============================================*/
-/*
-					echo '<div class="col-sm-6 col-xs-12">
-							
-						<iframe class="videoPresentacion" src="https://www.youtube.com/embed/'.$infoproducto["multimedia"].'?rel=0&autoplay=0" width="100%" frameborder="0" allowfullscreen></iframe>
-
-					</div>';
-
-				}			
-*/
 			?>
 
 			<!--=====================================
@@ -106,39 +90,11 @@ INFOARTICULOS
 			======================================-->
 
 			<?php
-/*
-				if($infoproducto["tipo"] == "fisico"){
-*/
+
+
 					echo '<div class="col-md-7 col-sm-6 col-xs-12">';
-/*
-				}else{
 
-					echo '<div class="col-sm-6 col-xs-12">';
-				}
-*/
 			?>
-
-				<!--=====================================
-				REGRESAR A INICIO
-				======================================-->
-				<!--
-				<div class="col-xs-6">
-					
-					<h6>
-						
-						<a href="javascript:history.back()" class="text-muted">
-							
-							<i class="fa fa-reply"></i> REGRESAR
-
-						</a>
-
-					</h6>
-
-				</div>
-				-->
-				<!--=====================================
-				COMPARTIR EN REDES SOCIALES
-				======================================-->
 
 				<div class="clearfix"></div>
 
@@ -155,17 +111,15 @@ INFOARTICULOS
 
 					if($fechaNueva > $infoarticulo["fecha"]){
 
-						echo '<h1 class="text-muted text-uppercase">'.$infoarticulo["titulo"].'</h1>';
+						echo '<h1 class="textoInfoArt text-uppercase">'.$infoarticulo["titulo"].'</h1>';
 
 					}else{
 
-						echo '<h1 class="text-muted text-uppercase">'.$infoarticulo["titulo"].'
-
-						<br>
+						echo '<h1 class="textoInfoArt text-uppercase">'.$infoarticulo["titulo"].'
 
 						<small>
 					
-							<span class="label label-warning">Nuevo</span>
+							<span class="label label-success" style="font-size:11px;">Nuevo</span>
 
 						</small>
 
@@ -187,30 +141,72 @@ INFOARTICULOS
 				
 				<br>
 				
-				<div class="col-md-6 col-sm-0 col-xs-0" style="display: table-cell;vertical-align: middle;text-align: center;">
-				<?php
+				<div class="col-md-12 col-sm-0 col-xs-0" style="display: table-cell;vertical-align: middle;text-align: center;">
+				
+					<canvas id="pieDisponibleArt" height="250"></canvas>
 
-					$CantDisponible = ControladorArticulos::ctrContarCodArticulos("estado", 1, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
-					$CantPrestados = ControladorArticulos::ctrContarCodArticulos("estado", 2, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
-					
-					$CantTotal = $CantDisponible[0]+$CantPrestados[0];
+					<?php
 
-					if($CantTotal){
+						$CantDisponible = ControladorArticulos::ctrContarCodArticulos("estado", 1, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+						$CantPrestados = ControladorArticulos::ctrContarCodArticulos("estado", 2, "idDetalleArticulo", $infoarticulo["idDetalleArticulo"]);
+
+					?>
+
+					<script>
 						
-						echo '
-						<input type="text" class="knob" value="'.round( ($CantDisponible[0]*100)/$CantTotal, 1, PHP_ROUND_HALF_UP).'" data-width="220" data-height="220" data-fgcolor="#5AB0FF" data-readonly="true">
+						var pieChartCanvas = $('#pieDisponibleArt').get(0).getContext('2d');
+						var pieChart       = new Chart(pieChartCanvas);
+						
+						var PieData        = [
+					
+						<?php
+								
+								if($CantDisponible[0]==0&&$CantPrestados[0]==0){
+									echo "{
+										value    : 1,
+										color    : '#989898',
+										highlight: '#989898',
+										label    : 'Sin articulos'
+									},";
+								}
+								echo "{
+									value    : ".$CantDisponible[0].",
+									color    : '#5AB0FF',
+									highlight: '#5AB0FF',
+									label    : 'Disponible'
+								},
+								{
+									value    : ".$CantPrestados[0].",
+									color    : '#FF4C4C',
+									highlight: '#FF4C4C',
+									label    : 'Prestados'
+								},";
+					
+						?>
+							
+						];
+					
+						var pieOptions     = {
+							segmentShowStroke    : true,
+							segmentStrokeColor   : '#fff',
+							segmentStrokeWidth   : 1,
+							percentageInnerCutout: 1,
+							animationSteps       : 150,
+							animationEasing      : 'easeOutBounce',
+							animateRotate        : true,
+							animateScale         : false,
+							responsive           : false,
+							maintainAspectRatio  : false,
+							legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
+							tooltipTemplate      : '<%=value %> <%=label%>'
+						};
+					
+						pieChart.Doughnut(PieData, pieOptions);
+					
+					</script>
 
-						<p class="text-muted text-center" style="font-size:14px"> '.round( ($CantDisponible[0]*100)/$CantTotal, 1, PHP_ROUND_HALF_UP).'% DISPONIBLE</p>';
-
-					}else{
-						echo '
-						<input type="text" class="knob" value="0" data-width="220" data-height="220" data-fgcolor="blue" data-readonly="true">
-
-						<p class="text-muted text-center" style="font-size:14px"> 0% DISPONIBLE</p>';
-					}
-
-				?>
 				</div>
+
 
 
 				<div class="form-group row">
@@ -249,16 +245,16 @@ INFOARTICULOS
 
 				<?php
 
-					echo '<div class="col-md-6 col-xs-12">';
+					//echo '<div class="col-md-6 col-xs-12">';
 
-					if($CantTotal){
+					if($CantDisponible[0]>0){
 						if(isset($_SESSION["validarSesionUSERSIUNAP"]) && $_SESSION["validarSesionUSERSIUNAP"] == "ok"){
 
 							if($infoarticulo["disponible"]){
 	
-								echo '<a href="#modalNotificacion" data-toggle="modal">
+								echo '<a href="#modalNotificacion" data-toggle="modal" >
 	
-								<button class="btn btn-default btn-block btn-lg backColor">SOLICITAR AHORA</button>
+								<button class="btn btn-default btn-block btn-lg backColor" >SOLICITAR AHORA</button>
 	
 								</a>';
 	
@@ -286,7 +282,7 @@ INFOARTICULOS
 							</a>';
 					}
 
-					echo '</div>';
+					//echo '</div>';
 
 				?>
 
@@ -309,7 +305,7 @@ INFOARTICULOS
 
 
 
-
+		<br>			
 
 
 
@@ -556,5 +552,9 @@ VENTANA MODAL PARA NOTIFICACION
     </div>
 
 </div>
+
+
+
+
 
 

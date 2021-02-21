@@ -42,9 +42,6 @@ for(var i = 0; i < btnList.length; i++){
 		$(".list"+numero).hide();
 		$(".grid"+numero).show();
 
-		$("#btnGrid"+numero).addClass("backColor");
-		$("#btnList"+numero).removeClass("backColor");
-
 	})
 
 	$("#btnList"+i).click(function(){
@@ -53,9 +50,6 @@ for(var i = 0; i < btnList.length; i++){
 
 		$(".list"+numero).show();
 		$(".grid"+numero).hide();
-
-		$("#btnGrid"+numero).removeClass("backColor");
-		$("#btnList"+numero).addClass("backColor");
 
 	})
 
@@ -118,28 +112,19 @@ var url = window.location.href;
 
 var indice = url.split("/");
 
-var pagActual =indice[5];
+var pagActual =indice[6];
 
 if(isNaN(pagActual)){
 
    $("#item1").addClass("active");
-   
+
 }else{
 
    $("#item"+pagActual).addClass("active");
+   
  
 }
 
-
-
-/*=============================================
-OFERTAS
-=============================================*/
-$(".cerrarOfertas").click(function(){
-
-	$(this).parent().remove();
-
-})
 
 /*=============================================
 CONTADOR DE TIEMPO
@@ -193,19 +178,6 @@ $(".pixelSubCategorias").click(function(){
 	var titulo = $(this).attr("titulo");
 
 	fbq('track', 'Subcategoria '+titulo, {
-
-		title: titulo
-
-	})
-
-})
-
-
-$(".pixelOferta").click(function(){
-
-	var titulo = $(this).attr("titulo");
-
-	fbq('track', 'Oferta '+titulo, {
 
 		title: titulo
 

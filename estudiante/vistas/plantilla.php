@@ -92,6 +92,8 @@
 	PLUGINS DE JAVASCRIPT
 	======================================-->
 
+	<script src="<?php echo $url; ?>vistas/js/plugins/Chart.js"></script>
+	
 	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
 
 	<script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>

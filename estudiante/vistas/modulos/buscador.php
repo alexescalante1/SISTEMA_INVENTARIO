@@ -8,15 +8,22 @@ BARRA PRODUCTOS
 		
 		<div class="row">
 
+			<ul class="text-uppercase rutaraiz" >
+				
+				<li style="float: left;"><a href="<?php echo $url;  ?>">INICIO </a></li>
+				<li style="float: left;" class="active pagActiva"> / <?php echo $rutas[3] ?></li>
+
+			</ul>
+
 			<div class="col-sm-6 col-xs-12">
 				
 				<div class="btn-group">
 					
-					 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					 <button type="button" class="btn btn-default dropdown-toggle botonPlusNormal" data-toggle="dropdown">
 
 					  Ordenar Productos <span class="caret"></span></button>
 
-					  <ul class="dropdown-menu" role="menu">
+					  <ul class="dropdown-menu botonPlusList" role="menu">
 
 					  <?php
 					  	
@@ -35,7 +42,7 @@ BARRA PRODUCTOS
 
 				<div class="btn-group pull-right">
 
-					 <button type="button" class="btn btn-default btnGrid" id="btnGrid0">
+					 <button type="button" class="btn btn-default btnGrid botonPlusNormal" id="btnGrid0">
 					 	
 						<i class="fa fa-th" aria-hidden="true"></i>  
 
@@ -43,7 +50,7 @@ BARRA PRODUCTOS
 
 					 </button>
 
-					 <button type="button" class="btn btn-default btnList" id="btnList0">
+					 <button type="button" class="btn btn-default btnList botonPlusNormal" id="btnList0">
 					 	
 						<i class="fa fa-list" aria-hidden="true"></i> 
 
@@ -77,16 +84,7 @@ LISTAR PRODUCTOS
 		
 		<div class="row">
 
-			<!--=====================================
-			BREADCRUMB O MIGAS DE PAN
-			======================================-->
-
-			<ul class="breadcrumb fondoBreadcrumb text-uppercase">
-				
-				<li><a href="<?php echo $url;  ?>">INICIO</a></li>
-				<li class="active pagActiva"><?php echo $rutas[0] ?></li>
-
-			</ul>
+			
 
 			<?php
 
@@ -171,7 +169,9 @@ LISTAR PRODUCTOS
 
 					$estado = 1;
 					
-					echo '<li class="col-md-2 col-sm-2 col-xs-12">
+					echo '<div class="col-md-2 col-sm-2 col-xs-12">
+						
+						<li class="sombra marginProducto">
 
 							<figure>
 								
@@ -183,15 +183,13 @@ LISTAR PRODUCTOS
 
 							</figure>
 
-							'.$value["idDetalleArticulo"].'
-
-							<h4>
+							<h4 style="height:50px;">
 					
-								<small>
+								<small >
 									
-									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto" >
 										
-										'.$value["titulo"].'<br>
+										'.$value["titulo"].'
 
 										<span style="color:rgba(0,0,0,0)">-</span>';
 
@@ -200,7 +198,8 @@ LISTAR PRODUCTOS
 								</small>			
 
 							</h4>
-						</li>';
+						</li>
+					</div>';
 
 					//}else{
 
@@ -279,7 +278,7 @@ LISTAR PRODUCTOS
 
 								<small>
 		
-									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto textoInfoArt text-uppercase">
 										
 										'.$value["titulo"].'<br>';
 
@@ -287,21 +286,13 @@ LISTAR PRODUCTOS
 
 								</small>
 
-							</h1>';
-
-							echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
-
-							echo '<div class="btn-group pull-left enlaces">
-						  	
-						  		<button type="button" class="btn btn-default btn-xs deseos"  idProducto="'.$value["idDetalleArticulo"].'" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-						  			<i class="fa fa-heart" aria-hidden="true"></i>
-
-						  		</button>';
-
-						  		echo '
-							
-							</div>
+							</h1>
+							<p style="text-align: justify;">
+								'.$value["descripcion"].'
+							</p>
+							<h2>
+								<small>USD $'.$value["precio"].'</small>
+							</h2>
 
 						</div>
 
@@ -309,9 +300,6 @@ LISTAR PRODUCTOS
 
 					</li>';
 
-					//}else{
-
-					//	$estado = 0;	
 					//}
 
 				}

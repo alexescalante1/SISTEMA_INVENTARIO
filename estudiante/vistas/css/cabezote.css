@@ -10,13 +10,8 @@ TOP
 	display:inline;
 	line-height:10px;
 	margin:0px 5px;
-	color:white;
 }
 
-.social ul li a i{
-	font-size:18px;
-	margin:0 1px;
-}
 
 .registro ul{
 	text-align: right;
@@ -31,7 +26,7 @@ HEADER
 }
 
 .colorFondPlomo{
-	color: rgb(90, 90, 90);
+	color: rgb(75, 75, 75);
 }
 
 .transparente{
@@ -93,30 +88,9 @@ VENTANAS MODALES
 	position:absolute;
 	right:27px;
 	top:15px;
-	color:white;
+	color:rgb(255, 255, 255);
 }
 
-.modalFormulario .facebook, .modalFormulario .google{
-	cursor:pointer;
-}
-
-.modalFormulario .facebook p{
-	background:#46639f;
-}
-
-.modalFormulario .google p{
-	background:#d6513e;
-}
-
-.modalFormulario .facebook p, .modalFormulario .google p{
-	color:white;
-	text-align:center;
-	line-height:40px;
-	padding:8px;
-	font-size:18px;
-	margin-top:10px;
-	margin-bottom:20px;
-}
 
 .modalFormulario p i{
 	margin-left:-25px;
