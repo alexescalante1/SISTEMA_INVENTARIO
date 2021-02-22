@@ -386,7 +386,7 @@ VENTANA MODAL PARA NOTIFICACION
 
         <div class="modal-body modalTitulo">
 
-        	<h3 class="backColor">NOTIFICAR</h3>
+        	<h3 class="backColor">NOTIFICAR PRESTAMO</h3>
 
            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -424,32 +424,32 @@ VENTANA MODAL PARA NOTIFICACION
 				
 
 				<div class="form-group">
-					
+					<p class="formNameCamp">CODIGO</p>
 					<div class="input-group">
 						
-						<span class="input-group-addon">
+						<span class="input-group-addon iconCampForm">
 							
-							<i class="glyphicon glyphicon-user"></i>
+							<i class="glyphicon glyphicon-qrcode"></i>
 						
 						</span>
 
-						<input type="text" class="form-control" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" value="<?php echo $_SESSION["codigoUSERSIUNAP"];?>" required readonly>
+						<input type="text" class="form-control inputCamposFormBloc" id="regNumDocT" name="regNumDocT" placeholder="Numero de Documento" value="<?php echo $_SESSION["codigoUSERSIUNAP"];?>" required readonly>
 
 					</div>
 
 				</div>
 
 				<div class="form-group">
-					
+					<p class="formNameCamp">NOMBRES Y APELLIDOS</p>
 					<div class="input-group">
 						
-						<span class="input-group-addon">
+						<span class="input-group-addon iconCampForm">
 							
 							<i class="glyphicon glyphicon-user"></i>
 						
 						</span>
 
-						<input type="text" class="form-control" id="regNombreT" name="regNombreT" value="<?php echo $_SESSION["nombreUSERSIUNAP"];?>" required readonly>
+						<input type="text" class="form-control inputCamposFormBloc" id="regNombreT" name="regNombreT" value="<?php echo $_SESSION["nombreUSERSIUNAP"];?>" required readonly>
 
 					</div>
 
@@ -457,16 +457,16 @@ VENTANA MODAL PARA NOTIFICACION
 
 
 				<div class="form-group">
-					
+					<p class="formNameCamp">CANTIDAD</p>
 					<div class="input-group">
 						
-						<span class="input-group-addon">
+						<span class="input-group-addon iconCampForm">
 							
-							<i class="glyphicon glyphicon-user"></i>
+							<i class="glyphicon glyphicon-th-list"></i>
 						
 						</span>
 
-						<select class="form-control input-lg"  id="regCant" name="regCant" required>
+						<select class="form-control input-lg inputCamposForm"  id="regCant" name="regCant" required>
 
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -491,16 +491,16 @@ VENTANA MODAL PARA NOTIFICACION
 				</div>
 
 				<div class="form-group">
-					
+					<p class="formNameCamp">DIAS</p>
 					<div class="input-group">
 						
-						<span class="input-group-addon">
+						<span class="input-group-addon iconCampForm">
 							
-							<i class="glyphicon glyphicon-user"></i>
+							<i class="glyphicon glyphicon-time"></i>
 						
 						</span>
 
-						<select class="form-control input-lg"  id="regDias" name="regDias" required>
+						<select class="form-control input-lg inputCamposForm"  id="regDias" name="regDias" required>
 
 							<option value="3">3</option>
 							<option value="6">6</option>
@@ -518,16 +518,16 @@ VENTANA MODAL PARA NOTIFICACION
 				</div>
 
 				<div class="form-group">
-					
+					<p class="formNameCamp">MOTIVOS</p>
 					<div class="input-group">
 						
-						<span class="input-group-addon">
+						<span class="input-group-addon iconCampForm">
 							
-							<i class="glyphicon glyphicon-user"></i>
+							<i class="glyphicon glyphicon-comment"></i>
 						
 						</span>
 
-						<textarea type="text" maxlength="320" rows="3" class="form-control input-lg" id="regDetalle" name="regDetalle" placeholder="Ingresar descripción del articulo"></textarea>
+						<textarea type="text" maxlength="320" rows="3" class="form-control input-lg inputCamposForm" id="regDetalle" name="regDetalle" placeholder="Ingresar el motivo del prestamo" style="padding-top:10px;"></textarea>
 
 					</div>
 

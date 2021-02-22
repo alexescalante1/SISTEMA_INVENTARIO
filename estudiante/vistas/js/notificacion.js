@@ -161,7 +161,7 @@ function registroNotificacion(){
 
 		if(!expresion.test(detalleA)){
 
-			$("#regDetalle").parent().before('<div class="alert alert-warning"><strong>ERROR:</strong>Solo se permite numeros</div>')
+			$("#regDetalle").parent().after('<div class="alert alert-warning"><strong>ERROR:</strong> No se acepta caracteres especiales</div>')
 
 			return false;
 
@@ -169,7 +169,7 @@ function registroNotificacion(){
 
 	}else{
 
-		$("#regDetalle").parent().before('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
+		$("#regDetalle").parent().after('<div class="alert alert-warning"><strong>ATENCIÓN:</strong> Este campo es obligatorio</div>')
 
 		return false;
 	}

@@ -267,7 +267,7 @@ BUSCADOR
 	padding: 0 25px;
 	border-radius: 25px 0 0 25px;
 	border-color: rgb(90, 194, 255);
-	color: rgb(0, 101, 233);
+	color: rgb(0, 160, 253);
 }
 
 .nameBusq:focus{
@@ -339,4 +339,64 @@ MOVIL (XS revisamos en 320px)
 		width: 10%;
 		
 	}
+}
+
+
+
+
+
+
+.inputCamposForm{
+	background: rgb(240, 240, 240);
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-color: rgb(0, 160, 253);
+	color: rgb(134, 134, 134);
+	transition: .5s;
+}
+
+.inputCamposForm:focus{
+	background: rgb(255, 255, 255);
+	border-style: solid;
+	border-color: rgb(0, 160, 253);
+	color: rgb(0, 160, 253);
+	transition: .5s;
+}
+
+.inputCamposFormBloc{
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-color: rgb(0, 160, 253);
+	color: rgb(92, 92, 92);
+	transition: .5s;
+}
+.inputCamposFormBloc:read-only {
+	background: rgb(230, 246, 255);
+	border-style: solid;
+}  
+
+.inputCamposFormBloc:focus{
+	background: rgb(255, 255, 255);
+	border-style: solid;
+	border-color: rgb(0, 160, 253);
+	color: rgb(0, 160, 253);
+	transition: .5s;
+}
+
+.iconCampForm{
+	border: none;
+	outline: none;
+	transition: .2s;
+	color: white;
+	background: rgb(0, 160, 253);
+}
+
+.formNameCamp{
+	color:rgb(0, 160, 253);
+	font-weight: bold;
+	padding-left: 40px;
+	margin-top: -10px;
+	margin-bottom: 2px;
 }
