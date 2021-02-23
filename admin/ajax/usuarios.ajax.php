@@ -5,6 +5,7 @@ require_once "../modelos/usuarios.modelo.php";
 
 class AjaxUsuarios{
 
+  
   /*=============================================
   ACTIVAR USUARIOS
   =============================================*/	
@@ -38,6 +39,17 @@ class AjaxUsuarios{
 
   }
 
+  public function ajaxValidarUser(){
+
+    $item = "user";
+		$valor = $this->validarUsuario;
+
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+		echo json_encode($respuesta);
+
+  }
+
 }
 
 /*=============================================
@@ -60,5 +72,13 @@ if(isset($_POST["validarUsuarioP"])){
 	$validaUsuario = new AjaxUsuarios();
 	$validaUsuario -> validarUsuario = $_POST["validarUsuarioP"];
 	$validaUsuario -> ajaxValidarUsuario();
+
+}
+
+if(isset($_POST["validarUser"])){
+
+	$validaUsuario = new AjaxUsuarios();
+	$validaUsuario -> validarUsuario = $_POST["validarUser"];
+	$validaUsuario -> ajaxValidarUser();
 
 }

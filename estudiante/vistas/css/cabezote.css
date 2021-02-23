@@ -128,7 +128,7 @@ ESCRITORIO GRANDE (LG revisamos en 1366px en adelante)
 	=============================================*/
 
 	header #logotipo img{
-		padding:20px 60px;
+		padding:20px 30px;
 		padding-left:0px;
 	}
 
@@ -153,7 +153,7 @@ ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 1024px)
 	=============================================*/
 
 	header #logotipo img{
-		padding:25px 60px;
+		padding:25px 30px;
 		padding-left:0px;
 	}
 

@@ -7,7 +7,7 @@
 
   <div class="login-box-body" style="border-radius:3px;">
     
-    <div>
+    <div style="padding-bottom: 25px;">
       <img src="<?php echo $servidor;?>/vistas/img/plantilla/logo.png" class="img-responsive" style="padding:10px 50px;">
     </div>
     
