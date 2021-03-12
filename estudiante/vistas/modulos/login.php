@@ -14,7 +14,7 @@
     <form  method="post">
 
       <div class="form-group form has-feedback">
-        <input type="text" id="ingUser" name="ingUser" style="padding-top:10px;padding-left:10px;" required>
+        <input type="text" id="ingUser" name="ingUser" style="padding-top:15px;padding-left:10px;" required>
         <label class="lbl-nombre">
           <span class="text-nomb">Usuario</span>
           <span class="glyphicon glyphicon-user form-control-feedback spanIcon "></span>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group form has-feedback">
-        <input type="password" id="ingPassword" name="ingPassword" style="padding-top:10px;padding-left:10px;" required>
+        <input type="password" id="ingPassword" name="ingPassword" style="padding-top:15px;padding-left:10px;" required>
         <label class="lbl-nombre">
           <span class="text-nomb">Password</span>
           <span class="glyphicon glyphicon-lock form-control-feedback spanIcon"></span>
