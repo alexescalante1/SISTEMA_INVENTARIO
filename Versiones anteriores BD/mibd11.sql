@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2021 at 05:04 AM
+-- Generation Time: Feb 16, 2021 at 01:20 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -58,7 +58,6 @@ INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`,
 CREATE TABLE `articulos` (
   `idArticulo` int(11) NOT NULL,
   `estado` int(11) NOT NULL,
-  `estadoPendiente` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `idDetalleArticulo` int(11) NOT NULL,
   `codigoPatrimonial` text NOT NULL
@@ -68,30 +67,25 @@ CREATE TABLE `articulos` (
 -- Dumping data for table `articulos`
 --
 
-INSERT INTO `articulos` (`idArticulo`, `estado`, `estadoPendiente`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
-(120, 0, 0, '2021-02-15 14:02:14', 222, '213123213'),
-(121, 0, 0, '2021-02-15 14:02:29', 222, '567567755'),
-(122, 2, 0, '2021-02-15 14:02:34', 222, '324234234'),
-(123, 0, 0, '2021-02-15 14:02:42', 222, '234342888'),
-(124, 0, 0, '2021-02-15 14:02:49', 222, '123465879'),
-(125, 0, 0, '2021-02-15 14:02:58', 222, '151548221'),
-(126, 3, 0, '2021-02-15 14:03:06', 222, '111111222'),
-(127, 3, 0, '2021-02-15 14:03:18', 222, '432423444'),
-(128, 3, 0, '2021-02-15 14:03:25', 222, '788998798'),
-(129, 1, 0, '2021-02-15 14:03:36', 222, '787878879'),
-(130, 2, 0, '2021-02-15 14:03:42', 222, '789897899'),
-(131, 1, 0, '2021-02-15 14:03:49', 222, '888900908'),
-(132, 2, 0, '2021-02-15 14:28:17', 222, '323423444'),
-(133, 3, 0, '2021-02-15 19:01:21', 253, '123412433'),
-(134, 0, 0, '2021-02-15 19:01:28', 253, '322344444'),
-(135, 1, 0, '2021-02-15 19:01:35', 253, '344334343'),
-(136, 1, 0, '2021-02-15 19:01:44', 253, '897897877'),
-(137, 0, 0, '2021-02-15 19:13:36', 253, '546456456'),
-(138, 1, 0, '2021-02-15 22:40:02', 251, '541515484'),
-(139, 0, 0, '2021-02-18 18:04:13', 253, '162895234'),
-(140, 2, 0, '2021-02-21 19:07:20', 236, '123412343'),
-(141, 2, 0, '2021-02-21 19:07:27', 236, '657756777'),
-(142, 3, 0, '2021-03-02 08:18:06', 222, '123123546');
+INSERT INTO `articulos` (`idArticulo`, `estado`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
+(120, 2, '2021-02-15 14:02:14', 222, '213123213'),
+(121, 2, '2021-02-15 14:02:29', 222, '567567755'),
+(122, 2, '2021-02-15 14:02:34', 222, '324234234'),
+(123, 0, '2021-02-15 14:02:42', 222, '234342888'),
+(124, 0, '2021-02-15 14:02:49', 222, '123465879'),
+(125, 0, '2021-02-15 14:02:58', 222, '151548221'),
+(126, 3, '2021-02-15 14:03:06', 222, '111111222'),
+(127, 3, '2021-02-15 14:03:18', 222, '432423444'),
+(128, 3, '2021-02-15 14:03:25', 222, '788998798'),
+(129, 1, '2021-02-15 14:03:36', 222, '787878879'),
+(130, 1, '2021-02-15 14:03:42', 222, '789897899'),
+(131, 1, '2021-02-15 14:03:49', 222, '888900908'),
+(132, 1, '2021-02-15 14:28:17', 222, '323423444'),
+(133, 2, '2021-02-15 19:01:21', 253, '123412433'),
+(134, 2, '2021-02-15 19:01:28', 253, '322344444'),
+(135, 1, '2021-02-15 19:01:35', 253, '344334343'),
+(136, 1, '2021-02-15 19:01:44', 253, '897897877'),
+(137, 1, '2021-02-15 19:13:36', 253, '546456456');
 
 -- --------------------------------------------------------
 
@@ -177,19 +171,19 @@ INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripci
 (228, 'laptop-hp', 'Laptop HP', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/laptop-hp.png', '[{\"foto\":\"vistas/img/multimedia/laptop-hp/laptop1.png\"},{\"foto\":\"vistas/img/multimedia/laptop-hp/laptop2.png\"}]', 1, 2, 2400, 44, 'pc computador computadora', '2021-02-15 13:56:02'),
 (229, 'monitor-asus-md9321', 'Monitor Asus MD9321', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/monitor-asus-md9321.png', '[{\"foto\":\"vistas/img/multimedia/monitor-asus-md9321/pantalla2.png\"},{\"foto\":\"vistas/img/multimedia/monitor-asus-md9321/pantalla1.png\"}]', 21, 1, 2000, 42, 'pantalla', '2021-02-15 13:57:29'),
 (230, 'mesa', 'Mesa', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/mesa.png', '[{\"foto\":\"vistas/img/multimedia/mesa/mesa2.png\"},{\"foto\":\"vistas/img/multimedia/mesa/mesa1.png\"}]', 55, 1, 80, 44, 'mesa pw', '2021-02-15 13:58:51'),
-(231, 'set-gaming', 'Set Gaming', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/set-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/set-gaming/38978.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/38976.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/38979.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/38977.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/360c4822e04f1606b975b170e1af0891.jpg\"}]', 14, 5, 5000, 44, 'computador ', '2021-02-15 14:01:03'),
+(231, 'set-gaming', 'Set Gaming', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/set-gaming.jpg', '[{\"foto\":\"vistas/img/multimedia/set-gaming/images.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/ef416153a7c3d69e3f09cfbcbc2e2359.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/El-negocio-de-hardware-para-PC-Gamer-aumentará-en-3.600-millones-de-dólares-en-2020-debido-a-la-pandemia-de-COVID-19-2-1000x576.jpg\"},{\"foto\":\"vistas/img/multimedia/set-gaming/360c4822e04f1606b975b170e1af0891.jpg\"}]', 88, 5, 5000, 44, 'computador ', '2021-02-15 14:01:03'),
 (232, 'cable-ethelnet', 'Cable Ethelnet', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/cable-ethelnet.png', '[{\"foto\":\"vistas/img/multimedia/cable-ethelnet/bobina-cable-de-red-utp.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-ethelnet/CABLE-DE-RED-10-metros-uTP-CAT-5E-GRIS_1_grusatec.jpg\"}]', 0, 0.2, 50, 43, 'hr45', '2021-02-15 18:27:07'),
 (233, 'cable-ethelnet-10-metros', 'Cable Ethelnet 10 Metros', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/cable-ethelnet-10-metros.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-ethelnet-10-metros/CABLE-DE-RED-10-metros-uTP-CAT-5E-GRIS_1_grusatec.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-ethelnet-10-metros/0_976ByZWKaR8uWIJv.png\"}]', 0, 0.1, 40, 43, 'cables', '2021-02-15 18:28:00'),
 (234, 'cable-optico', 'Cable Optico', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/cable-optico.jpg', '[{\"foto\":\"vistas/img/multimedia/cable-optico/1_500.jpg\"},{\"foto\":\"vistas/img/multimedia/cable-optico/Mejor-cable-óptico-audio-digital-696x418.png\"}]', 0, 0.1, 20, 44, 'music', '2021-02-15 18:29:24'),
 (235, 'teclado-mecanico-racer-ht2312', 'Teclado Mecanico Racer Ht2312', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/teclado-mecanico-racer-ht2312.jpg', '[{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht2312/1805863105.jpg\"},{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht2312/MotoSpeed-K82-RGB-Backlight-USB-Wired-Mechanical-Gaming-Keyboard-1.jpg\"}]', 0, 0.5, 100, 44, 'asdasd', '2021-02-15 18:30:52'),
-(236, 'teclado-mecanico-racer-ht123-blanco', 'Teclado Mecanico Racer Ht123 Blanco', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/teclado-mecanico-racer-ht123-blanco.jpg', '[{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/GtXGeilOT81Ztpr49Wb6zocboHtfJvmDeqsRyv662sN7sF0i-550x550w.jpg\"},{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/c95cac2a-18fb-4c39-b512-0282c12d8680.90fcbf7a73c9be988c79a632eaa0b251.jpg\"},{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/5e15fd58eb85d-teclado-gamer-huo-ji-z88-mecanico-rgb-81-teclas-blanco-1600x1600.jpg\"}]', 325, 0.2, 120, 44, 'keyboard', '2021-02-15 18:31:48'),
+(236, 'teclado-mecanico-racer-ht123-blanco', 'Teclado Mecanico Racer Ht123 Blanco', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/teclado-mecanico-racer-ht123-blanco.jpg', '[{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/GtXGeilOT81Ztpr49Wb6zocboHtfJvmDeqsRyv662sN7sF0i-550x550w.jpg\"},{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/c95cac2a-18fb-4c39-b512-0282c12d8680.90fcbf7a73c9be988c79a632eaa0b251.jpg\"},{\"foto\":\"vistas/img/multimedia/teclado-mecanico-racer-ht123-blanco/5e15fd58eb85d-teclado-gamer-huo-ji-z88-mecanico-rgb-81-teclas-blanco-1600x1600.jpg\"}]', 0, 0.2, 120, 44, 'keyboard', '2021-02-15 18:31:48'),
 (237, 'arduino-motor', 'Arduino Motor', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/arduino-motor.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-motor/61ISj4-GkjL._AC_SX355_.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-motor/htb1nbjgnxxxxxa1xpxxq6xxfxxxb_1_.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-motor/bo-motor-straight.jpg\"}]', 0, 0.5, 40, 44, 'Motores', '2021-02-15 18:33:24'),
 (238, 'servomotor-10kg', 'Servomotor 10Kg', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/servomotor-10kg.jpg', '[{\"foto\":\"vistas/img/multimedia/servomotor-10kg/419xiqaPsoL._AC_SY400_.jpg\"},{\"foto\":\"vistas/img/multimedia/servomotor-10kg/download.jpg\"},{\"foto\":\"vistas/img/multimedia/servomotor-10kg/static1.squarespace.jpg\"}]', 0, 0.5, 50, 47, 'arduino', '2021-02-15 18:34:54'),
 (239, 'servomotor-5kg', 'Servomotor 5Kg', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/servomotor-5kg.jpg', '[{\"foto\":\"vistas/img/multimedia/servomotor-5kg/419xiqaPsoL._AC_SY400_.jpg\"},{\"foto\":\"vistas/img/multimedia/servomotor-5kg/static1.squarespace.jpg\"}]', 0, 0.5, 25, 47, 'motores', '2021-02-15 18:36:15'),
 (240, 'router-tp-link', 'Router Tp Link', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/router-tp-link.jpg', '[{\"foto\":\"vistas/img/multimedia/router-tp-link/sa.jpg\"}]', 0, 0.2, 300, 43, 'wifi', '2021-02-15 18:38:17'),
 (241, 'fuente-de-poder', 'Fuente de poder', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/fuente-de-poder.jpg', '[{\"foto\":\"vistas/img/multimedia/fuente-de-poder/powersupply-300x269.jpg\"},{\"foto\":\"vistas/img/multimedia/fuente-de-poder/61Wlr7QNNLL._AC_SX522_.jpg\"},{\"foto\":\"vistas/img/multimedia/fuente-de-poder/fuente-de-poder-cc.jpg\"}]', 0, 1, 500, 47, 'power', '2021-02-15 18:39:44'),
 (242, 'protoboard', 'Protoboard', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/protoboard.jpg', '[{\"foto\":\"vistas/img/multimedia/protoboard/Placa_prototipos_400_puntos-e1503330757682.jpg\"},{\"foto\":\"vistas/img/multimedia/protoboard/comprar-placa-protoboard-mediana-400-contactos-precio-oferta.jpg\"}]', 0, 0.1, 15, 47, 'placa de conexion', '2021-02-15 18:40:41'),
-(243, 'arduino-mega', 'Arduino Mega', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/arduino-mega.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-mega/arduino-mega-2560-r3-original-878-35-B.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-mega/7116nn7XEKL._AC_SY355_.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-mega/arduino-mega-2560-r3.jpg\"}]', 168, 0.1, 100, 47, 'robotica', '2021-02-15 18:41:43'),
+(243, 'arduino-mega', 'Arduino Mega', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/arduino-mega.jpg', '[{\"foto\":\"vistas/img/multimedia/arduino-mega/arduino-mega-2560-r3-original-878-35-B.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-mega/7116nn7XEKL._AC_SY355_.jpg\"},{\"foto\":\"vistas/img/multimedia/arduino-mega/arduino-mega-2560-r3.jpg\"}]', 0, 0.1, 100, 47, 'robotica', '2021-02-15 18:41:43'),
 (244, 'taladro-d-walt', 'Taladro D walt', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/taladro-d-walt.jpg', '[{\"foto\":\"vistas/img/multimedia/taladro-d-walt/Partes-de-un-taladro.jpg\"},{\"foto\":\"vistas/img/multimedia/taladro-d-walt/taladro-electrico-360-w-600-w-ac-1700-g-gbm-10-re-professional-bosch-800x800.png\"}]', 0, 2, 150, 44, 'broca', '2021-02-15 18:42:56'),
 (245, 'motor-de-fuerza', 'Motor de Fuerza', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/motor-de-fuerza.jpg', '[{\"foto\":\"vistas/img/multimedia/motor-de-fuerza/sasas.jpg\"},{\"foto\":\"vistas/img/multimedia/motor-de-fuerza/asa.jpg\"}]', 0, 2, 50, 46, 'asd', '2021-02-15 18:45:20'),
 (246, 'adaptador', 'Adaptador', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/adaptador.jpg', '[{\"foto\":\"vistas/img/multimedia/adaptador/la-casa-tecno-tipo-enchufes-tipo-g.jpg\"},{\"foto\":\"vistas/img/multimedia/adaptador/adaptador-enchufe-uk.jpg\"},{\"foto\":\"vistas/img/multimedia/adaptador/adaptador-usa-europa.jpg\"}]', 0, 0.1, 10, 47, 'xd', '2021-02-15 18:46:37'),
@@ -227,18 +221,7 @@ CREATE TABLE `notificacion` (
 
 INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
 (142, 0, '162894', 'usuarioone', '', 1, 3, 'please', '2021-02-16 00:05:08', 0, 222),
-(143, 0, '162894', 'usuarioone', '', 1, 3, 'para el curso de internet de las cosas', '2021-02-16 00:07:00', 1, 222),
-(149, 0, '162894', 'usuarioone', '', 1, 3, 'Xd', '2021-02-19 02:21:30', 0, 222),
-(150, 0, '162894', 'usuarioone', '', 1, 3, 'Xd', '2021-02-20 05:10:59', 1, 222),
-(151, 0, '162894', 'usuarioone', '', 1, 3, 'Oe ziii', '2021-02-21 05:08:44', 0, 222),
-(152, 0, '162894', 'usuarioone', '', 1, 3, 'Oe ziii', '2021-02-21 05:08:44', 0, 222),
-(153, 0, '162894', 'usuarioone', '', 3, 9, 'xde pw', '2021-02-22 00:59:54', 0, 222),
-(154, 0, '162894', 'usuarioone', '', 1, 3, 'jajaja', '2021-02-22 01:00:10', 0, 222),
-(155, 0, '162894', 'usuarioone', '', 3, 12, 'jeje', '2021-02-22 01:42:30', 1, 222),
-(156, 0, '162894', 'usuarioone', '', 4, 9, 'please', '2021-02-22 02:08:31', 1, 222),
-(157, 0, '162894', 'usuarioone', '', 1, 3, 'asdasd', '2021-02-22 05:16:20', 1, 222),
-(158, 0, '162894', 'usuarioone', '', 1, 3, 'asdasdasd', '2021-02-22 05:16:18', 1, 222),
-(161, 0, '73104786', 'Axel flores mamani', '', 1, 3, 'jojos', '2021-03-11 03:37:25', 1, 222);
+(143, 0, '162894', 'usuarioone', '', 1, 3, 'para el curso de internet de las cosas', '2021-02-16 00:07:00', 1, 222);
 
 -- --------------------------------------------------------
 
@@ -266,7 +249,7 @@ CREATE TABLE `plantilla` (
 --
 
 INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `colorTexto`, `logo`, `icono`, `redesSociales`, `apiFacebook`, `pixelFacebook`, `googleAnalytics`, `fecha`) VALUES
-(1, '#000000', '#ffffff', 'rgb(0, 160, 253)', '#ffffff', 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '[{\"red\":\"fa-facebook\",\"estilo\":\"facebookBlanco\",\"url\":\"http://facebook.com/\",\"activo\":1},{\"red\":\"fa-youtube\",\"estilo\":\"youtubeBlanco\",\"url\":\"http://youtube.com/\",\"activo\":1},{\"red\":\"fa-twitter\",\"estilo\":\"twitterBlanco\",\"url\":\"http://twitter.com/\",\"activo\":1},{\"red\":\"fa-google-plus\",\"estilo\":\"google-plusBlanco\",\"url\":\"http://google.com/\",\"activo\":1},{\"red\":\"fa-instagram\",\"estilo\":\"instagramBlanco\",\"url\":\"http://instagram.com/\",\"activo\":1}]', '\r\n      		<script>   window.fbAsyncInit = function() {     FB.init({       appId      : \'131737410786111\',       cookie     : true,       xfbml      : true,       version    : \'v2.10\'     });            FB.AppEvents.logPageView();             };    (function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)) {return;}      js = d.createElement(s); js.id = id;      js.src = \"https://connect.facebook.net/en_US/sdk.js\";      fjs.parentNode.insertBefore(js, fjs);    }(document, \'script\', \'facebook-jssdk\'));  </script>\r\n      		', '\r\n  			<!-- Facebook Pixel Code --> 	<script> 	  !function(f,b,e,v,n,t,s) 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\'; 	  n.queue=[];t=b.createElement(e);t.async=!0; 	  t.src=v;s=b.getElementsByTagName(e)[0]; 	  s.parentNode.insertBefore(t,s)}(window, document,\'script\', 	  \'https://connect.facebook.net/en_US/fbevents.js\'); 	  fbq(\'init\', \'131737410786111\'); 	  fbq(\'track\', \'PageView\'); 	</script> 	<noscript><img height=\"1\" width=\"1\" style=\"display:none\" 	  src=\"https://www.facebook.com/tr?id=149877372404434&ev=PageView&noscript=1\" 	/></noscript> <!-- End Facebook Pixel Code -->    \r\n  			', '  \r\n  				<!-- Global site tag (gtag.js) - Google Analytics --> 	<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-999999-1\"></script> 	<script> 	  window.dataLayer = window.dataLayer || []; 	  function gtag(){dataLayer.push(arguments);} 	  gtag(\'js\', new Date());  	  gtag(\'config\', \'UA-9999999-1\'); 	</script>      \r\n            \r\n            \r\n            \r\n      ', '2021-02-22 02:16:53');
+(1, '#000000', '#ffffff', '#000000', '#ffffff', 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '[{\"red\":\"fa-facebook\",\"estilo\":\"facebookBlanco\",\"url\":\"http://facebook.com/\",\"activo\":1},{\"red\":\"fa-youtube\",\"estilo\":\"youtubeBlanco\",\"url\":\"http://youtube.com/\",\"activo\":1},{\"red\":\"fa-twitter\",\"estilo\":\"twitterBlanco\",\"url\":\"http://twitter.com/\",\"activo\":1},{\"red\":\"fa-google-plus\",\"estilo\":\"google-plusBlanco\",\"url\":\"http://google.com/\",\"activo\":1},{\"red\":\"fa-instagram\",\"estilo\":\"instagramBlanco\",\"url\":\"http://instagram.com/\",\"activo\":1}]', '\r\n      		<script>   window.fbAsyncInit = function() {     FB.init({       appId      : \'131737410786111\',       cookie     : true,       xfbml      : true,       version    : \'v2.10\'     });            FB.AppEvents.logPageView();             };    (function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)) {return;}      js = d.createElement(s); js.id = id;      js.src = \"https://connect.facebook.net/en_US/sdk.js\";      fjs.parentNode.insertBefore(js, fjs);    }(document, \'script\', \'facebook-jssdk\'));  </script>\r\n      		', '\r\n  			<!-- Facebook Pixel Code --> 	<script> 	  !function(f,b,e,v,n,t,s) 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\'; 	  n.queue=[];t=b.createElement(e);t.async=!0; 	  t.src=v;s=b.getElementsByTagName(e)[0]; 	  s.parentNode.insertBefore(t,s)}(window, document,\'script\', 	  \'https://connect.facebook.net/en_US/fbevents.js\'); 	  fbq(\'init\', \'131737410786111\'); 	  fbq(\'track\', \'PageView\'); 	</script> 	<noscript><img height=\"1\" width=\"1\" style=\"display:none\" 	  src=\"https://www.facebook.com/tr?id=149877372404434&ev=PageView&noscript=1\" 	/></noscript> <!-- End Facebook Pixel Code -->    \r\n  			', '  \r\n  				<!-- Global site tag (gtag.js) - Google Analytics --> 	<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-999999-1\"></script> 	<script> 	  window.dataLayer = window.dataLayer || []; 	  function gtag(){dataLayer.push(arguments);} 	  gtag(\'js\', new Date());  	  gtag(\'config\', \'UA-9999999-1\'); 	</script>      \r\n            \r\n            \r\n            \r\n      ', '2021-02-06 05:41:28');
 
 -- --------------------------------------------------------
 
@@ -291,30 +274,9 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `idDetalleArticulo`, `fecha`) VALUES
-(215, 0, '162894', 'usuarioone', 9, 0, 'Alex Escalante ONE', 222, '2021-02-18 16:49:33'),
+(215, 1, '162894', 'usuarioone', 9, 0, 'Alex Escalante ONE', 222, '2021-02-15 19:06:26'),
 (216, 0, '162894', 'usuarioone', 12, 0, 'Alex Escalante ONE', 222, '2021-02-16 00:12:43'),
-(217, 0, '162894', 'usuarioone', 9, 0, 'Alex Escalante ONE', 253, '2021-02-18 16:51:09'),
-(218, 0, '162894', 'usuarioone', 15, 0, 'Alex Escalante ONE', 222, '2021-02-18 16:51:22'),
-(219, 0, '162894', 'usuarioone', 15, 0, 'Alex Escalante ONE', 222, '2021-02-18 16:54:21'),
-(220, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-02-18 17:01:21'),
-(221, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-02-18 17:05:48'),
-(222, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-02-18 17:10:39'),
-(223, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-02-18 22:50:16'),
-(224, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 222, '2021-02-18 22:51:11'),
-(225, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-13 02:58:04'),
-(226, 1, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 236, '2021-02-22 00:07:59'),
-(227, 1, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 236, '2021-02-22 00:08:31'),
-(228, 0, '162894', 'usuarioone', 15, 0, 'Alex Escalante ONE', 222, '2021-02-22 03:00:17'),
-(229, 0, '73104786', 'Axel flores mamani', 9, 0, 'Alex Escalante ONE', 222, '2021-02-23 00:37:05'),
-(230, 0, '162894', 'usuarioone', 9, 0, 'Alex Escalante ONE', 253, '2021-02-25 17:30:55'),
-(231, 1, '73104786', 'Axel flores mamani', 3, 0, 'Alex Escalante ONE', 222, '2021-02-25 17:32:16'),
-(232, 0, '73104786', 'Axel flores mamani', 3, 0, 'Alex Escalante ONE', 222, '2021-03-08 13:26:34'),
-(233, 0, '73104786', 'Axel flores mamani', 6, 0, 'Alex Escalante ONE', 222, '2021-03-02 13:19:14'),
-(234, 0, '73104786', 'Axel flores mamani', 9, 0, 'Alex Escalante ONE', 222, '2021-03-08 13:26:31'),
-(235, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-06 01:32:13'),
-(236, 0, '73104786', 'Axel flores mamani', 9, 0, 'Alex Escalante ONE', 253, '2021-03-11 03:36:33'),
-(237, 0, '162894', 'usuarioone', 12, 0, 'Alex Escalante ONE', 222, '2021-03-08 13:30:18'),
-(238, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-13 02:58:01');
+(217, 1, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-02-16 00:02:04');
 
 -- --------------------------------------------------------
 
@@ -337,36 +299,8 @@ INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, 
 (228, 215, 121, '567567755'),
 (229, 215, 120, '213123213'),
 (230, 216, 122, '324234234'),
-(233, 217, 137, '546456456'),
-(234, 218, 129, '787878879'),
-(235, 218, 131, '888900908'),
-(236, 218, 130, '789897899'),
-(237, 218, 132, '323423444'),
-(238, 219, 129, '787878879'),
-(239, 219, 130, '789897899'),
-(241, 220, 133, '123412433'),
-(242, 220, 134, '322344444'),
-(243, 221, 134, '322344444'),
-(244, 222, 135, '344334343'),
-(246, 223, 136, '897897877'),
-(247, 224, 129, '787878879'),
-(248, 225, 136, '897897877'),
-(249, 226, 140, '123412343'),
-(250, 227, 141, '657756777'),
-(251, 228, 130, '789897899'),
-(252, 228, 131, '888900908'),
-(253, 229, 129, '787878879'),
-(256, 230, 135, '344334343'),
-(257, 231, 130, '789897899'),
-(258, 231, 132, '323423444'),
-(259, 232, 129, '787878879'),
-(261, 233, 142, '123123546'),
-(262, 233, 131, '888900908'),
-(263, 234, 131, '888900908'),
-(266, 235, 134, '322344444'),
-(267, 236, 135, '344334343'),
-(270, 237, 131, '888900908'),
-(271, 238, 135, '344334343');
+(231, 217, 133, '123412433'),
+(232, 217, 134, '322344444');
 
 -- --------------------------------------------------------
 
@@ -377,7 +311,6 @@ INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `codigo` text COLLATE utf8_spanish_ci NOT NULL,
-  `dni` text COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `user` text COLLATE utf8_spanish_ci NOT NULL,
   `password` text COLLATE utf8_spanish_ci NOT NULL,
@@ -393,11 +326,9 @@ CREATE TABLE `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `codigo`, `dni`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
-(53, '162894', '', 'usuarioone', 'estudiante', '$2a$07$asxx54ahjppf45sd87a5aueuBkuSURBtX031YZ8zZTYNNVwIDNOwS', 'estudiante@gmail.com', 'directo', 'vistas/img/usuarios/53/585.png', 0, 'f652b531bff7a32fc1b3b4b59f200070', '2021-02-15 15:47:01'),
-(54, '12345786', '', 'docenteone', 'docente', '$2a$07$asxx54ahjppf45sd87a5au5.80yzYkzzYfm4v0hxFjblcuW51TwIK', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/54/956.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-02-15 15:46:30'),
-(86, '73104786', '', 'Axel flores mamani', 'axel', '$2a$07$asxx54ahjppf45sd87a5auK5NYo0IVC7CCoZgximaPAKw8SyTE9qe', 'axel@gmail.com', 'directo', 'vistas/img/usuarios/86/903.jpg', 0, '3218da89280d03db1d26f8622068665b', '2021-02-23 00:13:35'),
-(87, '12312312', '', 'Martin lopez aliaga', 'martin', '$2a$07$asxx54ahjppf45sd87a5auNRvLS0n1cDa8U2FlopsFBInpxxpEiiG', 'martin@gmail.com', 'directo', 'vistas/img/usuarios/87/723.jpg', 0, 'eb20df43d0bdb3ba79f3143e3267e90a', '2021-02-23 03:09:40');
+INSERT INTO `usuarios` (`id`, `codigo`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
+(53, '162894', 'usuarioone', 'estudiante', '$2a$07$asxx54ahjppf45sd87a5aueuBkuSURBtX031YZ8zZTYNNVwIDNOwS', 'estudiante@gmail.com', 'directo', 'vistas/img/usuarios/53/585.png', 0, 'f652b531bff7a32fc1b3b4b59f200070', '2021-02-15 15:47:01'),
+(54, '12345786', 'docenteone', 'docente', '$2a$07$asxx54ahjppf45sd87a5au5.80yzYkzzYfm4v0hxFjblcuW51TwIK', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/54/956.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-02-15 15:46:30');
 
 --
 -- Indexes for dumped tables
@@ -475,13 +406,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `categoria`
@@ -499,13 +430,13 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT for table `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `plantilla`
@@ -517,19 +448,19 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT for table `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT for table `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Constraints for dumped tables
