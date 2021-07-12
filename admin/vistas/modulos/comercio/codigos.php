@@ -70,3 +70,4 @@ $plantilla = ControladorComercio::ctrSeleccionarPlantilla();
   	</div>
 
 </div>
+
