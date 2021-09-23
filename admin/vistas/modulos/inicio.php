@@ -8,7 +8,7 @@ PÁGINA DE INICIO
   <!-- content-header -->
   <section class="content-header">
     
-    <h1>
+    <h1 class="modal-title">
     Tablero
     <small>Panel de Control</small>
     </h1>
@@ -49,15 +49,13 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-      
-        
          <?php
 
          if($_SESSION["perfil"] == "administrador"){
 
           echo '<div class="col-lg-6">';
        
-          include "inicio/grafico-ventas.php";
+          //include "inicio/grafico-ventas.php";
           include "inicio/productos-mas-vendidos.php";
 
           echo '</div>';
@@ -66,28 +64,20 @@ PÁGINA DE INICIO
 
         ?>
 
-     
-
-
-        
-         <?php
+        <?php
 
           if($_SESSION["perfil"] == "administrador"){
 
             echo ' <div class="col-lg-6">';
-         
-            include "inicio/grafico-visitas.php";
-            include "inicio/ultimos-usuarios.php";
-
+              //include "inicio/grafico-visitas.php";
+              include "inicio/ultimos-usuarios.php";
             echo '</div>'; 
 
           }else{
 
           echo ' <div class="col-lg-12">';
-       
-          include "inicio/grafico-visitas.php";
-          include "inicio/ultimos-usuarios.php";
-
+            include "inicio/grafico-visitas.php";
+            include "inicio/ultimos-usuarios.php";
           echo '</div>';
 
           }         

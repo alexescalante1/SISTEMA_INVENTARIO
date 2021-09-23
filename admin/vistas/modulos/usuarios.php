@@ -3,15 +3,15 @@
     
   <section class="content-header">
       
-    <h1>
-      Gestor usuarios
-    </h1>
+    <h2 class="modal-title">
+      GESTOR DE USUARIOS
+    </h2>
  
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Gestor usuarios</li>
+      <li class="active">GESTOR DE USUARIOS</li>
       
     </ol>
 
@@ -23,29 +23,22 @@
 
       <div class="box-header with-border">
 
+        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarUserDocente">
+      
+          AGREGAR NUEVO USUARIO
+
+        </button>
+        <a href="vistas/modulos/reportes.php?reporte=usuarios">
+
+          <button class="btn btn-success">X<i class="glyphicon glyphicon glyphicon-th-list"></i></button>
+
+        </a>
+
       </div>
 
       <div class="box-body">
 
-        <div class="box-tools">
 
-          <a href="vistas/modulos/reportes.php?reporte=usuarios">
-
-            <button class="btn btn-success">Descargar reporte en Excel</button>
-
-          </a>
-
-         
-
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUserDocente">
-          
-            Agregar Usuario Docente
-
-          </button>
-
-        </div> 
-
-        <br>
          
         <table class="table table-bordered table-striped dt-responsive tablaUsuarios" width="100%">
 
@@ -110,7 +103,7 @@ MODAL AGREGAR PERFIL
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Usuario Docente</h4>
+          <h4 class="modal-title">AGREGAR USUARIO</h4>
 
         </div>
 
@@ -130,7 +123,7 @@ MODAL AGREGAR PERFIL
 
                       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
-                      <input type="text" class="form-control text-uppercase input-lg" id="regCodigo" name="regCodigo" placeholder="DNI" required>
+                      <input  type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8"  class="form-control input-lg" id="regCodigo" name="regCodigo" placeholder="DNI" required>
                       
                     </div>
 

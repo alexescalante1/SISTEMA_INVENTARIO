@@ -2,9 +2,9 @@
 
   <section class="content-header">
 
-   <h1>
-      Prestar Articulos
-    </h1>
+    <h2 class="modal-title">
+      PRESTAR ARTICULOS
+    </h2>
 
     <!-- BARRA DE NAV-->
     <ol class="breadcrumb">
@@ -14,6 +14,8 @@
       <li class="active">Prestar Articulos</li>
 
     </ol>
+
+    
     
   </section>
 
@@ -33,17 +35,16 @@
             <tr>
              
                <th style="width:10px">#</th>
-               <th>Acciones</th>
-               <th>Portada</th>
-               <th>Titulo</th>
-               <th>Categoria</th>
-               <th>Descripcion</th>
-               <th>Palabras Clave</th>
-               <th>Prestados</th>
-               <th>Peso</th>
-               <th>Precio</th>
+               <th>ACCIONES</th>
+               <th>PORTADA</th>
+               <th>TITULO</th>
+               <th>CATEGORIA</th>
+               <th>DESCRIPCIÓN</th>
+               <th>P.CLAVE</th>
+               <th>N.PRESTADOS</th>
+               <th>PESO</th>
+               <th>PRECIO</th>
                
-
             </tr> 
 
           </thead>   
@@ -59,64 +60,6 @@
   </section>
 
 </div>
-
-
-
-
-
-
-<!--
-<div class="content-wrapper">
-
-  <section class="content-header">
-
-    <h1>
-      Gestor Categorias
-    </h1>
-    
-  </section>
-
-  <section class="content">
-
-    <div class="box">
-       
-      <div class="box-header with-border">
-         
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-          
-          Agregar Nueva Categoria
-
-        </button>
-
-      </div>
-
-      <div class="box-body">
-
-        <table class="table table-bordered table-striped dt-responsive tablaCategoriasM" width="100%">
-        
-          <thead>
-         
-            <tr>
-             
-               <th style="width:10px">#</th>
-               <th>Titulo</th>
-               <th style="width:10px">Acciones</th>
-
-            </tr> 
-
-          </thead>   
-     
-        </table>
-          
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
--->
-
 
 
 <!--=====================================
@@ -168,7 +111,6 @@ MODAL AGREGAR NUEVO ARTICULO
 -->
                 <div id="TituloArticuloP"></div>
                
-              
               </div>
 
             </div>

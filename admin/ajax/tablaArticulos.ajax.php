@@ -26,21 +26,6 @@ class TablaArticulos{
 	
 	}
 
-	/*
-	$idCat = array();
-	$NameCat = array();
-	$tituloCateg = null;
-
-	$categoria = ControladorCategoria::ctrMostrarCategoria($item, $valor);
-	
-	for($i = 0; $i < count($categoria); $i++){
-	
-		$idCat[$i] = $categoria[$i]["idCategoria"];
-		$NameCat[$i] = $categoria[$i]["titulo"];
-	
-	}
-	*/
-
   	$articulos = ControladorArticulos::ctrMostrarArticulos($item, $valor);
 
   	$datosJson = '
@@ -49,48 +34,6 @@ class TablaArticulos{
   			"data":[';
 
 	 	for($i = 0; $i < count($articulos); $i++){
-
-			/*=============================================
-  			TRAER LAS CATEGORÍAS
-  			=============================================*/
-			
-			
-			/*
-			for($j = 0; $j < count($categoria); $j++){
-				
-				if($idCat[$j] == $articulos[$i]["idCategoria"]){
-					$tituloCateg = $NameCat[$j];
-					break;
-				}
-			
-			}
-
-
-			if($tituloCateg == null){
-
-				$tituloCateg = "SIN CATEGORÍA";
-			
-			}
-
-			*/
-			/*
-  			$item = "idCategoria";
-			$valor = $articulos[$i]["idCategoria"];
-
-			
-			$categorias = ControladorCategoria::ctrMostrarCategoria($item, $valor);
-			
-			if($categorias["titulo"] == ""){
-
-				$categoria = "SIN CATEGORÍA";
-			
-			}else{
-
-				$categoria = $categorias["titulo"];
-			}
-			*/
-
-			
 
 			/*=============================================
   			AGREGAR ETIQUETAS DE ESTADO
@@ -110,46 +53,11 @@ class TablaArticulos{
 
 			}
 
-			$disponible = "<button class='btn btn-xs btnActivar ".$colorEstado."' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>".$textoEstado."</button>";
-			/*=============================================
-  			TRAER IMAGEN PRINCIPAL
-  			=============================================*/
+			$disponible = "<button style='width:80px' class='btn btn-xs btnActivar ".$colorEstado."' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>".$textoEstado."</button>";
 
 			$imagenPrincipal = "<a href='".$articulos[$i]["ruta"]."'><img src='".$articulos[$i]["portada"]."' class='img-thumbnail imgTablaPrincipal' width='100px'></a>";
 
-			/*=============================================
-			TRAER MULTIMEDIA
-  			=============================================*/
-			/*
-  			if($articulos[$i]["multimedia"] != null){
-
-				$multimedia = json_decode($articulos[$i]["multimedia"],true);
-
-				if($multimedia[0]["foto"] != ""){
-
-					$vistaMultimedia = "<img src='".$multimedia[0]["foto"]."' class='img-thumbnail imgTablaMultimedia' width='100px'>";
-
-				}else{
-
-					$vistaMultimedia = "<img src='http://i3.ytimg.com/vi/".$articulos[$i]["multimedia"]."/hqdefault.jpg' class='img-thumbnail imgTablaMultimedia' width='100px'>";
-					
-				}
-
-			}else{
-
-				$vistaMultimedia = "<img src='vistas/img/multimedia/default/default.jpg' class='img-thumbnail imgTablaMultimedia' width='100px'>";
-
-			}
-			*/
-			/*=============================================
-  			TRAER LAS ACCIONES
-  			=============================================*/
-
-			//$accionesV = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'> Ver Articulo</i></button></a></div>";
-
-			//$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
-
-			$accionesFinal = "<div class='btn-group'><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button></div>";
+			$accionesFinal = "<div><a href='".$articulos[$i]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button></div>";
 
 			$datosJson .='[
 					

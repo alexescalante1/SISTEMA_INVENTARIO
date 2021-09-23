@@ -145,7 +145,7 @@ class TablaArticulos{
   			TRAER LAS ACCIONES
   			=============================================*/
 
-			$accionesV = "<div class='btn-group' style='margin-top:25px'><button class='btn btn-success btnPrestarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-suitcase'> Prestar</i></button></div>";
+			$accionesV = "<div class='btn-group' style='margin-top:25px'><button class='btn btn-success btnPrestarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalPrestarArticulo'><i class='fa fa-suitcase'> PRESTAR</i></button></div>";
 
 			//$acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$i]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$i]["ruta"]."' imgPrincipal='".$articulos[$i]["portada"]."'><i class='fa fa-times'></i></button></div>";
 

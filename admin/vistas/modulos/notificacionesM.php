@@ -2,9 +2,9 @@
 
   <section class="content-header">
 
-   <h1>
-      Gestor Notficaciones
-    </h1>
+    <h2 class="modal-title">
+      GESTOR DE NOTIFICACIONES
+    </h2>
 
     <!-- BARRA DE NAV-->
     <ol class="breadcrumb">

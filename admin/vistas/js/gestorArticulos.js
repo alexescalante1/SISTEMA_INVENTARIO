@@ -968,7 +968,6 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 				var datosCategoria = new FormData();
 				datosCategoria.append("idCategoria", respuesta[0]["idCategoria"]);
 				
-
 				$.ajax({
 
 						url:"ajax/categorias.ajaxM.php",

@@ -2,10 +2,10 @@
 -- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 01, 2021 at 05:04 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-09-2021 a las 04:32:46
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mibd`
+-- Base de datos: `mibd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administradores`
+-- Estructura de tabla para la tabla `administradores`
 --
 
 CREATE TABLE `administradores` (
@@ -41,18 +41,19 @@ CREATE TABLE `administradores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `administradores`
+-- Volcado de datos para la tabla `administradores`
 --
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `fecha`) VALUES
-(5, '12345674', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-01-31 02:01:50'),
+(5, '12345674', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-09-23 01:26:55'),
 (7, '12345678', '', 'Fredy ONE', 'fredy@gmail.com', 'vistas/img/perfiles/719.jpg', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'administrador', 1, '2021-01-31 01:59:29'),
-(8, '12345678', '', 'Jose Marin', 'laboratorista@gmail.com', 'vistas/img/perfiles/897.jpg', '$2a$07$asxx54ahjppf45sd87a5auBMC0hyDzSIj.ET6H5mmag4zkgE6FuWe', 'laboratorista', 1, '2021-01-31 02:09:18');
+(8, '12345678', '', 'Jose Marin', 'laboratorista@gmail.com', 'vistas/img/perfiles/897.jpg', '$2a$07$asxx54ahjppf45sd87a5auBMC0hyDzSIj.ET6H5mmag4zkgE6FuWe', 'laboratorista', 1, '2021-01-31 02:09:18'),
+(11, '78451222', '', 'Comeimera', 'comenimera@gmail.com', 'vistas/img/perfiles/197.png', '$2a$07$asxx54ahjppf45sd87a5aukGhGpA1JcOFvMTqa.u8U1h/SLenAMX2', 'administrador', 1, '2021-09-23 01:26:58');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articulos`
+-- Estructura de tabla para la tabla `articulos`
 --
 
 CREATE TABLE `articulos` (
@@ -65,7 +66,7 @@ CREATE TABLE `articulos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `articulos`
+-- Volcado de datos para la tabla `articulos`
 --
 
 INSERT INTO `articulos` (`idArticulo`, `estado`, `estadoPendiente`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
@@ -82,7 +83,7 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `estadoPendiente`, `fecha`, `id
 (130, 2, 0, '2021-02-15 14:03:42', 222, '789897899'),
 (131, 1, 0, '2021-02-15 14:03:49', 222, '888900908'),
 (132, 2, 0, '2021-02-15 14:28:17', 222, '323423444'),
-(133, 3, 0, '2021-02-15 19:01:21', 253, '123412433'),
+(133, 2, 0, '2021-02-15 19:01:21', 253, '123412433'),
 (134, 0, 0, '2021-02-15 19:01:28', 253, '322344444'),
 (135, 1, 0, '2021-02-15 19:01:35', 253, '344334343'),
 (136, 1, 0, '2021-02-15 19:01:44', 253, '897897877'),
@@ -91,12 +92,40 @@ INSERT INTO `articulos` (`idArticulo`, `estado`, `estadoPendiente`, `fecha`, `id
 (139, 0, 0, '2021-02-18 18:04:13', 253, '162895234'),
 (140, 2, 0, '2021-02-21 19:07:20', 236, '123412343'),
 (141, 2, 0, '2021-02-21 19:07:27', 236, '657756777'),
-(142, 3, 0, '2021-03-02 08:18:06', 222, '123123546');
+(142, 3, 0, '2021-03-02 08:18:06', 222, '123123546'),
+(143, 2, 0, '2021-09-22 17:39:39', 253, '123123123'),
+(144, 1, 0, '2021-09-22 17:39:43', 253, '213123123'),
+(145, 1, 0, '2021-09-22 17:39:51', 253, '333331111'),
+(146, 1, 0, '2021-09-22 17:41:05', 253, '123434223'),
+(147, 0, 0, '2021-09-22 18:12:01', 257, '111111111'),
+(148, 1, 0, '2021-09-22 18:12:11', 257, '124123423'),
+(149, 1, 0, '2021-09-22 18:12:18', 257, '342342343'),
+(150, 2, 0, '2021-09-22 18:12:22', 257, '435345345'),
+(151, 2, 0, '2021-09-22 18:12:26', 257, '455464564'),
+(152, 1, 0, '2021-09-22 18:12:30', 257, '456545445'),
+(153, 1, 0, '2021-09-22 18:12:36', 257, '565465455'),
+(154, 3, 0, '2021-09-22 18:12:42', 257, '567567567'),
+(155, 1, 0, '2021-09-22 18:12:50', 257, '565656565'),
+(156, 1, 0, '2021-09-22 18:12:54', 257, '656556756'),
+(157, 1, 0, '2021-09-22 18:12:58', 257, '786786786'),
+(158, 1, 0, '2021-09-22 18:13:03', 257, '678678766'),
+(159, 1, 0, '2021-09-22 18:13:09', 257, '666677768'),
+(160, 1, 0, '2021-09-22 18:13:15', 257, '667788678'),
+(161, 1, 0, '2021-09-22 18:13:21', 257, '897897897'),
+(162, 1, 0, '2021-09-22 18:13:25', 257, '789789789'),
+(163, 2, 0, '2021-09-22 18:13:30', 257, '978787777'),
+(164, 1, 0, '2021-09-22 18:13:35', 257, '787878999'),
+(165, 1, 0, '2021-09-22 18:13:39', 257, '870007088'),
+(166, 1, 0, '2021-09-22 18:13:44', 257, '777888897'),
+(167, 1, 0, '2021-09-22 18:13:49', 257, '777778787'),
+(168, 0, 0, '2021-09-22 20:16:04', 258, '454587115'),
+(169, 3, 0, '2021-09-22 20:16:13', 258, '148888844'),
+(170, 1, 0, '2021-09-22 20:16:19', 258, '111444521');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Estructura de tabla para la tabla `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -106,7 +135,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `categoria`
+-- Volcado de datos para la tabla `categoria`
 --
 
 INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
@@ -120,7 +149,7 @@ INSERT INTO `categoria` (`idCategoria`, `ruta`, `titulo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comentarios`
+-- Estructura de tabla para la tabla `comentarios`
 --
 
 CREATE TABLE `comentarios` (
@@ -133,7 +162,7 @@ CREATE TABLE `comentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `comentarios`
+-- Volcado de datos para la tabla `comentarios`
 --
 
 INSERT INTO `comentarios` (`id`, `id_usuario`, `id_producto`, `calificacion`, `comentario`, `fecha`) VALUES
@@ -143,7 +172,7 @@ INSERT INTO `comentarios` (`id`, `id_usuario`, `id_producto`, `calificacion`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detallearticulo`
+-- Estructura de tabla para la tabla `detallearticulo`
 --
 
 CREATE TABLE `detallearticulo` (
@@ -163,7 +192,7 @@ CREATE TABLE `detallearticulo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detallearticulo`
+-- Volcado de datos para la tabla `detallearticulo`
 --
 
 INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripcion`, `disponible`, `portada`, `multimedia`, `prestados`, `peso`, `precio`, `idCategoria`, `palabrasClave`, `fecha`) VALUES
@@ -199,12 +228,14 @@ INSERT INTO `detallearticulo` (`idDetalleArticulo`, `ruta`, `titulo`, `descripci
 (250, 'cautin-de-soldar-100w', 'Cautin de Soldar 100W', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/cautin-de-soldar-100w.jpg', '[{\"foto\":\"vistas/img/multimedia/cautin-de-soldar-100w/D_786869-MLA31632293871_072019-O.jpg\"},{\"foto\":\"vistas/img/multimedia/cautin-de-soldar-100w/s_4236-mla2904328689_072012-o.jpg\"}]', 0, 0.8, 80, 47, 'placas', '2021-02-15 18:52:04'),
 (251, 'sensor-ultrasonido', 'Sensor Ultrasonido', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/sensor-ultrasonido.jpg', '[{\"foto\":\"vistas/img/multimedia/sensor-ultrasonido/ultrasonic-hc-sr-04-500x500.jpg\"},{\"foto\":\"vistas/img/multimedia/sensor-ultrasonido/Ultrasonic-sensor-bracket.jpg\"}]', 0, 0.2, 45, 47, 'arduino', '2021-02-15 18:52:59'),
 (252, 'sensor-de-humedad', 'Sensor de Humedad', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/sensor-de-humedad.jpg', '[{\"foto\":\"vistas/img/multimedia/sensor-de-humedad/Sensor-de-humedad-de-suelo-Anticorrosivo-–-Higrómetro-1.jpg\"},{\"foto\":\"vistas/img/multimedia/sensor-de-humedad/higro.png\"}]', 0, 0.2, 40, 47, 'arduino', '2021-02-15 18:54:20'),
-(253, 'control-de-data', 'Control de Data', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/control-de-data.jpg', '[{\"foto\":\"vistas/img/multimedia/control-de-data/control-remoto-para-samsung-smart-tv-dblue-f2.jpg\"},{\"foto\":\"vistas/img/multimedia/control-de-data/8467477_1.jpg\"},{\"foto\":\"vistas/img/multimedia/control-de-data/DBG450-copia.jpg\"}]', 0, 0.3, 20, 47, 'control de Tv', '2021-02-15 18:59:07');
+(253, 'control-de-data', 'Control de Data', 'Es un hecho establecido Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos.', 1, 'vistas/img/productos/control-de-data.jpg', '[{\"foto\":\"vistas/img/multimedia/control-de-data/control-remoto-para-samsung-smart-tv-dblue-f2.jpg\"},{\"foto\":\"vistas/img/multimedia/control-de-data/8467477_1.jpg\"},{\"foto\":\"vistas/img/multimedia/control-de-data/DBG450-copia.jpg\"}]', 0, 0.3, 20, 47, 'control de Tv', '2021-02-15 18:59:07'),
+(257, 'tv-samsung', 'tv samsung', 'xd', 0, 'vistas/img/productos/tv-samsung.jpg', '[{\"foto\":\"vistas/img/multimedia/tv-samsung/450_1000.jpg\"},{\"foto\":\"vistas/img/multimedia/tv-samsung/xiaomi_mi_tv_q1_75_qled_4k_ultrahd_smart_tv_android_os_01_l.jpg\"},{\"foto\":\"vistas/img/multimedia/tv-samsung/mi754-600x600.jpg\"}]', 0, 2, 5000, 44, 'tv', '2021-09-22 18:09:49'),
+(258, 'tv-lg-uhd', 'Tv lg UHD', 'articulo electronico', 0, 'vistas/img/productos/tv-lg-uhd.png', '[{\"foto\":\"vistas/img/multimedia/tv-lg-uhd/32-inch-full-hd-led-tv-500x500.jpg\"},{\"foto\":\"vistas/img/multimedia/tv-lg-uhd/32-inch-full-hd-led-tv-500x500.png\"}]', 0, 5, 4000, 47, 'televisor tv', '2021-09-22 20:14:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notificacion`
+-- Estructura de tabla para la tabla `notificacion`
 --
 
 CREATE TABLE `notificacion` (
@@ -222,7 +253,7 @@ CREATE TABLE `notificacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `notificacion`
+-- Volcado de datos para la tabla `notificacion`
 --
 
 INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`, `nombreTitular`, `apellidoTitular`, `cantidad`, `dias`, `detalle`, `fecha`, `visto`, `idDetalleArticulo`) VALUES
@@ -233,17 +264,16 @@ INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`,
 (151, 0, '162894', 'usuarioone', '', 1, 3, 'Oe ziii', '2021-02-21 05:08:44', 0, 222),
 (152, 0, '162894', 'usuarioone', '', 1, 3, 'Oe ziii', '2021-02-21 05:08:44', 0, 222),
 (153, 0, '162894', 'usuarioone', '', 3, 9, 'xde pw', '2021-02-22 00:59:54', 0, 222),
-(154, 0, '162894', 'usuarioone', '', 1, 3, 'jajaja', '2021-02-22 01:00:10', 0, 222),
+(154, 0, '162894', 'usuarioone', '', 1, 3, 'jajaja', '2021-09-22 21:25:08', 1, 222),
 (155, 0, '162894', 'usuarioone', '', 3, 12, 'jeje', '2021-02-22 01:42:30', 1, 222),
 (156, 0, '162894', 'usuarioone', '', 4, 9, 'please', '2021-02-22 02:08:31', 1, 222),
 (157, 0, '162894', 'usuarioone', '', 1, 3, 'asdasd', '2021-02-22 05:16:20', 1, 222),
-(158, 0, '162894', 'usuarioone', '', 1, 3, 'asdasdasd', '2021-02-22 05:16:18', 1, 222),
-(161, 0, '73104786', 'Axel flores mamani', '', 1, 3, 'jojos', '2021-03-11 03:37:25', 1, 222);
+(158, 0, '162894', 'usuarioone', '', 1, 3, 'asdasdasd', '2021-02-22 05:16:18', 1, 222);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `plantilla`
+-- Estructura de tabla para la tabla `plantilla`
 --
 
 CREATE TABLE `plantilla` (
@@ -262,7 +292,7 @@ CREATE TABLE `plantilla` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `plantilla`
+-- Volcado de datos para la tabla `plantilla`
 --
 
 INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `colorTexto`, `logo`, `icono`, `redesSociales`, `apiFacebook`, `pixelFacebook`, `googleAnalytics`, `fecha`) VALUES
@@ -271,7 +301,7 @@ INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestamos`
+-- Estructura de tabla para la tabla `prestamos`
 --
 
 CREATE TABLE `prestamos` (
@@ -287,7 +317,7 @@ CREATE TABLE `prestamos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prestamos`
+-- Volcado de datos para la tabla `prestamos`
 --
 
 INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular`, `plazoDias`, `idAdmin`, `nombrePrestamista`, `idDetalleArticulo`, `fecha`) VALUES
@@ -314,12 +344,16 @@ INSERT INTO `prestamos` (`idPrestamo`, `estado`, `numDocTitular`, `nombreTitular
 (235, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-06 01:32:13'),
 (236, 0, '73104786', 'Axel flores mamani', 9, 0, 'Alex Escalante ONE', 253, '2021-03-11 03:36:33'),
 (237, 0, '162894', 'usuarioone', 12, 0, 'Alex Escalante ONE', 222, '2021-03-08 13:30:18'),
-(238, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-13 02:58:01');
+(238, 0, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-03-13 02:58:01'),
+(239, 0, '162892', 'Jose marin antoya', 9, 0, 'Alex Escalante ONE', 257, '2021-09-22 23:20:32'),
+(240, 1, '162892', 'Jose marin antoya', 6, 0, 'Alex Escalante ONE', 257, '2021-09-22 23:23:42'),
+(241, 0, '162892', 'Jose marin antoya', 6, 0, 'Alex Escalante ONE', 257, '2021-09-23 01:21:28'),
+(242, 1, '162894', 'usuarioone', 3, 0, 'Alex Escalante ONE', 253, '2021-09-23 01:25:59');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestamosarticulos`
+-- Estructura de tabla para la tabla `prestamosarticulos`
 --
 
 CREATE TABLE `prestamosarticulos` (
@@ -330,7 +364,7 @@ CREATE TABLE `prestamosarticulos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prestamosarticulos`
+-- Volcado de datos para la tabla `prestamosarticulos`
 --
 
 INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, `codigoPatrimonial`) VALUES
@@ -366,12 +400,21 @@ INSERT INTO `prestamosarticulos` (`idPrestamosArt`, `idPrestamo`, `idArticulo`, 
 (266, 235, 134, '322344444'),
 (267, 236, 135, '344334343'),
 (270, 237, 131, '888900908'),
-(271, 238, 135, '344334343');
+(271, 238, 135, '344334343'),
+(272, 239, 147, '111111111'),
+(273, 239, 148, '124123423'),
+(280, 240, 163, '978787777'),
+(281, 240, 150, '435345345'),
+(282, 240, 151, '455464564'),
+(286, 241, 148, '124123423'),
+(287, 241, 154, '567567567'),
+(288, 242, 133, '123412433'),
+(289, 242, 143, '123123123');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -390,171 +433,173 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `codigo`, `dni`, `nombre`, `user`, `password`, `email`, `modo`, `foto`, `verificacion`, `emailEncriptado`, `fecha`) VALUES
 (53, '162894', '', 'usuarioone', 'estudiante', '$2a$07$asxx54ahjppf45sd87a5aueuBkuSURBtX031YZ8zZTYNNVwIDNOwS', 'estudiante@gmail.com', 'directo', 'vistas/img/usuarios/53/585.png', 0, 'f652b531bff7a32fc1b3b4b59f200070', '2021-02-15 15:47:01'),
 (54, '12345786', '', 'docenteone', 'docente', '$2a$07$asxx54ahjppf45sd87a5au5.80yzYkzzYfm4v0hxFjblcuW51TwIK', 'docente@gmail.com', 'directo', 'vistas/img/usuarios/54/956.jpg', 0, '33ff7d62b29b24e8bca8af8531159ea9', '2021-02-15 15:46:30'),
 (86, '73104786', '', 'Axel flores mamani', 'axel', '$2a$07$asxx54ahjppf45sd87a5auK5NYo0IVC7CCoZgximaPAKw8SyTE9qe', 'axel@gmail.com', 'directo', 'vistas/img/usuarios/86/903.jpg', 0, '3218da89280d03db1d26f8622068665b', '2021-02-23 00:13:35'),
-(87, '12312312', '', 'Martin lopez aliaga', 'martin', '$2a$07$asxx54ahjppf45sd87a5auNRvLS0n1cDa8U2FlopsFBInpxxpEiiG', 'martin@gmail.com', 'directo', 'vistas/img/usuarios/87/723.jpg', 0, 'eb20df43d0bdb3ba79f3143e3267e90a', '2021-02-23 03:09:40');
+(87, '12312312', '', 'Martin lopez aliaga', 'martin', '$2a$07$asxx54ahjppf45sd87a5auNRvLS0n1cDa8U2FlopsFBInpxxpEiiG', 'martin@gmail.com', 'directo', 'vistas/img/usuarios/87/723.jpg', 0, 'eb20df43d0bdb3ba79f3143e3267e90a', '2021-02-23 03:09:40'),
+(88, '73104785', '', 'Alex Fredy Escalante Maron', 'alexescalante1', '$2a$07$asxx54ahjppf45sd87a5au7gtay06ddjKU8ELPbtv3GBaB5Ha5ELG', 'alexescalante921@gmail.com', 'directo', '', 0, '7b61a54aca3c96d58ae8a4ab826d16eb', '2021-09-22 23:15:23'),
+(89, '162892', '', 'Jose marin antoya', 'jose', '$2a$07$asxx54ahjppf45sd87a5auOsTcxV66Wf1lWFlt.R6o37VOXIB1YhO', 'jose@gmail.com', 'directo', '', 0, '3d56face555bed51f9ecd38957998286', '2021-09-22 23:19:10');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `administradores`
+-- Indices de la tabla `administradores`
 --
 ALTER TABLE `administradores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `articulos`
+-- Indices de la tabla `articulos`
 --
 ALTER TABLE `articulos`
   ADD PRIMARY KEY (`idArticulo`),
   ADD KEY `idDetalleArticulo` (`idDetalleArticulo`) USING BTREE;
 
 --
--- Indexes for table `categoria`
+-- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Indexes for table `comentarios`
+-- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detallearticulo`
+-- Indices de la tabla `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
   ADD PRIMARY KEY (`idDetalleArticulo`),
   ADD KEY `detalle-categoria` (`idCategoria`);
 
 --
--- Indexes for table `notificacion`
+-- Indices de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
   ADD PRIMARY KEY (`idNotificacion`),
   ADD KEY `notf-art` (`idDetalleArticulo`);
 
 --
--- Indexes for table `plantilla`
+-- Indices de la tabla `plantilla`
 --
 ALTER TABLE `plantilla`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prestamos`
+-- Indices de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
   ADD PRIMARY KEY (`idPrestamo`);
 
 --
--- Indexes for table `prestamosarticulos`
+-- Indices de la tabla `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
   ADD PRIMARY KEY (`idPrestamosArt`),
   ADD KEY `prestamosart` (`idPrestamo`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `administradores`
+-- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `articulos`
+-- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
--- AUTO_INCREMENT for table `categoria`
+-- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `comentarios`
+-- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `detallearticulo`
+-- AUTO_INCREMENT de la tabla `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
--- AUTO_INCREMENT for table `notificacion`
+-- AUTO_INCREMENT de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
--- AUTO_INCREMENT for table `plantilla`
+-- AUTO_INCREMENT de la tabla `plantilla`
 --
 ALTER TABLE `plantilla`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `prestamos`
+-- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `idPrestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
--- AUTO_INCREMENT for table `prestamosarticulos`
+-- AUTO_INCREMENT de la tabla `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
-  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `idPrestamosArt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `articulos`
+-- Filtros para la tabla `articulos`
 --
 ALTER TABLE `articulos`
   ADD CONSTRAINT `articulos-detalle` FOREIGN KEY (`idDetalleArticulo`) REFERENCES `detallearticulo` (`idDetalleArticulo`);
 
 --
--- Constraints for table `detallearticulo`
+-- Filtros para la tabla `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
   ADD CONSTRAINT `detalle-categoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idCategoria`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `notificacion`
+-- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
   ADD CONSTRAINT `notf-art` FOREIGN KEY (`idDetalleArticulo`) REFERENCES `detallearticulo` (`idDetalleArticulo`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `prestamosarticulos`
+-- Filtros para la tabla `prestamosarticulos`
 --
 ALTER TABLE `prestamosarticulos`
   ADD CONSTRAINT `prestamosart` FOREIGN KEY (`idPrestamo`) REFERENCES `prestamos` (`idPrestamo`) ON DELETE CASCADE ON UPDATE CASCADE;

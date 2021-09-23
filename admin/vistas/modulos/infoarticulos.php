@@ -348,9 +348,13 @@ INFOPRODUCTOS
 
 			<div class="box-header with-border">
 	 
-				<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCodArticulo">
-				
+				<!--<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCodArticulo">
 				Agregar Nuevo Codigo
+				</button>-->
+
+				<button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarCodArticulo">
+
+					AGREGAR NUEVO CODIGO
 
 				</button>
 
@@ -389,10 +393,6 @@ INFOPRODUCTOS
 </div>
 
 
-
-
-
-
 <!--==============================================================================================================================================================================================================================
 MODAL AGREGAR COD ARTICULO
 ===============================================================================================================================================================================================================================-->
@@ -408,11 +408,11 @@ MODAL AGREGAR COD ARTICULO
          <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+        <div class="modal-header" style="background:#2b96fa; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Codigo Patrimonial</h4>
+          <h4 class="modal-title">AGREGAR CODIGO PATRIMONIAL</h4>
 
         </div>
 
@@ -434,7 +434,7 @@ MODAL AGREGAR COD ARTICULO
               
                   <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                  <input type="text" class="form-control input-lg validarCodPatrimonial codPatrimonial"  placeholder="Ingresar Codigo Patrimonial">
+                  <input type="number" class="form-control input-lg validarCodPatrimonial codPatrimonial"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9"  placeholder="Ingresar Codigo Patrimonial">
 						
 				  <input type="hidden" class="idArticuloRef" <?php echo 'value="'.$infoarticulo["idDetalleArticulo"].'"'; ?> >
 

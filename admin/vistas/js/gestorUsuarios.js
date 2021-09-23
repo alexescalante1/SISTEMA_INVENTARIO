@@ -162,9 +162,9 @@ $("#regCodigo").change(function(){
 
 		}else if(nombre.length != 8){
 			
-			$("#regCodigo").parent().after('<div class="alert alert-warning"><strong>ERROR:</strong>Solo Se admite 8 digitos</div>')
+			//$("#regCodigo").parent().after('<div class="alert alert-warning"><strong>ERROR:</strong>Solo Se admite 8 digitos</div>')
 
-			return false;
+			//return false;
 		}
 
 	}else{
@@ -323,9 +323,9 @@ function registroUsuario(){
 
 		}else if(nombre.length != 8){
 			
-			$("#regCodigo").parent().after('<div class="alert alert-warning"><strong>ERROR:</strong>Solo Se admite 8 digitos</div>')
+			//$("#regCodigo").parent().after('<div class="alert alert-warning"><strong>ERROR:</strong>Solo Se admite 8 digitos</div>')
 
-			return false;
+			//return false;
 		}
 
 	}else{

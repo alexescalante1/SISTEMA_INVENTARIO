@@ -16,22 +16,12 @@ $totalProductos = count($productos);
 CAJAS SUPERIORES
 ======================================-->
 
-
-
-
-
-
-
-
-
-
 <div class="col-md-3 col-sm-6 col-xs-12">
-  <a href="prestar">
+  <a href="articulos">
   <div class="info-box">
     <span class="info-box-icon bg-aqua"><i class="fa fa-cart-plus"></i></span>
-
     <div class="info-box-content">
-      <span class="info-box-text">Prestar Articulos</span>
+      <span class="info-box-text">Gestor Articulos</span>
       <span class="info-box-number">1,410</span>
     </div>
     <!-- /.info-box-content -->
@@ -41,16 +31,13 @@ CAJAS SUPERIORES
 </div>
 <!-- /.col -->
 
-
-
-
 <div class="col-md-3 col-sm-6 col-xs-12">
-<a href="articulos">
+<a href="prestar">
   <div class="info-box">
     <span class="info-box-icon bg-green"><i class="fa fa-product-hunt"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">Gestor de Articulos</span>
+      <span class="info-box-text">Prestar de Articulos</span>
       <span class="info-box-number">410</span>
     </div>
     <!-- /.info-box-content -->
@@ -59,9 +46,6 @@ CAJAS SUPERIORES
   </a>
 </div>
 <!-- /.col -->
-
-
-
 
 
 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -80,9 +64,6 @@ CAJAS SUPERIORES
 </div>
 <!-- /.col -->
 
-
-
-
 <div class="col-md-3 col-sm-6 col-xs-12">
 <a href="notificacionesM">
   <div class="info-box">
@@ -98,33 +79,6 @@ CAJAS SUPERIORES
   </a>
 </div>
 <!-- /.col -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

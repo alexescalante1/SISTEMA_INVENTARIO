@@ -2,9 +2,9 @@
 
   <section class="content-header">
 
-   <h1>
-      Gestor De Prestamos
-    </h1>
+    <h2 class="modal-title">
+      GESTOR DE DEVOLUCIONES
+    </h2>
 
     <!-- BARRA DE NAV-->
     <ol class="breadcrumb">
@@ -31,13 +31,13 @@
             <tr>
             
                <th style="width:10px">#</th>
-               <th style="width:70px">Acciones</th>
-               <th style="width:50px">N. Doc</th>
-               <th>Nombres y Apellidos</th>
-               <th>Articulo</th>
-               <th>Dias de Plazo</th>
-               <th>Laboratorista</th>
-               <th style="width:100px">Fecha</th>
+               <th style="width:70px">ACCIONES</th>
+               <th style="width:50px">N.DOC</th>
+               <th>NOMBRES Y APELLIDOS</th>
+               <th>ARTICULO</th>
+               <th>N. DIAS DE PLAZO</th>
+               <th>RESPONSABLE</th>
+               <th style="width:100px">FECHA</th>
 
             </tr> 
 

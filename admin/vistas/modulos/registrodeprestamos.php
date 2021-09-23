@@ -2,9 +2,9 @@
 
   <section class="content-header">
 
-   <h1>
-      Registro De Prestamos
-    </h1>
+    <h2 class="modal-title">
+      REGISTRO DE PRESTAMOS
+    </h2>
 
     <!-- BARRA DE NAV-->
     <ol class="breadcrumb">

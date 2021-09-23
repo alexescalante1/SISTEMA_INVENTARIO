@@ -18,11 +18,11 @@ return;
 
   <section class="content-header">
     
-    <h1>
+    <h2 class="modal-title">
       
-      Administrar perfiles
+      ADMINISTRAR PERFILES
     
-    </h1>
+    </h2>
 
     <ol class="breadcrumb">
       
@@ -39,10 +39,10 @@ return;
     <div class="box">
 
       <div class="box-header with-border">
-  
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarPerfil">
-          
-          Agregar perfil
+
+        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarPerfil">
+    
+          AGREGAR PERFIL
 
         </button>
 
@@ -178,7 +178,7 @@ MODAL AGREGAR PERFIL
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoDNI" placeholder="Ingresar DNI" required>
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8"  class="form-control input-lg" name="nuevoDNI" placeholder="Ingresar DNI" required>
 
               </div>
 

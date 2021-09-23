@@ -33,19 +33,13 @@ USUARIOS
 
 		<li class="user-header">
 		
-		
 			<?php
 
 			if($_SESSION["foto"] == ""){
-
 				echo '<img src="vistas/img/perfiles/default/anonymous.png" class="user-image" alt="User Image">';
-
 			}else{
-
 				echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
-
 			}
-
 
 			?>	
 
@@ -58,16 +52,13 @@ USUARIOS
 
 		<li class="user-footer">
 	
-			
 			<div class="pull-right">
-			
 				<a href="salir" class="btn btn-default btn-flat">Salir</a>
-			
 			</div>
+
 		</li>
 
 	</ul>
 	<!-- dropdown-menu -->
-
 </li>
 <!-- user-menu -->
